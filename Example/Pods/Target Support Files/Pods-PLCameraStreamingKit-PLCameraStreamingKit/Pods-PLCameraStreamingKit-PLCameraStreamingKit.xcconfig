@@ -1,0 +1,2 @@
+PODS_PLCAMERASTREAMINGKIT_PLCAMERASTREAMINGKIT_LIBRARY_SEARCH_PATHS = "$(PODS_ROOT)/../../Pod/Library/lib"
+PODS_PLCAMERASTREAMINGKIT_PLCAMERASTREAMINGKIT_OTHER_LDFLAGS = -l"PLCameraStreamingKit" -l"z" -framework "AVFoundation" -framework "AudioToolbox" -framework "CFNetwork" -framework "CoreGraphics" -framework "CoreMedia" -framework "CoreVideo" -framework "OpenGLES" -framework "UIKit"

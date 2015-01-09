@@ -1,0 +1,11 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'PLCameraStreamingKit', :exclusive => true do
+  pod "PLCameraStreamingKit", :path => "../"
+end
+
+target 'Tests', :exclusive => true do
+  pod "PLCameraStreamingKit", :path => "../"
+
+  
+end
