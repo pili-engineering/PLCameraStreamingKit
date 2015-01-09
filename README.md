@@ -80,5 +80,5 @@ PLCaptureManager 是核心类，你只需要关注并使用这个类就可以完
 
 ## 3 版本历史
 
-- 1.0.0
-	- 发布 CocoaPods 版本
+- 0.9.0
+	- 初始化 CocoaPods 版本
