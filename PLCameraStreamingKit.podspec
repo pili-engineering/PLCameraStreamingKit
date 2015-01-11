@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "PLCameraStreamingKit"
-  s.version          = "0.9.0"
+  s.version          = "0.9.1"
   s.summary          = "Pili iOS camera streaming framework via RTMP."
   s.homepage         = "https://github.com/pili-io/PLCameraStreamingKit"
   s.license          = 'Apache License, Version 2.0'
@@ -22,8 +22,8 @@ Pod::Spec.new do |s|
   s.public_header_files = 'Pod/Library/include/**/*.h'
   s.source_files = 'Pod/Library/include/**/*.h'
 
-  s.frameworks = 'UIKit', 'OpenGLES', 'AVFoundation', 'CoreGraphics', 'CFNetwork', 'AudioToolbox', 'CoreMedia', 'CoreVideo'
-  s.libraries = 'z'
+  s.frameworks = ['UIKit', 'OpenGLES', 'AVFoundation', 'CoreGraphics', 'CFNetwork', 'AudioToolbox', 'CoreMedia', 'VideoToolbox', 'CoreVideo']
+  s.libraries = 'z', 'c++'
 
   s.default_subspec = "precompiled"
 
@@ -31,5 +31,6 @@ Pod::Spec.new do |s|
     ss.preserve_paths         = "Pod/Library/include/**/*.h", 'Pod/Library/lib/*.a'
     ss.vendored_libraries   = 'Pod/Library/lib/*.a'
     ss.libraries = 'PLCameraStreamingKit'
+    ss.xcconfig = { 'HEADER_SEARCH_PATHS' => "${PODS_ROOT}/#{s.name}/PLCameraStreamingKit/lib/include" }
   end
 end

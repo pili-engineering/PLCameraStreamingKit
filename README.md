@@ -28,6 +28,12 @@ pod 'PLCameraStreamingKit'
 pod install
 ```
 
+- 如果安装完后编译出错，请尝试在 **Build Phases / Link Binary With Libraries** 中添加
+
+```
+VideoToolbox.framework
+```
+
 - Done! 运行你工程的 workspace
 
 ### 1.2 示例代码
@@ -80,5 +86,7 @@ PLCaptureManager 是核心类，你只需要关注并使用这个类就可以完
 
 ## 3 版本历史
 
+- 0.9.1
+	- 修正部分编译问题
 - 0.9.0
 	- 初始化 CocoaPods 版本

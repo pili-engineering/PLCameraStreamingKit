@@ -1,7 +1,7 @@
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/PLCameraStreamingKit"
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/PLCameraStreamingKit" ${PODS_ROOT}/PLCameraStreamingKit/PLCameraStreamingKit/lib/include
 LIBRARY_SEARCH_PATHS = "$(PODS_ROOT)/../../Pod/Library/lib"
 OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/PLCameraStreamingKit"
-OTHER_LDFLAGS = -ObjC -l"PLCameraStreamingKit" -l"Pods-PLCameraStreamingKit-PLCameraStreamingKit" -l"z" -framework "AVFoundation" -framework "AudioToolbox" -framework "CFNetwork" -framework "CoreGraphics" -framework "CoreMedia" -framework "CoreVideo" -framework "OpenGLES" -framework "UIKit"
+OTHER_LDFLAGS = -ObjC -l"PLCameraStreamingKit" -l"Pods-PLCameraStreamingKit-PLCameraStreamingKit" -l"c++" -l"z" -framework "AVFoundation" -framework "AudioToolbox" -framework "CFNetwork" -framework "CoreGraphics" -framework "CoreMedia" -framework "CoreVideo" -framework "OpenGLES" -framework "UIKit" -framework "VideoToolbox"
 OTHER_LIBTOOLFLAGS = $(OTHER_LDFLAGS)
 PODS_ROOT = ${SRCROOT}/Pods

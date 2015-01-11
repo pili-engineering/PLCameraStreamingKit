@@ -11,6 +11,6 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  PLCameraStreamingKit: eb88e55919b512973207ff9f5c6071693b816b1f
+  PLCameraStreamingKit: 9a898bdccb71f24161a90ed991723e9ed28c7551
 
 COCOAPODS: 0.35.0
