@@ -7,8 +7,9 @@ PLCameraStreamingKit 是为 **pili 流媒体云服务** 流媒体云服务提供
 - [1 快速开始](#1-快速开始)
 	- [1.1 配置工程](#1.1-配置工程)
 	- [1.2 示例代码](#1.2-示例代码)
-- [2 系统要求](#2-系统要求)
-- [3 版本历史](#3-版本历史)
+- [2 功能特性](#2-功能特性)
+- [3 系统要求](#3-系统要求)
+- [4 版本历史](#4-版本历史)
 
 ## 1 快速开始
 
@@ -26,12 +27,6 @@ pod 'PLCameraStreamingKit'
 
 ```
 pod install
-```
-
-- 如果安装完后编译出错，请尝试在 **Build Phases / Link Binary With Libraries** 中添加
-
-```
-VideoToolbox.framework
 ```
 
 - Done! 运行你工程的 workspace
@@ -80,13 +75,21 @@ PLCaptureManager 是核心类，你只需要关注并使用这个类就可以完
     [[PLCaptureManager sharedManager] disconnect];
 ```
 
-## 2 系统要求
+## 2 功能特性
+
+- [x] 硬件编解码
+- [x] 多码率可选
+- [x] H.264 视频编码
+- [x] AAC 音频编码
+- [x] 前后摄像头支持
+- [x] 自动对焦支持
+- [x] 手动调整对焦点支持
+
+## 3 系统要求
 
 - iOS Target : >= iOS 7
 
-## 3 版本历史
+## 4 版本历史
 
-- 0.9.1
-	- 修正部分编译问题
-- 0.9.0
-	- 初始化 CocoaPods 版本
+- 1.0.0
+	- 发布 CocoaPods 版本

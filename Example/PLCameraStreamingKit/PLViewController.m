@@ -8,22 +8,75 @@
 
 #import "PLViewController.h"
 
+#import <PLCameraStreamingKit/PLCameraStreamingKit.h>
+
+#define PUSH_URL    @"rtmp://111.206.234.143/livestream/test"
+
 @interface PLViewController ()
+<
+PLCaptureManagerDelegate
+>
+
+@property (nonatomic, weak) PLCaptureManager  *captureManager;
 
 @end
 
 @implementation PLViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    self.captureManager = [PLCaptureManager sharedManager];
+    
+    
+    self.captureManager.pushURL = [NSURL URLWithString:PUSH_URL];
+    self.captureManager.streamBitrateMode = PLStreamBitrateMode_160Kbps;
+    self.captureManager.delegate = self;
+    
+    // 检查摄像头是否有授权
+    PLCaptureDeviceAuthorizedStatus status = [PLCaptureManager captureDeviceAuthorizedStatus];
+    
+    if (PLCaptureDeviceAuthorizedStatusUnknow == status) {
+        // 未知
+        [PLCaptureManager requestCaptureDeviceAccessWithCompletionHandler:^(BOOL granted) {
+            if (granted) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.captureManager.previewView = self.view;
+                    [self.captureManager connect];
+                });
+            }
+        }];
+    } else if (PLCaptureDeviceAuthorizedStatusGranted == status) {
+        // 已授权
+        self.captureManager.previewView = self.view;
+        [self.captureManager connect];
+    } else {
+        // 处理未授权的情况
+        NSLog(@"Oops!");
+    }
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - <PLCaptureManagerDelegate>
+
+- (void)captureManager:(PLCaptureManager *)manager streamStateDidChange:(PLStreamState)state {
+    switch (state) {
+        case PLStreamStateConnected:
+            NSLog(@"connected");
+            break;
+        case PLStreamStateConnecting:
+            NSLog(@"connecting");
+            break;
+        case PLStreamStateDisconnected:
+            NSLog(@"disconnected");
+            break;
+        case PLStreamStateError:
+            NSLog(@"error");
+            break;
+        case PLStreamStateUnknow:
+        default:
+            NSLog(@"unknow");
+            break;
+    }
 }
 
 @end
