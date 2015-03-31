@@ -10,7 +10,7 @@
 
 #import <PLCameraStreamingKit/PLCameraStreamingKit.h>
 
-#define PUSH_URL    @"rtmp://111.206.234.143/livestream/test"
+#define PUSH_URL    @"YOUR_PUSH_URL_HERE"
 
 @interface PLViewController ()
 <
