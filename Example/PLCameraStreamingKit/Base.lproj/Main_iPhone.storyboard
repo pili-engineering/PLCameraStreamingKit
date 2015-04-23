@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5023" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
+        <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="PLViewController" sceneMemberID="viewController">
@@ -13,18 +15,84 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qYA-qU-D3h">
+                                <rect key="frame" x="250" y="536" width="100" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="GKZ-Nw-yd9"/>
+                                    <constraint firstAttribute="height" constant="44" id="yHR-bY-Xo0"/>
+                                </constraints>
+                                <state key="normal" title="Start">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="kWK-Hs-ELR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rft-Nr-a9A">
+                                <rect key="frame" x="484" y="536" width="100" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="7Qq-D5-E6S"/>
+                                    <constraint firstAttribute="height" constant="44" id="PJA-MI-LIm"/>
+                                </constraints>
+                                <state key="normal" title="Torch">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="torchButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="6lZ-s5-BeK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="23g-Fm-A4B">
+                                <rect key="frame" x="16" y="536" width="104" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Bxp-L4-A7M"/>
+                                    <constraint firstAttribute="width" constant="104" id="UjT-xc-OTg"/>
+                                </constraints>
+                                <state key="normal" title="Toggle Camera">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleCameraButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="alk-lo-Hc3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O35-P7-T0e">
+                                <rect key="frame" x="484" y="28" width="100" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="19k-EY-zVS"/>
+                                    <constraint firstAttribute="height" constant="44" id="77i-I2-gAR"/>
+                                </constraints>
+                                <state key="normal" title="Mute">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="muteButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="pti-GT-8LH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="23g-Fm-A4B" secondAttribute="bottom" constant="20" id="Bz4-XN-MtS"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="rft-Nr-a9A" secondAttribute="bottom" constant="20" id="G1E-5f-oYS"/>
+                            <constraint firstItem="rft-Nr-a9A" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="Gkh-VQ-pVC"/>
+                            <constraint firstItem="O35-P7-T0e" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="Ve0-ob-57R"/>
+                            <constraint firstAttribute="centerX" secondItem="qYA-qU-D3h" secondAttribute="centerX" id="dVY-Mb-fna"/>
+                            <constraint firstItem="23g-Fm-A4B" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="psL-mu-8kS"/>
+                            <constraint firstItem="O35-P7-T0e" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="r6k-zK-YQt"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="qYA-qU-D3h" secondAttribute="bottom" constant="20" id="yOr-9z-uvm"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="actionButton" destination="qYA-qU-D3h" id="Dlq-dH-brC"/>
+                        <outlet property="muteButton" destination="O35-P7-T0e" id="NQa-GO-UDy"/>
+                        <outlet property="toggleCameraButton" destination="23g-Fm-A4B" id="bFE-st-cCr"/>
+                        <outlet property="torchButton" destination="rft-Nr-a9A" id="TMn-Zv-Dl6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="622.5" y="432.04225352112672"/>
         </scene>
     </scenes>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>

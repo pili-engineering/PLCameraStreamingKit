@@ -2,13 +2,16 @@
 //  PLCameraStreamingKit.h
 //  PLCameraStreamingKit
 //
-//  Created by 0day on 14/10/30.
-//  Copyright (c) 2014年 qgenius. All rights reserved.
+//  Created on 14/10/30.
+//  Copyright (c) 2015年 Pili Engineering. All rights reserved.
 //
 
 #ifndef PLCameraStreamingKit_PLCameraStreamingKit_h
 #define PLCameraStreamingKit_PLCameraStreamingKit_h
 
-#import "PLCaptureManager.h"
+#import "PLCameraStreamingSession.h"
+#import "PLTypeDefines.h"
+#import "PLMacroDefines.h"
+#import "PLCameraStreamingConfiguration.h"
 
 #endif

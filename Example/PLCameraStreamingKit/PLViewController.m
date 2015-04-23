@@ -7,17 +7,25 @@
 //
 
 #import "PLViewController.h"
-
 #import <PLCameraStreamingKit/PLCameraStreamingKit.h>
 
+#warning 这里更改为自己的推流 URL
 #define PUSH_URL    @"YOUR_PUSH_URL_HERE"
+
+const char *stateNames[] = {
+    "Unknow",
+    "Connecting",
+    "Connected",
+    "Disconnected",
+    "Error"
+};
 
 @interface PLViewController ()
 <
-PLCaptureManagerDelegate
+PLCameraStreamingSessionDelegate
 >
 
-@property (nonatomic, weak) PLCaptureManager  *captureManager;
+@property (nonatomic, strong) PLCameraStreamingSession  *session;
 
 @end
 
@@ -26,57 +34,67 @@ PLCaptureManagerDelegate
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.captureManager = [PLCaptureManager sharedManager];
+    void (^permissionBlock)(void) = ^{
+        PLCameraStreamingConfiguration *configuration = [PLCameraStreamingConfiguration defaultConfiguration];
+        self.session = [[PLCameraStreamingSession alloc] initWithConfiguration:configuration videoOrientation:AVCaptureVideoOrientationPortrait];
+        self.session.delegate = self;
+        self.session.previewView = self.view;
+    };
     
+    void (^noAccessBlock)(void) = ^{
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"No Access", nil)
+                                                            message:NSLocalizedString(@"!", nil)
+                                                           delegate:nil
+                                                  cancelButtonTitle:NSLocalizedString(@"Cancel", nil)
+                                                  otherButtonTitles:nil];
+        [alertView show];
+    };
     
-    self.captureManager.pushURL = [NSURL URLWithString:PUSH_URL];
-    self.captureManager.streamBitrateMode = PLStreamBitrateMode_160Kbps;
-    self.captureManager.delegate = self;
-    
-    // 检查摄像头是否有授权
-    PLCaptureDeviceAuthorizedStatus status = [PLCaptureManager captureDeviceAuthorizedStatus];
-    
-    if (PLCaptureDeviceAuthorizedStatusUnknow == status) {
-        // 未知
-        [PLCaptureManager requestCaptureDeviceAccessWithCompletionHandler:^(BOOL granted) {
-            if (granted) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    self.captureManager.previewView = self.view;
-                    [self.captureManager connect];
-                });
-            }
-        }];
-    } else if (PLCaptureDeviceAuthorizedStatusGranted == status) {
-        // 已授权
-        self.captureManager.previewView = self.view;
-        [self.captureManager connect];
-    } else {
-        // 处理未授权的情况
-        NSLog(@"Oops!");
-    }
-}
-
-#pragma mark - <PLCaptureManagerDelegate>
-
-- (void)captureManager:(PLCaptureManager *)manager streamStateDidChange:(PLStreamState)state {
-    switch (state) {
-        case PLStreamStateConnected:
-            NSLog(@"connected");
+    switch ([PLCameraStreamingSession cameraAuthorizationStatus]) {
+        case PLAuthorizationStatusAuthorized:
+            permissionBlock();
             break;
-        case PLStreamStateConnecting:
-            NSLog(@"connecting");
+        case PLAuthorizationStatusNotDetermined: {
+            [PLCameraStreamingSession requestCameraAccessWithCompletionHandler:^(BOOL granted) {
+                granted ? permissionBlock() : noAccessBlock();
+            }];
+        }
             break;
-        case PLStreamStateDisconnected:
-            NSLog(@"disconnected");
-            break;
-        case PLStreamStateError:
-            NSLog(@"error");
-            break;
-        case PLStreamStateUnknow:
         default:
-            NSLog(@"unknow");
+            noAccessBlock();
             break;
     }
 }
+
+#pragma mark - <PLCameraStreamingSessionDelegate>
+
+- (void)cameraStreamingSession:(PLCameraStreamingSession *)session streamStateDidChange:(PLStreamState)state {
+    NSLog(@"Stream State: %s", stateNames[state]);
+}
+
+#pragma mark - Action
+
+- (IBAction)actionButtonPressed:(id)sender {
+    if (PLStreamStateConnected == self.session.streamState) {
+        [self.session stop];
+        [self.actionButton setTitle:NSLocalizedString(@"Start", nil) forState:UIControlStateNormal];
+    } else {
+        [self.session startWithPushURL:[NSURL URLWithString:PUSH_URL]];
+        [self.actionButton setTitle:NSLocalizedString(@"Stop", nil) forState:UIControlStateNormal];
+    }
+}
+
+- (IBAction)toggleCameraButtonPressed:(id)sender {
+    [self.session toggleCamera];
+}
+
+- (IBAction)torchButtonPressed:(id)sender {
+    self.session.torchOn = !self.session.isTorchOn;
+}
+
+- (IBAction)muteButtonPressed:(id)sender {
+    self.session.muted = !self.session.isMuted;
+}
+
 
 @end

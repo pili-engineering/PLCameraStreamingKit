@@ -10,4 +10,9 @@
 
 @interface PLViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIButton *actionButton;
+@property (weak, nonatomic) IBOutlet UIButton *toggleCameraButton;
+@property (weak, nonatomic) IBOutlet UIButton *torchButton;
+@property (weak, nonatomic) IBOutlet UIButton *muteButton;
+
 @end
