@@ -79,7 +79,14 @@ if (PLAuthorizationStatusNotDetermined == status) {
 
 ```Objective-C
 // 开始推流，这里的推流地址应该是你自己的服务端通过 pili 流媒体云服务请求到的
-[self.session startWithPushURL:[NSURL URLWithString:@"YOUR_RTMP_PUSH_URL_HERE"]];
+[self.session startWithPushURL:[NSURL URLWithString:@"YOUR_RTMP_PUSH_URL_HERE"] completed:^(BOOL success) {
+	// 这里的代码在主线程运行，所以可以放心对 UI 控件做操作
+	if (success) {
+		// 连接成功后的处理
+	} else {
+    	// 连接失败后的处理
+	}
+}];
 
 // 停止推流
 [self.session stop];
@@ -91,7 +98,7 @@ if (PLAuthorizationStatusNotDetermined == status) {
 
 苹果官方推荐的编码参数如下图：
 
-![Encode 推荐](https://github.com/pili-io/PLCameraStreamingKit/blob/master/streaming-encode-recommendations.jpg?raw=true)
+![Encode 推荐](https://github.com/0dayZh/pili-camera-streaming-ios-kit/blob/master/streaming-encode-recommendations.jpg?raw=true)
 
 你无需辛苦的一个个参数设置，```PLCameraStreamingKit``` 提供了一个编码配置的类来帮你快速完成配置。
 
@@ -151,6 +158,9 @@ PLCameraStreamingConfiguration *configuration = [PLCameraStreamingConfiguration 
 
 ## 版本历史
 
+- 1.1.1
+	- 修复 release 版本无法推流的 bug
+	- 内存优化，比 1.1.0 减少 6% 左右内存消耗
 - 1.1.0
 	- 重构接口
 	- 优化编码参数

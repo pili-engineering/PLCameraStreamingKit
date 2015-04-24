@@ -79,8 +79,16 @@ PLCameraStreamingSessionDelegate
         [self.session stop];
         [self.actionButton setTitle:NSLocalizedString(@"Start", nil) forState:UIControlStateNormal];
     } else {
-        [self.session startWithPushURL:[NSURL URLWithString:PUSH_URL]];
-        [self.actionButton setTitle:NSLocalizedString(@"Stop", nil) forState:UIControlStateNormal];
+        self.actionButton.enabled = NO;
+        
+        [self.session startWithPushURL:[NSURL URLWithString:PUSH_URL] completed:^(BOOL success) {
+            self.actionButton.enabled = YES;
+            if (success) {
+                [self.actionButton setTitle:NSLocalizedString(@"Stop", nil) forState:UIControlStateNormal];
+            } else {
+                [self.actionButton setTitle:NSLocalizedString(@"Start", nil) forState:UIControlStateNormal];
+            }
+        }];
     }
 }
 

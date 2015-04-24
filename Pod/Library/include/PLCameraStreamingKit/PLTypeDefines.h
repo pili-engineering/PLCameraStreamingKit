@@ -53,18 +53,6 @@ typedef NS_ENUM(NSUInteger, PLStreamingNetworkType) {
     PLStreamingNetworkTypeEither
 };
 
-typedef NS_ENUM(NSUInteger, PLStreamBitrateMode) {
-    PLStreamBitrateMode_200Kbps,
-    PLStreamBitrateMode_400Kbps,
-    PLStreamBitrateMode_600Kbps,
-    PLStreamBitrateMode_1200Kbps,
-    PLStreamBitrateMode_3500Kbps,
-    PLStreamBitrateMode_5000Kbps,
-    PLStreamBitrateMode_6500Kbps,
-    PLStreamBitrateMode_8500Kbps,
-    PLStreamBitrateMode_Default = PLStreamBitrateMode_600Kbps
-};
-
 typedef NS_ENUM(NSUInteger, PLCaptureDevicePosition) {
     PLCaptureDevicePositionBack = 0,
     PLCaptureDevicePositionFront

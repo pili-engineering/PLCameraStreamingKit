@@ -49,7 +49,7 @@ extern NSString *PLMicrophoneAuthorizationStatusDidGetNotificaiton;
 - (instancetype)initWithConfiguration:(PLCameraStreamingConfiguration *)configuration videoOrientation:(AVCaptureVideoOrientation)videoOrientation;
 
 // RTMP Operations
-- (BOOL)startWithPushURL:(NSURL *)pushURL;  // return NO if pushURL is nil.
+- (void)startWithPushURL:(NSURL *)pushURL completed:(void (^)(BOOL success))handler;
 - (void)stop;
 
 // Camera Operations
