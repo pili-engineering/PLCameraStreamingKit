@@ -4,34 +4,41 @@ PLCameraStreamingKit 是为 **pili 流媒体云服务** 流媒体云服务提供
 
 ## 内容摘要
 
-- [1 快速开始](#1-快速开始)
-	- [1.1 配置工程](#1.1-配置工程)
-	- [1.2 示例代码](#1.2-示例代码)
-- [2 功能特性](#2-功能特性)
-- [3 系统要求](#3-系统要求)
-- [4 版本历史](#4-版本历史)
+- [快速开始](#快速开始)
+	- [配置工程](#配置工程)
+	- [示例代码](#示例代码)
+- [编码参数](#编码参数)
+- [功能特性](#功能特性)
+- [系统要求](#系统要求)
+- [版本历史](#版本历史)
 
-## 1 快速开始
+## 快速开始
 
 先来看看 PLCameraStreamingKit 接入的步骤
 
-### 1.1 配置工程
+### 配置工程
 
 - 配置你的 Podfile 文件，添加如下配置信息
 
-```
+```shell
 pod 'PLCameraStreamingKit'
 ```
 
 - 安装 CocoaPods 依赖
 
-```
+```shell
 pod install
+```
+
+或
+
+```shell
+pod update
 ```
 
 - Done! 运行你工程的 workspace
 
-### 1.2 示例代码
+### 示例代码
 
 在需要的地方添加
 
@@ -39,43 +46,96 @@ pod install
 #import <PLCameraStreamingKit/PLCameraStreamingKit.h>
 ```
 
-PLCaptureManager 是核心类，你只需要关注并使用这个类就可以完成通过摄像头推流、预览的工作
+```PLCameraStreamingSession``` 是核心类，你只需要关注并使用这个类就可以完成通过摄像头推流、预览的工作
 
-推流前务必要先检查摄像头授权，并记得设置预览界面
+推流前务必要先检查摄像头 / 麦克风的授权，并记得设置预览界面
+
 ```Objective-C
-	// 检查摄像头是否有授权
-	PLCaptureDeviceAuthorizedStatus status = [PLCaptureManager captureDeviceAuthorizedStatus];
+// 授权后执行
+void (^permissionBlock)(void) = ^{
+        PLCameraStreamingConfiguration *configuration = [PLCameraStreamingConfiguration defaultConfiguration];
+        self.session = [[PLCameraStreamingSession alloc] initWithConfiguration:configuration];
+        self.session.delegate = self;
+        self.session.previewView = self.view;
+};
+
+void (^noPermissionBlock)(void) = ^{ // 处理未授权情况 };
     
-    if (PLCaptureDeviceAuthorizedStatusUnknow == status) {
-        [PLCaptureManager requestCaptureDeviceAccessWithCompletionHandler:^(BOOL granted) {
-            if (granted) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [PLCaptureManager sharedManager].previewView = self.previewView;
-                });
-            }
-        }];
-    } else if (PLCaptureDeviceAuthorizedStatusGranted == status) {
-        [PLCaptureManager sharedManager].previewView = self.previewView;
-    } else {
-    	// 处理未授权的情况
-    }
-```
-
-设置推流地址，这里的推流地址应该是你自己的服务端通过 **pili 流媒体云服务** 请求到的
-```Objective-C
-    // 设置推流地址
-    [PLCaptureManager sharedManager].rtmpPushURL = [NSURL URLWithString:@"YOUR_RTMP_PUSH_URL_HERE"];
+// 检查摄像头是否有授权
+PLAuthorizationStatus status = [PLCameraStreamingSession cameraAuthorizationStatus];
+   
+if (PLAuthorizationStatusNotDetermined == status) {
+    [PLCameraStreamingSession requestCameraAccessWithCompletionHandler:^(BOOL granted) {
+        granted ? permissionBlock() : noPermissionBlock();
+    }];
+} else if (PLAuthorizationStatusAuthorized == status) {
+    permissionBlock();
+} else {
+	noPermissionBlock();
+}
 ```
 
 推流操作
+
 ```Objective-C
-    // 开始推流
-    [[PLCaptureManager sharedManager] connect];
-    // 停止推流
-    [[PLCaptureManager sharedManager] disconnect];
+// 开始推流，这里的推流地址应该是你自己的服务端通过 pili 流媒体云服务请求到的
+[self.session startWithPushURL:[NSURL URLWithString:@"YOUR_RTMP_PUSH_URL_HERE"]];
+
+// 停止推流
+[self.session stop];
 ```
 
-## 2 功能特性
+## 编码参数
+
+移动端因网络环境不稳定及用户电量宝贵等原因，并不建议直接使用最高码率和分辨率来做推流，以最佳编码参数来做设置可以带来更好的推流效果和用户体验。
+
+苹果官方推荐的编码参数如下图：
+
+![Encode 推荐](https://github.com/pili-io/PLCameraStreamingKit/blob/master/streaming-encode-recommendations.jpg?raw=true)
+
+你无需辛苦的一个个参数设置，```PLCameraStreamingKit``` 提供了一个编码配置的类来帮你快速完成配置。
+
+```Objective-C
+// 初始化编码配置类的实例需要的两个参数
+
+// 视频横纵比及分辨率
+typedef NS_ENUM(NSUInteger, PLStreamingDimension) {
+    PLStreamingDimension_16_9__416x234,
+    PLStreamingDimension_16_9__480x270,
+    PLStreamingDimension_16_9__640x360,
+    PLStreamingDimension_16_9__960x540,
+    PLStreamingDimension_16_9__1280x720,
+    PLStreamingDimension_16_9__1920x1080,
+    PLStreamingDimension_4_3__400x300,
+    PLStreamingDimension_4_3__480x360,
+    PLStreamingDimension_4_3__640x480,
+    PLStreamingDimension_4_3__960x720,
+    PLStreamingDimension_4_3__1280x960,
+    PLStreamingDimension_4_3__1920x1140,
+    PLStreamingDimension_Default = PLStreamingDimension_4_3__640x480
+};
+
+// 网络类型
+typedef NS_ENUM(NSUInteger, PLStreamingNetworkType) {
+    PLStreamingNetworkTypeCELL,
+    PLStreamingNetworkTypeWiFi,
+    PLStreamingNetworkTypeEither
+};
+```
+
+你只需要明确以上两者，便可以直接获取到最佳编码配置。
+
+```Objective-C
+// 默认情况下，PLCameraStreamingKit 会使用 4:3 的 640x480 分辨率，及 PLStreamingNetworkTypeEither 作为参数初始化编码配置类的实例.
+PLCameraStreamingConfiguration *configuration = [PLCameraStreamingConfiguration defaultConfiguration];
+
+// 当然你也可以自己指定，比如你希望输出直播视频是 16:9 的 960x540 的分辨率，并且你已经明确用户当前是在 Wi-Fi 环境下，你可以这样来设置编码配置
+PLCameraStreamingConfiguration *configuration = [PLCameraStreamingConfiguration configurationWithDimension:PLStreamingDimension_16_9__960x540 network:PLStreamingNetworkTypeWiFi];
+```
+
+在创建好编码配置对象后，就可以用它来初始化 ```PLCameraStreamingSession``` 了。
+
+## 功能特性
 
 - [x] 硬件编解码
 - [x] 多码率可选
@@ -85,11 +145,17 @@ PLCaptureManager 是核心类，你只需要关注并使用这个类就可以完
 - [x] 自动对焦支持
 - [x] 手动调整对焦点支持
 
-## 3 系统要求
+## 系统要求
 
 - iOS Target : >= iOS 7
 
-## 4 版本历史
+## 版本历史
 
+- 1.1.0
+	- 重构接口
+	- 优化编码参数
+	- 提供不同网络和分辨率下的多种配置可选
+	- 添加消息通知，便于监听
+	- 兼顾 arc 及非 arc 的工程
 - 1.0.0
 	- 发布 CocoaPods 版本
