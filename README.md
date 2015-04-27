@@ -153,7 +153,7 @@ PLCameraStreamingConfiguration *configuration = [PLCameraStreamingConfiguration 
 从 1.1.3 开始，PLCameraStreamingSession 开始加入 HeaderDoc 文档支持。
 开发者无需单独查阅文档，直接通过 Xcode 就可以查看接口和类的相关信息，减少不必要的麻烦。
 
-![Encode 推荐](https://github.com/pili-io/PLCameraStreamingKit/blob/master/header-doc.jpg?raw=true)
+![Encode 推荐](https://github.com/pili-io/PLCameraStreamingKit/blob/master/header-doc.png?raw=true)
 
 ## 功能特性
 
