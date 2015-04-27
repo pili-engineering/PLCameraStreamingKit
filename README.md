@@ -8,6 +8,7 @@ PLCameraStreamingKit 是为 **pili 流媒体云服务** 流媒体云服务提供
 	- [配置工程](#配置工程)
 	- [示例代码](#示例代码)
 - [编码参数](#编码参数)
+- [文档支持](#文档支持)
 - [功能特性](#功能特性)
 - [系统要求](#系统要求)
 - [版本历史](#版本历史)
@@ -98,7 +99,7 @@ if (PLAuthorizationStatusNotDetermined == status) {
 
 苹果官方推荐的编码参数如下图：
 
-![Encode 推荐](https://github.com/0dayZh/pili-camera-streaming-ios-kit/blob/master/streaming-encode-recommendations.jpg?raw=true)
+![Encode 推荐](https://github.com/pili-io/PLCameraStreamingKit/blob/master/streaming-encode-recommendations.jpg?raw=true)
 
 你无需辛苦的一个个参数设置，```PLCameraStreamingKit``` 提供了一个编码配置的类来帮你快速完成配置。
 
@@ -147,6 +148,13 @@ PLCameraStreamingConfiguration *configuration = [PLCameraStreamingConfiguration 
 
 在创建好编码配置对象后，就可以用它来初始化 ```PLCameraStreamingSession``` 了。
 
+## 文档支持
+
+从 1.1.3 开始，PLCameraStreamingSession 开始加入 HeaderDoc 文档支持。
+开发者无需单独查阅文档，直接通过 Xcode 就可以查看接口和类的相关信息，减少不必要的麻烦。
+
+![Encode 推荐](https://github.com/pili-io/PLCameraStreamingKit/blob/master/header-doc.jpg?raw=true)
+
 ## 功能特性
 
 - [x] 硬件编解码
@@ -158,6 +166,7 @@ PLCameraStreamingConfiguration *configuration = [PLCameraStreamingConfiguration 
 - [x] 手动调整对焦点支持
 - [x] 闪光灯开关
 - [x] 多分辨率编码支持
+- [x] HeaderDoc 文档支持
 
 ## 系统要求
 
