@@ -18,6 +18,10 @@ PLCameraStreamingKit 为 iOS 开发者提供直播推流 SDK。
 
 ## 记录
 
+### 文档
+
+- 部分代码添加了 HeaderDoc，方便开发者直接从 Xcode 中查看文档
+
 ### 视频源
 
 - 优化了获取视频截图的方法
