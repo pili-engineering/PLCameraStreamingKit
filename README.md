@@ -175,6 +175,7 @@ PLCameraStreamingConfiguration *configuration = [PLCameraStreamingConfiguration 
 ## 版本历史
 - 1.1.3 ([Release Notes](https://github.com/pili-io/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.1.3.md) && [API Diffs](https://github.com/pili-io/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.1.3.md))
 	- 更新了获取视频截图的方法
+	- 添加 HeaderDoc 格式注释文档
 - 1.1.2 ([Release Notes](https://github.com/pili-io/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.1.2.md) && [API Diffs](https://github.com/pili-io/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.1.2.md))
 	- 添加自定视频大小的编码配置
 	- 添加进入后台后自动停止推流的支持
