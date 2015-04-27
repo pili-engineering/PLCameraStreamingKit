@@ -37,7 +37,8 @@ typedef NS_ENUM(NSUInteger, PLStreamingDimension) {
     PLStreamingDimension_4_3__960x720,
     PLStreamingDimension_4_3__1280x960,
     PLStreamingDimension_4_3__1920x1140,
-    PLStreamingDimension_Default = PLStreamingDimension_4_3__640x480
+    PLStreamingDimension_UserDefine,
+    PLStreamingDimension_Default = PLStreamingDimension_4_3__640x480,
 };
 
 typedef NS_ENUM(NSUInteger, PLStreamingAudioBitRate) {

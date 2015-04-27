@@ -119,6 +119,7 @@ typedef NS_ENUM(NSUInteger, PLStreamingDimension) {
     PLStreamingDimension_4_3__960x720,
     PLStreamingDimension_4_3__1280x960,
     PLStreamingDimension_4_3__1920x1140,
+    PLStreamingDimension_UserDefine,
     PLStreamingDimension_Default = PLStreamingDimension_4_3__640x480
 };
 
@@ -136,8 +137,12 @@ typedef NS_ENUM(NSUInteger, PLStreamingNetworkType) {
 // 默认情况下，PLCameraStreamingKit 会使用 4:3 的 640x480 分辨率，及 PLStreamingNetworkTypeEither 作为参数初始化编码配置类的实例.
 PLCameraStreamingConfiguration *configuration = [PLCameraStreamingConfiguration defaultConfiguration];
 
+
 // 当然你也可以自己指定，比如你希望输出直播视频是 16:9 的 960x540 的分辨率，并且你已经明确用户当前是在 Wi-Fi 环境下，你可以这样来设置编码配置
 PLCameraStreamingConfiguration *configuration = [PLCameraStreamingConfiguration configurationWithDimension:PLStreamingDimension_16_9__960x540 network:PLStreamingNetworkTypeWiFi];
+
+// 当已有的分辨率无法满足你的需求时，你可以自己定义视频的大小
+PLCameraStreamingConfiguration *configuration = [PLCameraStreamingConfiguration configurationWithUserDefineDimension:CGSizeMake(width, height) network:PLStreamingNetworkTypeWiFi];
 ```
 
 在创建好编码配置对象后，就可以用它来初始化 ```PLCameraStreamingSession``` 了。
@@ -151,6 +156,8 @@ PLCameraStreamingConfiguration *configuration = [PLCameraStreamingConfiguration 
 - [x] 前后摄像头支持
 - [x] 自动对焦支持
 - [x] 手动调整对焦点支持
+- [x] 闪光灯开关
+- [x] 多分辨率编码支持
 
 ## 系统要求
 
@@ -158,6 +165,15 @@ PLCameraStreamingConfiguration *configuration = [PLCameraStreamingConfiguration 
 
 ## 版本历史
 
+- 1.1.2 ([Release Notes](https://github.com/pili-io/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.1.2.md) && [API Diffs](https://github.com/pili-io/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.1.2.md))
+	- 添加自定视频大小的编码配置
+	- 添加进入后台后自动停止推流的支持
+	- 添加保持常亮的开关
+	- 添加获取当前录制截屏的功能
+	- 修复进入后台导致崩溃的问题
+	- 修复切换前置摄像头失效的问题
+	- 添加 Release Notes 说明每个版本变动
+	- 添加 API Diffs 说明具体修改细节
 - 1.1.1
 	- 修复 release 版本无法推流的 bug
 	- 内存优化，比 1.1.0 减少 6% 左右内存消耗

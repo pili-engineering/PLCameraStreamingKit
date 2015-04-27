@@ -30,4 +30,7 @@
 + (instancetype)configurationWithDimension:(PLStreamingDimension)dimension
                                    network:(PLStreamingNetworkType)network;
 
++ (instancetype)configurationWithUserDefineDimension:(CGSize)videoSize
+                                             network:(PLStreamingNetworkType)network;
+
 @end
