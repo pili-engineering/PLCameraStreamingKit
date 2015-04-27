@@ -35,7 +35,20 @@ PLCameraStreamingSessionDelegate
     [super viewDidLoad];
     
     void (^permissionBlock)(void) = ^{
-        PLCameraStreamingConfiguration *configuration = [PLCameraStreamingConfiguration defaultConfiguration];
+        PLCameraStreamingConfiguration *configuration = nil;
+        
+        // 现在提供了 3 种方式创建 configuration
+//        // 1.默认配置
+//        configuration = [PLCameraStreamingConfiguration defaultConfiguration];
+//
+//        // 2.指定已有配置
+//        configuration = [PLCameraStreamingConfiguration configurationWithDimension:PLStreamingDimension_16_9__960x540
+//                                                                           network:PLStreamingNetworkTypeWiFi];
+        
+        // 3.自定义视频大小的配置
+        configuration = [PLCameraStreamingConfiguration configurationWithUserDefineDimension:self.view.bounds.size
+                                                                                     network:PLStreamingNetworkTypeEither];
+        
         self.session = [[PLCameraStreamingSession alloc] initWithConfiguration:configuration videoOrientation:AVCaptureVideoOrientationPortrait];
         self.session.delegate = self;
         self.session.previewView = self.view;
@@ -70,6 +83,12 @@ PLCameraStreamingSessionDelegate
 
 - (void)cameraStreamingSession:(PLCameraStreamingSession *)session streamStateDidChange:(PLStreamState)state {
     NSLog(@"Stream State: %s", stateNames[state]);
+    
+    if (PLStreamStateConnected == state) {
+        [self.actionButton setTitle:NSLocalizedString(@"Stop", nil) forState:UIControlStateNormal];
+    } else {
+        [self.actionButton setTitle:NSLocalizedString(@"Start", nil) forState:UIControlStateNormal];
+    }
 }
 
 #pragma mark - Action
@@ -77,17 +96,10 @@ PLCameraStreamingSessionDelegate
 - (IBAction)actionButtonPressed:(id)sender {
     if (PLStreamStateConnected == self.session.streamState) {
         [self.session stop];
-        [self.actionButton setTitle:NSLocalizedString(@"Start", nil) forState:UIControlStateNormal];
     } else {
         self.actionButton.enabled = NO;
-        
         [self.session startWithPushURL:[NSURL URLWithString:PUSH_URL] completed:^(BOOL success) {
             self.actionButton.enabled = YES;
-            if (success) {
-                [self.actionButton setTitle:NSLocalizedString(@"Stop", nil) forState:UIControlStateNormal];
-            } else {
-                [self.actionButton setTitle:NSLocalizedString(@"Start", nil) forState:UIControlStateNormal];
-            }
         }];
     }
 }
@@ -103,6 +115,5 @@ PLCameraStreamingSessionDelegate
 - (IBAction)muteButtonPressed:(id)sender {
     self.session.muted = !self.session.isMuted;
 }
-
 
 @end
