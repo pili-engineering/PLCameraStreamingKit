@@ -22,8 +22,8 @@
 @property (nonatomic, assign, readonly) NSUInteger videoMaxKeyframeInterval;
 @property (nonatomic, PL_STRONG, readonly) NSString *videoProfileLevel;
 @property (nonatomic, assign, readonly) NSUInteger videoBitRate;
-@property (nonatomic, assign, readonly) NSUInteger audioBitRate;
-@property (nonatomic, assign, readonly) NSUInteger audioSampleRate;
+@property (nonatomic, assign, readonly) NSUInteger audioBitRate;    // always 128kbps right now.
+@property (nonatomic, assign, readonly) NSUInteger audioSampleRate; // always 44100 right now.
 
 + (instancetype)defaultConfiguration;   // PLStreamingDimension_Default, PLStreamingNetworkTypeEither
 

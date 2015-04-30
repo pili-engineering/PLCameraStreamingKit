@@ -150,7 +150,7 @@ PLCameraStreamingConfiguration *configuration = [PLCameraStreamingConfiguration 
 
 ## 文档支持
 
-从 1.1.3 开始，PLCameraStreamingSession 开始加入 HeaderDoc 文档支持。
+PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
 开发者无需单独查阅文档，直接通过 Xcode 就可以查看接口和类的相关信息，减少不必要的麻烦。
 
 ![Encode 推荐](https://github.com/pili-io/PLCameraStreamingKit/blob/master/header-doc.png?raw=true)
@@ -173,6 +173,11 @@ PLCameraStreamingConfiguration *configuration = [PLCameraStreamingConfiguration 
 - iOS Target : >= iOS 7
 
 ## 版本历史
+
+- 1.1.4 ([Release Notes](https://github.com/pili-io/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.1.4.md) && [API Diffs](https://github.com/pili-io/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.1.4.md))
+	- 更新了码率和采样率。现在统一使用 128Kbps 和 44100KHZ，用以解决噪音的问题
+	- 更新了网络 socket。对 socket 在调试情况下出现的 SIGPIPE 进行了处理，不会再出现
+	- 更新了网络状态的返回情况。当不是主动调用 close 接口导致的断开都将以 error 状态通知 delegate
 - 1.1.3 ([Release Notes](https://github.com/pili-io/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.1.3.md) && [API Diffs](https://github.com/pili-io/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.1.3.md))
 	- 更新了获取视频截图的方法
 	- 添加 HeaderDoc 格式注释文档
