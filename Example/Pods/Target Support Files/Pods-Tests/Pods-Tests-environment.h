@@ -10,11 +10,11 @@
 #define COCOAPODS_POD_AVAILABLE_PLCameraStreamingKit
 #define COCOAPODS_VERSION_MAJOR_PLCameraStreamingKit 1
 #define COCOAPODS_VERSION_MINOR_PLCameraStreamingKit 1
-#define COCOAPODS_VERSION_PATCH_PLCameraStreamingKit 5
+#define COCOAPODS_VERSION_PATCH_PLCameraStreamingKit 6
 
 // PLCameraStreamingKit/precompiled
 #define COCOAPODS_POD_AVAILABLE_PLCameraStreamingKit_precompiled
 #define COCOAPODS_VERSION_MAJOR_PLCameraStreamingKit_precompiled 1
 #define COCOAPODS_VERSION_MINOR_PLCameraStreamingKit_precompiled 1
-#define COCOAPODS_VERSION_PATCH_PLCameraStreamingKit_precompiled 5
+#define COCOAPODS_VERSION_PATCH_PLCameraStreamingKit_precompiled 6
 
