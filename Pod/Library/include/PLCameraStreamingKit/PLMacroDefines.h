@@ -11,7 +11,7 @@
 
 #pragma mark - Debug Log
 
-#define PL_LOG_ENABLE 1
+#define PL_LOG_ENABLE 0
 
 #pragma mark - Memory Management
 

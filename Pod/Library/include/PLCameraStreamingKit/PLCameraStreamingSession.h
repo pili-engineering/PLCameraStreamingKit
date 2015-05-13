@@ -18,6 +18,9 @@ extern NSString *PLStreamStateDidChangeNotification;
 extern NSString *PLCameraAuthorizationStatusDidGetNotificaiton;
 extern NSString *PLMicrophoneAuthorizationStatusDidGetNotificaiton;
 
+extern NSString *PLCameraDidStartRunningNotificaiton;
+extern NSString *PLMicrophoneDidStartRunningNotificaiton;
+
 @class PLCameraStreamingSession;
 
 /*!
@@ -29,6 +32,7 @@ extern NSString *PLMicrophoneAuthorizationStatusDidGetNotificaiton;
 
 @optional
 - (void)cameraStreamingSession:(PLCameraStreamingSession *)session streamStateDidChange:(PLStreamState)state;
+
 - (void)cameraStreamingSession:(PLCameraStreamingSession *)session didGetCameraAuthorizationStatus:(PLAuthorizationStatus)status;
 - (void)cameraStreamingSession:(PLCameraStreamingSession *)session didGetMicrophoneAuthorizationStatus:(PLAuthorizationStatus)status;
 
@@ -40,8 +44,6 @@ extern NSString *PLMicrophoneAuthorizationStatusDidGetNotificaiton;
  * @abstract 推流中的核心类。
  *
  * @discussion 一个 PLCameraStreamingSession 实例会包含了对视频源、音频源的控制，并且对流的操作及流状态的返回都是通过它来完成的。
- *
- * updated 2015-04-27
  */
 @interface PLCameraStreamingSession : NSObject
 

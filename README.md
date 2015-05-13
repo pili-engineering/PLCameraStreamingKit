@@ -124,26 +124,36 @@ typedef NS_ENUM(NSUInteger, PLStreamingDimension) {
     PLStreamingDimension_Default = PLStreamingDimension_4_3__640x480
 };
 
-// 网络类型
-typedef NS_ENUM(NSUInteger, PLStreamingNetworkType) {
-    PLStreamingNetworkTypeCELL,
-    PLStreamingNetworkTypeWiFi,
-    PLStreamingNetworkTypeEither
-};
+// 推流质量
+extern NSString *kPLStreamingQualityLow1;
+
+extern NSString *kPLStreamingQualityLow2;
+
+extern NSString *kPLStreamingQualityMedium1;
+
+extern NSString *kPLStreamingQualityMedium2;
+
+extern NSString *kPLStreamingQualityMedium3;
+
+extern NSString *kPLStreamingQualityHigh1;
+
+extern NSString *kPLStreamingQualityHigh2;
+
+extern NSString *kPLStreamingQualityHigh3;
 ```
 
 你只需要明确以上两者，便可以直接获取到最佳编码配置。
 
 ```Objective-C
-// 默认情况下，PLCameraStreamingKit 会使用 4:3 的 640x480 分辨率，及 PLStreamingNetworkTypeEither 作为参数初始化编码配置类的实例.
+// 默认情况下，PLCameraStreamingKit 会使用 4:3 的 640x480 分辨率，及 kPLStreamingQualityMedium1 作为参数初始化编码配置类的实例.
 PLCameraStreamingConfiguration *configuration = [PLCameraStreamingConfiguration defaultConfiguration];
 
 
-// 当然你也可以自己指定，比如你希望输出直播视频是 16:9 的 960x540 的分辨率，并且你已经明确用户当前是在 Wi-Fi 环境下，你可以这样来设置编码配置
-PLCameraStreamingConfiguration *configuration = [PLCameraStreamingConfiguration configurationWithDimension:PLStreamingDimension_16_9__960x540 network:PLStreamingNetworkTypeWiFi];
+// 当然你也可以自己指定，比如你希望输出直播视频是 16:9 的 960x540 的分辨率，并且你已经明确你需要的视频质量为 High1，你可以这样来设置编码配置
+PLCameraStreamingConfiguration *configuration = [PLCameraStreamingConfiguration configurationWithDimension:PLStreamingDimension_16_9__960x540 quality:kPLStreamingQualityHigh1];
 
 // 当已有的分辨率无法满足你的需求时，你可以自己定义视频的大小
-PLCameraStreamingConfiguration *configuration = [PLCameraStreamingConfiguration configurationWithUserDefineDimension:CGSizeMake(width, height) network:PLStreamingNetworkTypeWiFi];
+PLCameraStreamingConfiguration *configuration = [PLCameraStreamingConfiguration configurationWithUserDefineDimension:CGSizeMake(width, height) quality:kPLStreamingQualityHigh1];
 ```
 
 在创建好编码配置对象后，就可以用它来初始化 ```PLCameraStreamingSession``` 了。
@@ -174,6 +184,12 @@ PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
 
 ## 版本历史
 
+- 1.1.7 ([Release Notes](https://github.com/pili-io/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.1.7.md) && [API Diffs](https://github.com/pili-io/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.1.7.md))
+	- 添加推流质量字段，方便开发者指定推流质量
+	- 移除原配置中的网络选项
+	- 默认情况下关闭了 PLLog
+	- 添加摄像头开始运行的通知
+	- 添加麦克风开始运行的通知
 - 1.1.6 ([Release Notes](https://github.com/pili-io/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.1.6.md) && [API Diffs](https://github.com/pili-io/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.1.6.md))
 	- 尝试修复音频变声问题
 - 1.1.5 ([Release Notes](https://github.com/pili-io/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.1.5.md) && [API Diffs](https://github.com/pili-io/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.1.5.md))

@@ -57,12 +57,12 @@ PLCameraStreamingSessionDelegate
          
          // 指定已有配置
          configuration = [PLCameraStreamingConfiguration configurationWithDimension:PLStreamingDimension_16_9__960x540
-         network:PLStreamingNetworkTypeWiFi];
+         quality:kPLStreamingQualityHigh1];
          */
         
         // 自定义视频大小的配置
         configuration = [PLCameraStreamingConfiguration configurationWithUserDefineDimension:self.view.bounds.size
-                                                                                     network:PLStreamingNetworkTypeEither];
+                                                                                     quality:kPLStreamingQualityHigh1];
         
         self.session = [[PLCameraStreamingSession alloc] initWithConfiguration:configuration videoOrientation:AVCaptureVideoOrientationPortrait];
         self.session.delegate = self;
