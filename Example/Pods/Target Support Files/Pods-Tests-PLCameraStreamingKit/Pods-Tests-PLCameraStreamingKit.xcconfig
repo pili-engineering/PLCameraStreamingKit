@@ -1,3 +1,0 @@
-PODS_TESTS_PLCAMERASTREAMINGKIT_HEADER_SEARCH_PATHS = ${PODS_ROOT}/PLCameraStreamingKit/PLCameraStreamingKit/lib/include
-PODS_TESTS_PLCAMERASTREAMINGKIT_LIBRARY_SEARCH_PATHS = "$(PODS_ROOT)/../../Pod/Library/lib" "$(PODS_ROOT)/../../Pod/Library/lib" "$(PODS_ROOT)/../../Pod/Library/lib"
-PODS_TESTS_PLCAMERASTREAMINGKIT_OTHER_LDFLAGS = -l"PLCameraStreamingKit" -l"c++" -l"crypto-ios" -l"ssl-ios" -l"z" -framework "AVFoundation" -framework "AudioToolbox" -framework "CFNetwork" -framework "CoreGraphics" -framework "CoreMedia" -framework "UIKit" -framework "VideoToolbox"

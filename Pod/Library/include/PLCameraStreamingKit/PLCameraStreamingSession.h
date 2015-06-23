@@ -23,75 +23,47 @@ extern NSString *PLMicrophoneDidStartRunningNotificaiton;
 
 @class PLCameraStreamingSession;
 
-/*!
- * @protocol PLCameraStreamingSessionDelegate
- *
- * @discussion delegate 对象可以实现对应的方法来获取流的状态及设备授权情况。
- */
+/// @abstract delegate 对象可以实现对应的方法来获取流的状态及设备授权情况。
 @protocol PLCameraStreamingSessionDelegate <NSObject>
 
 @optional
+/// @abstract 流状态已变更的回调
 - (void)cameraStreamingSession:(PLCameraStreamingSession *)session streamStateDidChange:(PLStreamState)state;
 
+/// @abstract 摄像头授权状态发生变化的回调
 - (void)cameraStreamingSession:(PLCameraStreamingSession *)session didGetCameraAuthorizationStatus:(PLAuthorizationStatus)status;
+
+/// @abstract 麦克风授权状态发生变化的回调
 - (void)cameraStreamingSession:(PLCameraStreamingSession *)session didGetMicrophoneAuthorizationStatus:(PLAuthorizationStatus)status;
 
 @end
 
 /*!
- * @class PLCameraStreamingSession
- *
  * @abstract 推流中的核心类。
  *
  * @discussion 一个 PLCameraStreamingSession 实例会包含了对视频源、音频源的控制，并且对流的操作及流状态的返回都是通过它来完成的。
  */
 @interface PLCameraStreamingSession : NSObject
 
-/*!
- * @property configuration
- *
- * @abstract 音视频编码信息均包含其中。
- */
+/// 音视频编码信息均包含其中。
 @property (nonatomic, PL_STRONG) PLCameraStreamingConfiguration *configuration;  // reset will not work until startWithPushURL: invoked.
 
-/*!
- * @property videoOrientation
- *
- * @abstract 获取和设置视频方向
- */
+/// 获取和设置视频方向
 @property (nonatomic, assign) AVCaptureVideoOrientation    videoOrientation;
 
-/*!
- * @property delegate
- *
- * @abstract 代理对象
- */
+/// 代理对象
 @property (nonatomic, PL_WEAK) id<PLCameraStreamingSessionDelegate> delegate;
 
-/*!
- * @property streamState
- *
- * @abstract 流的状态，只读属性
- */
+/// 流的状态，只读属性
 @property (nonatomic, assign, readonly) PLStreamState               streamState;
 
-/*!
- * @property isRunning
- *
- * @abstract 是否在推流，只读属性
- */
+/// 是否在推流，只读属性
 @property (nonatomic, assign, readonly) BOOL                        isRunning;
 
-/*!
- * @property pushURL
- *
- * @abstract 推流 URL，只读属性
- */
+/// 推流 URL，只读属性
 @property (nonatomic, PL_STRONG, readonly) NSURL *pushURL;   // rtmp only now.
 
 /*!
- * @property previewView
- *
  * @abstract 摄像头的预览视图
  *
  * @discussion 在设置预览视图时，请确保 previewView 的 size 已经设置正确。
@@ -148,15 +120,29 @@ extern NSString *PLMicrophoneDidStartRunningNotificaiton;
  */
 @interface PLCameraStreamingSession (CameraSource)
 
-@property (nonatomic, assign) PLCaptureDevicePosition   captureDevicePosition;   // default as AVCaptureDevicePositionBack.
-@property (nonatomic, assign, getter=isTorchOn) BOOL    torchOn;                 // default as NO.
-@property (nonatomic, assign) CGPoint   focusPointOfInterest;                    // default as (0.5, 0.5), (0,0) is top-left, (1,1) is bottom-right.
-@property (nonatomic, assign, getter=isContinuousAutofocusEnable) BOOL  continuousAutofocusEnable;  // default as YES.
-@property (nonatomic, assign, getter=isTouchToFocusEnable) BOOL touchToFocusEnable; // default as YES.
+/// default as AVCaptureDevicePositionBack.
+@property (nonatomic, assign) PLCaptureDevicePosition   captureDevicePosition;
+
+/// default as NO.
+@property (nonatomic, assign, getter=isTorchOn) BOOL    torchOn;
+
+/// default as (0.5, 0.5), (0,0) is top-left, (1,1) is bottom-right.
+@property (nonatomic, assign) CGPoint   focusPointOfInterest;
+
+/// default as YES.
+@property (nonatomic, assign, getter=isContinuousAutofocusEnable) BOOL  continuousAutofocusEnable;
+
+/// default as YES.
+@property (nonatomic, assign, getter=isTouchToFocusEnable) BOOL touchToFocusEnable;
 
 - (void)toggleCamera;
 
-// Desprecated. This method will always return nil now, use requestCaptureImageWithComplete: or requestCaptureImageDataWithQuality:complete: instead
+/*!
+ * @deprecated
+ * This method will always return nil now, use requestCaptureImageWithComplete: or requestCaptureImageDataWithQuality:complete: instead
+ *
+ * @see requestCaptureImageWithComplete:
+ */
 - (UIImage *)stillCaptureImage DEPRECATED_ATTRIBUTE;
 
 /*!
@@ -167,6 +153,26 @@ extern NSString *PLMicrophoneDidStartRunningNotificaiton;
  * @param block 获取到图片后的回调方法，该回调一定在主线程，所以可以放心的对 UI 控件做操作。
  */
 - (void)requestCaptureImageWithComplete:(void (^)(UIImage *))block;
+
+/*!
+ * 开启摄像头 session
+ *
+ * @discussion 这个方法一般不需要调用，但当你的 App 中需要同时使用到 AVCaptureSession 时，在调用过 - (void)stopCaptureSession 方法后，
+ * 如果要重新启用推流的摄像头，可以调用这个方法
+ *
+ * @see - (void)stopCaptureSession
+ */
+- (void)startCaptureSession;
+
+/*!
+ * 停止摄像头 session
+ *
+ * @discussion 这个方法一般不需要调用，但当你的 App 中需要同时使用到 AVCaptureSession 时，当你需要暂且切换到你自己定制的摄像头做别的操作时，
+ * 你需要调用这个方法来暂停当前 streaming session 对 captureSession 的占用。当需要恢复时，调用 - (void)startCaptureSession 方法。
+ *
+ * @see - (void)startCaptureSession
+ */
+- (void)stopCaptureSession;
 
 @end
 

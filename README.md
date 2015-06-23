@@ -2,6 +2,19 @@
 
 PLCameraStreamingKit 是为 **pili 流媒体云服务** 流媒体云服务提供的一套推送直播流 SDK, 旨在解决 iOS 端快速、轻松实现 iOS 设备利用摄像头直播接入，便于 **pili 流媒体云服务** 的开发者专注于产品业务本身，而不必在技术细节上花费不必要的时间。
 
+功能特性
+
+- [x] 硬件编解码
+- [x] 多码率可选
+- [x] H.264 视频编码
+- [x] AAC 音频编码
+- [x] 前后摄像头支持
+- [x] 自动对焦支持
+- [x] 手动调整对焦点支持
+- [x] 闪光灯开关
+- [x] 多分辨率编码支持
+- [x] HeaderDoc 文档支持
+
 ## 内容摘要
 
 - [快速开始](#快速开始)
@@ -99,7 +112,7 @@ if (PLAuthorizationStatusNotDetermined == status) {
 
 苹果官方推荐的编码参数如下图：
 
-![Encode 推荐](https://github.com/pili-io/PLCameraStreamingKit/blob/master/streaming-encode-recommendations.jpg?raw=true)
+![Encode 推荐](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/streaming-encode-recommendations.jpg?raw=true)
 
 你无需辛苦的一个个参数设置，```PLCameraStreamingKit``` 提供了一个编码配置的类来帮你快速完成配置。
 
@@ -163,20 +176,7 @@ PLCameraStreamingConfiguration *configuration = [PLCameraStreamingConfiguration 
 PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
 开发者无需单独查阅文档，直接通过 Xcode 就可以查看接口和类的相关信息，减少不必要的麻烦。
 
-![Encode 推荐](https://github.com/pili-io/PLCameraStreamingKit/blob/master/header-doc.png?raw=true)
-
-## 功能特性
-
-- [x] 硬件编解码
-- [x] 多码率可选
-- [x] H.264 视频编码
-- [x] AAC 音频编码
-- [x] 前后摄像头支持
-- [x] 自动对焦支持
-- [x] 手动调整对焦点支持
-- [x] 闪光灯开关
-- [x] 多分辨率编码支持
-- [x] HeaderDoc 文档支持
+![Encode 推荐](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/header-doc.png?raw=true)
 
 ## 系统要求
 
@@ -184,24 +184,26 @@ PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
 
 ## 版本历史
 
-- 1.1.7 ([Release Notes](https://github.com/pili-io/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.1.7.md) && [API Diffs](https://github.com/pili-io/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.1.7.md))
+- 1.1.8 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.1.8.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.1.8.md))
+	- 添加摄像头开启和关闭的操作，便于开发者控制 AVCaptureSession
+- 1.1.7 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.1.7.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.1.7.md))
 	- 添加推流质量字段，方便开发者指定推流质量
 	- 移除原配置中的网络选项
 	- 默认情况下关闭了 PLLog
 	- 添加摄像头开始运行的通知
 	- 添加麦克风开始运行的通知
-- 1.1.6 ([Release Notes](https://github.com/pili-io/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.1.6.md) && [API Diffs](https://github.com/pili-io/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.1.6.md))
+- 1.1.6 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.1.6.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.1.6.md))
 	- 尝试修复音频变声问题
-- 1.1.5 ([Release Notes](https://github.com/pili-io/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.1.5.md) && [API Diffs](https://github.com/pili-io/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.1.5.md))
+- 1.1.5 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.1.5.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.1.5.md))
 	- 修复了重连后无法播放的问题
-- 1.1.4 ([Release Notes](https://github.com/pili-io/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.1.4.md) && [API Diffs](https://github.com/pili-io/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.1.4.md))
+- 1.1.4 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.1.4.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.1.4.md))
 	- 更新了码率和采样率。现在统一使用 128Kbps 和 44100KHZ，用以解决噪音的问题
 	- 更新了网络 socket。对 socket 在调试情况下出现的 SIGPIPE 进行了处理，不会再出现
 	- 更新了网络状态的返回情况。当不是主动调用 close 接口导致的断开都将以 error 状态通知 delegate
-- 1.1.3 ([Release Notes](https://github.com/pili-io/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.1.3.md) && [API Diffs](https://github.com/pili-io/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.1.3.md))
+- 1.1.3 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.1.3.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.1.3.md))
 	- 更新了获取视频截图的方法
 	- 添加 HeaderDoc 格式注释文档
-- 1.1.2 ([Release Notes](https://github.com/pili-io/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.1.2.md) && [API Diffs](https://github.com/pili-io/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.1.2.md))
+- 1.1.2 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.1.2.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.1.2.md))
 	- 添加自定视频大小的编码配置
 	- 添加进入后台后自动停止推流的支持
 	- 添加保持常亮的开关
