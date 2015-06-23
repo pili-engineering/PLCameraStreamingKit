@@ -186,6 +186,7 @@ PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
 
 - 1.1.8 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.1.8.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.1.8.md))
 	- 添加摄像头开启和关闭的操作，便于开发者控制 AVCaptureSession
+	- 修复视频编码 fps 设置无效问题
 - 1.1.7 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.1.7.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.1.7.md))
 	- 添加推流质量字段，方便开发者指定推流质量
 	- 移除原配置中的网络选项
