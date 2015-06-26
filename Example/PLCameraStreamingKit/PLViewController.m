@@ -10,9 +10,6 @@
 #import "Reachability.h"
 #import <PLCameraStreamingKit/PLCameraStreamingKit.h>
 
-#warning 这里更改为自己的推流 URL
-#define PUSH_URL    @"YOUR_PUSH_URL_HERE"
-
 const char *stateNames[] = {
     "Unknow",
     "Connecting",
@@ -48,6 +45,16 @@ PLCameraStreamingSessionDelegate
     [self.internetReachability startNotifier];
     
     // PLCameraStreamingKit 使用开始
+    
+#warning 仅为测试，发布的 App 中需要请求自有服务端获取 Stream
+    PLStream *stream = [PLStream streamWithJSON:@{@"id": @"STREAM_ID",
+                                                  @"title": @"STREAM_TITLE",
+                                                  @"hub": @"HUB_NAME",
+                                                  @"publishKey": @"PUBLISH_KEY",
+                                                  @"publishSecurity": @"dynamic",   // or static
+                                                  @"disabled": @(NO)}];
+    NSString *publishHost = @"YOUR_PUBLISH_HOST";
+    
     void (^permissionBlock)(void) = ^{
         PLCameraStreamingConfiguration *configuration = nil;
         
@@ -64,7 +71,10 @@ PLCameraStreamingSessionDelegate
         configuration = [PLCameraStreamingConfiguration configurationWithUserDefineDimension:self.view.bounds.size
                                                                                      quality:kPLStreamingQualityHigh1];
         
-        self.session = [[PLCameraStreamingSession alloc] initWithConfiguration:configuration videoOrientation:AVCaptureVideoOrientationPortrait];
+        self.session = [[PLCameraStreamingSession alloc] initWithConfiguration:configuration
+                                                                        stream:stream
+                                                               rtmpPublishHost:publishHost
+                                                              videoOrientation:AVCaptureVideoOrientationPortrait];
         self.session.delegate = self;
         self.session.previewView = self.view;
     };
@@ -138,7 +148,11 @@ PLCameraStreamingSessionDelegate
 
 - (void)startSession {
     self.actionButton.enabled = NO;
-    [self.session startWithPushURL:[NSURL URLWithString:PUSH_URL] completed:^(BOOL success) {
+    [self.session startWithCompleted:^(BOOL success) {
+        if (success) {
+            NSLog(@"Publish URL: %@", self.session.pushURL.absoluteString);
+        }
+        
         self.actionButton.enabled = YES;
     }];
 }

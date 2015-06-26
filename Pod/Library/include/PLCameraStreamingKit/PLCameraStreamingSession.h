@@ -12,6 +12,7 @@
 #import "PLCameraStreamingConfiguration.h"
 #import "PLMacroDefines.h"
 #import "PLTypeDefines.h"
+#import "PLStream.h"
 
 // post with userinfo @{@"state": @(state)}. always posted via MainQueue.
 extern NSString *PLStreamStateDidChangeNotification;
@@ -48,6 +49,12 @@ extern NSString *PLMicrophoneDidStartRunningNotificaiton;
 /// 音视频编码信息均包含其中。
 @property (nonatomic, PL_STRONG) PLCameraStreamingConfiguration *configuration;  // reset will not work until startWithPushURL: invoked.
 
+/// 流对象
+@property (nonatomic, PL_STRONG) PLStream   *stream;
+
+/// 推流 host 地址
+@property (nonatomic, PL_STRONG) NSString   *rtmpPublishHost;
+
 /// 获取和设置视频方向
 @property (nonatomic, assign) AVCaptureVideoOrientation    videoOrientation;
 
@@ -81,7 +88,10 @@ extern NSString *PLMicrophoneDidStartRunningNotificaiton;
  *
  * @discussion 初始化方法会优先使用后置摄像头，如果发现设备没有后置摄像头，会判断是否有前置摄像头，如果都没有，便会返回 nil。
  */
-- (instancetype)initWithConfiguration:(PLCameraStreamingConfiguration *)configuration videoOrientation:(AVCaptureVideoOrientation)videoOrientation;
+- (instancetype)initWithConfiguration:(PLCameraStreamingConfiguration *)configuration
+                               stream:(PLStream *)stream
+                      rtmpPublishHost:(NSString *)rtmpPublishHost
+                     videoOrientation:(AVCaptureVideoOrientation)videoOrientation;
 
 // RTMP Operations
 /*!
@@ -93,7 +103,7 @@ extern NSString *PLMicrophoneDidStartRunningNotificaiton;
  *
  * @discussion 当调用过一次并且开始推流时，如果再调用该方法会直接返回不会做任何操作，尽管如此，也不要在没有断开时重复调用该方法。
  */
-- (void)startWithPushURL:(NSURL *)pushURL completed:(void (^)(BOOL success))handler;
+- (void)startWithCompleted:(void (^)(BOOL success))handler;
 
 /*!
  * 结束推流
@@ -136,14 +146,6 @@ extern NSString *PLMicrophoneDidStartRunningNotificaiton;
 @property (nonatomic, assign, getter=isTouchToFocusEnable) BOOL touchToFocusEnable;
 
 - (void)toggleCamera;
-
-/*!
- * @deprecated
- * This method will always return nil now, use requestCaptureImageWithComplete: or requestCaptureImageDataWithQuality:complete: instead
- *
- * @see requestCaptureImageWithComplete:
- */
-- (UIImage *)stillCaptureImage DEPRECATED_ATTRIBUTE;
 
 /*!
  * 获取视频截图的方法
@@ -218,5 +220,31 @@ extern NSString *PLMicrophoneDidStartRunningNotificaiton;
 // Microphone
 + (PLAuthorizationStatus)microphoneAuthorizationStatus;
 + (void)requestMicrophoneAccessWithCompletionHandler:(void (^)(BOOL granted))handler;
+
+@end
+
+@interface PLCameraStreamingSession (Deprecated)
+
+/*!
+ * @deprecated
+ * 开始推流
+ *
+ * @param pushURL 推流地址
+ *
+ * @param handler 流连接的结果会通过该回调方法返回
+ *
+ * @discussion 当调用过一次并且开始推流时，如果再调用该方法会直接返回不会做任何操作，尽管如此，也不要在没有断开时重复调用该方法。
+ *
+ * @see - (void)startWithCompleted:
+ */
+- (void)startWithPushURL:(NSURL *)pushURL completed:(void (^)(BOOL success))handler DEPRECATED_ATTRIBUTE;
+
+/*!
+ * @deprecated
+ * This method will always return nil now, use requestCaptureImageWithComplete: or requestCaptureImageDataWithQuality:complete: instead
+ *
+ * @see - (void)requestCaptureImageWithComplete:
+ */
+- (UIImage *)stillCaptureImage DEPRECATED_ATTRIBUTE;
 
 @end
