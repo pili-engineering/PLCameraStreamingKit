@@ -14,8 +14,9 @@ PLCameraStreamingKit 是为 **pili 流媒体云服务** 流媒体云服务提供
 - [x] 闪光灯开关
 - [x] 多分辨率编码支持
 - [x] HeaderDoc 文档支持
-- [x] 内置推流地址生成
+- [x] 内置生成安全的 RTMP 推流地址
 - [x] ARM64 支持
+- [x] 支持 RTMP 协议直播推流
 
 
 ## 内容摘要
