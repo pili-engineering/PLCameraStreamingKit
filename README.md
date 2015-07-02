@@ -8,7 +8,7 @@ PLCameraStreamingKit 是为 **pili 流媒体云服务** 流媒体云服务提供
 - [x] 多码率可选
 - [x] H.264 视频编码
 - [x] AAC 音频编码
-- [x] 前后摄像头支持
+- [x] 支持前后摄像头
 - [x] 自动对焦支持
 - [x] 手动调整对焦点支持
 - [x] 闪光灯开关
@@ -70,6 +70,7 @@ pod update
 
 ```Objective-C
 // Stream 对象，正常情况该对象是从自有的服务端请求拿到的
+// 建议此处从自有服务端直接获取整个 Stream 对象，而不要分拆字段，这样客户端可以不必关心 Stream 结构的具体参数是什么
 PLStream *stream = [PLStream streamWithJSON:@{@"id": @"STREAM_ID",
                                               @"title": @"STREAM_TITLE",
                                               @"hub": @"HUB_NAME",
@@ -78,6 +79,7 @@ PLStream *stream = [PLStream streamWithJSON:@{@"id": @"STREAM_ID",
                                               @"disabled": @(NO)}];
 
 // Publish host
+// 此字段也要从服务端获取，不应写死在 App 内
 NSString *publishHost = @"YOUR_RTMP_PUBLISH_HOST";
 
 // 授权后执行
@@ -98,6 +100,7 @@ PLAuthorizationStatus status = [PLCameraStreamingSession cameraAuthorizationStat
    
 if (PLAuthorizationStatusNotDetermined == status) {
     [PLCameraStreamingSession requestCameraAccessWithCompletionHandler:^(BOOL granted) {
+    // 回调确保在主线程，可以安全对 UI 做操作
         granted ? permissionBlock() : noPermissionBlock();
     }];
 } else if (PLAuthorizationStatusAuthorized == status) {
@@ -203,6 +206,8 @@ PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
 
 ## 版本历史
 
+- 1.2.1 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.2.1.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.2.1.md))
+	- 修复初次授权摄像头后预览界面为黑屏的问题
 - 1.2.0 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.2.0.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.2.0.md))
 	- 添加了 `PLStream` 类，支持 `Coding` 协议便于打包存储
 	- 更新 `StreamingSession` 创建方法，借助传递 `PLStream` 对象再无需推流时等待服务端生成推流地址

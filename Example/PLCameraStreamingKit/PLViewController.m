@@ -47,12 +47,17 @@ PLCameraStreamingSessionDelegate
     // PLCameraStreamingKit 使用开始
     
 #warning 仅为测试，发布的 App 中需要请求自有服务端获取 Stream
+    // Stream 对象，正常情况该对象是从自有的服务端请求拿到的
+    // 建议此处从自有服务端直接获取整个 Stream 对象，而不要分拆字段，这样客户端可以不必关心 Stream 结构的具体参数是什么
     PLStream *stream = [PLStream streamWithJSON:@{@"id": @"STREAM_ID",
                                                   @"title": @"STREAM_TITLE",
                                                   @"hub": @"HUB_NAME",
                                                   @"publishKey": @"PUBLISH_KEY",
                                                   @"publishSecurity": @"dynamic",   // or static
                                                   @"disabled": @(NO)}];
+#warning 仅为测试，发布的 App 中需要请求自有服务端获取 publish host
+    // Publish host
+    // 此字段也要从服务端获取，不应写死在 App 内
     NSString *publishHost = @"YOUR_PUBLISH_HOST";
     
     void (^permissionBlock)(void) = ^{
@@ -94,6 +99,7 @@ PLCameraStreamingSessionDelegate
             break;
         case PLAuthorizationStatusNotDetermined: {
             [PLCameraStreamingSession requestCameraAccessWithCompletionHandler:^(BOOL granted) {
+                // 回调确保在主线程，可以安全对 UI 做操作
                 granted ? permissionBlock() : noAccessBlock();
             }];
         }
