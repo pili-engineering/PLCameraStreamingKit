@@ -1,6 +1,6 @@
 # PLCameraStreamingKit
 
-PLCameraStreamingKit 是为 **pili 流媒体云服务** 流媒体云服务提供的一套推送直播流 SDK, 旨在解决 iOS 端快速、轻松实现 iOS 设备利用摄像头直播接入，便于 **pili 流媒体云服务** 的开发者专注于产品业务本身，而不必在技术细节上花费不必要的时间。
+PLCameraStreamingKit 是一个适用于 iOS 的 RTMP 直播推流 SDK，可高度定制化和二次开发。特色是支持 iOS Camera 画面捕获并进行 H.264 硬编码， 以及支持 iOS 麦克风音频采样并进行 AAC 硬编码；同时，还根据 Apple 官方建议的 HLS 分辨率和码率规范，实现了一套可供开发者灵活选择的编码参数集合。借助 PLCameraStreamingKit，开发者可以快速构建一款类似 [Meerkat](https://meerkatapp.co/) 或 [Periscope](https://www.periscope.tv/) 的手机直播应用。
 
 ## 功能特性
 
