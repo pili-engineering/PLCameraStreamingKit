@@ -90,7 +90,6 @@ extern NSString *PLMicrophoneDidStartRunningNotificaiton;
  */
 - (instancetype)initWithConfiguration:(PLCameraStreamingConfiguration *)configuration
                                stream:(PLStream *)stream
-                      rtmpPublishHost:(NSString *)rtmpPublishHost
                      videoOrientation:(AVCaptureVideoOrientation)videoOrientation;
 
 // RTMP Operations
@@ -224,6 +223,26 @@ extern NSString *PLMicrophoneDidStartRunningNotificaiton;
 @end
 
 @interface PLCameraStreamingSession (Deprecated)
+
+/*!
+ * @deprecated
+ * 初始化方法
+ *
+ * @param configuration 用于音视频编码的配置信息
+ *
+ * @param videoOrientation 视频方向
+ *
+ * @return PLCameraStreamingSession 实例
+ *
+ * @discussion 初始化方法会优先使用后置摄像头，如果发现设备没有后置摄像头，会判断是否有前置摄像头，如果都没有，便会返回 nil。
+ *
+ * @see - (instancetype)initWithConfiguration:(PLCameraStreamingConfiguration *)configuration stream:(PLStream *)stream videoOrientation:(AVCaptureVideoOrientation)videoOrientation
+ */
+
+- (instancetype)initWithConfiguration:(PLCameraStreamingConfiguration *)configuration
+                               stream:(PLStream *)stream
+                      rtmpPublishHost:(NSString *)rtmpPublishHost
+                     videoOrientation:(AVCaptureVideoOrientation)videoOrientation DEPRECATED_ATTRIBUTE;
 
 /*!
  * @deprecated

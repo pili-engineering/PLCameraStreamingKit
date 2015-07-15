@@ -69,26 +69,34 @@ pod update
 推流前务必要先检查摄像头 / 麦克风的授权，并记得设置预览界面，```StreamingSession``` 的创建需要 Stream 对象和 Publish host
 
 ```Objective-C
-// Stream 对象，正常情况该对象是从自有的服务端请求拿到的
-// 建议此处从自有服务端直接获取整个 Stream 对象，而不要分拆字段，这样客户端可以不必关心 Stream 结构的具体参数是什么
-PLStream *stream = [PLStream streamWithJSON:@{@"id": @"STREAM_ID",
-                                              @"title": @"STREAM_TITLE",
-                                              @"hub": @"HUB_NAME",
-                                              @"publishKey": @"PUBLISH_KEY",
-                                              @"publishSecurity": @"dynamic", // or static
-                                              @"disabled": @(NO)}];
-
-// Publish host
-// 此字段也要从服务端获取，不应写死在 App 内
-NSString *publishHost = @"YOUR_RTMP_PUBLISH_HOST";
-
+// streamJSON 是从服务端拿回的
+//
+// 从服务端拿回的 streamJSON 结构如下：
+//    @{@"id": @"stream_id",
+//      @"title": @"stream_title",
+//      @"hub": @"hub_name",
+//      @"publishKey": @"publish_key",
+//      @"publishSecurity": @"dynamic", // or static
+//      @"disabled": @(NO),
+//      @"profiles": @[@"480p", @"720p"],    // or empty Array []
+//      @"hosts": @{
+//              @"publish": @{
+//                      @"rtmp": @"rtmp_publish_host"
+//                      },
+//              @"play": @{
+//                      @"rtmp": @"rtmp_play_host",
+//                      @"hls": @"hls_play_host"
+//                      }
+//              }
+//      }
+NSDicationary *streamJSON;
+PLStream *stream = [PLStream streamWithJSON:streamJSON];
 // 授权后执行
 void (^permissionBlock)(void) = ^{
         PLCameraStreamingConfiguration *configuration = [PLCameraStreamingConfiguration defaultConfiguration];
         self.session = [[PLCameraStreamingSession alloc] initWithConfiguration:configuration
                                                                         stream:stream
-                                                               rtmpPublishHost:publishHost
-                                                              videoOrientation:AVCaptureVideoOrientationPortrait];];
+                                                              videoOrientation:AVCaptureVideoOrientationPortrait];
         self.session.delegate = self;
         self.session.previewView = self.view;
 };
@@ -206,6 +214,10 @@ PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
 
 ## 版本历史
 
+- 1.2.3 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.2.3.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.2.3.md))
+    - 更新了 `PLStream` 类结构
+    - 添加新的 session 创建接口
+    - 移除 publishHost，`PLStream` 对象支持自动生成推流地址，请搭配服务端 SDK 至少 1.2.0 或以上版本使用
 - 1.2.2 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.2.2.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.2.2.md))
     - 更新麦克风资源调用方式，添加进入后台后自动停用麦克风功能
 - 1.2.1 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.2.1.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.2.1.md))

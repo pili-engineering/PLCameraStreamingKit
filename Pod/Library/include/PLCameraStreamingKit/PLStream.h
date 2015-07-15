@@ -18,6 +18,16 @@
  *      hub: 'HUB_NAME',
  *      publishKey: 'PUBLISH_KEY',
  *      publishSecurity: 'PUBLISH_SECURITY',
+ *      profiles: ['480p', '720p'],
+ *      hosts: {
+ *          publish: {
+ *              rtmp: 'xxx.xxx.xxx'
+ *          },
+ *          play: {
+ *              rtmp: 'xxx.xxx.xxx',
+ *              hls: 'xxxxx.xxxxx'
+ *          }
+ *      },
  *      disabled: false
  * }
  * @endcode
@@ -34,6 +44,8 @@ NSCoding
 /// 可选 static or dynamic
 @property (nonatomic, strong) NSString  *publishSecurity;
 @property (nonatomic, assign, getter=isDisabled) BOOL disabled;
+@property (nonatomic, strong) NSArray   *profiles;
+@property (nonatomic, strong) NSDictionary   *hosts;
 
 + (instancetype)streamWithJSON:(NSDictionary *)json;
 - (instancetype)initWithJSON:(NSDictionary *)json;
