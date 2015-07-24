@@ -1,7 +1,7 @@
 PODS:
-  - PLCameraStreamingKit (1.2.4):
-    - PLCameraStreamingKit/precompiled (= 1.2.4)
-  - PLCameraStreamingKit/precompiled (1.2.4)
+  - PLCameraStreamingKit (1.2.5):
+    - PLCameraStreamingKit/precompiled (= 1.2.5)
+  - PLCameraStreamingKit/precompiled (1.2.5)
 
 DEPENDENCIES:
   - PLCameraStreamingKit (from `../`)
@@ -11,6 +11,6 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  PLCameraStreamingKit: 1dd788c9ac0e7727d35d0e883031b573cc4829e0
+  PLCameraStreamingKit: 4765265b7db687f55fc42c6a092d62ab6b4eec0e
 
 COCOAPODS: 0.37.2

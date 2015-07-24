@@ -1,10 +1,11 @@
 # PLCameraStreamingKit
 
-PLCameraStreamingKit 是一个适用于 iOS 的 RTMP 直播推流 SDK，可高度定制化和二次开发。特色是支持 iOS Camera 画面捕获并进行 H.264 硬编码， 以及支持 iOS 麦克风音频采样并进行 AAC 硬编码；同时，还根据 Apple 官方建议的 HLS 分辨率和码率规范，实现了一套可供开发者灵活选择的编码参数集合。借助 PLCameraStreamingKit，开发者可以快速构建一款类似 [Meerkat](https://meerkatapp.co/) 或 [Periscope](https://www.periscope.tv/) 的手机直播应用。
+PLCameraStreamingKit 是一个适用于 iOS 的 RTMP 直播推流 SDK，可高度定制化和二次开发。特色是支持 iOS Camera 画面捕获并进行 H.264 硬编码，以及支持 iOS 麦克风音频采样并进行 AAC 硬编码；同时，还根据移动网络环境的多变性，实现了一套可供开发者灵活选择的编码参数集合。借助 PLCameraStreamingKit，开发者可以快速构建一款类似 [Meerkat](https://meerkatapp.co/) 或 [Periscope](https://www.periscope.tv/) 的手机直播应用。
 
 ## 功能特性
 
-- [x] 硬件编解码
+- [x] iOS 8 系统级视频硬编码
+- [x] 硬件编码
 - [x] 多码率可选
 - [x] H.264 视频编码
 - [x] AAC 音频编码
@@ -140,10 +141,6 @@ if (PLAuthorizationStatusNotDetermined == status) {
 
 移动端因网络环境不稳定及用户电量宝贵等原因，并不建议直接使用最高码率和分辨率来做推流，以最佳编码参数来做设置可以带来更好的推流效果和用户体验。
 
-苹果官方推荐的编码参数如下图：
-
-![Encode 推荐](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/streaming-encode-recommendations.jpg?raw=true)
-
 你无需辛苦的一个个参数设置，```PLCameraStreamingKit``` 提供了一个编码配置的类来帮你快速完成配置。
 
 ```Objective-C
@@ -168,20 +165,31 @@ typedef NS_ENUM(NSUInteger, PLStreamingDimension) {
 };
 
 // 推流质量
+// fps: 12, profile level: baseline30, video bitrate: 150Kbps, audio sample rate: 44MHz, audio bitrate: 96Kbps
 extern NSString *kPLStreamingQualityLow1;
 
+// fps: 15, profile level: baseline30, video bitrate: 264Kbps, audio sample rate: 44MHz, audio bitrate: 96Kbps
 extern NSString *kPLStreamingQualityLow2;
 
+// fps: 15, profile level: baseline30, video bitrate: 350Kbps, audio sample rate: 44MHz, audio bitrate: 96Kbps
+extern NSString *kPLStreamingQualityLow3;
+
+// fps: 30, profile level: baseline31, video bitrate: 512Kbps, audio sample rate: 44MHz, audio bitrate: 96Kbps
 extern NSString *kPLStreamingQualityMedium1;
 
+// fps: 30, profile level: baseline31, video bitrate: 800Kbps, audio sample rate: 44MHz, audio bitrate: 96Kbps
 extern NSString *kPLStreamingQualityMedium2;
 
+// fps: 30, profile level: baseline31, video bitrate: 1000Kbps, audio sample rate: 44MHz, audio bitrate: 96Kbps
 extern NSString *kPLStreamingQualityMedium3;
 
+// fps: 30, profile level: main30, video bitrate: 1200Kbps, audio sample rate: 44MHz, audio bitrate: 128Kbps
 extern NSString *kPLStreamingQualityHigh1;
 
+// fps: 30, profile level: main30, video bitrate: 1500Kbps, audio sample rate: 44MHz, audio bitrate: 128Kbps
 extern NSString *kPLStreamingQualityHigh2;
 
+// fps: 30, profile level: main30, video bitrate: 2000Kbps, audio sample rate: 44MHz, audio bitrate: 128Kbps
 extern NSString *kPLStreamingQualityHigh3;
 ```
 
@@ -201,6 +209,20 @@ PLCameraStreamingConfiguration *configuration = [PLCameraStreamingConfiguration 
 
 在创建好编码配置对象后，就可以用它来初始化 ```PLCameraStreamingSession``` 了。
 
+### Quality 具体参数
+
+| Quality | FPS | ProfileLevel | Video BitRate(Kbps) | Audio Samplerate(MHz)) | Audio BitRate(Kbps) |
+|---|---|---|---|---|---|
+|kPLStreamingQualityLow1|12|Baseline 30|150|44|96|
+|kPLStreamingQualityLow2|15|Baseline 30|264|44|96|
+|kPLStreamingQualityLow3|15|Baseline 30|350|44|96|
+|kPLStreamingQualityMedium1|30|Baseline 31|512|44|96|
+|kPLStreamingQualityMedium2|30|Baseline 31|800|44|96|
+|kPLStreamingQualityMedium3|30|Baseline 31|1000|44|96|
+|kPLStreamingQualityHigh1|30|Main 30|1200|44|128|
+|kPLStreamingQualityHigh2|30|Main 30|1500|44|128|
+|kPLStreamingQualityHigh2|30|Main 30|2000|44|128|
+
 ## 文档支持
 
 PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
@@ -214,6 +236,8 @@ PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
 
 ## 版本历史
 
+- 1.2.5 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.2.5.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.2.5.md))
+    - 更新了 Quality 配置
 - 1.2.4 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.2.4.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.2.4.md))
     - 添加全新的 iOS 8 硬编码器，减少编码延时
 - 1.2.3 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.2.3.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.2.3.md))
