@@ -7,364 +7,364 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		17B6FAE5D261E34E7E58974B /* Pods-PLCameraStreamingKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7C9D06BAA99775326D054C /* Pods-PLCameraStreamingKit-dummy.m */; };
-		994502753702A5DFDEBA1F7D /* Pods-Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD1A9902A5621E575EC84F /* Pods-Tests-dummy.m */; };
-		F347316A7DFB304802AD0CB0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AACC76474FC0A0DC55A44CB /* Foundation.framework */; };
-		F9450F2536A1138969FE3F5B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AACC76474FC0A0DC55A44CB /* Foundation.framework */; };
+		4BEDB8F13E76D170D9C6AA21 /* Pods-PLCameraStreamingKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E42D4937DDCA32DAE35790E1 /* Pods-PLCameraStreamingKit-dummy.m */; };
+		659C50AAE3DF216BAE18B9E3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 008CA198A2C4500F71FB8841 /* Foundation.framework */; };
+		C27BDB0FEAFD43D7291A2F1F /* Pods-Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5CB766D18FD1268DA8E028 /* Pods-Tests-dummy.m */; };
+		DCC0F0215460EF11708D5C78 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 008CA198A2C4500F71FB8841 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		00755A944F0F23AEB9B70B93 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
-		084C653DBEC0B0BE5DF50358 /* ssl2.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ssl2.h; sourceTree = "<group>"; };
-		0897807347B7444B663412DD /* objects.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = objects.h; sourceTree = "<group>"; };
-		09C690A94DC4095E85A9EDBA /* pem2.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = pem2.h; sourceTree = "<group>"; };
-		10EECEAC4C16553232198B07 /* cms.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = cms.h; sourceTree = "<group>"; };
-		153CF40BED848DFC4C63DF1D /* symhacks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = symhacks.h; sourceTree = "<group>"; };
-		154928FADD40AE41AEB90C73 /* bn.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = bn.h; sourceTree = "<group>"; };
-		15AD5B0C957592B7BBF3B8DA /* buffer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = buffer.h; sourceTree = "<group>"; };
-		174B727FE0EE1AA1DC822C9B /* crypto.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = crypto.h; sourceTree = "<group>"; };
-		1D418A16B6EFA87E0510818B /* PLTypeDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLTypeDefines.h; sourceTree = "<group>"; };
-		1FF85C5F3F8C66DAE16CAEAC /* modes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = modes.h; sourceTree = "<group>"; };
-		20526FF0248ACBFA82AFAE8C /* rsa.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = rsa.h; sourceTree = "<group>"; };
-		20F69771519E80AA15867240 /* lhash.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = lhash.h; sourceTree = "<group>"; };
-		2184E395651BC2F03B00ACFE /* sha.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = sha.h; sourceTree = "<group>"; };
-		23078C27DE28C2BDBDB59CC7 /* dsa.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = dsa.h; sourceTree = "<group>"; };
-		278CF857BB0675F32DCC19D4 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		289DBE56EB1EB96964BCAD16 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		28BA840C8F45600C81E33F09 /* txt_db.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = txt_db.h; sourceTree = "<group>"; };
-		2D72F9826D16F5B1B192935D /* PLCameraStreamingKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCameraStreamingKit.h; sourceTree = "<group>"; };
-		2F605DAAE32575E8DA460BBB /* ssl3.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ssl3.h; sourceTree = "<group>"; };
-		2FC559D88E6CE75B1DB9B6AE /* ripemd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ripemd.h; sourceTree = "<group>"; };
-		31E12360585D09F467709ACF /* Pods-PLCameraStreamingKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PLCameraStreamingKit.release.xcconfig"; sourceTree = "<group>"; };
-		36CD3AB43B8866AC3C5A26B9 /* PLStream.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLStream.h; sourceTree = "<group>"; };
-		39ED527919613042C945878D /* Pods-Tests-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Tests-environment.h"; sourceTree = "<group>"; };
-		3CBD1A9902A5621E575EC84F /* Pods-Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Tests-dummy.m"; sourceTree = "<group>"; };
-		3D6A71663EA34462EAB65E55 /* asn1.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = asn1.h; sourceTree = "<group>"; };
-		3DBB9EEB34215DFB477FFA27 /* PLMacroDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLMacroDefines.h; sourceTree = "<group>"; };
-		44D193B730A66FED6EC33AD5 /* evp.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = evp.h; sourceTree = "<group>"; };
-		4BFB0D45B942CAA1A4F958BE /* idea.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = idea.h; sourceTree = "<group>"; };
-		4EEB882C477738E46CA5F698 /* aes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = aes.h; sourceTree = "<group>"; };
-		50C7CB924AF7689241A0027F /* krb5_asn.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = krb5_asn.h; sourceTree = "<group>"; };
-		523BA8FD52427ECDB1224034 /* ecdh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ecdh.h; sourceTree = "<group>"; };
-		548471B222487E24836CD281 /* camellia.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = camellia.h; sourceTree = "<group>"; };
-		5625DB6AB6FE3705E0BAF060 /* tls1.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = tls1.h; sourceTree = "<group>"; };
-		56C00FA9087CC2CB147CCD0E /* Pods-PLCameraStreamingKit-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PLCameraStreamingKit-acknowledgements.plist"; sourceTree = "<group>"; };
-		5768D55AB382E4FE6FB0BCE0 /* dh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = dh.h; sourceTree = "<group>"; };
-		5C80F31DF299CAE85A2F0819 /* asn1_mac.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = asn1_mac.h; sourceTree = "<group>"; };
-		5DC9B0070E82EFE45D5FA1DF /* blowfish.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = blowfish.h; sourceTree = "<group>"; };
-		5E7C9D06BAA99775326D054C /* Pods-PLCameraStreamingKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PLCameraStreamingKit-dummy.m"; sourceTree = "<group>"; };
-		60BA6C3BC1E31B72DF0D70E4 /* rc4.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = rc4.h; sourceTree = "<group>"; };
-		6256EC98550FC957E87D4710 /* Pods-PLCameraStreamingKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PLCameraStreamingKit.debug.xcconfig"; sourceTree = "<group>"; };
-		6822691407F302D50AC338EC /* libPLCameraStreamingKit.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libPLCameraStreamingKit.a; path = Pod/Library/lib/libPLCameraStreamingKit.a; sourceTree = "<group>"; };
-		6D8EC895AA5D3F73D884F92E /* opensslconf.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = opensslconf.h; sourceTree = "<group>"; };
-		71069A2566BB8E41D8DAD92E /* ts.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ts.h; sourceTree = "<group>"; };
-		72DE07748EE16F03191DB255 /* des.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = des.h; sourceTree = "<group>"; };
-		73CC9A7D1C4760AFB7000CFA /* md5.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = md5.h; sourceTree = "<group>"; };
-		74528ADD0ADD21AD93780856 /* dso.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = dso.h; sourceTree = "<group>"; };
-		751DC7121C15F975F7858418 /* asn1t.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = asn1t.h; sourceTree = "<group>"; };
-		7AACC76474FC0A0DC55A44CB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		7E828E3D35B6FB134320D642 /* stack.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = stack.h; sourceTree = "<group>"; };
-		7F05F8ED2A5CBF02FA55FBAB /* pem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = pem.h; sourceTree = "<group>"; };
-		81D1D5FC986E44F866CBEFF7 /* ui.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ui.h; sourceTree = "<group>"; };
-		83C363D229976A907B84D43B /* rand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = rand.h; sourceTree = "<group>"; };
-		8712E16712561A9066C06AD0 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		8A8CB80E36A27FAF891CB825 /* mdc2.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = mdc2.h; sourceTree = "<group>"; };
-		8D45CCACB2DA9C540940F9C6 /* kssl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = kssl.h; sourceTree = "<group>"; };
-		8D47135373DDDCACD5026962 /* comp.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = comp.h; sourceTree = "<group>"; };
-		90D4582A5EFB57565457026D /* Pods-PLCameraStreamingKit-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PLCameraStreamingKit-environment.h"; sourceTree = "<group>"; };
-		91B478D6F309355B847CC410 /* Pods-Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		9602A68FC73984B297737052 /* ui_compat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ui_compat.h; sourceTree = "<group>"; };
-		99F35F36AD89D46DB2B6E0BC /* x509_vfy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = x509_vfy.h; sourceTree = "<group>"; };
-		A008D52247E688391DED6BC0 /* srp.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = srp.h; sourceTree = "<group>"; };
-		A07584DD58F206F15EA60211 /* libssl-ios.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = "libssl-ios.a"; path = "Pod/Library/lib/libssl-ios.a"; sourceTree = "<group>"; };
-		A2387467BBA8B740B4B4E476 /* whrlpool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = whrlpool.h; sourceTree = "<group>"; };
-		A502DEF17748765E94903D8C /* libPods-PLCameraStreamingKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PLCameraStreamingKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AE979D9881D681FF9A963B37 /* PLCameraStreamingSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCameraStreamingSession.h; sourceTree = "<group>"; };
-		B0F9493299DBECCB7E9F774D /* Pods-PLCameraStreamingKit-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PLCameraStreamingKit-acknowledgements.markdown"; sourceTree = "<group>"; };
-		B2004C879A6FA7740462948C /* md4.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = md4.h; sourceTree = "<group>"; };
-		B2EC37E82F96BB68447D194B /* des_old.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = des_old.h; sourceTree = "<group>"; };
-		B3BE0ADB1640A9C73942DDDA /* ecdsa.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ecdsa.h; sourceTree = "<group>"; };
-		B461EE40AE19A8E1B679550E /* libcrypto-ios.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = "libcrypto-ios.a"; path = "Pod/Library/lib/libcrypto-ios.a"; sourceTree = "<group>"; };
-		B4F3CAC524769399BCA94FA4 /* obj_mac.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = obj_mac.h; sourceTree = "<group>"; };
-		B828595A4FEC73E330819E4F /* PLCameraStreamingConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCameraStreamingConfiguration.h; sourceTree = "<group>"; };
-		B972E9957E01ACC419952E06 /* pkcs7.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = pkcs7.h; sourceTree = "<group>"; };
-		BD3367DFFFB72979F610FBFF /* conf.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = conf.h; sourceTree = "<group>"; };
-		BEF0BD15546DE445C9589976 /* pqueue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = pqueue.h; sourceTree = "<group>"; };
-		C15D14C4193632C07111D938 /* Pods-Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Tests-resources.sh"; sourceTree = "<group>"; };
-		C63B493D7C6C4889FB3B0E9B /* err.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = err.h; sourceTree = "<group>"; };
-		CA8984CA39D522E57E2CA3D7 /* ossl_typ.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ossl_typ.h; sourceTree = "<group>"; };
-		CC0B69B0BE359E015574B48E /* pkcs12.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = pkcs12.h; sourceTree = "<group>"; };
-		CD3596E8880CA8C45F59BC41 /* safestack.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = safestack.h; sourceTree = "<group>"; };
-		CD9E4E1477D1980080F6DEAB /* e_os2.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = e_os2.h; sourceTree = "<group>"; };
-		CDAE7B2836464B0DDC07E1E7 /* Pods-Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		D1FE16C42644EA06527B9D6C /* engine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = engine.h; sourceTree = "<group>"; };
-		D23D9AB17798356A0BDC8F7E /* x509v3.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = x509v3.h; sourceTree = "<group>"; };
-		D29E7C7E437E230021423EB1 /* ebcdic.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ebcdic.h; sourceTree = "<group>"; };
-		D725F0A226EC7BF6D6E1AC83 /* dtls1.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = dtls1.h; sourceTree = "<group>"; };
-		DB85625C9101677E70A6C9B2 /* opensslv.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = opensslv.h; sourceTree = "<group>"; };
-		DE6AC2F7A0C8CD93AF725D24 /* bio.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = bio.h; sourceTree = "<group>"; };
-		E65CA68F78F67F2295E56D25 /* hmac.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = hmac.h; sourceTree = "<group>"; };
-		E7D81F3A6A47F91323B141FF /* x509.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = x509.h; sourceTree = "<group>"; };
-		E84118C58D9ED6ECCA76C692 /* ssl23.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ssl23.h; sourceTree = "<group>"; };
-		EBBEC9348EF39FAFFC38E75B /* seed.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = seed.h; sourceTree = "<group>"; };
-		EEBF840269B4C30AEA1DC865 /* rc2.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = rc2.h; sourceTree = "<group>"; };
-		F407B2972F4CE011F6093379 /* conf_api.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = conf_api.h; sourceTree = "<group>"; };
-		F73FE3CCF4F5545B06619828 /* cmac.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = cmac.h; sourceTree = "<group>"; };
-		FAF37DECC31167840D3B8B80 /* ec.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ec.h; sourceTree = "<group>"; };
-		FB4F0EE8714BC17957F85F53 /* ocsp.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ocsp.h; sourceTree = "<group>"; };
-		FB6E6BF65843C3FE515F4654 /* srtp.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = srtp.h; sourceTree = "<group>"; };
-		FCA3939F1A58FF7C2A8B9CE9 /* Pods-PLCameraStreamingKit-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PLCameraStreamingKit-resources.sh"; sourceTree = "<group>"; };
-		FD0D15B2CE63CCCC6453EE3E /* ssl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ssl.h; sourceTree = "<group>"; };
-		FDF7EF98523F43D9C7761821 /* cast.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = cast.h; sourceTree = "<group>"; };
+		008CA198A2C4500F71FB8841 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		066A3B821D7D63A6003D2475 /* cmac.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = cmac.h; sourceTree = "<group>"; };
+		07965D5CB7E2A5F46BB7009F /* aes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = aes.h; sourceTree = "<group>"; };
+		07B82964F84EEA57CDB171A5 /* x509_vfy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = x509_vfy.h; sourceTree = "<group>"; };
+		088B76189EA40FB713E83CD0 /* bn.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = bn.h; sourceTree = "<group>"; };
+		1200E348D2843A84D518A440 /* conf.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = conf.h; sourceTree = "<group>"; };
+		1459261548850AEA1F7566BC /* libcrypto-ios.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = "libcrypto-ios.a"; path = "Pod/Library/lib/libcrypto-ios.a"; sourceTree = "<group>"; };
+		155EA93C3FC72BE3AB23133A /* ocsp.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ocsp.h; sourceTree = "<group>"; };
+		185DB59E774F245701DD8F68 /* mdc2.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = mdc2.h; sourceTree = "<group>"; };
+		18B5CCB85F4BF291E9B0ED60 /* pkcs12.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = pkcs12.h; sourceTree = "<group>"; };
+		1C5BC6CD7F4FFC59A325E07F /* opensslconf.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = opensslconf.h; sourceTree = "<group>"; };
+		20CC5DA4EA1CDB94B42E9AB6 /* ripemd.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ripemd.h; sourceTree = "<group>"; };
+		2211B6EB0B1BBFC0DCBFB21B /* Pods-Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Tests-resources.sh"; sourceTree = "<group>"; };
+		248F4FDDFC4F743CEF59B792 /* lhash.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = lhash.h; sourceTree = "<group>"; };
+		2614A5D380F460D34198FE9E /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		28D5227F3E2A1906A3857F2A /* modes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = modes.h; sourceTree = "<group>"; };
+		2EB074D7CDAD0CD189F8337A /* ossl_typ.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ossl_typ.h; sourceTree = "<group>"; };
+		33A6953029D5422E2A664D60 /* PLCameraStreamingConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCameraStreamingConfiguration.h; sourceTree = "<group>"; };
+		34A7D4F776E9F06092141E53 /* ecdsa.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ecdsa.h; sourceTree = "<group>"; };
+		37D3821AEC0F4FCAEC8AB027 /* ssl3.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ssl3.h; sourceTree = "<group>"; };
+		3A619D5CDDCA16CF01884D5C /* Pods-PLCameraStreamingKit-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PLCameraStreamingKit-acknowledgements.plist"; sourceTree = "<group>"; };
+		3AD6792D1D62852E7630B474 /* err.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = err.h; sourceTree = "<group>"; };
+		3C576BBCEBE9E0B4FE826515 /* comp.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = comp.h; sourceTree = "<group>"; };
+		3E3679CF1B5004AB76149AA4 /* ec.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ec.h; sourceTree = "<group>"; };
+		42AF616C4A657390645D2CCE /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
+		4548580498FA119B839D8216 /* engine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = engine.h; sourceTree = "<group>"; };
+		46A4E86CDB77913C787A332A /* asn1_mac.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = asn1_mac.h; sourceTree = "<group>"; };
+		4A86FCACF265FB4D992B6C42 /* txt_db.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = txt_db.h; sourceTree = "<group>"; };
+		4ABB98F505AAA9BC97A39C16 /* dtls1.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = dtls1.h; sourceTree = "<group>"; };
+		4BEA636E848B79AD4F72E443 /* opensslv.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = opensslv.h; sourceTree = "<group>"; };
+		4EE6237F4D7C5A0218CF046F /* pem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = pem.h; sourceTree = "<group>"; };
+		4F1EC628FBA79CCF01843993 /* ui.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ui.h; sourceTree = "<group>"; };
+		533DAEAEB3247E2A653062B6 /* Pods-Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		55D4748F3CF87C251C1AEF20 /* pkcs7.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = pkcs7.h; sourceTree = "<group>"; };
+		58E698ADEA26A47796362FCE /* asn1.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = asn1.h; sourceTree = "<group>"; };
+		5BBE1D9B6CDDAFBA60EC5E7B /* kssl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = kssl.h; sourceTree = "<group>"; };
+		5E6054CD130C48A02A5C3339 /* objects.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = objects.h; sourceTree = "<group>"; };
+		5EB068D37D4458D4049301B0 /* md5.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = md5.h; sourceTree = "<group>"; };
+		625DC636A5E40FA691611D29 /* dso.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = dso.h; sourceTree = "<group>"; };
+		66B6B42430D9D125F9D7F844 /* Pods-PLCameraStreamingKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PLCameraStreamingKit.debug.xcconfig"; sourceTree = "<group>"; };
+		699481ACCA01CE9CF1B3DEA9 /* des.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = des.h; sourceTree = "<group>"; };
+		6A5CB766D18FD1268DA8E028 /* Pods-Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Tests-dummy.m"; sourceTree = "<group>"; };
+		6B1EB07521152D6E943C7304 /* rc2.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = rc2.h; sourceTree = "<group>"; };
+		6BC300E47269E00C5BDEB7D1 /* tls1.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = tls1.h; sourceTree = "<group>"; };
+		6DF8F3AA9914A1C4E9AB6BFA /* stack.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = stack.h; sourceTree = "<group>"; };
+		708BE1DA5963517FE8AB504A /* dh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = dh.h; sourceTree = "<group>"; };
+		724EC703828FFC63D969F6C4 /* srtp.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = srtp.h; sourceTree = "<group>"; };
+		73ACFCDF9C10D89CF321B003 /* seed.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = seed.h; sourceTree = "<group>"; };
+		74EE1A75419FA2E0BADBEF35 /* crypto.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = crypto.h; sourceTree = "<group>"; };
+		764C7CA3ABE48D6FFF05AD66 /* obj_mac.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = obj_mac.h; sourceTree = "<group>"; };
+		7AF330FCDF88C5BC699785E3 /* asn1t.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = asn1t.h; sourceTree = "<group>"; };
+		7B71A17B13095A4EBDE85F71 /* idea.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = idea.h; sourceTree = "<group>"; };
+		801A44CF7DA71C37198989B7 /* ssl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ssl.h; sourceTree = "<group>"; };
+		81D48E1B1E4A86B271473A70 /* pqueue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = pqueue.h; sourceTree = "<group>"; };
+		831AA19FE354081C80516EFF /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B3CA476F20C8D18E339B3BE /* ssl23.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ssl23.h; sourceTree = "<group>"; };
+		8D66224988E4F843B28FFB35 /* PLCameraStreamingKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCameraStreamingKit.h; sourceTree = "<group>"; };
+		8D71FBEBFA0A8A0A2DFB171A /* conf_api.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = conf_api.h; sourceTree = "<group>"; };
+		90B5C646AADCE68D18505FE7 /* pem2.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = pem2.h; sourceTree = "<group>"; };
+		924C80642E0FBB655FFE7435 /* ecdh.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ecdh.h; sourceTree = "<group>"; };
+		9655554CFCEE7699772BFB7B /* ts.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ts.h; sourceTree = "<group>"; };
+		987C05AB91719704DEAA308C /* libssl-ios.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = "libssl-ios.a"; path = "Pod/Library/lib/libssl-ios.a"; sourceTree = "<group>"; };
+		9922646176D6D9E6BC58CC5C /* blowfish.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = blowfish.h; sourceTree = "<group>"; };
+		9E46549D3463342495C7D5C4 /* PLCameraStreamingSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCameraStreamingSession.h; sourceTree = "<group>"; };
+		9FB3FE9D37723E0A97B188B4 /* krb5_asn.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = krb5_asn.h; sourceTree = "<group>"; };
+		A15E5788D6173692264ABA00 /* e_os2.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = e_os2.h; sourceTree = "<group>"; };
+		A1BCC149B3172C31D3377BC2 /* Pods-Tests-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Tests-environment.h"; sourceTree = "<group>"; };
+		A34E7AF2CAD4BE59F6727137 /* sha.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = sha.h; sourceTree = "<group>"; };
+		A5FA7DDE2309679E19447690 /* cast.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = cast.h; sourceTree = "<group>"; };
+		A7CC453ED2B61C886F9DA0FA /* hmac.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = hmac.h; sourceTree = "<group>"; };
+		A86A45BCF1E163A4264151D8 /* Pods-PLCameraStreamingKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PLCameraStreamingKit.release.xcconfig"; sourceTree = "<group>"; };
+		AC5A0561719DE3F85FA88534 /* evp.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = evp.h; sourceTree = "<group>"; };
+		AC73C0C69F31260621270058 /* rsa.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = rsa.h; sourceTree = "<group>"; };
+		AF83C6ABA48A2A385F2879C7 /* camellia.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = camellia.h; sourceTree = "<group>"; };
+		B93159D5482B0A0A9BD414CF /* PLStream.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLStream.h; sourceTree = "<group>"; };
+		BC6F8B9D19AC44EEB1DADC41 /* whrlpool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = whrlpool.h; sourceTree = "<group>"; };
+		BD4036AE35F57679B5E81437 /* bio.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = bio.h; sourceTree = "<group>"; };
+		C17B9F78030B40FB2F85046D /* Pods-Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		C1AC534174EB809B0EBD3808 /* PLMacroDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLMacroDefines.h; sourceTree = "<group>"; };
+		C48C83557A284BD1EF8EE4DD /* rand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = rand.h; sourceTree = "<group>"; };
+		C4B1C2172FF27C8830B7DA84 /* dsa.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = dsa.h; sourceTree = "<group>"; };
+		C62A6D626BF485FC78121C86 /* ui_compat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ui_compat.h; sourceTree = "<group>"; };
+		C77B0B5B58A8AA0ABA29DBB3 /* srp.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = srp.h; sourceTree = "<group>"; };
+		C921212F7E7E73479B1D6974 /* rc4.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = rc4.h; sourceTree = "<group>"; };
+		CB14BD847CC2B2EE10946DE2 /* safestack.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = safestack.h; sourceTree = "<group>"; };
+		CB187D42835C49E4C545C0FF /* libPLCameraStreamingKit.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libPLCameraStreamingKit.a; path = Pod/Library/lib/libPLCameraStreamingKit.a; sourceTree = "<group>"; };
+		CC264B4B96D5556181CB76D1 /* md4.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = md4.h; sourceTree = "<group>"; };
+		CEF161627CDF7F90C6F09051 /* buffer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = buffer.h; sourceTree = "<group>"; };
+		D11A5118D81C56DDCCF72DB9 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		D6D9AC883E744E5A0AE79C73 /* Pods-PLCameraStreamingKit-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PLCameraStreamingKit-acknowledgements.markdown"; sourceTree = "<group>"; };
+		DF89AAA44E82805ED1E80CA4 /* des_old.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = des_old.h; sourceTree = "<group>"; };
+		E42D4937DDCA32DAE35790E1 /* Pods-PLCameraStreamingKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PLCameraStreamingKit-dummy.m"; sourceTree = "<group>"; };
+		E5D9018CD3806EEEDA87EF70 /* ebcdic.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ebcdic.h; sourceTree = "<group>"; };
+		EC4F88ADEBC2D5C76BAB1338 /* symhacks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = symhacks.h; sourceTree = "<group>"; };
+		EDD2DF4F5F2816BEEF37ABC5 /* cms.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = cms.h; sourceTree = "<group>"; };
+		F063A1F0033BC7A30C5CB4C5 /* PLTypeDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLTypeDefines.h; sourceTree = "<group>"; };
+		F1CA563AFB4CCDA1E3CFF9F5 /* ssl2.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ssl2.h; sourceTree = "<group>"; };
+		F4AC8FCD78017E79C813E911 /* Pods-PLCameraStreamingKit-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PLCameraStreamingKit-resources.sh"; sourceTree = "<group>"; };
+		F55C97B2389512716F24B4BD /* x509v3.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = x509v3.h; sourceTree = "<group>"; };
+		FC99C9A8A51A504F93E8C1C6 /* libPods-PLCameraStreamingKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PLCameraStreamingKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE7464071CC73C96F44A51CB /* x509.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = x509.h; sourceTree = "<group>"; };
+		FE79044934546DBFE3C76FAE /* Pods-PLCameraStreamingKit-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PLCameraStreamingKit-environment.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		503F5C12AD0BCB44A21B67A9 /* Frameworks */ = {
+		59C7C321CA61D4187E8044C1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9450F2536A1138969FE3F5B /* Foundation.framework in Frameworks */,
+				DCC0F0215460EF11708D5C78 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B21EBB9A846BFEB012908FF0 /* Frameworks */ = {
+		7124B0A8AD9CB49A1E1ABB81 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F347316A7DFB304802AD0CB0 /* Foundation.framework in Frameworks */,
+				659C50AAE3DF216BAE18B9E3 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0717715E6DAB80A1DE7A622D /* PLCameraStreamingKit */ = {
+		0870601545725E18EF449781 /* PLCameraStreamingKit */ = {
 			isa = PBXGroup;
 			children = (
-				B828595A4FEC73E330819E4F /* PLCameraStreamingConfiguration.h */,
-				2D72F9826D16F5B1B192935D /* PLCameraStreamingKit.h */,
-				AE979D9881D681FF9A963B37 /* PLCameraStreamingSession.h */,
-				3DBB9EEB34215DFB477FFA27 /* PLMacroDefines.h */,
-				36CD3AB43B8866AC3C5A26B9 /* PLStream.h */,
-				1D418A16B6EFA87E0510818B /* PLTypeDefines.h */,
+				33A6953029D5422E2A664D60 /* PLCameraStreamingConfiguration.h */,
+				8D66224988E4F843B28FFB35 /* PLCameraStreamingKit.h */,
+				9E46549D3463342495C7D5C4 /* PLCameraStreamingSession.h */,
+				C1AC534174EB809B0EBD3808 /* PLMacroDefines.h */,
+				B93159D5482B0A0A9BD414CF /* PLStream.h */,
+				F063A1F0033BC7A30C5CB4C5 /* PLTypeDefines.h */,
 			);
 			path = PLCameraStreamingKit;
 			sourceTree = "<group>";
 		};
-		07AF9A546F9011CE6CE43582 /* openssl */ = {
+		0FD0D888DF508ACB3343A6AD /* openssl */ = {
 			isa = PBXGroup;
 			children = (
-				4EEB882C477738E46CA5F698 /* aes.h */,
-				3D6A71663EA34462EAB65E55 /* asn1.h */,
-				5C80F31DF299CAE85A2F0819 /* asn1_mac.h */,
-				751DC7121C15F975F7858418 /* asn1t.h */,
-				DE6AC2F7A0C8CD93AF725D24 /* bio.h */,
-				5DC9B0070E82EFE45D5FA1DF /* blowfish.h */,
-				154928FADD40AE41AEB90C73 /* bn.h */,
-				15AD5B0C957592B7BBF3B8DA /* buffer.h */,
-				548471B222487E24836CD281 /* camellia.h */,
-				FDF7EF98523F43D9C7761821 /* cast.h */,
-				F73FE3CCF4F5545B06619828 /* cmac.h */,
-				10EECEAC4C16553232198B07 /* cms.h */,
-				8D47135373DDDCACD5026962 /* comp.h */,
-				BD3367DFFFB72979F610FBFF /* conf.h */,
-				F407B2972F4CE011F6093379 /* conf_api.h */,
-				174B727FE0EE1AA1DC822C9B /* crypto.h */,
-				72DE07748EE16F03191DB255 /* des.h */,
-				B2EC37E82F96BB68447D194B /* des_old.h */,
-				5768D55AB382E4FE6FB0BCE0 /* dh.h */,
-				23078C27DE28C2BDBDB59CC7 /* dsa.h */,
-				74528ADD0ADD21AD93780856 /* dso.h */,
-				D725F0A226EC7BF6D6E1AC83 /* dtls1.h */,
-				CD9E4E1477D1980080F6DEAB /* e_os2.h */,
-				D29E7C7E437E230021423EB1 /* ebcdic.h */,
-				FAF37DECC31167840D3B8B80 /* ec.h */,
-				523BA8FD52427ECDB1224034 /* ecdh.h */,
-				B3BE0ADB1640A9C73942DDDA /* ecdsa.h */,
-				D1FE16C42644EA06527B9D6C /* engine.h */,
-				C63B493D7C6C4889FB3B0E9B /* err.h */,
-				44D193B730A66FED6EC33AD5 /* evp.h */,
-				E65CA68F78F67F2295E56D25 /* hmac.h */,
-				4BFB0D45B942CAA1A4F958BE /* idea.h */,
-				50C7CB924AF7689241A0027F /* krb5_asn.h */,
-				8D45CCACB2DA9C540940F9C6 /* kssl.h */,
-				20F69771519E80AA15867240 /* lhash.h */,
-				B2004C879A6FA7740462948C /* md4.h */,
-				73CC9A7D1C4760AFB7000CFA /* md5.h */,
-				8A8CB80E36A27FAF891CB825 /* mdc2.h */,
-				1FF85C5F3F8C66DAE16CAEAC /* modes.h */,
-				B4F3CAC524769399BCA94FA4 /* obj_mac.h */,
-				0897807347B7444B663412DD /* objects.h */,
-				FB4F0EE8714BC17957F85F53 /* ocsp.h */,
-				6D8EC895AA5D3F73D884F92E /* opensslconf.h */,
-				DB85625C9101677E70A6C9B2 /* opensslv.h */,
-				CA8984CA39D522E57E2CA3D7 /* ossl_typ.h */,
-				7F05F8ED2A5CBF02FA55FBAB /* pem.h */,
-				09C690A94DC4095E85A9EDBA /* pem2.h */,
-				CC0B69B0BE359E015574B48E /* pkcs12.h */,
-				B972E9957E01ACC419952E06 /* pkcs7.h */,
-				BEF0BD15546DE445C9589976 /* pqueue.h */,
-				83C363D229976A907B84D43B /* rand.h */,
-				EEBF840269B4C30AEA1DC865 /* rc2.h */,
-				60BA6C3BC1E31B72DF0D70E4 /* rc4.h */,
-				2FC559D88E6CE75B1DB9B6AE /* ripemd.h */,
-				20526FF0248ACBFA82AFAE8C /* rsa.h */,
-				CD3596E8880CA8C45F59BC41 /* safestack.h */,
-				EBBEC9348EF39FAFFC38E75B /* seed.h */,
-				2184E395651BC2F03B00ACFE /* sha.h */,
-				A008D52247E688391DED6BC0 /* srp.h */,
-				FB6E6BF65843C3FE515F4654 /* srtp.h */,
-				FD0D15B2CE63CCCC6453EE3E /* ssl.h */,
-				084C653DBEC0B0BE5DF50358 /* ssl2.h */,
-				E84118C58D9ED6ECCA76C692 /* ssl23.h */,
-				2F605DAAE32575E8DA460BBB /* ssl3.h */,
-				7E828E3D35B6FB134320D642 /* stack.h */,
-				153CF40BED848DFC4C63DF1D /* symhacks.h */,
-				5625DB6AB6FE3705E0BAF060 /* tls1.h */,
-				71069A2566BB8E41D8DAD92E /* ts.h */,
-				28BA840C8F45600C81E33F09 /* txt_db.h */,
-				81D1D5FC986E44F866CBEFF7 /* ui.h */,
-				9602A68FC73984B297737052 /* ui_compat.h */,
-				A2387467BBA8B740B4B4E476 /* whrlpool.h */,
-				E7D81F3A6A47F91323B141FF /* x509.h */,
-				99F35F36AD89D46DB2B6E0BC /* x509_vfy.h */,
-				D23D9AB17798356A0BDC8F7E /* x509v3.h */,
+				07965D5CB7E2A5F46BB7009F /* aes.h */,
+				58E698ADEA26A47796362FCE /* asn1.h */,
+				46A4E86CDB77913C787A332A /* asn1_mac.h */,
+				7AF330FCDF88C5BC699785E3 /* asn1t.h */,
+				BD4036AE35F57679B5E81437 /* bio.h */,
+				9922646176D6D9E6BC58CC5C /* blowfish.h */,
+				088B76189EA40FB713E83CD0 /* bn.h */,
+				CEF161627CDF7F90C6F09051 /* buffer.h */,
+				AF83C6ABA48A2A385F2879C7 /* camellia.h */,
+				A5FA7DDE2309679E19447690 /* cast.h */,
+				066A3B821D7D63A6003D2475 /* cmac.h */,
+				EDD2DF4F5F2816BEEF37ABC5 /* cms.h */,
+				3C576BBCEBE9E0B4FE826515 /* comp.h */,
+				1200E348D2843A84D518A440 /* conf.h */,
+				8D71FBEBFA0A8A0A2DFB171A /* conf_api.h */,
+				74EE1A75419FA2E0BADBEF35 /* crypto.h */,
+				699481ACCA01CE9CF1B3DEA9 /* des.h */,
+				DF89AAA44E82805ED1E80CA4 /* des_old.h */,
+				708BE1DA5963517FE8AB504A /* dh.h */,
+				C4B1C2172FF27C8830B7DA84 /* dsa.h */,
+				625DC636A5E40FA691611D29 /* dso.h */,
+				4ABB98F505AAA9BC97A39C16 /* dtls1.h */,
+				A15E5788D6173692264ABA00 /* e_os2.h */,
+				E5D9018CD3806EEEDA87EF70 /* ebcdic.h */,
+				3E3679CF1B5004AB76149AA4 /* ec.h */,
+				924C80642E0FBB655FFE7435 /* ecdh.h */,
+				34A7D4F776E9F06092141E53 /* ecdsa.h */,
+				4548580498FA119B839D8216 /* engine.h */,
+				3AD6792D1D62852E7630B474 /* err.h */,
+				AC5A0561719DE3F85FA88534 /* evp.h */,
+				A7CC453ED2B61C886F9DA0FA /* hmac.h */,
+				7B71A17B13095A4EBDE85F71 /* idea.h */,
+				9FB3FE9D37723E0A97B188B4 /* krb5_asn.h */,
+				5BBE1D9B6CDDAFBA60EC5E7B /* kssl.h */,
+				248F4FDDFC4F743CEF59B792 /* lhash.h */,
+				CC264B4B96D5556181CB76D1 /* md4.h */,
+				5EB068D37D4458D4049301B0 /* md5.h */,
+				185DB59E774F245701DD8F68 /* mdc2.h */,
+				28D5227F3E2A1906A3857F2A /* modes.h */,
+				764C7CA3ABE48D6FFF05AD66 /* obj_mac.h */,
+				5E6054CD130C48A02A5C3339 /* objects.h */,
+				155EA93C3FC72BE3AB23133A /* ocsp.h */,
+				1C5BC6CD7F4FFC59A325E07F /* opensslconf.h */,
+				4BEA636E848B79AD4F72E443 /* opensslv.h */,
+				2EB074D7CDAD0CD189F8337A /* ossl_typ.h */,
+				4EE6237F4D7C5A0218CF046F /* pem.h */,
+				90B5C646AADCE68D18505FE7 /* pem2.h */,
+				18B5CCB85F4BF291E9B0ED60 /* pkcs12.h */,
+				55D4748F3CF87C251C1AEF20 /* pkcs7.h */,
+				81D48E1B1E4A86B271473A70 /* pqueue.h */,
+				C48C83557A284BD1EF8EE4DD /* rand.h */,
+				6B1EB07521152D6E943C7304 /* rc2.h */,
+				C921212F7E7E73479B1D6974 /* rc4.h */,
+				20CC5DA4EA1CDB94B42E9AB6 /* ripemd.h */,
+				AC73C0C69F31260621270058 /* rsa.h */,
+				CB14BD847CC2B2EE10946DE2 /* safestack.h */,
+				73ACFCDF9C10D89CF321B003 /* seed.h */,
+				A34E7AF2CAD4BE59F6727137 /* sha.h */,
+				C77B0B5B58A8AA0ABA29DBB3 /* srp.h */,
+				724EC703828FFC63D969F6C4 /* srtp.h */,
+				801A44CF7DA71C37198989B7 /* ssl.h */,
+				F1CA563AFB4CCDA1E3CFF9F5 /* ssl2.h */,
+				8B3CA476F20C8D18E339B3BE /* ssl23.h */,
+				37D3821AEC0F4FCAEC8AB027 /* ssl3.h */,
+				6DF8F3AA9914A1C4E9AB6BFA /* stack.h */,
+				EC4F88ADEBC2D5C76BAB1338 /* symhacks.h */,
+				6BC300E47269E00C5BDEB7D1 /* tls1.h */,
+				9655554CFCEE7699772BFB7B /* ts.h */,
+				4A86FCACF265FB4D992B6C42 /* txt_db.h */,
+				4F1EC628FBA79CCF01843993 /* ui.h */,
+				C62A6D626BF485FC78121C86 /* ui_compat.h */,
+				BC6F8B9D19AC44EEB1DADC41 /* whrlpool.h */,
+				FE7464071CC73C96F44A51CB /* x509.h */,
+				07B82964F84EEA57CDB171A5 /* x509_vfy.h */,
+				F55C97B2389512716F24B4BD /* x509v3.h */,
 			);
 			path = openssl;
 			sourceTree = "<group>";
 		};
-		08565029F19E8A62117FFB1C /* Products */ = {
+		135054FF51085E0471D63922 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				A502DEF17748765E94903D8C /* libPods-PLCameraStreamingKit.a */,
-				278CF857BB0675F32DCC19D4 /* libPods-Tests.a */,
+				AB2444E773A616051E13C9EF /* include */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		4C60815E201DA7C2653A41BB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FC99C9A8A51A504F93E8C1C6 /* libPods-PLCameraStreamingKit.a */,
+				831AA19FE354081C80516EFF /* libPods-Tests.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		41DAD7BFA357962F3E21990D /* Pod */ = {
+		542D5C8069C393A99185115C /* Pods-PLCameraStreamingKit */ = {
 			isa = PBXGroup;
 			children = (
-				960371B19F34513D84CDC994 /* Library */,
-			);
-			path = Pod;
-			sourceTree = "<group>";
-		};
-		5764865DE4C47264020159A0 = {
-			isa = PBXGroup;
-			children = (
-				289DBE56EB1EB96964BCAD16 /* Podfile */,
-				95C4ABDDC42E08A485358329 /* Development Pods */,
-				9CA58F91A8726B36C0510568 /* Frameworks */,
-				08565029F19E8A62117FFB1C /* Products */,
-				E64715FE1C3C6F85A958A082 /* Targets Support Files */,
-			);
-			sourceTree = "<group>";
-		};
-		57F75290ABD687F711C06CFF /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				7AACC76474FC0A0DC55A44CB /* Foundation.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		625E319DA06A1C981B762E20 /* Pods-PLCameraStreamingKit */ = {
-			isa = PBXGroup;
-			children = (
-				B0F9493299DBECCB7E9F774D /* Pods-PLCameraStreamingKit-acknowledgements.markdown */,
-				56C00FA9087CC2CB147CCD0E /* Pods-PLCameraStreamingKit-acknowledgements.plist */,
-				5E7C9D06BAA99775326D054C /* Pods-PLCameraStreamingKit-dummy.m */,
-				90D4582A5EFB57565457026D /* Pods-PLCameraStreamingKit-environment.h */,
-				FCA3939F1A58FF7C2A8B9CE9 /* Pods-PLCameraStreamingKit-resources.sh */,
-				6256EC98550FC957E87D4710 /* Pods-PLCameraStreamingKit.debug.xcconfig */,
-				31E12360585D09F467709ACF /* Pods-PLCameraStreamingKit.release.xcconfig */,
+				D6D9AC883E744E5A0AE79C73 /* Pods-PLCameraStreamingKit-acknowledgements.markdown */,
+				3A619D5CDDCA16CF01884D5C /* Pods-PLCameraStreamingKit-acknowledgements.plist */,
+				E42D4937DDCA32DAE35790E1 /* Pods-PLCameraStreamingKit-dummy.m */,
+				FE79044934546DBFE3C76FAE /* Pods-PLCameraStreamingKit-environment.h */,
+				F4AC8FCD78017E79C813E911 /* Pods-PLCameraStreamingKit-resources.sh */,
+				66B6B42430D9D125F9D7F844 /* Pods-PLCameraStreamingKit.debug.xcconfig */,
+				A86A45BCF1E163A4264151D8 /* Pods-PLCameraStreamingKit.release.xcconfig */,
 			);
 			name = "Pods-PLCameraStreamingKit";
 			path = "Target Support Files/Pods-PLCameraStreamingKit";
 			sourceTree = "<group>";
 		};
-		6C950F9DF0086B512D49260C /* PLCameraStreamingKit */ = {
+		553B50E4B5D7FA7EDBA9ABB1 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				41DAD7BFA357962F3E21990D /* Pod */,
-				8F890FE7EC4D8DB6DB94D0EA /* precompiled */,
+				008CA198A2C4500F71FB8841 /* Foundation.framework */,
 			);
-			name = PLCameraStreamingKit;
-			path = ../..;
+			name = iOS;
 			sourceTree = "<group>";
 		};
-		771BEDF40DD4791C7504FFAA /* Pods-Tests */ = {
+		6FCAD8960F0CB3B5B4111AE8 /* Pods-Tests */ = {
 			isa = PBXGroup;
 			children = (
-				91B478D6F309355B847CC410 /* Pods-Tests-acknowledgements.markdown */,
-				CDAE7B2836464B0DDC07E1E7 /* Pods-Tests-acknowledgements.plist */,
-				3CBD1A9902A5621E575EC84F /* Pods-Tests-dummy.m */,
-				39ED527919613042C945878D /* Pods-Tests-environment.h */,
-				C15D14C4193632C07111D938 /* Pods-Tests-resources.sh */,
-				8712E16712561A9066C06AD0 /* Pods-Tests.debug.xcconfig */,
-				00755A944F0F23AEB9B70B93 /* Pods-Tests.release.xcconfig */,
+				533DAEAEB3247E2A653062B6 /* Pods-Tests-acknowledgements.markdown */,
+				C17B9F78030B40FB2F85046D /* Pods-Tests-acknowledgements.plist */,
+				6A5CB766D18FD1268DA8E028 /* Pods-Tests-dummy.m */,
+				A1BCC149B3172C31D3377BC2 /* Pods-Tests-environment.h */,
+				2211B6EB0B1BBFC0DCBFB21B /* Pods-Tests-resources.sh */,
+				2614A5D380F460D34198FE9E /* Pods-Tests.debug.xcconfig */,
+				42AF616C4A657390645D2CCE /* Pods-Tests.release.xcconfig */,
 			);
 			name = "Pods-Tests";
 			path = "Target Support Files/Pods-Tests";
 			sourceTree = "<group>";
 		};
-		771EA50E3E1D6F368CDD4614 /* Frameworks */ = {
+		7816EBF7639A3EA04A150FFF /* PLCameraStreamingKit */ = {
 			isa = PBXGroup;
 			children = (
-				6822691407F302D50AC338EC /* libPLCameraStreamingKit.a */,
-				B461EE40AE19A8E1B679550E /* libcrypto-ios.a */,
-				A07584DD58F206F15EA60211 /* libssl-ios.a */,
+				CE20572F3DF6CFE0CC4C53E9 /* Pod */,
+				9A9EC258AE4BE0A4BAF331B3 /* precompiled */,
+			);
+			name = PLCameraStreamingKit;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		926842C5FD0600F93660536B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				553B50E4B5D7FA7EDBA9ABB1 /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		8F890FE7EC4D8DB6DB94D0EA /* precompiled */ = {
+		9A9EC258AE4BE0A4BAF331B3 /* precompiled */ = {
 			isa = PBXGroup;
 			children = (
-				771EA50E3E1D6F368CDD4614 /* Frameworks */,
+				AFF368F59628E224D641C0A7 /* Frameworks */,
 			);
 			name = precompiled;
 			sourceTree = "<group>";
 		};
-		95C4ABDDC42E08A485358329 /* Development Pods */ = {
+		AB2444E773A616051E13C9EF /* include */ = {
 			isa = PBXGroup;
 			children = (
-				6C950F9DF0086B512D49260C /* PLCameraStreamingKit */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		960371B19F34513D84CDC994 /* Library */ = {
-			isa = PBXGroup;
-			children = (
-				CAD7C1D6596DC5FC63687781 /* include */,
-			);
-			path = Library;
-			sourceTree = "<group>";
-		};
-		9CA58F91A8726B36C0510568 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				57F75290ABD687F711C06CFF /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		CAD7C1D6596DC5FC63687781 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				0717715E6DAB80A1DE7A622D /* PLCameraStreamingKit */,
-				07AF9A546F9011CE6CE43582 /* openssl */,
+				0870601545725E18EF449781 /* PLCameraStreamingKit */,
+				0FD0D888DF508ACB3343A6AD /* openssl */,
 			);
 			path = include;
 			sourceTree = "<group>";
 		};
-		E64715FE1C3C6F85A958A082 /* Targets Support Files */ = {
+		AFF368F59628E224D641C0A7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				625E319DA06A1C981B762E20 /* Pods-PLCameraStreamingKit */,
-				771BEDF40DD4791C7504FFAA /* Pods-Tests */,
+				CB187D42835C49E4C545C0FF /* libPLCameraStreamingKit.a */,
+				1459261548850AEA1F7566BC /* libcrypto-ios.a */,
+				987C05AB91719704DEAA308C /* libssl-ios.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C79F6098A2DED7E3CC0BD0B6 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7816EBF7639A3EA04A150FFF /* PLCameraStreamingKit */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		CE20572F3DF6CFE0CC4C53E9 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				135054FF51085E0471D63922 /* Library */,
+			);
+			path = Pod;
+			sourceTree = "<group>";
+		};
+		E25BD0CF42B0A1FD25A68E69 = {
+			isa = PBXGroup;
+			children = (
+				D11A5118D81C56DDCCF72DB9 /* Podfile */,
+				C79F6098A2DED7E3CC0BD0B6 /* Development Pods */,
+				926842C5FD0600F93660536B /* Frameworks */,
+				4C60815E201DA7C2653A41BB /* Products */,
+				EC5CB5AAD465BE28191FE37B /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		EC5CB5AAD465BE28191FE37B /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				542D5C8069C393A99185115C /* Pods-PLCameraStreamingKit */,
+				6FCAD8960F0CB3B5B4111AE8 /* Pods-Tests */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
@@ -372,28 +372,12 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8FD0A02D08CC27504CD55617 /* Pods-Tests */ = {
+		61B91DAF18DC27CA295F990C /* Pods-PLCameraStreamingKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5DAEAF35B30FE643F9E4ECEA /* Build configuration list for PBXNativeTarget "Pods-Tests" */;
+			buildConfigurationList = 2F50DBD51E7989A10E521AAC /* Build configuration list for PBXNativeTarget "Pods-PLCameraStreamingKit" */;
 			buildPhases = (
-				0190CAF16DCA90F6B7196EE8 /* Sources */,
-				503F5C12AD0BCB44A21B67A9 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-Tests";
-			productName = "Pods-Tests";
-			productReference = 278CF857BB0675F32DCC19D4 /* libPods-Tests.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		9252E7DB49604907BBD14370 /* Pods-PLCameraStreamingKit */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 46A5DB297ED0C6DC4244D356 /* Build configuration list for PBXNativeTarget "Pods-PLCameraStreamingKit" */;
-			buildPhases = (
-				7E57F182838ACB5778E2070C /* Sources */,
-				B21EBB9A846BFEB012908FF0 /* Frameworks */,
+				6FCF50A05C8C129D79881AE8 /* Sources */,
+				59C7C321CA61D4187E8044C1 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -401,58 +385,74 @@
 			);
 			name = "Pods-PLCameraStreamingKit";
 			productName = "Pods-PLCameraStreamingKit";
-			productReference = A502DEF17748765E94903D8C /* libPods-PLCameraStreamingKit.a */;
+			productReference = FC99C9A8A51A504F93E8C1C6 /* libPods-PLCameraStreamingKit.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		A9BCC5B2979ED2AB155B5A4D /* Pods-Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B48FF2B45424C7819BB65654 /* Build configuration list for PBXNativeTarget "Pods-Tests" */;
+			buildPhases = (
+				6BE94329C5AB99BFAF18F57C /* Sources */,
+				7124B0A8AD9CB49A1E1ABB81 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-Tests";
+			productName = "Pods-Tests";
+			productReference = 831AA19FE354081C80516EFF /* libPods-Tests.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		BD809E9AFE266D49D2C54403 /* Project object */ = {
+		CB5A898C748C81AF4717A3CC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0640;
 			};
-			buildConfigurationList = A3A79A35862211C54FEF8DFA /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = 9E746E799D0E5E06E4A00687 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 5764865DE4C47264020159A0;
-			productRefGroup = 08565029F19E8A62117FFB1C /* Products */;
+			mainGroup = E25BD0CF42B0A1FD25A68E69;
+			productRefGroup = 4C60815E201DA7C2653A41BB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9252E7DB49604907BBD14370 /* Pods-PLCameraStreamingKit */,
-				8FD0A02D08CC27504CD55617 /* Pods-Tests */,
+				61B91DAF18DC27CA295F990C /* Pods-PLCameraStreamingKit */,
+				A9BCC5B2979ED2AB155B5A4D /* Pods-Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		0190CAF16DCA90F6B7196EE8 /* Sources */ = {
+		6BE94329C5AB99BFAF18F57C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				994502753702A5DFDEBA1F7D /* Pods-Tests-dummy.m in Sources */,
+				C27BDB0FEAFD43D7291A2F1F /* Pods-Tests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7E57F182838ACB5778E2070C /* Sources */ = {
+		6FCF50A05C8C129D79881AE8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17B6FAE5D261E34E7E58974B /* Pods-PLCameraStreamingKit-dummy.m in Sources */,
+				4BEDB8F13E76D170D9C6AA21 /* Pods-PLCameraStreamingKit-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		259E113DA991FA86AEDE2FC0 /* Debug */ = {
+		0FE82A8994B3CB0D2419C8F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8712E16712561A9066C06AD0 /* Pods-Tests.debug.xcconfig */;
+			baseConfigurationReference = 66B6B42430D9D125F9D7F844 /* Pods-PLCameraStreamingKit.debug.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -466,43 +466,9 @@
 			};
 			name = Debug;
 		};
-		54184E659293D96B74485F08 /* Release */ = {
+		1991860587196CA3128515D9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		5E1E7F7C772805B9DF166CA7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 00755A944F0F23AEB9B70B93 /* Pods-Tests.release.xcconfig */;
+			baseConfigurationReference = 42AF616C4A657390645D2CCE /* Pods-Tests.release.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -516,9 +482,9 @@
 			};
 			name = Release;
 		};
-		A2BC5682ABCAC30D7701E5C6 /* Release */ = {
+		28CD477E7C8CBF9AF18EC2EE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 31E12360585D09F467709ACF /* Pods-PLCameraStreamingKit.release.xcconfig */;
+			baseConfigurationReference = A86A45BCF1E163A4264151D8 /* Pods-PLCameraStreamingKit.release.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -532,23 +498,7 @@
 			};
 			name = Release;
 		};
-		A85C501D67D10A8519A4A40C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6256EC98550FC957E87D4710 /* Pods-PLCameraStreamingKit.debug.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		DC1F9E816D89060EA4097DF1 /* Debug */ = {
+		6EEF493D9B4ACF9047C9ABA5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -587,37 +537,87 @@
 			};
 			name = Debug;
 		};
+		9866D940C25823B7540E6154 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E3587DFDC553D67539E48A3F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2614A5D380F460D34198FE9E /* Pods-Tests.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		46A5DB297ED0C6DC4244D356 /* Build configuration list for PBXNativeTarget "Pods-PLCameraStreamingKit" */ = {
+		2F50DBD51E7989A10E521AAC /* Build configuration list for PBXNativeTarget "Pods-PLCameraStreamingKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A85C501D67D10A8519A4A40C /* Debug */,
-				A2BC5682ABCAC30D7701E5C6 /* Release */,
+				0FE82A8994B3CB0D2419C8F4 /* Debug */,
+				28CD477E7C8CBF9AF18EC2EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5DAEAF35B30FE643F9E4ECEA /* Build configuration list for PBXNativeTarget "Pods-Tests" */ = {
+		9E746E799D0E5E06E4A00687 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				259E113DA991FA86AEDE2FC0 /* Debug */,
-				5E1E7F7C772805B9DF166CA7 /* Release */,
+				6EEF493D9B4ACF9047C9ABA5 /* Debug */,
+				9866D940C25823B7540E6154 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A3A79A35862211C54FEF8DFA /* Build configuration list for PBXProject "Pods" */ = {
+		B48FF2B45424C7819BB65654 /* Build configuration list for PBXNativeTarget "Pods-Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DC1F9E816D89060EA4097DF1 /* Debug */,
-				54184E659293D96B74485F08 /* Release */,
+				E3587DFDC553D67539E48A3F /* Debug */,
+				1991860587196CA3128515D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = BD809E9AFE266D49D2C54403 /* Project object */;
+	rootObject = CB5A898C748C81AF4717A3CC /* Project object */;
 }
