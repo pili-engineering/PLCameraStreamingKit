@@ -120,6 +120,9 @@ PLCameraStreamingSessionDelegate
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kReachabilityChangedNotification object:nil];
+    
+    [self.session destroy];
+    self.session = nil;
 }
 
 #pragma mark - Notification Handler

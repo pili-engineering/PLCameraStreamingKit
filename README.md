@@ -4,7 +4,6 @@ PLCameraStreamingKit 是一个适用于 iOS 的 RTMP 直播推流 SDK，可高�
 
 ## 功能特性
 
-- [x] iOS 8 系统级视频硬编码
 - [x] 硬件编码
 - [x] 多码率可选
 - [x] H.264 视频编码
@@ -137,6 +136,11 @@ if (PLAuthorizationStatusNotDetermined == status) {
 [self.session stop];
 ```
 
+销毁推流 session
+```Objective-C
+[self.session destroy];
+```
+
 ## 编码参数
 
 移动端因网络环境不稳定及用户电量宝贵等原因，并不建议直接使用最高码率和分辨率来做推流，以最佳编码参数来做设置可以带来更好的推流效果和用户体验。
@@ -236,6 +240,12 @@ PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
 
 ## 版本历史
 
+- 1.2.7 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.2.7.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.2.7.md))
+    - 修复断网后停止流时导致的 UI 卡死
+    - 修复停止推流时概率出现的 crash 问题
+    - 添加 `- (void)destroy` 方法到 `PLCameraStreamingSession`
+    - 暂且去除 iOS 8 编码，待进一步优化后再做开放
+    - 修复反复进出持有 streamingSession 的 viewController 出现 IO 错误或者 crash 的问题
 - 1.2.6 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.2.6.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.2.6.md))
     - 修复 iOS 8 以下推流时，编码导致的崩溃问题
 - 1.2.5 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.2.5.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.2.5.md))

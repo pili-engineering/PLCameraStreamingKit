@@ -92,6 +92,11 @@ extern NSString *PLMicrophoneDidStartRunningNotificaiton;
                                stream:(PLStream *)stream
                      videoOrientation:(AVCaptureVideoOrientation)videoOrientation;
 
+/*!
+ * 销毁 session 的方法
+ */
+- (void)destroy;
+
 // RTMP Operations
 /*!
  * 开始推流

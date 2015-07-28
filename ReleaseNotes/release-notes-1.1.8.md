@@ -21,7 +21,3 @@ PLCameraStreamingKit 为 iOS 开发者提供直播推流 SDK。
 ### 视频源
 
 - 添加摄像头开启和关闭的操作，便于开发者控制 AVCaptureSession
-
-### 视频编码
-
-- 修复视频编码 fps 设置无效问题
