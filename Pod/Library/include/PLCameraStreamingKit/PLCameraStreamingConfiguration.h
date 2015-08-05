@@ -13,10 +13,13 @@
 #import "PLMacroDefines.h"
 
 /*!
+ * @deprecated
+ *
  * @abstract 推流配置。
  *
  * @discussion 推流配置选用不同的参数主要影响音视频的编码参数，相应的会从效果上产生不同质量的画质和不同的流量消耗。
  */
+__deprecated
 @interface PLCameraStreamingConfiguration : NSObject
 
 /// 分辨率，如果自定义了 videoSize, 该值为 PLStreamingDimension_UserDefine

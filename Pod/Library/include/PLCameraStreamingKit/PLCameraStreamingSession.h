@@ -10,6 +10,8 @@
 #import <AVFoundation/AVFoundation.h>
 
 #import "PLCameraStreamingConfiguration.h"
+#import "PLVideoStreamingConfiguration.h"
+#import "PLAudioStreamingConfiguration.h"
 #import "PLMacroDefines.h"
 #import "PLTypeDefines.h"
 #import "PLStream.h"
@@ -47,7 +49,13 @@ extern NSString *PLMicrophoneDidStartRunningNotificaiton;
 @interface PLCameraStreamingSession : NSObject
 
 /// 音视频编码信息均包含其中。
-@property (nonatomic, PL_STRONG) PLCameraStreamingConfiguration *configuration;  // reset will not work until startWithPushURL: invoked.
+@property (nonatomic, PL_STRONG) PLCameraStreamingConfiguration *configuration DEPRECATED_ATTRIBUTE;
+
+/// 视频编码及推流配置
+@property (nonatomic, PL_STRONG) PLVideoStreamingConfiguration  *videoConfiguration;
+
+/// 音频编码及推流配置
+@property (nonatomic, PL_STRONG) PLAudioStreamingConfiguration  *audioConfiguration;
 
 /// 流对象
 @property (nonatomic, PL_STRONG) PLStream   *stream;
@@ -64,7 +72,11 @@ extern NSString *PLMicrophoneDidStartRunningNotificaiton;
 /// 流的状态，只读属性
 @property (nonatomic, assign, readonly) PLStreamState               streamState;
 
-/// 是否在推流，只读属性
+/*!
+ * 是否开始推流，只读属性
+ *
+ * @discussion 该状态表达的是 streamingSession 有没有开始推流。当 streamState 为 PLStreamStateConnecting 或者 PLStreamStateConnected 时, isRunning 都会为 YES，所以它为 YES 时并不表示流一定已经建立连接，其从广义上表达 streamingSession 作为客户端对象的状态。
+ */
 @property (nonatomic, assign, readonly) BOOL                        isRunning;
 
 /// 推流 URL，只读属性
@@ -80,7 +92,11 @@ extern NSString *PLMicrophoneDidStartRunningNotificaiton;
 /*!
  * 初始化方法
  *
- * @param configuration 用于音视频编码的配置信息
+ * @param videoConfiguration 视频编码及推流的配置信息
+ *
+ * @param audioConfiguration 音频编码及推流的配置信息
+ *
+ * @param stream Stream 对象
  *
  * @param videoOrientation 视频方向
  *
@@ -88,12 +104,15 @@ extern NSString *PLMicrophoneDidStartRunningNotificaiton;
  *
  * @discussion 初始化方法会优先使用后置摄像头，如果发现设备没有后置摄像头，会判断是否有前置摄像头，如果都没有，便会返回 nil。
  */
-- (instancetype)initWithConfiguration:(PLCameraStreamingConfiguration *)configuration
-                               stream:(PLStream *)stream
-                     videoOrientation:(AVCaptureVideoOrientation)videoOrientation;
+- (instancetype)initWithVideoConfiguration:(PLVideoStreamingConfiguration *)videoConfiguration
+                        audioConfiguration:(PLAudioStreamingConfiguration *)audioConfiguration
+                                    stream:(PLStream *)stream
+                          videoOrientation:(AVCaptureVideoOrientation)videoOrientation;
 
 /*!
  * 销毁 session 的方法
+ *
+ * @discussion 销毁 StreamingSession 的方法，销毁前不需要调用 stop 方法。
  */
 - (void)destroy;
 
@@ -241,9 +260,26 @@ extern NSString *PLMicrophoneDidStartRunningNotificaiton;
  *
  * @discussion 初始化方法会优先使用后置摄像头，如果发现设备没有后置摄像头，会判断是否有前置摄像头，如果都没有，便会返回 nil。
  *
- * @see - (instancetype)initWithConfiguration:(PLCameraStreamingConfiguration *)configuration stream:(PLStream *)stream videoOrientation:(AVCaptureVideoOrientation)videoOrientation
+ * @see - (instancetype)initWithVideoConfiguration:(PLVideoStreamingConfiguration *)videoConfiguration audioConfiguration:(PLAudioStreamingConfiguration *)audioConfiguration stream:(PLStream *)stream videoOrientation:(AVCaptureVideoOrientation)videoOrientation
  */
+- (instancetype)initWithConfiguration:(PLCameraStreamingConfiguration *)configuration
+                               stream:(PLStream *)stream
+                     videoOrientation:(AVCaptureVideoOrientation)videoOrientation DEPRECATED_ATTRIBUTE;
 
+/*!
+ * @deprecated
+ * 初始化方法
+ *
+ * @param configuration 用于音视频编码的配置信息
+ *
+ * @param videoOrientation 视频方向
+ *
+ * @return PLCameraStreamingSession 实例
+ *
+ * @discussion 初始化方法会优先使用后置摄像头，如果发现设备没有后置摄像头，会判断是否有前置摄像头，如果都没有，便会返回 nil。
+ *
+ * @see - (instancetype)initWithVideoConfiguration:(PLVideoStreamingConfiguration *)videoConfiguration audioConfiguration:(PLAudioStreamingConfiguration *)audioConfiguration stream:(PLStream *)stream videoOrientation:(AVCaptureVideoOrientation)videoOrientation
+ */
 - (instancetype)initWithConfiguration:(PLCameraStreamingConfiguration *)configuration
                                stream:(PLStream *)stream
                       rtmpPublishHost:(NSString *)rtmpPublishHost

@@ -13,6 +13,8 @@
 #import "PLTypeDefines.h"
 #import "PLMacroDefines.h"
 #import "PLCameraStreamingConfiguration.h"
+#import "PLVideoStreamingConfiguration.h"
+#import "PLAudioStreamingConfiguration.h"
 #import "PLStream.h"
 
 #endif

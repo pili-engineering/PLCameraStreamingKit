@@ -17,6 +17,7 @@ PLCameraStreamingKit 是一个适用于 iOS 的 RTMP 直播推流 SDK，可高�
 - [x] 内置生成安全的 RTMP 推流地址
 - [x] ARM64 支持
 - [x] 支持 RTMP 协议直播推流
+- [x] 音视频配置分离
 
 
 ## 内容摘要
@@ -66,7 +67,7 @@ pod update
 
 ```PLCameraStreamingSession``` 是核心类，你只需要关注并使用这个类就可以完成通过摄像头推流、预览的工作
 
-推流前务必要先检查摄像头 / 麦克风的授权，并记得设置预览界面，```StreamingSession``` 的创建需要 Stream 对象和 Publish host
+推流前务必要先检查摄像头 / 麦克风的授权，并记得设置预览界面，```StreamingSession``` 的创建需要 Stream 对象
 
 ```Objective-C
 // streamJSON 是从服务端拿回的
@@ -93,10 +94,13 @@ NSDicationary *streamJSON;
 PLStream *stream = [PLStream streamWithJSON:streamJSON];
 // 授权后执行
 void (^permissionBlock)(void) = ^{
-        PLCameraStreamingConfiguration *configuration = [PLCameraStreamingConfiguration defaultConfiguration];
-        self.session = [[PLCameraStreamingSession alloc] initWithConfiguration:configuration
-                                                                        stream:stream
-                                                              videoOrientation:AVCaptureVideoOrientationPortrait];
+        PLVideoStreamingConfiguration *videoConfiguration = [[PLVideoStreamingConfiguration defaultConfiguration]; 
+        PLAudioStreamingConfiguration *audioConfiguration = [PLAudioStreamingConfiguration defaultConfiguration];
+        
+        self.session = [[PLCameraStreamingSession alloc] initWithVideoConfiguration:videoConfiguration
+                                                                 audioConfiguration:audioConfiguration
+                                                                             stream:stream
+                                                                   videoOrientation:AVCaptureVideoOrientationPortrait];
         self.session.delegate = self;
         self.session.previewView = self.view;
 };
@@ -147,6 +151,8 @@ if (PLAuthorizationStatusNotDetermined == status) {
 
 你无需辛苦的一个个参数设置，```PLCameraStreamingKit``` 提供了一个编码配置的类来帮你快速完成配置。
 
+### 视频编码参数
+
 ```Objective-C
 // 初始化编码配置类的实例需要的两个参数
 
@@ -168,64 +174,135 @@ typedef NS_ENUM(NSUInteger, PLStreamingDimension) {
     PLStreamingDimension_Default = PLStreamingDimension_4_3__640x480
 };
 
-// 推流质量
-// fps: 12, profile level: baseline30, video bitrate: 150Kbps, audio sample rate: 44MHz, audio bitrate: 96Kbps
-extern NSString *kPLStreamingQualityLow1;
+// 视频推流质量
+/*!
+ * @abstract Video streaming quality low 1
+ *
+ * @discussion 具体参数 fps: 12, profile level: baseline30, video bitrate: 150Kbps
+ */
+extern NSString *kPLVideoStreamingQualityLow1;
 
-// fps: 15, profile level: baseline30, video bitrate: 264Kbps, audio sample rate: 44MHz, audio bitrate: 96Kbps
-extern NSString *kPLStreamingQualityLow2;
+/*!
+ * @abstract Video streaming quality low 2
+ *
+ * @discussion 具体参数 fps: 15, profile level: baseline30, video bitrate: 264Kbps
+ */
+extern NSString *kPLVideoStreamingQualityLow2;
 
-// fps: 15, profile level: baseline30, video bitrate: 350Kbps, audio sample rate: 44MHz, audio bitrate: 96Kbps
-extern NSString *kPLStreamingQualityLow3;
+/*!
+ * @abstract Video streaming quality low 3
+ *
+ * @discussion 具体参数 fps: 15, profile level: baseline30, video bitrate: 350Kbps
+ */
+extern NSString *kPLVideoStreamingQualityLow3;
 
-// fps: 30, profile level: baseline31, video bitrate: 512Kbps, audio sample rate: 44MHz, audio bitrate: 96Kbps
-extern NSString *kPLStreamingQualityMedium1;
+/*!
+ * @abstract Video streaming quality medium 1
+ *
+ * @discussion 具体参数 fps: 30, profile level: baseline31, video bitrate: 512Kbps
+ */
+extern NSString *kPLVideoStreamingQualityMedium1;
 
-// fps: 30, profile level: baseline31, video bitrate: 800Kbps, audio sample rate: 44MHz, audio bitrate: 96Kbps
-extern NSString *kPLStreamingQualityMedium2;
+/*!
+ * @abstract Video streaming quality medium 2
+ *
+ * @discussion 具体参数 fps: 30, profile level: baseline31, video bitrate: 800Kbps
+ */
+extern NSString *kPLVideoStreamingQualityMedium2;
 
-// fps: 30, profile level: baseline31, video bitrate: 1000Kbps, audio sample rate: 44MHz, audio bitrate: 96Kbps
-extern NSString *kPLStreamingQualityMedium3;
+/*!
+ * @abstract Video streaming quality medium 3
+ *
+ * @discussion 具体参数 fps: 30, profile level: baseline31, video bitrate: 1000Kbps
+ */
+extern NSString *kPLVideoStreamingQualityMedium3;
 
-// fps: 30, profile level: main30, video bitrate: 1200Kbps, audio sample rate: 44MHz, audio bitrate: 128Kbps
-extern NSString *kPLStreamingQualityHigh1;
+/*!
+ * @abstract Video streaming quality high 1
+ *
+ * @discussion 具体参数 fps: 30, profile level: main30, video bitrate: 1200Kbps
+ */
+extern NSString *kPLVideoStreamingQualityHigh1;
 
-// fps: 30, profile level: main30, video bitrate: 1500Kbps, audio sample rate: 44MHz, audio bitrate: 128Kbps
-extern NSString *kPLStreamingQualityHigh2;
+/*!
+ * @abstract Video streaming quality high 2
+ *
+ * @discussion 具体参数 fps: 30, profile level: main30, video bitrate: 1500Kbps
+ */
+extern NSString *kPLVideoStreamingQualityHigh2;
 
-// fps: 30, profile level: main30, video bitrate: 2000Kbps, audio sample rate: 44MHz, audio bitrate: 128Kbps
-extern NSString *kPLStreamingQualityHigh3;
+/*!
+ * @abstract Video streaming quality high 3
+ *
+ * @discussion 具体参数 fps: 30, profile level: main30, video bitrate: 2000Kbps
+ */
+extern NSString *kPLVideoStreamingQualityHigh3;
 ```
 
-你只需要明确以上两者，便可以直接获取到最佳编码配置。
+需要明确以上两者，便可以直接获取到最佳的视频编码配置。
 
 ```Objective-C
-// 默认情况下，PLCameraStreamingKit 会使用 4:3 的 640x480 分辨率，及 kPLStreamingQualityMedium1 作为参数初始化编码配置类的实例.
-PLCameraStreamingConfiguration *configuration = [PLCameraStreamingConfiguration defaultConfiguration];
-
+// 默认情况下，PLCameraStreamingKit 会使用 4:3 的 640x480 分辨率，及 kPLVideoStreamingQualityMedium1 作为参数初始化编码配置类的实例.
+PLVideoStreamingConfiguration *videoConfiguration = [PLVideoStreamingConfiguration defaultConfiguration];
 
 // 当然你也可以自己指定，比如你希望输出直播视频是 16:9 的 960x540 的分辨率，并且你已经明确你需要的视频质量为 High1，你可以这样来设置编码配置
-PLCameraStreamingConfiguration *configuration = [PLCameraStreamingConfiguration configurationWithDimension:PLStreamingDimension_16_9__960x540 quality:kPLStreamingQualityHigh1];
+PLVideoStreamingConfiguration *videoConfiguration = [PLVideoStreamingConfiguration configurationWithDimension:PLStreamingDimension_16_9__960x540 videoQuality:kPLVideoStreamingQualityHigh1];
 
 // 当已有的分辨率无法满足你的需求时，你可以自己定义视频的大小
-PLCameraStreamingConfiguration *configuration = [PLCameraStreamingConfiguration configurationWithUserDefineDimension:CGSizeMake(width, height) quality:kPLStreamingQualityHigh1];
+PLVideoStreamingConfiguration *videoConfiguration = [PLVideoStreamingConfiguration configurationWithUserDefineDimension:CGSizeMake(width, height) videoQuality:kPLVideoStreamingQualityHigh1];
 ```
 
+### Video Quality 具体参数
+
+| Quality | FPS | ProfileLevel | Video BitRate(Kbps)|
+|---|---|---|---|
+|kPLVideoStreamingQualityLow1|12|Baseline 30|150|
+|kPLVideoStreamingQualityLow2|15|Baseline 30|264|
+|kPLVideoStreamingQualityLow3|15|Baseline 30|350|
+|kPLVideoStreamingQualityMedium1|30|Baseline 31|512|
+|kPLVideoStreamingQualityMedium2|30|Baseline 31|800|
+|kPLVideoStreamingQualityMedium3|30|Baseline 31|1000|
+|kPLVideoStreamingQualityHigh1|30|Main 30|1200|
+|kPLVideoStreamingQualityHigh2|30|Main 30|1500|
+|kPLVideoStreamingQualityHigh3|30|Main 30|2000|
+
+### 音频编码参数
+
+```
+// 音频推流质量
+/*!
+ * @abstract Audio streaming quality high 1
+ *
+ * @discussion 具体参数 audio sample rate: 44MHz, audio bitrate: 96Kbps
+ */
+extern NSString *kPLAudioStreamingQualityHigh1;
+
+/*!
+ * @abstract Audio streaming quality high 2
+ *
+ * @discussion 具体参数 audio sample rate: 44MHz, audio bitrate: 128Kbps
+ */
+extern NSString *kPLAudioStreamingQualityHigh2;
+```
+
+生成音频编码配置
+
+```
+// 音频配置默认使用 high2 作为质量选项
+PLAudioStreamingConfiguration *audioConfiguration = [PLAudioStreamingConfiguration defaultConfiguration];
+
+// 如果你需要自己定义音频质量
+PLAudioStreamingConfiguration *audioConfiguration = [PLAudioStreamingConfiguration configurationWithAudioQuality:kPLAudioStreamingQualityHigh1];
+```
+
+### Audio Quality 具体参数
+
+| Quality | Audio Samplerate(MHz)) | Audio BitRate(Kbps) |
+|---|---|---|
+|kPLAudioStreamingQualityHigh1|44|96|
+|kPLAudioStreamingQualityHigh2|44|128|
+
 在创建好编码配置对象后，就可以用它来初始化 ```PLCameraStreamingSession``` 了。
-
-### Quality 具体参数
-
-| Quality | FPS | ProfileLevel | Video BitRate(Kbps) | Audio Samplerate(MHz)) | Audio BitRate(Kbps) |
-|---|---|---|---|---|---|
-|kPLStreamingQualityLow1|12|Baseline 30|150|44|96|
-|kPLStreamingQualityLow2|15|Baseline 30|264|44|96|
-|kPLStreamingQualityLow3|15|Baseline 30|350|44|96|
-|kPLStreamingQualityMedium1|30|Baseline 31|512|44|96|
-|kPLStreamingQualityMedium2|30|Baseline 31|800|44|96|
-|kPLStreamingQualityMedium3|30|Baseline 31|1000|44|96|
-|kPLStreamingQualityHigh1|30|Main 30|1200|44|128|
-|kPLStreamingQualityHigh2|30|Main 30|1500|44|128|
-|kPLStreamingQualityHigh2|30|Main 30|2000|44|128|
 
 ## 文档支持
 
@@ -240,6 +317,11 @@ PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
 
 ## 版本历史
 
+- 1.2.8 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.2.8.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.2.8.md))
+    - 更新编码配置，分离音视频编码配置，便于提供更灵活的配置方案
+    - 去除 SIGPIPE 断点
+    - 修复 URL 错误时导致的崩溃
+    - 修复创建 Session 后设置 Stream 推流失败的问题
 - 1.2.7 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.2.7.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.2.7.md))
     - 修复断网后停止流时导致的 UI 卡死
     - 修复停止推流时概率出现的 crash 问题

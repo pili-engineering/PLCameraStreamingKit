@@ -73,6 +73,87 @@ typedef NS_ENUM(NSUInteger, PLStreamingDimension) {
     PLStreamingDimension_Default = PLStreamingDimension_4_3__640x480,
 };
 
+#pragma mark - Video Streaming Quality
+
+/*!
+ * @abstract Video streaming quality low 1
+ *
+ * @discussion 具体参数 fps: 12, profile level: baseline30, video bitrate: 150Kbps
+ */
+extern NSString *kPLVideoStreamingQualityLow1;
+
+/*!
+ * @abstract Video streaming quality low 2
+ *
+ * @discussion 具体参数 fps: 15, profile level: baseline30, video bitrate: 264Kbps
+ */
+extern NSString *kPLVideoStreamingQualityLow2;
+
+/*!
+ * @abstract Video streaming quality low 3
+ *
+ * @discussion 具体参数 fps: 15, profile level: baseline30, video bitrate: 350Kbps
+ */
+extern NSString *kPLVideoStreamingQualityLow3;
+
+/*!
+ * @abstract Video streaming quality medium 1
+ *
+ * @discussion 具体参数 fps: 30, profile level: baseline31, video bitrate: 512Kbps
+ */
+extern NSString *kPLVideoStreamingQualityMedium1;
+
+/*!
+ * @abstract Video streaming quality medium 2
+ *
+ * @discussion 具体参数 fps: 30, profile level: baseline31, video bitrate: 800Kbps
+ */
+extern NSString *kPLVideoStreamingQualityMedium2;
+
+/*!
+ * @abstract Video streaming quality medium 3
+ *
+ * @discussion 具体参数 fps: 30, profile level: baseline31, video bitrate: 1000Kbps
+ */
+extern NSString *kPLVideoStreamingQualityMedium3;
+
+/*!
+ * @abstract Video streaming quality high 1
+ *
+ * @discussion 具体参数 fps: 30, profile level: main30, video bitrate: 1200Kbps
+ */
+extern NSString *kPLVideoStreamingQualityHigh1;
+
+/*!
+ * @abstract Video streaming quality high 2
+ *
+ * @discussion 具体参数 fps: 30, profile level: main30, video bitrate: 1500Kbps
+ */
+extern NSString *kPLVideoStreamingQualityHigh2;
+
+/*!
+ * @abstract Video streaming quality high 3
+ *
+ * @discussion 具体参数 fps: 30, profile level: main30, video bitrate: 2000Kbps
+ */
+extern NSString *kPLVideoStreamingQualityHigh3;
+
+#pragma mark - Audio Streaming Quality
+
+/*!
+ * @abstract Audio streaming quality high 1
+ *
+ * @discussion 具体参数 audio sample rate: 44MHz, audio bitrate: 96Kbps
+ */
+extern NSString *kPLAudioStreamingQualityHigh1;
+
+/*!
+ * @abstract Audio streaming quality high 2
+ *
+ * @discussion 具体参数 audio sample rate: 44MHz, audio bitrate: 128Kbps
+ */
+extern NSString *kPLAudioStreamingQualityHigh2;
+
 #pragma mark - Audio BitRate
 
 /// 音频码率
@@ -87,71 +168,6 @@ typedef NS_ENUM(NSUInteger, PLStreamingAudioBitRate) {
     PLStreamingAudioBitRate_Default = PLStreamingAudioBitRate_64Kbps
 };
 
-#pragma mark - Streaming Quality
-
-/*!
- * @abstract Streaming quality low 1
- *
- * @discussion 具体参数 fps: 12, profile level: baseline30, video bitrate: 150Kbps, audio sample rate: 44MHz, audio bitrate: 96Kbps
- */
-extern NSString *kPLStreamingQualityLow1;
-
-/*!
- * @abstract Streaming quality low 2
- *
- * @discussion 具体参数 fps: 15, profile level: baseline30, video bitrate: 264Kbps, audio sample rate: 44MHz, audio bitrate: 96Kbps
- */
-extern NSString *kPLStreamingQualityLow2;
-
-/*!
- * @abstract Streaming quality low 3
- *
- * @discussion 具体参数 fps: 15, profile level: baseline30, video bitrate: 350Kbps, audio sample rate: 44MHz, audio bitrate: 96Kbps
- */
-extern NSString *kPLStreamingQualityLow3;
-
-/*!
- * @abstract Streaming quality medium 1
- *
- * @discussion 具体参数 fps: 30, profile level: baseline31, video bitrate: 512Kbps, audio sample rate: 44MHz, audio bitrate: 96Kbps
- */
-extern NSString *kPLStreamingQualityMedium1;
-
-/*!
- * @abstract Streaming quality medium 2
- *
- * @discussion 具体参数 fps: 30, profile level: baseline31, video bitrate: 800Kbps, audio sample rate: 44MHz, audio bitrate: 96Kbps
- */
-extern NSString *kPLStreamingQualityMedium2;
-
-/*!
- * @abstract Streaming quality medium 3
- *
- * @discussion 具体参数 fps: 30, profile level: baseline31, video bitrate: 1000Kbps, audio sample rate: 44MHz, audio bitrate: 96Kbps
- */
-extern NSString *kPLStreamingQualityMedium3;
-
-/*!
- * @abstract Streaming quality high 1
- *
- * @discussion 具体参数 fps: 30, profile level: main30, video bitrate: 1200Kbps, audio sample rate: 44MHz, audio bitrate: 128Kbps
- */
-extern NSString *kPLStreamingQualityHigh1;
-
-/*!
- * @abstract Streaming quality high 2
- *
- * @discussion 具体参数 fps: 30, profile level: main30, video bitrate: 1500Kbps, audio sample rate: 44MHz, audio bitrate: 128Kbps
- */
-extern NSString *kPLStreamingQualityHigh2;
-
-/*!
- * @abstract Streaming quality high 3
- *
- * @discussion 具体参数 fps: 30, profile level: main30, video bitrate: 2000Kbps, audio sample rate: 44MHz, audio bitrate: 128Kbps
- */
-extern NSString *kPLStreamingQualityHigh3;
-
 #pragma mark - Capture Device Position
 
 /*!
@@ -165,6 +181,87 @@ typedef NS_ENUM(NSUInteger, PLCaptureDevicePosition) {
 };
 
 #pragma mark - Deprecated
+
+/*!
+ * @deprecated
+ *
+ * @abstract Streaming quality low 1
+ *
+ * @discussion 具体参数 fps: 12, profile level: baseline30, video bitrate: 150Kbps, audio sample rate: 44MHz, audio bitrate: 96Kbps
+ */
+extern NSString *kPLStreamingQualityLow1 DEPRECATED_ATTRIBUTE;
+
+/*!
+ * @deprecated
+ *
+ * @abstract Streaming quality low 2
+ *
+ * @discussion 具体参数 fps: 15, profile level: baseline30, video bitrate: 264Kbps, audio sample rate: 44MHz, audio bitrate: 96Kbps
+ */
+extern NSString *kPLStreamingQualityLow2 DEPRECATED_ATTRIBUTE;
+
+/*!
+ * @deprecated
+ *
+ * @abstract Streaming quality low 3
+ *
+ * @discussion 具体参数 fps: 15, profile level: baseline30, video bitrate: 350Kbps, audio sample rate: 44MHz, audio bitrate: 96Kbps
+ */
+extern NSString *kPLStreamingQualityLow3 DEPRECATED_ATTRIBUTE;
+
+/*!
+ * @deprecated
+ *
+ * @abstract Streaming quality medium 1
+ *
+ * @discussion 具体参数 fps: 30, profile level: baseline31, video bitrate: 512Kbps, audio sample rate: 44MHz, audio bitrate: 96Kbps
+ */
+extern NSString *kPLStreamingQualityMedium1 DEPRECATED_ATTRIBUTE;
+
+/*!
+ * @deprecated
+ *
+ * @abstract Streaming quality medium 2
+ *
+ * @discussion 具体参数 fps: 30, profile level: baseline31, video bitrate: 800Kbps, audio sample rate: 44MHz, audio bitrate: 96Kbps
+ */
+extern NSString *kPLStreamingQualityMedium2 DEPRECATED_ATTRIBUTE;
+
+/*!
+ * @deprecated
+ *
+ * @abstract Streaming quality medium 3
+ *
+ * @discussion 具体参数 fps: 30, profile level: baseline31, video bitrate: 1000Kbps, audio sample rate: 44MHz, audio bitrate: 96Kbps
+ */
+extern NSString *kPLStreamingQualityMedium3 DEPRECATED_ATTRIBUTE;
+
+/*!
+ * @deprecated
+ *
+ * @abstract Streaming quality high 1
+ *
+ * @discussion 具体参数 fps: 30, profile level: main30, video bitrate: 1200Kbps, audio sample rate: 44MHz, audio bitrate: 128Kbps
+ */
+extern NSString *kPLStreamingQualityHigh1 DEPRECATED_ATTRIBUTE;
+
+/*!
+ * @deprecated
+ *
+ * @abstract Streaming quality high 2
+ *
+ * @discussion 具体参数 fps: 30, profile level: main30, video bitrate: 1500Kbps, audio sample rate: 44MHz, audio bitrate: 128Kbps
+ */
+extern NSString *kPLStreamingQualityHigh2 DEPRECATED_ATTRIBUTE;
+
+/*!
+ * @deprecated
+ *
+ * @abstract Streaming quality high 3
+ *
+ * @discussion 具体参数 fps: 30, profile level: main30, video bitrate: 2000Kbps, audio sample rate: 44MHz, audio bitrate: 128Kbps
+ */
+extern NSString *kPLStreamingQualityHigh3 DEPRECATED_ATTRIBUTE;
 
 /// @deprecated 创建 Configuration 时请使用 Quality 参数，该参数已失效
 typedef NS_ENUM(NSUInteger, PLStreamingNetworkType) {

@@ -70,24 +70,17 @@ PLCameraStreamingSessionDelegate
     PLStream *stream = [PLStream streamWithJSON:streamJSON];
     
     void (^permissionBlock)(void) = ^{
-        PLCameraStreamingConfiguration *configuration = nil;
+        // 视频编码配置
+        PLVideoStreamingConfiguration *videoConfiguration = [PLVideoStreamingConfiguration configurationWithUserDefineDimension:self.view.bounds.size
+                                                                                                                   videoQuality:kPLVideoStreamingQualityMedium2];
+        // 音频编码配置
+        PLAudioStreamingConfiguration *audioConfiguration = [PLAudioStreamingConfiguration defaultConfiguration];
         
-        /**
-         // 默认配置
-         configuration = [PLCameraStreamingConfiguration defaultConfiguration];
-         
-         // 指定已有配置
-         configuration = [PLCameraStreamingConfiguration configurationWithDimension:PLStreamingDimension_16_9__960x540
-         quality:kPLStreamingQualityHigh1];
-         */
-        
-        // 自定义视频大小的配置
-        configuration = [PLCameraStreamingConfiguration configurationWithUserDefineDimension:self.view.bounds.size
-                                                                                     quality:kPLStreamingQualityHigh1];
-        
-        self.session = [[PLCameraStreamingSession alloc] initWithConfiguration:configuration
-                                                                        stream:stream
-                                                              videoOrientation:AVCaptureVideoOrientationPortrait];
+        // 推流 session
+        self.session = [[PLCameraStreamingSession alloc] initWithVideoConfiguration:videoConfiguration
+                                                                 audioConfiguration:audioConfiguration
+                                                                             stream:stream
+                                                                   videoOrientation:AVCaptureVideoOrientationPortrait];
         self.session.delegate = self;
         self.session.previewView = self.view;
     };
