@@ -8,9 +8,9 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   PLCameraStreamingKit:
-    :path: "../"
+    :path: ../
 
 SPEC CHECKSUMS:
   PLCameraStreamingKit: cc98a0eb3c701276225dcbc462cc12cc2b5c6881
 
-COCOAPODS: 0.37.2
+COCOAPODS: 0.38.2

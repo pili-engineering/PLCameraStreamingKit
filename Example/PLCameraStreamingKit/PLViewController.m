@@ -26,7 +26,8 @@ const char *networkStatus[] = {
 
 @interface PLViewController ()
 <
-PLCameraStreamingSessionDelegate
+PLCameraStreamingSessionDelegate,
+PLStreamingSendingBufferDelegate
 >
 
 @property (nonatomic, strong) PLCameraStreamingSession  *session;
@@ -82,6 +83,7 @@ PLCameraStreamingSessionDelegate
                                                                              stream:stream
                                                                    videoOrientation:AVCaptureVideoOrientationPortrait];
         self.session.delegate = self;
+        self.session.bufferDelegate = self;
         self.session.previewView = self.view;
     };
     
@@ -131,6 +133,42 @@ PLCameraStreamingSessionDelegate
     }
     
     NSLog(@"Networkt Status: %s", networkStatus[status]);
+}
+
+#pragma mark - <PLStreamingSendingBufferDelegate>
+
+- (void)streamingSessionSendingBufferFillDidLowerThanLowThreshold:(id)session {
+    if (self.session.isRunning) {
+        NSString *oldVideoQuality = self.session.videoConfiguration.videoQuality;
+        NSString *newVideoQuality = kPLVideoStreamingQualityMedium3;
+        
+        if ([oldVideoQuality isEqualToString:kPLVideoStreamingQualityMedium1]) {
+            newVideoQuality = kPLVideoStreamingQualityMedium2;
+        } else if ([oldVideoQuality isEqualToString:kPLVideoStreamingQualityMedium2]) {
+            newVideoQuality = kPLVideoStreamingQualityMedium3;
+        }
+        
+        [self.session beginUpdateConfiguration];
+        self.session.videoConfiguration.videoQuality = newVideoQuality;
+        [self.session endUpdateConfiguration];
+    }
+}
+
+- (void)streamingSessionSendingBufferFillDidHigherThanHighThreshold:(id)session {
+    if (self.session.isRunning) {
+        NSString *oldVideoQuality = self.session.videoConfiguration.videoQuality;
+        NSString *newVideoQuality = kPLVideoStreamingQualityMedium1;
+        
+        if ([oldVideoQuality isEqualToString:kPLVideoStreamingQualityMedium3]) {
+            newVideoQuality = kPLVideoStreamingQualityMedium2;
+        } else if ([oldVideoQuality isEqualToString:kPLVideoStreamingQualityMedium2]) {
+            newVideoQuality = kPLVideoStreamingQualityMedium1;
+        }
+        
+        [self.session beginUpdateConfiguration];
+        self.session.videoConfiguration.videoQuality = newVideoQuality;
+        [self.session endUpdateConfiguration];
+    }
 }
 
 #pragma mark - <PLCameraStreamingSessionDelegate>

@@ -41,6 +41,18 @@ extern NSString *PLMicrophoneDidStartRunningNotificaiton;
 
 @end
 
+@protocol PLStreamingSendingBufferDelegate <NSObject>
+
+@optional
+- (void)streamingSessionSendingBufferFillDidLowerThanLowThreshold:(id)session;
+- (void)streamingSessionSendingBufferFillDidHigherThanHighThreshold:(id)session;
+- (void)streamingSessionSendingBufferDidEmpty:(id)session;
+- (void)streamingSessionSendingBufferDidFull:(id)session;
+- (void)streamingSession:(id)session sendingBufferDidDropItems:(NSArray *)items;
+- (void)streamingSession:(id)session sendingBufferCurrentDurationDidChange:(NSTimeInterval)currentDuration;
+
+@end
+
 /*!
  * @abstract 推流中的核心类。
  *
@@ -141,6 +153,28 @@ extern NSString *PLMicrophoneDidStartRunningNotificaiton;
  * @discussion 该方法并不会变更编码视频的大小，只会改变当前设备摄像预览视图的尺寸
  */
 - (void)updatePreviewViewSize:(CGSize)size;
+
+- (void)beginUpdateConfiguration;
+- (void)endUpdateConfiguration;
+
+@end
+
+#pragma mark - Category (SendingBuffer)
+
+@interface PLCameraStreamingSession (SendingBuffer)
+
+@property (nonatomic, PL_WEAK) id<PLStreamingSendingBufferDelegate> bufferDelegate;
+
+/// 最低阈值, [0..1], 不可超出这个范围, 也不可大于 highThreshold - 0.1, 默认为 0.2
+@property (nonatomic, assign) CGFloat    lowThreshold;
+
+/// 最高阈值, [0..1], 不可超出这个范围, 也不可小于 lowThreshold + 0.1, 默认为 0.8
+@property (nonatomic, assign) CGFloat    highThreshold;
+
+/// Buffer 的最大长度, 默认为 3s, 可设置范围为 [1..5]
+@property (nonatomic, assign) NSTimeInterval    maxDuration;
+
+@property (nonatomic, assign, readonly) NSTimeInterval    currentDuration;
 
 @end
 

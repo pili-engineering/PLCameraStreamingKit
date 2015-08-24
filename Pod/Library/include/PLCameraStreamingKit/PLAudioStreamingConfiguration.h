@@ -14,6 +14,7 @@
 
 @interface PLAudioStreamingConfiguration : NSObject
 
+@property (nonatomic, PL_STRONG) NSString   *audioQuality;
 @property (nonatomic, assign, readonly) PLStreamingAudioBitRate audioBitRate;
 @property (nonatomic, assign, readonly) NSUInteger audioSampleRate; // always 44100 right now.
 

@@ -18,7 +18,7 @@
 @property (nonatomic, assign, readonly) PLStreamingDimension dimension;
 
 /// 推流质量
-@property (nonatomic, PL_STRONG, readonly) NSString *videoQuality;
+@property (nonatomic, PL_STRONG) NSString *videoQuality;
 
 /// 视频的分辨率
 @property (nonatomic, assign, readonly) CGSize  videoSize;

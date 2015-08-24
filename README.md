@@ -18,7 +18,8 @@ PLCameraStreamingKit 是一个适用于 iOS 的 RTMP 直播推流 SDK，可高�
 - [x] ARM64 支持
 - [x] 支持 RTMP 协议直播推流
 - [x] 音视频配置分离
-
+- [x] 推流时可变码率
+- [x] 提供发送 buffer
 
 ## 内容摘要
 
@@ -26,6 +27,8 @@ PLCameraStreamingKit 是一个适用于 iOS 的 RTMP 直播推流 SDK，可高�
 	- [配置工程](#配置工程)
 	- [示例代码](#示例代码)
 - [编码参数](#编码参数)
+- [变更推流质量及策略](#变更推流质量及策略)
+    - [重要事项](#重要事项)
 - [文档支持](#文档支持)
 - [功能特性](#功能特性)
 - [系统要求](#系统要求)
@@ -304,6 +307,83 @@ PLAudioStreamingConfiguration *audioConfiguration = [PLAudioStreamingConfigurati
 
 在创建好编码配置对象后，就可以用它来初始化 ```PLCameraStreamingSession``` 了。
 
+## 变更推流质量及策略
+
+在推流时，可以配合发送 buffer 自己设定不同的策略，来满足不同的网络环境。
+
+使用 buffer 可用的方法
+
+```Objective-C
+// BufferDelegate
+@protocol PLStreamingSendingBufferDelegate <NSObject>
+
+- (void)streamingSessionSendingBufferFillDidLowerThanLowThreshold:(id)session;
+- (void)streamingSessionSendingBufferFillDidHigherThanHighThreshold:(id)session;
+- (void)streamingSessionSendingBufferDidEmpty:(id)session;
+- (void)streamingSessionSendingBufferDidFull:(id)session;
+- (void)streamingSession:(id)session sendingBufferDidDropItems:(NSArray *)items;
+- (void)streamingSession:(id)session sendingBufferCurrentDurationDidChange:(NSTimeInterval)currentDuration;
+
+@end
+
+// StreamingSession 中的 buffer 相关内容
+@interface PLCameraStreamingSession (SendingBuffer)
+
+@property (nonatomic, PL_WEAK) id<PLStreamingSendingBufferDelegate> bufferDelegate;
+
+/// 最低阈值, [0..1], 不可超出这个范围, 也不可大于 highThreshold - 0.1, 默认为 0.2
+@property (nonatomic, assign) CGFloat    lowThreshold;
+
+/// 最高阈值, [0..1], 不可超出这个范围, 也不可小于 lowThreshold + 0.1, 默认为 0.8
+@property (nonatomic, assign) CGFloat    highThreshold;
+
+/// Buffer 的最大长度, 默认为 3s, 可设置范围为 [1..5]
+@property (nonatomic, assign) NSTimeInterval    maxDuration;
+
+@property (nonatomic, assign, readonly) NSTimeInterval    currentDuration;
+
+@end
+```
+
+buffer 是一个可以缓存待发送内容的队列，它按照时间(秒)作为缓存长度的判定，可以通过 maxDuration 来读取和设定，buffer 的下阈值和上阈值设定体现你期望的变更推流质量的策略，默认下阈值为 buffer 的 20%(0.2)，上阈值为 0.8。
+
+当 buffer 变为空时，会回调
+
+`- (void)streamingSessionSendingBufferDidEmpty:(id)session;`
+
+当 buffer 满时，会回调
+
+`- (void)streamingSessionSendingBufferDidFull:(id)session;`
+
+如果 buffer 已经满了，但是还有数据传入时，会触发丢帧，会调用
+
+`- (void)streamingSession:(id)session sendingBufferDidDropItems:(NSArray *)items;`
+
+buffer 的内容高过上阈值时，会回调 
+
+`- (void)streamingSessionSendingBufferFillDidHigherThanHighThreshold:(id)session;`
+
+这是可以尝试降低 quality 的时机
+
+内容低于下阈值时，会回调 
+
+`- (void)streamingSessionSendingBufferFillDidLowerThanLowThreshold:(id)session;`
+
+这是可以尝试增加 quality 的时机。
+
+当了解了可以触发变更 quality 的时机，那么当你需要变更 quality 时，通过下面的方式来做调用 
+
+```Objective-C
+[self.session beginUpdateConfiguration];
+self.session.videoConfiguration.videoQuality = kPLVideoStreamingQualityMedium2;
+self.session.audioConfiguration.audioQuality = kPLAudioStreamingQualityHigh1;
+[self.session endUpdateConfiguration];
+```
+
+### 重要事项
+
+**在不断流切换 Video Quality 时需要保证 profileLevel 基本不变，即 baseline 只可与 baseline 的 quality 相互切换。以现在的 quality 为例， low 和 medium 的 quality 可以互相切换，但是 high 的 quality 不可以与 low 及 medium 在不断流的情况下无缝切换，否则会导致播放器花屏。**
+
 ## 文档支持
 
 PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
@@ -317,6 +397,9 @@ PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
 
 ## 版本历史
 
+- 1.3.0 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.3.0.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.3.0.md))
+    - 添加可变更推流质量的支持
+    - 添加发送队列
 - 1.2.8 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.2.8.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.2.8.md))
     - 更新编码配置，分离音视频编码配置，便于提供更灵活的配置方案
     - 去除 SIGPIPE 断点
