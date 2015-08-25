@@ -398,8 +398,9 @@ PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
 ## 版本历史
 
 - 1.3.0 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.3.0.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.3.0.md))
-    - 添加可变更推流质量的支持
-    - 添加发送队列
+    - 添加带宽质量检测机制，推流过程中可无缝切换音视频 Quality，实现码率及帧率的动态调节
+    - 添加发送队列的配置及状态回调
+    - 更新 Example 来简单说明如何使用发送队列和 Quality 组合推流策略
 - 1.2.8 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.2.8.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.2.8.md))
     - 更新编码配置，分离音视频编码配置，便于提供更灵活的配置方案
     - 去除 SIGPIPE 断点
