@@ -9,12 +9,12 @@
 
 Pod::Spec.new do |s|
   s.name             = "PLCameraStreamingKit"
-  s.version          = "v1.3.0"
+  s.version          = "1.3.0"
   s.summary          = "Pili iOS camera streaming framework via RTMP."
   s.homepage         = "https://github.com/pili-engineering/PLCameraStreamingKit"
   s.license          = 'Apache License, Version 2.0'
   s.author           = { "0dayZh" => "0day.zh@gmail.com" }
-  s.source           = { :git => "https://github.com/pili-engineering/PLCameraStreamingKit.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/pili-engineering/PLCameraStreamingKit.git", :tag => "v#{s.version}" }
 
   s.platform     = :ios, '7.0'
   s.requires_arc = true
