@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "PLCameraStreamingKit"
-  s.version          = "1.3.0"
+  s.version          = "1.3.1"
   s.summary          = "Pili iOS camera streaming framework via RTMP."
   s.homepage         = "https://github.com/pili-engineering/PLCameraStreamingKit"
   s.license          = 'Apache License, Version 2.0'
