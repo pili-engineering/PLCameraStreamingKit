@@ -397,6 +397,10 @@ PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
 
 ## 版本历史
 
+- 1.3.2 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.3.2.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.3.2.md))
+    - 修复直播被电话 / 闹钟中断后后续直播无声音的问题
+    - 更改音频采集类型: RecordAndPlay -> Record
+    - 添加对蓝牙音频设备的支持
 - 1.3.1 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.3.1.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.3.1.md))
     - 修复调用 destroy 方法后，重新创建 session 进入后台触发的 crash 问题
     - 去除无用依赖, SDK 大小由 17 MB 降低为 4.7 MB
