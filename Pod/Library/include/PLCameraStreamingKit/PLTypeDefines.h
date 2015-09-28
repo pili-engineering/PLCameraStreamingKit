@@ -180,6 +180,14 @@ typedef NS_ENUM(NSUInteger, PLCaptureDevicePosition) {
     PLCaptureDevicePositionFront
 };
 
+#pragma mark - BackgroudMode
+
+typedef NS_ENUM(NSUInteger, PLStreamingBackgroundMode) {
+    PLStreamingBackgroundModeAutoStop = 0,
+    PLStreamingBackgroundModeKeepAlive,
+    PLStreamingBackgroundModeDefault = PLStreamingBackgroundModeAutoStop
+};
+
 #pragma mark - Deprecated
 
 /*!

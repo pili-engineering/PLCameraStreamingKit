@@ -16,7 +16,7 @@
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
 		6003F59E195388D20070C39A /* PLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* PLAppDelegate.m */; };
 		6003F5A1195388D20070C39A /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6003F59F195388D20070C39A /* Main_iPhone.storyboard */; };
-		6003F5A7195388D20070C39A /* PLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* PLViewController.m */; };
+		6003F5A7195388D20070C39A /* PLCameraStreamingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* PLCameraStreamingViewController.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -25,6 +25,8 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		762780721AF24D8D00DDFAFD /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 762780711AF24D8D00DDFAFD /* Reachability.m */; };
 		769750EF1A6331080079423B /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 769750EC1A6329DC0079423B /* VideoToolbox.framework */; };
+		E942D0081BB94957006DEDCA /* PLAudioStreamingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E942D0071BB94957006DEDCA /* PLAudioStreamingViewController.m */; settings = {ASSET_TAGS = (); }; };
+		E942D00A1BB94BCC006DEDCA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E942D0091BB94BCC006DEDCA /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,8 +55,8 @@
 		6003F59C195388D20070C39A /* PLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLAppDelegate.h; sourceTree = "<group>"; };
 		6003F59D195388D20070C39A /* PLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLAppDelegate.m; sourceTree = "<group>"; };
 		6003F5A0195388D20070C39A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		6003F5A5195388D20070C39A /* PLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLViewController.h; sourceTree = "<group>"; };
-		6003F5A6195388D20070C39A /* PLViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLViewController.m; sourceTree = "<group>"; };
+		6003F5A5195388D20070C39A /* PLCameraStreamingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PLCameraStreamingViewController.h; sourceTree = "<group>"; };
+		6003F5A6195388D20070C39A /* PLCameraStreamingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PLCameraStreamingViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -71,6 +73,9 @@
 		D0F068B3401C09FA4EA68D8E /* libPods-PLCameraStreamingKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PLCameraStreamingKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD456E148A624B6E6ECC62AB /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		E51D5EAEC12F200B391FBA24 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E942D0061BB94957006DEDCA /* PLAudioStreamingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAudioStreamingViewController.h; sourceTree = "<group>"; };
+		E942D0071BB94957006DEDCA /* PLAudioStreamingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAudioStreamingViewController.m; sourceTree = "<group>"; };
+		E942D0091BB94BCC006DEDCA /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,8 +158,11 @@
 				6003F59C195388D20070C39A /* PLAppDelegate.h */,
 				6003F59D195388D20070C39A /* PLAppDelegate.m */,
 				6003F59F195388D20070C39A /* Main_iPhone.storyboard */,
-				6003F5A5195388D20070C39A /* PLViewController.h */,
-				6003F5A6195388D20070C39A /* PLViewController.m */,
+				E942D0091BB94BCC006DEDCA /* Launch Screen.storyboard */,
+				6003F5A5195388D20070C39A /* PLCameraStreamingViewController.h */,
+				6003F5A6195388D20070C39A /* PLCameraStreamingViewController.m */,
+				E942D0061BB94957006DEDCA /* PLAudioStreamingViewController.h */,
+				E942D0071BB94957006DEDCA /* PLAudioStreamingViewController.m */,
 				762780701AF24D8D00DDFAFD /* Reachability.h */,
 				762780711AF24D8D00DDFAFD /* Reachability.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
@@ -257,6 +265,11 @@
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
 						DevelopmentTeam = 2LA7SLA9PL;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
@@ -289,6 +302,7 @@
 			files = (
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F5A1195388D20070C39A /* Main_iPhone.storyboard in Resources */,
+				E942D00A1BB94BCC006DEDCA /* Launch Screen.storyboard in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,7 +386,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* PLAppDelegate.m in Sources */,
-				6003F5A7195388D20070C39A /* PLViewController.m in Sources */,
+				6003F5A7195388D20070C39A /* PLCameraStreamingViewController.m in Sources */,
+				E942D0081BB94957006DEDCA /* PLAudioStreamingViewController.m in Sources */,
 				762780721AF24D8D00DDFAFD /* Reachability.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);

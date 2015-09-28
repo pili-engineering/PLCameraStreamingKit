@@ -68,9 +68,9 @@ pod update
 #import <PLCameraStreamingKit/PLCameraStreamingKit.h>
 ```
 
-```PLCameraStreamingSession``` 是核心类，你只需要关注并使用这个类就可以完成通过摄像头推流、预览的工作
+`PLCameraStreamingSession` 是核心类，你只需要关注并使用这个类就可以完成通过摄像头推流、预览的工作。如果你只需要做纯音频推流，那么你可以使用 `PLAudioStreamingSession`
 
-推流前务必要先检查摄像头 / 麦克风的授权，并记得设置预览界面，```StreamingSession``` 的创建需要 Stream 对象
+推流前务必要先检查摄像头 / 麦克风的授权，并记得设置预览界面，`StreamingSession` 的创建需要 Stream 对象
 
 ```Objective-C
 // streamJSON 是从服务端拿回的
@@ -397,6 +397,9 @@ PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
 
 ## 版本历史
 
+- 1.4.0 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.4.0.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.4.0.md))
+    - 添加音频推流的 `PLAudioStreamingSession`, 纯音频推流合并到 `PLCameraStreamingKit`
+    - 添加后台推流支持，暂且只在纯音频推流中有效
 - 1.3.2 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.3.2.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.3.2.md))
     - 修复直播被电话 / 闹钟中断后后续直播无声音的问题
     - 更改音频采集类型: RecordAndPlay -> Record

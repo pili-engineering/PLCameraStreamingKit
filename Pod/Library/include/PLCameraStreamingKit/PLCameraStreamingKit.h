@@ -10,6 +10,7 @@
 #define PLCameraStreamingKit_PLCameraStreamingKit_h
 
 #import "PLCameraStreamingSession.h"
+#import "PLAudioStreamingSession.h"
 #import "PLTypeDefines.h"
 #import "PLMacroDefines.h"
 #import "PLCameraStreamingConfiguration.h"

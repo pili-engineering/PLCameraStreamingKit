@@ -14,31 +14,32 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		138479E0DDFAA76CFF9F998B03012DBD /* PLCameraStreamingConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCameraStreamingConfiguration.h; sourceTree = "<group>"; };
-		1787105FFFAFFBCCCF6F22B35880FF58 /* PLCameraStreamingKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCameraStreamingKit.h; sourceTree = "<group>"; };
+		0BD8AEA34474D84286CDFC9E41ADD1E9 /* PLTypeDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLTypeDefines.h; sourceTree = "<group>"; };
 		1BD6E07A42199E7E0BD18FE97315544B /* Pods-Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Tests-resources.sh"; sourceTree = "<group>"; };
 		1CCF9B484900AFEDC114753B0E40BDAB /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
-		259FC397A946995B3B65133F8223535C /* PLStream.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLStream.h; sourceTree = "<group>"; };
 		2B55A586A9D52DE92C6B065AB2279BF7 /* Pods-PLCameraStreamingKit-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PLCameraStreamingKit-resources.sh"; sourceTree = "<group>"; };
 		325EF46C6F20AA320697137FC83C7C2C /* Pods-PLCameraStreamingKit-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PLCameraStreamingKit-acknowledgements.markdown"; sourceTree = "<group>"; };
 		32713F7D0EDFA27979C15AD5C97DDF79 /* Pods-PLCameraStreamingKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PLCameraStreamingKit-dummy.m"; sourceTree = "<group>"; };
-		407F762A212F5548D7E97EB2AF9E89BB /* PLMacroDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLMacroDefines.h; sourceTree = "<group>"; };
 		430F7646ACB8AFC7964FB4E223D737D8 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		493F5ADD08C758A493B91DA246CC506F /* Pods-PLCameraStreamingKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PLCameraStreamingKit.debug.xcconfig"; sourceTree = "<group>"; };
 		57BD8603B87A1B82BCD5CAD128E15F01 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		5881FA2C4F2584C58482A107D054C8F0 /* Pods-Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		5B3628876D859B8A533A13CA4E9F9F30 /* PLCameraStreamingConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCameraStreamingConfiguration.h; sourceTree = "<group>"; };
+		6B5575EE300F2C45D8D7CF767194E995 /* PLMacroDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLMacroDefines.h; sourceTree = "<group>"; };
+		6C71AD0C09E7F16C681361BEE3BD2CBF /* PLCameraStreamingKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCameraStreamingKit.h; sourceTree = "<group>"; };
+		6C7E0998029CC7FB25B7FFB13B978BC7 /* PLVideoStreamingConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLVideoStreamingConfiguration.h; sourceTree = "<group>"; };
 		73AD3E3888F5152A9E61E00FF5F216ED /* libPods-PLCameraStreamingKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PLCameraStreamingKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8159CE7483F14271FA034D1CA307D2FB /* libPLCameraStreamingKit.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libPLCameraStreamingKit.a; path = Pod/Library/lib/libPLCameraStreamingKit.a; sourceTree = "<group>"; };
 		8DB3DFE9F8538A3D43A15C88F4E7B9DB /* Pods-PLCameraStreamingKit-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PLCameraStreamingKit-acknowledgements.plist"; sourceTree = "<group>"; };
-		9689077C9644B1A2C19600FB3EFC2259 /* PLTypeDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLTypeDefines.h; sourceTree = "<group>"; };
 		992222599D042F2A6CC7ABF8A788B9B9 /* Pods-Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Tests-dummy.m"; sourceTree = "<group>"; };
+		9AF1A2DBF2286722C53247E42ADBAE22 /* PLAudioStreamingSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLAudioStreamingSession.h; sourceTree = "<group>"; };
 		A25A378D4DF997DC9BAF5A6E5A38E03F /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		C388E19EC8BA00A6B56838D5426C5138 /* PLAudioStreamingConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLAudioStreamingConfiguration.h; sourceTree = "<group>"; };
+		CAC49CFA7973D479687354D2A007AF78 /* PLStream.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLStream.h; sourceTree = "<group>"; };
+		CCE67BC3DD343D186A628D49574133EA /* PLAudioStreamingConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLAudioStreamingConfiguration.h; sourceTree = "<group>"; };
 		CEBF10DB25589D2687C753742E8855F9 /* Pods-PLCameraStreamingKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PLCameraStreamingKit.release.xcconfig"; sourceTree = "<group>"; };
-		E1FA1181016663DE1E0EA3687FB82088 /* PLVideoStreamingConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLVideoStreamingConfiguration.h; sourceTree = "<group>"; };
+		EC7EC977E9575CA77C6B89DDCBEE9F89 /* PLCameraStreamingSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCameraStreamingSession.h; sourceTree = "<group>"; };
 		F027A5A531D3A0027E4F8FB71BDA0D17 /* Pods-Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		F788CD307EED3A4E6AE7B84157CAD705 /* PLCameraStreamingSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCameraStreamingSession.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,29 +85,6 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		2D952C300D8556B96E5859181B2E1AAE /* include */ = {
-			isa = PBXGroup;
-			children = (
-				3111B8102B69884D8C68CADBBEB03772 /* PLCameraStreamingKit */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		3111B8102B69884D8C68CADBBEB03772 /* PLCameraStreamingKit */ = {
-			isa = PBXGroup;
-			children = (
-				C388E19EC8BA00A6B56838D5426C5138 /* PLAudioStreamingConfiguration.h */,
-				138479E0DDFAA76CFF9F998B03012DBD /* PLCameraStreamingConfiguration.h */,
-				1787105FFFAFFBCCCF6F22B35880FF58 /* PLCameraStreamingKit.h */,
-				F788CD307EED3A4E6AE7B84157CAD705 /* PLCameraStreamingSession.h */,
-				407F762A212F5548D7E97EB2AF9E89BB /* PLMacroDefines.h */,
-				259FC397A946995B3B65133F8223535C /* PLStream.h */,
-				9689077C9644B1A2C19600FB3EFC2259 /* PLTypeDefines.h */,
-				E1FA1181016663DE1E0EA3687FB82088 /* PLVideoStreamingConfiguration.h */,
-			);
-			path = PLCameraStreamingKit;
-			sourceTree = "<group>";
-		};
 		53F661C0CA7190D2CF05023FB33D61E4 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,7 +104,7 @@
 		583E9C7A7859693C883DCBE9D2BE2277 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				2D952C300D8556B96E5859181B2E1AAE /* include */,
+				73510AA1523E45F6254C7895B6731675 /* include */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -137,6 +115,14 @@
 				8159CE7483F14271FA034D1CA307D2FB /* libPLCameraStreamingKit.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		73510AA1523E45F6254C7895B6731675 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				AD243A4B3D882832C54724D77406E0A1 /* PLCameraStreamingKit */,
+			);
+			path = include;
 			sourceTree = "<group>";
 		};
 		77CFF671B2051BFBA4FD747D03BC5908 /* Pods-PLCameraStreamingKit */ = {
@@ -170,6 +156,22 @@
 				583E9C7A7859693C883DCBE9D2BE2277 /* Library */,
 			);
 			path = Pod;
+			sourceTree = "<group>";
+		};
+		AD243A4B3D882832C54724D77406E0A1 /* PLCameraStreamingKit */ = {
+			isa = PBXGroup;
+			children = (
+				CCE67BC3DD343D186A628D49574133EA /* PLAudioStreamingConfiguration.h */,
+				9AF1A2DBF2286722C53247E42ADBAE22 /* PLAudioStreamingSession.h */,
+				5B3628876D859B8A533A13CA4E9F9F30 /* PLCameraStreamingConfiguration.h */,
+				6C71AD0C09E7F16C681361BEE3BD2CBF /* PLCameraStreamingKit.h */,
+				EC7EC977E9575CA77C6B89DDCBEE9F89 /* PLCameraStreamingSession.h */,
+				6B5575EE300F2C45D8D7CF767194E995 /* PLMacroDefines.h */,
+				CAC49CFA7973D479687354D2A007AF78 /* PLStream.h */,
+				0BD8AEA34474D84286CDFC9E41ADD1E9 /* PLTypeDefines.h */,
+				6C7E0998029CC7FB25B7FFB13B978BC7 /* PLVideoStreamingConfiguration.h */,
+			);
+			path = PLCameraStreamingKit;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
