@@ -39,6 +39,9 @@ extern NSString *PLMicrophoneDidStartRunningNotificaiton;
 /// @abstract 麦克风授权状态发生变化的回调
 - (void)cameraStreamingSession:(PLCameraStreamingSession *)session didGetMicrophoneAuthorizationStatus:(PLAuthorizationStatus)status;
 
+/// @abstract 获取到摄像头原数据时的回调, 便于开发者做滤镜等处理
+- (CMSampleBufferRef)cameraStreamingSession:(PLCameraStreamingSession *)session cameraSourceDidGetSampleBuffer:(CMSampleBufferRef)sampleBuffer;
+
 @end
 
 @protocol PLStreamingSendingBufferDelegate <NSObject>

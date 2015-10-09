@@ -397,6 +397,9 @@ PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
 
 ## 版本历史
 
+- 1.4.1 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.4.1.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.4.1.md))
+    - 添加可以获取视频源数据的回调方法，便于开发者做滤镜等处理
+    - 对自定义分辨率做了内部修正，保证宽高均为 16 倍数
 - 1.4.0 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.4.0.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.4.0.md))
     - 添加音频推流的 `PLAudioStreamingSession`, 纯音频推流合并到 `PLCameraStreamingKit`
     - 添加后台推流支持，暂且只在纯音频推流中有效

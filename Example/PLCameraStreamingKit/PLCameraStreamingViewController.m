@@ -65,8 +65,8 @@ PLStreamingSendingBufferDelegate
     
     void (^permissionBlock)(void) = ^{
         // 视频编码配置
-        PLVideoStreamingConfiguration *videoConfiguration = [PLVideoStreamingConfiguration configurationWithUserDefineDimension:self.view.bounds.size
-                                                                                                                   videoQuality:kPLVideoStreamingQualityMedium2];
+        PLVideoStreamingConfiguration *videoConfiguration = [PLVideoStreamingConfiguration configurationWithUserDefineDimension:CGSizeMake(320, 480)
+                                                                                                                   videoQuality:kPLVideoStreamingQualityLow2];
         // 音频编码配置
         PLAudioStreamingConfiguration *audioConfiguration = [PLAudioStreamingConfiguration defaultConfiguration];
         
@@ -133,12 +133,12 @@ PLStreamingSendingBufferDelegate
 - (void)streamingSessionSendingBufferFillDidLowerThanLowThreshold:(id)session {
     if (self.session.isRunning) {
         NSString *oldVideoQuality = self.session.videoConfiguration.videoQuality;
-        NSString *newVideoQuality = kPLVideoStreamingQualityMedium3;
+        NSString *newVideoQuality = kPLVideoStreamingQualityLow3;
         
-        if ([oldVideoQuality isEqualToString:kPLVideoStreamingQualityMedium1]) {
-            newVideoQuality = kPLVideoStreamingQualityMedium2;
-        } else if ([oldVideoQuality isEqualToString:kPLVideoStreamingQualityMedium2]) {
-            newVideoQuality = kPLVideoStreamingQualityMedium3;
+        if ([oldVideoQuality isEqualToString:kPLVideoStreamingQualityLow1]) {
+            newVideoQuality = kPLVideoStreamingQualityLow2;
+        } else if ([oldVideoQuality isEqualToString:kPLVideoStreamingQualityLow2]) {
+            newVideoQuality = kPLVideoStreamingQualityLow3;
         }
         
         [self.session beginUpdateConfiguration];
@@ -150,12 +150,12 @@ PLStreamingSendingBufferDelegate
 - (void)streamingSessionSendingBufferFillDidHigherThanHighThreshold:(id)session {
     if (self.session.isRunning) {
         NSString *oldVideoQuality = self.session.videoConfiguration.videoQuality;
-        NSString *newVideoQuality = kPLVideoStreamingQualityMedium1;
+        NSString *newVideoQuality = kPLVideoStreamingQualityLow1;
         
-        if ([oldVideoQuality isEqualToString:kPLVideoStreamingQualityMedium3]) {
-            newVideoQuality = kPLVideoStreamingQualityMedium2;
-        } else if ([oldVideoQuality isEqualToString:kPLVideoStreamingQualityMedium2]) {
-            newVideoQuality = kPLVideoStreamingQualityMedium1;
+        if ([oldVideoQuality isEqualToString:kPLVideoStreamingQualityLow3]) {
+            newVideoQuality = kPLVideoStreamingQualityLow2;
+        } else if ([oldVideoQuality isEqualToString:kPLVideoStreamingQualityLow2]) {
+            newVideoQuality = kPLVideoStreamingQualityLow1;
         }
         
         [self.session beginUpdateConfiguration];
