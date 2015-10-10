@@ -17,5 +17,6 @@
 #import "PLVideoStreamingConfiguration.h"
 #import "PLAudioStreamingConfiguration.h"
 #import "PLStream.h"
+#import "PLBuffer.h"
 
 #endif

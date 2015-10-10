@@ -15,6 +15,7 @@
 #import "PLMacroDefines.h"
 #import "PLTypeDefines.h"
 #import "PLStream.h"
+#import "PLBuffer.h"
 
 // post with userinfo @{@"state": @(state)}. always posted via MainQueue.
 extern NSString *PLStreamStateDidChangeNotification;
@@ -41,18 +42,6 @@ extern NSString *PLMicrophoneDidStartRunningNotificaiton;
 
 /// @abstract 获取到摄像头原数据时的回调, 便于开发者做滤镜等处理
 - (CMSampleBufferRef)cameraStreamingSession:(PLCameraStreamingSession *)session cameraSourceDidGetSampleBuffer:(CMSampleBufferRef)sampleBuffer;
-
-@end
-
-@protocol PLStreamingSendingBufferDelegate <NSObject>
-
-@optional
-- (void)streamingSessionSendingBufferFillDidLowerThanLowThreshold:(id)session;
-- (void)streamingSessionSendingBufferFillDidHigherThanHighThreshold:(id)session;
-- (void)streamingSessionSendingBufferDidEmpty:(id)session;
-- (void)streamingSessionSendingBufferDidFull:(id)session;
-- (void)streamingSession:(id)session sendingBufferDidDropItems:(NSArray *)items;
-- (void)streamingSession:(id)session sendingBufferCurrentDurationDidChange:(NSTimeInterval)currentDuration;
 
 @end
 

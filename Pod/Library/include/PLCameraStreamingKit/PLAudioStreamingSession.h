@@ -13,6 +13,7 @@
 #import "PLMacroDefines.h"
 #import "PLTypeDefines.h"
 #import "PLStream.h"
+#import "PLBuffer.h"
 
 // post with userinfo @{@"state": @(state)}. always posted via MainQueue.
 extern NSString *PLStreamStateDidChangeNotification;
@@ -128,6 +129,25 @@ extern NSString *PLMicrophoneAuthorizationStatusDidGetNotificaiton;
  * 结束推流
  */
 - (void)stop;
+
+@end
+
+#pragma mark - Category (SendingBuffer)
+
+@interface PLAudioStreamingSession (SendingBuffer)
+
+@property (nonatomic, PL_WEAK) id<PLStreamingSendingBufferDelegate> bufferDelegate;
+
+/// 最低阈值, [0..1], 不可超出这个范围, 也不可大于 highThreshold - 0.1, 默认为 0.2
+@property (nonatomic, assign) CGFloat    lowThreshold;
+
+/// 最高阈值, [0..1], 不可超出这个范围, 也不可小于 lowThreshold + 0.1, 默认为 0.8
+@property (nonatomic, assign) CGFloat    highThreshold;
+
+/// Buffer 的最大长度, 默认为 3s, 可设置范围为 [1..5]
+@property (nonatomic, assign) NSTimeInterval    maxDuration;
+
+@property (nonatomic, assign, readonly) NSTimeInterval    currentDuration;
 
 @end
 
