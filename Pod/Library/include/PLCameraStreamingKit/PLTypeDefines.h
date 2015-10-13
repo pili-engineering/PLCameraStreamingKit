@@ -33,11 +33,40 @@ typedef NS_ENUM(NSUInteger, PLStreamState) {
     PLStreamStateConnecting,
     /// 已连接
     PLStreamStateConnected,
+    /// 断开中
+    PLStreamStateDisconnecting,
     /// 已断开
     PLStreamStateDisconnected,
     /// 连接出错
     PLStreamStateError
 };
+
+#pragma mark - Error
+
+typedef NS_ENUM(NSInteger, PLStreamError) {
+    PLStreamErrorUnknow =	-1,
+    PLStreamErrorUnknowOption = -999,
+    PLStreamErrorAccessDNSFailed = -1000,
+    PLStreamErrorFailedToConnectSocket = -1001,
+    PLStreamErrorSocksNegotiationFailed = -1002,
+    PLStreamErrorFailedToCreateSocket = -1003,
+    PLStreamErrorHandshakeFailed = -1004,
+    PLStreamErrorRTMPConnectFailed = -1005,
+    PLStreamErrorSendFailed = -1006,
+    PLStreamErrorServerRequestedClose = -1007,
+    PLStreamErrorNetStreamFailed = -1008,
+    PLStreamErrorNetStreamPlayFailed = -1009,
+    PLStreamErrorNetStreamPlayStreamNotFound = -1010,
+    PLStreamErrorNetConnectionConnectInvalidApp = -1011,
+    PLStreamErrorSanityFailed = -1012,
+    PLStreamErrorSocketClosedByPeer = -1013,
+    PLStreamErrorRTMPConnectStreamFailed = -1014,
+    
+    // SSL errors
+    PLStreamErrorTLSConnectFailed = -1200,
+    PLStreamErrorNoSSLOrTLSSupport = -1201,
+};
+
 
 #pragma mark - Video Dimension
 

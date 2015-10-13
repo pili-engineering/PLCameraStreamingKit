@@ -27,6 +27,7 @@ PLCameraStreamingKit 是一个适用于 iOS 的 RTMP 直播推流 SDK，可高�
 	- [配置工程](#配置工程)
 	- [示例代码](#示例代码)
 - [编码参数](#编码参数)
+- [流状态变更及错误处理](#流状态变更及处理处理)
 - [变更推流质量及策略](#变更推流质量及策略)
     - [重要事项](#重要事项)
 - [文档支持](#文档支持)
@@ -307,6 +308,24 @@ PLAudioStreamingConfiguration *audioConfiguration = [PLAudioStreamingConfigurati
 
 在创建好编码配置对象后，就可以用它来初始化 ```PLCameraStreamingSession``` 了。
 
+## 流状态变更及处理处理
+
+实现 `PLCameraStreamingSessionDelegate` 或 `PLAudioStreamingSessionDelegate` 的回调方法，可以及时的得知流状态的变更及推流错误
+
+```Objective-C
+- (void)cameraStreamingSession:(PLCameraStreamingSession *)session streamStateDidChange:(PLStreamState)state {
+    // 当流状态变更为非 Error 时，会回调到这里
+}
+
+```
+
+```Objective-C
+- (void)cameraStreamingSession:(PLCameraStreamingSession *)session didDisconnectWithError:(NSError *)error {
+    // 当流状态变为 Error, 会携带 NSError 对象回调这个方法
+}
+
+```
+
 ## 变更推流质量及策略
 
 在推流时，可以配合发送 buffer 自己设定不同的策略，来满足不同的网络环境。
@@ -397,6 +416,12 @@ PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
 
 ## 版本历史
 
+- 1.4.3 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.4.3.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.4.3.md))
+    - 优化网络层调用，添加 `Disconnecting` 流状态
+    - 抽离可导致推流中断的错误
+    - 添加错误回调，同时将错误信息返回，便于 debug 及异常处理
+    - 修复 `destroy` 调用导致的崩溃问题
+    - 支持 iOS 9 的 bitcode
 - 1.4.2 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.4.2.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.4.2.md))
     - 添加 SendingBuffer 支持
     - 修复 iPhone 6s 下崩溃的问题

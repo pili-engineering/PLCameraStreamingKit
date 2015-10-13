@@ -14,6 +14,7 @@ const char *stateNames[] = {
     "Unknow",
     "Connecting",
     "Connected",
+    "Disconnecting"
     "Disconnected",
     "Error"
 };
@@ -179,6 +180,11 @@ PLStreamingSendingBufferDelegate
     } else {
         [self.actionButton setTitle:NSLocalizedString(@"Start", nil) forState:UIControlStateNormal];
     }
+}
+
+- (void)cameraStreamingSession:(PLCameraStreamingSession *)session didDisconnectWithError:(NSError *)error {
+    NSLog(@"Stream State: Error. %@", error);
+    [self.actionButton setTitle:NSLocalizedString(@"Start", nil) forState:UIControlStateNormal];
 }
 
 #pragma mark - Operation

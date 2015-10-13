@@ -34,6 +34,9 @@ extern NSString *PLMicrophoneDidStartRunningNotificaiton;
 /// @abstract 流状态已变更的回调
 - (void)cameraStreamingSession:(PLCameraStreamingSession *)session streamStateDidChange:(PLStreamState)state;
 
+/// @abstract 因产生了某个 error 而断开时的回调
+- (void)cameraStreamingSession:(PLCameraStreamingSession *)session didDisconnectWithError:(NSError *)error;
+
 /// @abstract 摄像头授权状态发生变化的回调
 - (void)cameraStreamingSession:(PLCameraStreamingSession *)session didGetCameraAuthorizationStatus:(PLAuthorizationStatus)status;
 

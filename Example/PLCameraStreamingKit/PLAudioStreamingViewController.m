@@ -129,6 +129,12 @@ PLAudioStreamingSessionDelegate
     }
 }
 
+- (void)audioStreamingSession:(PLAudioStreamingSession *)session didDisconnectWithError:(NSError *)error {
+    NSLog(@"Stream State: Error. %@", error);
+    
+    [self.actionButton setTitle:NSLocalizedString(@"Start", nil) forState:UIControlStateNormal];
+}
+
 #pragma mark - Operation
 
 - (void)stopSession {

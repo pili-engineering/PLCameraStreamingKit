@@ -30,6 +30,7 @@ extern NSString *PLMicrophoneAuthorizationStatusDidGetNotificaiton;
 
 @optional
 - (void)audioStreamingSession:(PLAudioStreamingSession *)session streamStateDidChange:(PLStreamState)state;
+- (void)audioStreamingSession:(PLAudioStreamingSession *)session didDisconnectWithError:(NSError *)error;
 - (void)audioStreamingSession:(PLAudioStreamingSession *)session didGetMicrophoneAuthorizationStatus:(PLAuthorizationStatus)status;
 
 - (void)audioStreamingSessionWillBeginBackgroundTask:(PLAudioStreamingSession *)session;
