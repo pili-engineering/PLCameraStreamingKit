@@ -165,6 +165,14 @@ PLStreamingSendingBufferDelegate
     }
 }
 
+- (void)streamingSessionSendingBufferDidFull:(id)session {
+    NSLog(@"Buffer is full");
+}
+
+- (void)streamingSession:(id)session sendingBufferDidDropItems:(NSArray *)items {
+    NSLog(@"Frame dropped");
+}
+
 #pragma mark - <PLCameraStreamingSessionDelegate>
 
 - (void)cameraStreamingSession:(PLCameraStreamingSession *)session streamStateDidChange:(PLStreamState)state {

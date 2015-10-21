@@ -160,16 +160,19 @@ extern NSString *PLMicrophoneDidStartRunningNotificaiton;
 
 @property (nonatomic, PL_WEAK) id<PLStreamingSendingBufferDelegate> bufferDelegate;
 
-/// 最低阈值, [0..1], 不可超出这个范围, 也不可大于 highThreshold - 0.1, 默认为 0.2
+/// 最低阈值, [0..1], 不可超出这个范围, 也不可大于 highThreshold - 0.1, 默认为 0.3
 @property (nonatomic, assign) CGFloat    lowThreshold;
 
-/// 最高阈值, [0..1], 不可超出这个范围, 也不可小于 lowThreshold + 0.1, 默认为 0.8
+/// 最高阈值, [0..1], 不可超出这个范围, 也不可小于 lowThreshold + 0.1, 默认为 0.7
 @property (nonatomic, assign) CGFloat    highThreshold;
 
-/// Buffer 的最大长度, 默认为 3s, 可设置范围为 [1..5]
-@property (nonatomic, assign) NSTimeInterval    maxDuration;
+/// 默认为 300
+@property (nonatomic, assign) NSUInteger    maxCount;
+@property (nonatomic, assign, readonly) NSUInteger    currentCount;
 
-@property (nonatomic, assign, readonly) NSTimeInterval    currentDuration;
+/// Buffer 的最大长度, 默认为 3s, 可设置范围为 [1..5]
+@property (nonatomic, assign) NSTimeInterval    maxDuration DEPRECATED_ATTRIBUTE;
+@property (nonatomic, assign, readonly) NSTimeInterval    currentDuration DEPRECATED_ATTRIBUTE;
 
 @end
 
