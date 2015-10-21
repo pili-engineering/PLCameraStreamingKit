@@ -420,6 +420,7 @@ PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
     - 为 PLCameraStreamingSession 多个属性添加 kvo 支持
     - 由时间计数改为包数计数
     - 针对弱网坏境更改丢帧策略，确保不会出现花屏和声音抖动，取而代之会出现间断的无数据，但是可以保证画面和声音的流畅
+    - 发送队列的默认上下阈值更改为 0.3 和 0.7
 - 1.4.3 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.4.3.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.4.3.md))
     - 优化网络层调用，添加 `Disconnecting` 流状态
     - 抽离可导致推流中断的错误
