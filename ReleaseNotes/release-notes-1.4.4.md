@@ -1,4 +1,4 @@
-# PLCameraStreamingKit Release Notes for 1.4.4
+# PLCameraStreamingKit Release Notes for 1.4.5
 
 ## 内容
 
@@ -18,11 +18,7 @@ PLCameraStreamingKit 为 iOS 开发者提供直播推流 SDK。
 
 ## 记录
 
-### 推流 session
-
 - 为 PLCameraStreamingSession 多个属性添加 kvo 支持
-
-## 队列
-
 - 由时间计数改为包数计数
 - 针对弱网坏境更改丢帧策略，确保不会出现花屏和声音抖动，取而代之会出现间断的无数据，但是可以保证画面和声音的流畅
+- 发送队列的默认上下阈值更改为 0.3 和 0.7
