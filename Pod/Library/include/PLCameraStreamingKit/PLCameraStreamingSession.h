@@ -24,6 +24,7 @@ extern NSString *PLMicrophoneAuthorizationStatusDidGetNotificaiton;
 
 extern NSString *PLCameraDidStartRunningNotificaiton;
 extern NSString *PLMicrophoneDidStartRunningNotificaiton;
+extern NSString *PLAudioComponentFailedToCreateNotification;
 
 @class PLCameraStreamingSession;
 
