@@ -416,6 +416,9 @@ PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
 
 ## 版本历史
 
+- 1.4.8 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.4.8.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.4.8.md))
+    - 尝试修复 iPhone 6s 音频获取不到权限的问题
+    - 修复弱网环境触发的内存和 CPU 占用升高的问题
 - 1.4.7 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.4.7.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.4.7.md))
     - 尝试修复音频获取不到权限的问题
     - 添加关闭 SDK 渲染 preview 的接口
