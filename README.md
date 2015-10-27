@@ -415,6 +415,10 @@ PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
 - iOS Target : >= iOS 7
 
 ## 版本历史
+
+- 1.4.7 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.4.7.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.4.7.md))
+    - 尝试修复音频获取不到权限的问题
+    - 添加关闭 SDK 渲染 preview 的接口
 - 1.4.6 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.4.6.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.4.6.md))
     - 修复弱网环境下切换 VideoQuality 可能触发的 crash 问题 
     - 添加 `PLAudioComponentFailedToCreateNotification` 通知，在音频资源被占用时，创建音频结构失败会发送这个通知
