@@ -191,6 +191,7 @@ PLStreamingSendingBufferDelegate
 - (void)cameraStreamingSession:(PLCameraStreamingSession *)session streamStateDidChange:(PLStreamState)state {
     NSLog(@"Stream State: %s", stateNames[state]);
     
+    // 这个回调会确保在主线程，所以可以直接对 UI 做操作
     if (PLStreamStateConnected == state) {
         [self.actionButton setTitle:NSLocalizedString(@"Stop", nil) forState:UIControlStateNormal];
     } else if (PLStreamStateError == state) {
@@ -205,6 +206,8 @@ PLStreamingSendingBufferDelegate
 
 - (void)cameraStreamingSession:(PLCameraStreamingSession *)session didDisconnectWithError:(NSError *)error {
     NSLog(@"Stream State: Error. %@", error);
+    
+    // 这个回调会确保在主线程，所以可以直接对 UI 做操作
     [self.actionButton setTitle:NSLocalizedString(@"Start", nil) forState:UIControlStateNormal];
 }
 
@@ -224,7 +227,9 @@ PLStreamingSendingBufferDelegate
                 NSLog(@"Publish URL: %@", self.session.pushURL.absoluteString);
             }
             
-            self.actionButton.enabled = YES;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.actionButton.enabled = YES;
+            });
         }];
     });
 }

@@ -416,6 +416,8 @@ PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
 
 ## 版本历史
 
+- 1.4.10 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.4.10.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.4.10.md))
+    - 修复错误重连或者主动重连时导致 UI 卡顿的问题
 - 1.4.9 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.4.9.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.4.9.md))
     - 尝试修复 iPhone 6s 音频获取不到权限的问题
     - 优化丢包策略，兼顾高延时和低带宽的情况
