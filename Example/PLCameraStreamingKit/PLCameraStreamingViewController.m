@@ -33,6 +33,7 @@ PLStreamingSendingBufferDelegate
 
 @property (nonatomic, strong) PLCameraStreamingSession  *session;
 @property (nonatomic, strong) Reachability *internetReachability;
+@property (nonatomic, strong) dispatch_queue_t sessionQueue;
 
 @end
 
@@ -40,6 +41,8 @@ PLStreamingSendingBufferDelegate
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.sessionQueue = dispatch_queue_create("pili.queue.streaming", DISPATCH_QUEUE_SERIAL);
     
     // 网络状态监控
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
@@ -65,20 +68,24 @@ PLStreamingSendingBufferDelegate
     PLStream *stream = [PLStream streamWithJSON:streamJSON];
     
     void (^permissionBlock)(void) = ^{
-        // 视频编码配置
-        PLVideoStreamingConfiguration *videoConfiguration = [PLVideoStreamingConfiguration configurationWithUserDefineDimension:CGSizeMake(320, 480)
-                                                                                                                   videoQuality:kPLVideoStreamingQualityLow2];
-        // 音频编码配置
-        PLAudioStreamingConfiguration *audioConfiguration = [PLAudioStreamingConfiguration defaultConfiguration];
-        
-        // 推流 session
-        self.session = [[PLCameraStreamingSession alloc] initWithVideoConfiguration:videoConfiguration
-                                                                 audioConfiguration:audioConfiguration
-                                                                             stream:stream
-                                                                   videoOrientation:AVCaptureVideoOrientationPortrait];
-        self.session.delegate = self;
-        self.session.bufferDelegate = self;
-        self.session.previewView = self.view;
+        dispatch_async(self.sessionQueue, ^{
+            // 视频编码配置
+            PLVideoStreamingConfiguration *videoConfiguration = [PLVideoStreamingConfiguration configurationWithUserDefineDimension:CGSizeMake(320, 480)
+                                                                                                                       videoQuality:kPLVideoStreamingQualityLow2];
+            // 音频编码配置
+            PLAudioStreamingConfiguration *audioConfiguration = [PLAudioStreamingConfiguration defaultConfiguration];
+            
+            // 推流 session
+            self.session = [[PLCameraStreamingSession alloc] initWithVideoConfiguration:videoConfiguration
+                                                                     audioConfiguration:audioConfiguration
+                                                                                 stream:stream
+                                                                       videoOrientation:AVCaptureVideoOrientationPortrait];
+            self.session.delegate = self;
+            self.session.bufferDelegate = self;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.session.previewView = self.view;
+            });
+        });
     };
     
     void (^noAccessBlock)(void) = ^{
@@ -96,7 +103,6 @@ PLStreamingSendingBufferDelegate
             break;
         case PLAuthorizationStatusNotDetermined: {
             [PLCameraStreamingSession requestCameraAccessWithCompletionHandler:^(BOOL granted) {
-                // 回调确保在主线程，可以安全对 UI 做操作
                 granted ? permissionBlock() : noAccessBlock();
             }];
         }
@@ -110,8 +116,11 @@ PLStreamingSendingBufferDelegate
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kReachabilityChangedNotification object:nil];
     
-    [self.session destroy];
+    dispatch_sync(self.sessionQueue, ^{
+        [self.session destroy];
+    });
     self.session = nil;
+    self.sessionQueue = nil;
 }
 
 #pragma mark - Notification Handler
@@ -142,9 +151,11 @@ PLStreamingSendingBufferDelegate
             newVideoQuality = kPLVideoStreamingQualityLow3;
         }
         
-        [self.session beginUpdateConfiguration];
-        self.session.videoConfiguration.videoQuality = newVideoQuality;
-        [self.session endUpdateConfiguration];
+        dispatch_sync(self.sessionQueue, ^{
+            [self.session beginUpdateConfiguration];
+            self.session.videoConfiguration.videoQuality = newVideoQuality;
+            [self.session endUpdateConfiguration];
+        });
     }
 }
 
@@ -159,9 +170,11 @@ PLStreamingSendingBufferDelegate
             newVideoQuality = kPLVideoStreamingQualityLow1;
         }
         
-        [self.session beginUpdateConfiguration];
-        self.session.videoConfiguration.videoQuality = newVideoQuality;
-        [self.session endUpdateConfiguration];
+        dispatch_sync(self.sessionQueue, ^{
+            [self.session beginUpdateConfiguration];
+            self.session.videoConfiguration.videoQuality = newVideoQuality;
+            [self.session endUpdateConfiguration];
+        });
     }
 }
 
@@ -198,18 +211,22 @@ PLStreamingSendingBufferDelegate
 #pragma mark - Operation
 
 - (void)stopSession {
-    [self.session stop];
+    dispatch_async(self.sessionQueue, ^{
+        [self.session stop];
+    });
 }
 
 - (void)startSession {
     self.actionButton.enabled = NO;
-    [self.session startWithCompleted:^(BOOL success) {
-        if (success) {
-            NSLog(@"Publish URL: %@", self.session.pushURL.absoluteString);
-        }
-        
-        self.actionButton.enabled = YES;
-    }];
+    dispatch_async(self.sessionQueue, ^{
+        [self.session startWithCompleted:^(BOOL success) {
+            if (success) {
+                NSLog(@"Publish URL: %@", self.session.pushURL.absoluteString);
+            }
+            
+            self.actionButton.enabled = YES;
+        }];
+    });
 }
 
 #pragma mark - Action
@@ -223,15 +240,21 @@ PLStreamingSendingBufferDelegate
 }
 
 - (IBAction)toggleCameraButtonPressed:(id)sender {
-    [self.session toggleCamera];
+    dispatch_async(self.sessionQueue, ^{
+        [self.session toggleCamera];
+    });
 }
 
 - (IBAction)torchButtonPressed:(id)sender {
-    self.session.torchOn = !self.session.isTorchOn;
+    dispatch_async(self.sessionQueue, ^{
+        self.session.torchOn = !self.session.isTorchOn;
+    });
 }
 
 - (IBAction)muteButtonPressed:(id)sender {
-    self.session.muted = !self.session.isMuted;
+    dispatch_async(self.sessionQueue, ^{
+        self.session.muted = !self.session.isMuted;
+    });
 }
 
 - (IBAction)cancelButtonPressed:(id)sender {

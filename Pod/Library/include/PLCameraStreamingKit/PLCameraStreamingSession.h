@@ -161,10 +161,10 @@ extern NSString *PLAudioComponentFailedToCreateNotification;
 
 @property (nonatomic, PL_WEAK) id<PLStreamingSendingBufferDelegate> bufferDelegate;
 
-/// 最低阈值, [0..1], 不可超出这个范围, 也不可大于 highThreshold - 0.1, 默认为 0.3
+/// 最低阈值, [0..1], 不可超出这个范围, 默认为 0.5
 @property (nonatomic, assign) CGFloat    lowThreshold;
 
-/// 最高阈值, [0..1], 不可超出这个范围, 也不可小于 lowThreshold + 0.1, 默认为 0.7
+/// 最高阈值, [0..1], 不可超出这个范围, 默认为 1
 @property (nonatomic, assign) CGFloat    highThreshold;
 
 /// 默认为 300
