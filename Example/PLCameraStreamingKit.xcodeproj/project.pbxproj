@@ -25,8 +25,8 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		762780721AF24D8D00DDFAFD /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 762780711AF24D8D00DDFAFD /* Reachability.m */; };
 		769750EF1A6331080079423B /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 769750EC1A6329DC0079423B /* VideoToolbox.framework */; };
-		E942D0081BB94957006DEDCA /* PLAudioStreamingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E942D0071BB94957006DEDCA /* PLAudioStreamingViewController.m */; settings = {ASSET_TAGS = (); }; };
-		E942D00A1BB94BCC006DEDCA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E942D0091BB94BCC006DEDCA /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
+		E942D0081BB94957006DEDCA /* PLAudioStreamingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E942D0071BB94957006DEDCA /* PLAudioStreamingViewController.m */; };
+		E942D00A1BB94BCC006DEDCA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E942D0091BB94BCC006DEDCA /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -262,7 +262,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = PL;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = 0dayZh;
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
@@ -489,6 +489,8 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -528,6 +530,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -555,6 +558,7 @@
 				INFOPLIST_FILE = "PLCameraStreamingKit/PLCameraStreamingKit-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -575,6 +579,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;

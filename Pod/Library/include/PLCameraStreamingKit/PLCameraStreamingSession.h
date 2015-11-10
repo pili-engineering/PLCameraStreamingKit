@@ -201,8 +201,11 @@ extern NSString *PLAudioComponentFailedToCreateNotification;
 /// default as YES.
 @property (nonatomic, assign, getter=isTouchToFocusEnable) BOOL touchToFocusEnable;
 
-/// default as YES.
+/// default as NO.
 @property (nonatomic, assign, getter=isCustomRenderEnable) BOOL customRenderEnable;
+
+/// default as YES.
+@property (nonatomic, assign, getter=isSmoothAutoFocusEnabled) BOOL  smoothAutoFocusEnabled;
 
 - (void)toggleCamera;
 

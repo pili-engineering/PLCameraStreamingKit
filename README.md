@@ -416,6 +416,11 @@ PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
 
 ## 版本历史
 
+- 1.4.12 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.4.11.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.4.11.md))
+    - 添加 `smoothAutoFocusEnabled` 参数，确保拍摄时对焦的平滑过渡
+    - 修复无网络环境或其他情况触发断流时引起的 crash
+    - 修复频繁切换摄像头时引起的 crash
+    - 修复内存 leak
 - 1.4.11 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.4.11.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.4.11.md))
     - 修复 iPhone 6s 系列机型直播无声音问题
 - 1.4.10 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.4.10.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.4.10.md))
