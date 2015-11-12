@@ -416,7 +416,11 @@ PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
 
 ## 版本历史
 
-- 1.4.12 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.4.11.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.4.11.md))
+- 1.4.13 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.4.13.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.4.13.md))
+    - 更新 mute 行为，mute 后不会中断发包
+    - 更新音频设备采样率获取途径
+    - 更新底层库，避免冲突
+- 1.4.12 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.4.12.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.4.12.md))
     - 添加 `smoothAutoFocusEnabled` 参数，确保拍摄时对焦的平滑过渡
     - 修复无网络环境或其他情况触发断流时引起的 crash
     - 修复频繁切换摄像头时引起的 crash
