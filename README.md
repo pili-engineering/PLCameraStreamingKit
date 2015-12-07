@@ -404,6 +404,7 @@ PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
 
 - 1.4.14 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.4.14.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.4.14.md))
     - 解决视频质量切换时导致 crash 的问题
+    - 解决推流时触发的只有音频无视频问题
     - 解决音频采样导致的电流声
     - 解决潜在内存问题，整体提升稳定性
     - 视频编码统一 profileLevel 为 baseline31
