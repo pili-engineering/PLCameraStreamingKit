@@ -61,6 +61,7 @@ typedef NS_ENUM(NSInteger, PLStreamError) {
     PLStreamErrorSanityFailed = -1012,
     PLStreamErrorSocketClosedByPeer = -1013,
     PLStreamErrorRTMPConnectStreamFailed = -1014,
+    PLStreamErrorSocketTimeout = -1015,
     
     // SSL errors
     PLStreamErrorTLSConnectFailed = -1200,
@@ -82,8 +83,6 @@ typedef NS_ENUM(NSUInteger, PLStreamingDimension) {
     PLStreamingDimension_16_9__960x540,
     /// 16 : 9 横纵比，1280 x 720 分辨率
     PLStreamingDimension_16_9__1280x720,
-    /// 16 : 9 横纵比，1920 x 1080 分辨率
-    PLStreamingDimension_16_9__1920x1080,
     /// 4 : 3 横纵比，400 x 300 分辨率
     PLStreamingDimension_4_3__400x300,
     /// 4 : 3 横纵比，480 x 360 分辨率
@@ -94,8 +93,6 @@ typedef NS_ENUM(NSUInteger, PLStreamingDimension) {
     PLStreamingDimension_4_3__960x720,
     /// 4 : 3 横纵比，1280 x 960 分辨率
     PLStreamingDimension_4_3__1280x960,
-    /// 4 : 3 横纵比，1920 x 1140 分辨率
-    PLStreamingDimension_4_3__1920x1140,
     /// 自定义分辨率
     PLStreamingDimension_UserDefine,
     /// 默认分辨率，默认为 4 : 3 横纵比，640 x 480 分辨率
@@ -107,21 +104,21 @@ typedef NS_ENUM(NSUInteger, PLStreamingDimension) {
 /*!
  * @abstract Video streaming quality low 1
  *
- * @discussion 具体参数 fps: 12, profile level: baseline30, video bitrate: 150Kbps
+ * @discussion 具体参数 fps: 12, profile level: baseline31, video bitrate: 150Kbps
  */
 extern NSString *kPLVideoStreamingQualityLow1;
 
 /*!
  * @abstract Video streaming quality low 2
  *
- * @discussion 具体参数 fps: 15, profile level: baseline30, video bitrate: 264Kbps
+ * @discussion 具体参数 fps: 15, profile level: baseline31, video bitrate: 264Kbps
  */
 extern NSString *kPLVideoStreamingQualityLow2;
 
 /*!
  * @abstract Video streaming quality low 3
  *
- * @discussion 具体参数 fps: 15, profile level: baseline30, video bitrate: 350Kbps
+ * @discussion 具体参数 fps: 15, profile level: baseline31, video bitrate: 350Kbps
  */
 extern NSString *kPLVideoStreamingQualityLow3;
 
@@ -149,21 +146,21 @@ extern NSString *kPLVideoStreamingQualityMedium3;
 /*!
  * @abstract Video streaming quality high 1
  *
- * @discussion 具体参数 fps: 30, profile level: main30, video bitrate: 1200Kbps
+ * @discussion 具体参数 fps: 30, profile level: baseline31, video bitrate: 1200Kbps
  */
 extern NSString *kPLVideoStreamingQualityHigh1;
 
 /*!
  * @abstract Video streaming quality high 2
  *
- * @discussion 具体参数 fps: 30, profile level: main30, video bitrate: 1500Kbps
+ * @discussion 具体参数 fps: 30, profile level: baseline31, video bitrate: 1500Kbps
  */
 extern NSString *kPLVideoStreamingQualityHigh2;
 
 /*!
  * @abstract Video streaming quality high 3
  *
- * @discussion 具体参数 fps: 30, profile level: main30, video bitrate: 2000Kbps
+ * @discussion 具体参数 fps: 30, profile level: baseline31, video bitrate: 2000Kbps
  */
 extern NSString *kPLVideoStreamingQualityHigh3;
 

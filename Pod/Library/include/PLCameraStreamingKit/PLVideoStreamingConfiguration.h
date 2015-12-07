@@ -12,28 +12,28 @@
 #import "PLTypeDefines.h"
 #import "PLMacroDefines.h"
 
-@interface PLVideoStreamingConfiguration : NSObject
+@interface PLVideoStreamingConfiguration : NSObject <NSCopying>
 
-/// 分辨率，如果自定义了 videoSize, 该值为 PLStreamingDimension_UserDefine
-@property (nonatomic, assign, readonly) PLStreamingDimension dimension;
+/// 编码的 profile level
+@property (nonatomic, readonly, PL_STRONG) NSString *videoProfileLevel;
 
-/// 推流质量
+///// 分辨率，如果自定义了 videoSize, 该值为 PLStreamingDimension_UserDefine
+@property (nonatomic, assign) PLStreamingDimension dimension;
+//
+///// 推流质量
 @property (nonatomic, PL_STRONG) NSString *videoQuality;
 
 /// 视频的分辨率
-@property (nonatomic, assign, readonly) CGSize  videoSize;
+@property (nonatomic, assign) CGSize  videoSize;
 
 /// 视频的帧率，即 fps
-@property (nonatomic, assign, readonly) NSUInteger videoFrameRate;
+@property (nonatomic, assign) NSUInteger videoFrameRate;
 
 /// 最大关键帧间隔
-@property (nonatomic, assign, readonly) NSUInteger videoMaxKeyframeInterval;
-
-/// 编码的 profile level
-@property (nonatomic, PL_STRONG, readonly) NSString *videoProfileLevel;
+@property (nonatomic, assign) NSUInteger videoMaxKeyframeInterval;
 
 /// 视频的码率
-@property (nonatomic, assign, readonly) NSUInteger videoBitRate;
+@property (nonatomic, assign) NSUInteger videoBitRate;
 
 /*!
  * 生成一个默认的配置
@@ -52,6 +52,12 @@
  */
 + (instancetype)configurationWithUserDefineDimension:(CGSize)videoSize
                                         videoQuality:(NSString *)quality;
+
+- (instancetype)initWithUserDefineDimension:(CGSize)videoSize
+                             videoFrameRate:(NSUInteger)fps
+                   videoMaxKeyframeInterval:(NSUInteger)videoMaxKeyframeInterval
+                               videoBitrate:(NSUInteger)videoBitRate;
+
 
 @end
 

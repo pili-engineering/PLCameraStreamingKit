@@ -167,7 +167,7 @@ extern NSString *PLAudioComponentFailedToCreateNotification;
 /// 最高阈值, [0..1], 不可超出这个范围, 默认为 1
 @property (nonatomic, assign) CGFloat    highThreshold;
 
-/// 默认为 300
+/// Buffer 最多可包含的包数，默认为 300
 @property (nonatomic, assign) NSUInteger    maxCount;
 @property (nonatomic, assign, readonly) NSUInteger    currentCount;
 
