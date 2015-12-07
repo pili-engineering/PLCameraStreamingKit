@@ -117,22 +117,21 @@ PLAudioStreamingSessionDelegate
 - (void)audioStreamingSession:(PLAudioStreamingSession *)session streamStateDidChange:(PLStreamState)state {
     NSLog(@"Stream State: %s", stateNames[state]);
     
+    // 除 PLStreamStateError 外的其余状态会回调在这个方法
+    // 这个回调会确保在主线程，所以可以直接对 UI 做操作
     if (PLStreamStateConnected == state) {
         [self.actionButton setTitle:NSLocalizedString(@"Stop", nil) forState:UIControlStateNormal];
-    } else if (PLStreamStateError == state) {
-        // 尝试重连，如果你在霹雳创建的 stream 的 publishSecurity 为 static 时，可以如以下代码一样直接重连;
-        // 如果是 dynamic 这里需要重新更新推流地址。注意这里需要你自己来处理重连常识的次数
-        [self.actionButton setTitle:NSLocalizedString(@"Reconnecting", nil) forState:UIControlStateNormal];
-        [self startSession];
-    } else {
+    } else if (PLStreamStateDisconnected == state) {
         [self.actionButton setTitle:NSLocalizedString(@"Start", nil) forState:UIControlStateNormal];
     }
 }
 
 - (void)audioStreamingSession:(PLAudioStreamingSession *)session didDisconnectWithError:(NSError *)error {
     NSLog(@"Stream State: Error. %@", error);
-    
-    [self.actionButton setTitle:NSLocalizedString(@"Start", nil) forState:UIControlStateNormal];
+    // PLStreamStateError 都会回调在这个方法
+    // 尝试重连，注意这里需要你自己来处理重连尝试的次数以及重连的时间间隔
+    [self.actionButton setTitle:NSLocalizedString(@"Reconnecting", nil) forState:UIControlStateNormal];
+    [self startSession];
 }
 
 #pragma mark - Operation

@@ -85,14 +85,7 @@ pod update
 //      @"disabled": @(NO),
 //      @"profiles": @[@"480p", @"720p"],    // or empty Array []
 //      @"hosts": @{
-//              @"publish": @{
-//                      @"rtmp": @"rtmp_publish_host"
-//                      },
-//              @"play": @{
-//                      @"rtmp": @"rtmp_play_host",
-//                      @"hls": @"hls_play_host"
-//                      }
-//              }
+//            ...
 //      }
 NSDicationary *streamJSON;
 PLStream *stream = [PLStream streamWithJSON:streamJSON];
@@ -167,13 +160,11 @@ typedef NS_ENUM(NSUInteger, PLStreamingDimension) {
     PLStreamingDimension_16_9__640x360,
     PLStreamingDimension_16_9__960x540,
     PLStreamingDimension_16_9__1280x720,
-    PLStreamingDimension_16_9__1920x1080,
     PLStreamingDimension_4_3__400x300,
     PLStreamingDimension_4_3__480x360,
     PLStreamingDimension_4_3__640x480,
     PLStreamingDimension_4_3__960x720,
     PLStreamingDimension_4_3__1280x960,
-    PLStreamingDimension_4_3__1920x1140,
     PLStreamingDimension_UserDefine,
     PLStreamingDimension_Default = PLStreamingDimension_4_3__640x480
 };
@@ -182,21 +173,21 @@ typedef NS_ENUM(NSUInteger, PLStreamingDimension) {
 /*!
  * @abstract Video streaming quality low 1
  *
- * @discussion 具体参数 fps: 12, profile level: baseline30, video bitrate: 150Kbps
+ * @discussion 具体参数 fps: 12, profile level: baseline31, video bitrate: 150Kbps
  */
 extern NSString *kPLVideoStreamingQualityLow1;
 
 /*!
  * @abstract Video streaming quality low 2
  *
- * @discussion 具体参数 fps: 15, profile level: baseline30, video bitrate: 264Kbps
+ * @discussion 具体参数 fps: 15, profile level: baseline31, video bitrate: 264Kbps
  */
 extern NSString *kPLVideoStreamingQualityLow2;
 
 /*!
  * @abstract Video streaming quality low 3
  *
- * @discussion 具体参数 fps: 15, profile level: baseline30, video bitrate: 350Kbps
+ * @discussion 具体参数 fps: 15, profile level: baseline31, video bitrate: 350Kbps
  */
 extern NSString *kPLVideoStreamingQualityLow3;
 
@@ -224,21 +215,21 @@ extern NSString *kPLVideoStreamingQualityMedium3;
 /*!
  * @abstract Video streaming quality high 1
  *
- * @discussion 具体参数 fps: 30, profile level: main30, video bitrate: 1200Kbps
+ * @discussion 具体参数 fps: 30, profile level: baseline31, video bitrate: 1200Kbps
  */
 extern NSString *kPLVideoStreamingQualityHigh1;
 
 /*!
  * @abstract Video streaming quality high 2
  *
- * @discussion 具体参数 fps: 30, profile level: main30, video bitrate: 1500Kbps
+ * @discussion 具体参数 fps: 30, profile level: baseline31, video bitrate: 1500Kbps
  */
 extern NSString *kPLVideoStreamingQualityHigh2;
 
 /*!
  * @abstract Video streaming quality high 3
  *
- * @discussion 具体参数 fps: 30, profile level: main30, video bitrate: 2000Kbps
+ * @discussion 具体参数 fps: 30, profile level: baseline31, video bitrate: 2000Kbps
  */
 extern NSString *kPLVideoStreamingQualityHigh3;
 ```
@@ -260,15 +251,15 @@ PLVideoStreamingConfiguration *videoConfiguration = [PLVideoStreamingConfigurati
 
 | Quality | FPS | ProfileLevel | Video BitRate(Kbps)|
 |---|---|---|---|
-|kPLVideoStreamingQualityLow1|12|Baseline 30|150|
-|kPLVideoStreamingQualityLow2|15|Baseline 30|264|
-|kPLVideoStreamingQualityLow3|15|Baseline 30|350|
+|kPLVideoStreamingQualityLow1|12|Baseline 31|150|
+|kPLVideoStreamingQualityLow2|15|Baseline 31|264|
+|kPLVideoStreamingQualityLow3|15|Baseline 31|350|
 |kPLVideoStreamingQualityMedium1|30|Baseline 31|512|
 |kPLVideoStreamingQualityMedium2|30|Baseline 31|800|
 |kPLVideoStreamingQualityMedium3|30|Baseline 31|1000|
-|kPLVideoStreamingQualityHigh1|30|Main 30|1200|
-|kPLVideoStreamingQualityHigh2|30|Main 30|1500|
-|kPLVideoStreamingQualityHigh3|30|Main 30|2000|
+|kPLVideoStreamingQualityHigh1|30|Baseline 31|1200|
+|kPLVideoStreamingQualityHigh2|30|Baseline 31|1500|
+|kPLVideoStreamingQualityHigh3|30|Baseline 31|2000|
 
 ### 音频编码参数
 
@@ -350,16 +341,15 @@ PLAudioStreamingConfiguration *audioConfiguration = [PLAudioStreamingConfigurati
 
 @property (nonatomic, PL_WEAK) id<PLStreamingSendingBufferDelegate> bufferDelegate;
 
-/// 最低阈值, [0..1], 不可超出这个范围, 也不可大于 highThreshold - 0.1, 默认为 0.2
+/// 最低阈值, [0..1], 不可超出这个范围, 默认为 0.5
 @property (nonatomic, assign) CGFloat    lowThreshold;
 
-/// 最高阈值, [0..1], 不可超出这个范围, 也不可小于 lowThreshold + 0.1, 默认为 0.8
+/// 最高阈值, [0..1], 不可超出这个范围, 默认为 1
 @property (nonatomic, assign) CGFloat    highThreshold;
 
-/// Buffer 的最大长度, 默认为 3s, 可设置范围为 [1..5]
-@property (nonatomic, assign) NSTimeInterval    maxDuration;
-
-@property (nonatomic, assign, readonly) NSTimeInterval    currentDuration;
+/// Buffer 最多可包含的包数，默认为 300
+@property (nonatomic, assign) NSUInteger    maxCount;
+@property (nonatomic, assign, readonly) NSUInteger    currentCount;
 
 @end
 ```
@@ -399,10 +389,6 @@ self.session.audioConfiguration.audioQuality = kPLAudioStreamingQualityHigh1;
 [self.session endUpdateConfiguration];
 ```
 
-### 重要事项
-
-**在不断流切换 Video Quality 时需要保证 profileLevel 基本不变，即 baseline 只可与 baseline 的 quality 相互切换。以现在的 quality 为例， low 和 medium 的 quality 可以互相切换，但是 high 的 quality 不可以与 low 及 medium 在不断流的情况下无缝切换，否则会导致播放器花屏。**
-
 ## 文档支持
 
 PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
@@ -416,6 +402,12 @@ PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
 
 ## 版本历史
 
+- 1.4.14 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.4.14.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.4.14.md))
+    - 解决视频质量切换时导致 crash 的问题
+    - 解决音频采样导致的电流声
+    - 解决潜在内存问题，整体提升稳定性
+    - 视频编码统一 profileLevel 为 baseline31
+    - 限定最高支持分辨率到 720p
 - 1.4.13 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.4.13.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.4.13.md))
     - 更新 mute 行为，mute 后不会中断发包
     - 更新音频设备采样率获取途径
