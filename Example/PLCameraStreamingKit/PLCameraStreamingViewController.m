@@ -64,23 +64,7 @@ PLStreamingSendingBufferDelegate
     //      @"hosts": @{
     //              ...
     //      }
-    NSDictionary *streamJSON = @{@"id": @"z1.dayzhtest.plcamerastreamingkit-test",
-                                 @"title": @"plcamerastreamingkit-test",
-                                 @"hub": @"dayzhtest",
-                                 @"publishKey": @"123",
-                                 @"publishSecurity": @"static", // or static
-                                 @"disabled": @(NO),
-                                 @"profiles": @[],    // or empty Array []
-                                 @"hosts": @{
-                                         @"publish": @{
-                                                 @"rtmp": @"pili-publish.0dayzh.miclle.com"
-                                                 },
-                                         @"play": @{
-                                                 @"rtmp": @"pili-live-rtmp.0dayzh.miclle.com"
-                                                 }
-                                         }
-                                 };
-    
+    NSDictionary *streamJSON;
     PLStream *stream = [PLStream streamWithJSON:streamJSON];
     
     void (^permissionBlock)(void) = ^{
@@ -100,6 +84,9 @@ PLStreamingSendingBufferDelegate
             self.session.bufferDelegate = self;
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.session.previewView = self.view;
+                UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
+                tap.numberOfTapsRequired = 2;
+                [self.view addGestureRecognizer:tap];
             });
         });
     };
@@ -127,6 +114,36 @@ PLStreamingSendingBufferDelegate
             noAccessBlock();
             break;
     }
+}
+
+- (void)tap:(id)sender {
+    NSString *quality = self.session.videoConfiguration.videoQuality;
+    
+    [self.session beginUpdateConfiguration];
+    
+    if ([quality isEqualToString:kPLVideoStreamingQualityLow1]) {
+        quality = kPLVideoStreamingQualityLow2;
+    } else if ([quality isEqualToString:kPLVideoStreamingQualityLow2]) {
+        quality = kPLVideoStreamingQualityLow3;
+    } else if ([quality isEqualToString:kPLVideoStreamingQualityLow3]) {
+        quality = kPLVideoStreamingQualityMedium1;
+    } else if ([quality isEqualToString:kPLVideoStreamingQualityMedium1]) {
+        quality = kPLVideoStreamingQualityMedium2;
+    } else if ([quality isEqualToString:kPLVideoStreamingQualityMedium2]) {
+        quality = kPLVideoStreamingQualityMedium3;
+    } else if ([quality isEqualToString:kPLVideoStreamingQualityMedium3]) {
+        quality = kPLVideoStreamingQualityHigh1;
+    } else if ([quality isEqualToString:kPLVideoStreamingQualityHigh1]) {
+        quality = kPLVideoStreamingQualityHigh2;
+    } else if ([quality isEqualToString:kPLVideoStreamingQualityHigh2]) {
+        quality = kPLVideoStreamingQualityHigh3;
+    } else if ([quality isEqualToString:kPLVideoStreamingQualityHigh3]) {
+        quality = kPLVideoStreamingQualityLow1;
+    }
+    
+    self.session.videoConfiguration.videoQuality = quality;
+    NSLog(@"%@", quality);
+    [self.session endUpdateConfiguration];
 }
 
 - (void)dealloc {

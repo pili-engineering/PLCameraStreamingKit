@@ -119,10 +119,18 @@ PLStreamingSendingBufferDelegate
 }
 
 - (void)stop {
+    if (self.microphoneSource.isRunning) {
+        [self.microphoneSource stopRunning];
+    }
+    
     [self.streamingSession stop];
 }
 
 - (void)destroy {
+    if (self.microphoneSource.isRunning) {
+        [self.microphoneSource stopRunning];
+    }
+    
     [self.streamingSession destroy];
     
     [self.observers enumerateObjectsUsingBlock:^(id observer, NSUInteger idx, BOOL *stop) {
