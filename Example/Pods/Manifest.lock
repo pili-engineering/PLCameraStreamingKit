@@ -1,7 +1,12 @@
 PODS:
-  - PLCameraStreamingKit (1.4.16):
-    - PLCameraStreamingKit/precompiled (= 1.4.16)
-  - PLCameraStreamingKit/precompiled (1.4.16)
+  - HappyDNS (0.2.3)
+  - PLCameraStreamingKit (1.5.0):
+    - PLStreamingKit
+  - PLStreamingKit (1.0.1):
+    - HappyDNS
+    - PLStreamingKit/precompiled (= 1.0.1)
+  - PLStreamingKit/precompiled (1.0.1):
+    - HappyDNS
 
 DEPENDENCIES:
   - PLCameraStreamingKit (from `../`)
@@ -11,6 +16,8 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  PLCameraStreamingKit: ce06124e0197049058f8a42d59735ba0aba4bec1
+  HappyDNS: 6d85942e64c28b4fa61f8c76580398f52d6d1d11
+  PLCameraStreamingKit: 013243777468696c89caf54fee65fe617092b42f
+  PLStreamingKit: 0dcf4d371698771672d112eb54426aae5328526e
 
 COCOAPODS: 0.39.0

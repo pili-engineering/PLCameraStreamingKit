@@ -1,1 +1,0 @@
-../../../../../Pod/Library/include/PLCameraStreamingKit/PLVideoStreamingConfiguration.h

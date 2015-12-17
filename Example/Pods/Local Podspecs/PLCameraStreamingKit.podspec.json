@@ -1,6 +1,6 @@
 {
   "name": "PLCameraStreamingKit",
-  "version": "1.4.16",
+  "version": "1.5.0",
   "summary": "Pili iOS camera streaming framework via RTMP.",
   "homepage": "https://github.com/pili-engineering/PLCameraStreamingKit",
   "license": "Apache License, Version 2.0",
@@ -9,14 +9,22 @@
   },
   "source": {
     "git": "https://github.com/pili-engineering/PLCameraStreamingKit.git",
-    "tag": "v1.4.16"
+    "tag": "v1.5.0"
   },
   "platforms": {
     "ios": "7.0"
   },
   "requires_arc": true,
-  "public_header_files": "Pod/Library/include/**/*.h",
-  "source_files": "Pod/Library/include/**/*.h",
+  "public_header_files": "Pod/Classes/*.h",
+  "source_files": [
+    "Pod/Classes/*.h",
+    "Pod/Classes/*.m"
+  ],
+  "dependencies": {
+    "PLStreamingKit": [
+
+    ]
+  },
   "frameworks": [
     "UIKit",
     "AVFoundation",
@@ -29,20 +37,5 @@
   "libraries": [
     "z",
     "c++"
-  ],
-  "default_subspecs": "precompiled",
-  "subspecs": [
-    {
-      "name": "precompiled",
-      "preserve_paths": [
-        "Pod/Library/include/**/*.h",
-        "Pod/Library/lib/*.a"
-      ],
-      "vendored_libraries": "Pod/Library/lib/*.a",
-      "libraries": "PLCameraStreamingKit",
-      "xcconfig": {
-        "HEADER_SEARCH_PATHS": "${PODS_ROOT}/PLCameraStreamingKit/PLCameraStreamingKit/lib/include"
-      }
-    }
   ]
 }

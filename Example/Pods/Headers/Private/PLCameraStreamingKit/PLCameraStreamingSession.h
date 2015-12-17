@@ -1,1 +1,1 @@
-../../../../../Pod/Library/include/PLCameraStreamingKit/PLCameraStreamingSession.h
+../../../../../Pod/Classes/PLCameraStreamingSession.h

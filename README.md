@@ -402,6 +402,12 @@ PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
 
 ## 版本历史
 
+- 1.5.0 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.5.0.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.5.0.md))
+    - 编码推流改为依赖 `PLStreamingKit`
+    - 去除 `PLAudioStreamingSession` 类, 建议单纯推音频的 App 直接接入 `PLStreamingKit`
+    - 摄像头及音频采集部分开源
+    - 底层添加了 HappyDNS, 解决部分地区 DNS 感染严重导致推流失败问题
+    - 优化 TCP 层发包，极大程度解决了网络正常但推流中经常断开的问题
 - 1.4.16 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.4.16.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.4.16.md))
     - 解决 destroy 方法可能卡死线程的问题
 - 1.4.15 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.4.15.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.4.15.md))

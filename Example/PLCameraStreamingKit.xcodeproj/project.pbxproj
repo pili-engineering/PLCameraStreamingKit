@@ -25,7 +25,6 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		762780721AF24D8D00DDFAFD /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 762780711AF24D8D00DDFAFD /* Reachability.m */; };
 		769750EF1A6331080079423B /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 769750EC1A6329DC0079423B /* VideoToolbox.framework */; };
-		E942D0081BB94957006DEDCA /* PLAudioStreamingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E942D0071BB94957006DEDCA /* PLAudioStreamingViewController.m */; };
 		E942D00A1BB94BCC006DEDCA /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E942D0091BB94BCC006DEDCA /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -73,8 +72,6 @@
 		D0F068B3401C09FA4EA68D8E /* libPods-PLCameraStreamingKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PLCameraStreamingKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD456E148A624B6E6ECC62AB /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		E51D5EAEC12F200B391FBA24 /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E942D0061BB94957006DEDCA /* PLAudioStreamingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PLAudioStreamingViewController.h; sourceTree = "<group>"; };
-		E942D0071BB94957006DEDCA /* PLAudioStreamingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PLAudioStreamingViewController.m; sourceTree = "<group>"; };
 		E942D0091BB94BCC006DEDCA /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -161,8 +158,6 @@
 				E942D0091BB94BCC006DEDCA /* Launch Screen.storyboard */,
 				6003F5A5195388D20070C39A /* PLCameraStreamingViewController.h */,
 				6003F5A6195388D20070C39A /* PLCameraStreamingViewController.m */,
-				E942D0061BB94957006DEDCA /* PLAudioStreamingViewController.h */,
-				E942D0071BB94957006DEDCA /* PLAudioStreamingViewController.m */,
 				762780701AF24D8D00DDFAFD /* Reachability.h */,
 				762780711AF24D8D00DDFAFD /* Reachability.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
@@ -419,7 +414,6 @@
 			files = (
 				6003F59E195388D20070C39A /* PLAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* PLCameraStreamingViewController.m in Sources */,
-				E942D0081BB94957006DEDCA /* PLAudioStreamingViewController.m in Sources */,
 				762780721AF24D8D00DDFAFD /* Reachability.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);

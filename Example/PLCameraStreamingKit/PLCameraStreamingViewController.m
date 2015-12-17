@@ -14,7 +14,7 @@ const char *stateNames[] = {
     "Unknow",
     "Connecting",
     "Connected",
-    "Disconnecting"
+    "Disconnecting",
     "Disconnected",
     "Error"
 };
@@ -64,7 +64,23 @@ PLStreamingSendingBufferDelegate
     //      @"hosts": @{
     //              ...
     //      }
-    NSDictionary *streamJSON;
+    NSDictionary *streamJSON = @{@"id": @"z1.dayzhtest.plcamerastreamingkit-test",
+                                 @"title": @"plcamerastreamingkit-test",
+                                 @"hub": @"dayzhtest",
+                                 @"publishKey": @"123",
+                                 @"publishSecurity": @"static", // or static
+                                 @"disabled": @(NO),
+                                 @"profiles": @[],    // or empty Array []
+                                 @"hosts": @{
+                                         @"publish": @{
+                                                 @"rtmp": @"pili-publish.0dayzh.miclle.com"
+                                                 },
+                                         @"play": @{
+                                                 @"rtmp": @"pili-live-rtmp.0dayzh.miclle.com"
+                                                 }
+                                         }
+                                 };
+    
     PLStream *stream = [PLStream streamWithJSON:streamJSON];
     
     void (^permissionBlock)(void) = ^{
@@ -220,10 +236,6 @@ PLStreamingSendingBufferDelegate
     self.actionButton.enabled = NO;
     dispatch_async(self.sessionQueue, ^{
         [self.session startWithCompleted:^(BOOL success) {
-            if (success) {
-                NSLog(@"Publish URL: %@", self.session.pushURL.absoluteString);
-            }
-            
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.actionButton.enabled = YES;
             });
