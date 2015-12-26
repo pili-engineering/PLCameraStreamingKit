@@ -88,7 +88,7 @@ static OSStatus handleInputBuffer(void *inRefCon,
         AudioBuffer buffer;
         buffer.mData = NULL;
         buffer.mDataByteSize = 0;
-        buffer.mNumberChannels = 2;
+        buffer.mNumberChannels = 1;
         
         AudioBufferList buffers;
         buffers.mNumberBuffers = 1;
@@ -139,6 +139,7 @@ static OSStatus handleInputBuffer(void *inRefCon,
         self.tsBase = 0;
         
         AVAudioSession *session = [AVAudioSession sharedInstance];
+        [session setActive:YES withOptions:kAudioSessionSetActiveFlag_NotifyOthersOnDeactivation error:nil];
         
         [[NSNotificationCenter defaultCenter] addObserver: self
                                                  selector: @selector(handleRouteChange:)
@@ -156,9 +157,13 @@ static OSStatus handleInputBuffer(void *inRefCon,
         NSError *error = nil;
         
         [session setCategory:AVAudioSessionCategoryPlayAndRecord withOptions:AVAudioSessionCategoryOptionDefaultToSpeaker | AVAudioSessionCategoryOptionMixWithOthers error:nil];
+        
+        [session setMode:AVAudioSessionModeVideoRecording error:&error];
+        
         if (![session setActive:YES error:&error]) {
             [self handleAudioComponentCreationFailure];
         }
+        
         
         AudioComponentDescription acd;
         acd.componentType = kAudioUnitType_Output;
@@ -184,7 +189,7 @@ static OSStatus handleInputBuffer(void *inRefCon,
         desc.mSampleRate = self.sampleRate;
         desc.mFormatID = kAudioFormatLinearPCM;
         desc.mFormatFlags = kAudioFormatFlagIsSignedInteger | kAudioFormatFlagsNativeEndian | kAudioFormatFlagIsPacked;
-        desc.mChannelsPerFrame = self.channelsPerFrame;
+        desc.mChannelsPerFrame = (UInt32)self.channelsPerFrame;
         desc.mFramesPerPacket = 1;
         desc.mBitsPerChannel = 16;
         desc.mBytesPerFrame = desc.mBitsPerChannel / 8 * desc.mChannelsPerFrame;

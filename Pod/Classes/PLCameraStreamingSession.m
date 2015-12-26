@@ -265,7 +265,7 @@ PLStreamingSendingBufferDelegate
         }
         
         self.microphoneSource = [[PLMicrophoneSource alloc] initWithSampleRate:self.audioConfiguration.audioSampleRate
-                                                              channelsPerFrame:2];
+                                                              channelsPerFrame:1];
         self.microphoneSource.delegate = self;
         
         dispatch_async(dispatch_get_main_queue(), ^{
