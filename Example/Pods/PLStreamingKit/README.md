@@ -384,6 +384,10 @@ PLStreamingKit 使用 HeaderDoc 注释来做文档支持。
 
 ## 版本历史
 
+- 1.0.2 ([Release Notes](https://github.com/pili-engineering/PLStreamingKit/blob/master/ReleaseNotes/release-notes-1.0.2.md) && [API Diffs](https://github.com/pili-engineering/PLStreamingKit/blob/master/APIDiffs/api-diffs-1.0.2.md))
+    - 修复 dns 解析失败时无 error 回调的问题
+    - 优化音频数据默认为单声道，与 iOS 设备单声道采集贴近
+    - 针对没有音频 configuration 的推流，优化发送的 onMetaData 信息，只携带视频信息，极大缩短 ffplay, ijkplayer 的等待时间
 - 1.0.1 ([Release Notes](https://github.com/pili-engineering/PLStreamingKit/blob/master/ReleaseNotes/release-notes-1.0.1.md) && [API Diffs](https://github.com/pili-engineering/PLStreamingKit/blob/master/APIDiffs/api-diffs-1.0.1.md))
     - 添加 HappyDNS, 优化 DNS 解析
     - 优化 TCP 发送层, 减少发包失败触发的错误

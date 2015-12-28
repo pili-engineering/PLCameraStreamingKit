@@ -52,6 +52,9 @@ typedef NS_ENUM(NSInteger, PLStreamError) {
     // SSL errors
     PLStreamErrorTLSConnectFailed = -1200,
     PLStreamErrorNoSSLOrTLSSupport = -1201,
+    
+    // DNS error
+    PLStreamErrorDNSResolveFailed = -1300,
 };
 
 #pragma mark - Video Dimension
