@@ -402,6 +402,8 @@ PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
 
 ## 版本历史
 
+- 1.5.2 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.5.2.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.5.2.md))
+    - 更新依赖 PLStreamingKit 的版本到 `v1.0.3`
 - 1.5.1 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.5.1.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.5.1.md))
     - 更新依赖 PLStreamingKit 的版本到 `v1.0.2`
     - 更改音频数据源采集部分，转换为单声道
