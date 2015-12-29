@@ -384,6 +384,8 @@ PLStreamingKit 使用 HeaderDoc 注释来做文档支持。
 
 ## 版本历史
 
+- 1.0.3 ([Release Notes](https://github.com/pili-engineering/PLStreamingKit/blob/master/ReleaseNotes/release-notes-1.0.3.md) && [API Diffs](https://github.com/pili-engineering/PLStreamingKit/blob/master/APIDiffs/api-diffs-1.0.3.md))
+    - 优化 dns 解析部分，补全 happydns 解析失败后的本地解析
 - 1.0.2 ([Release Notes](https://github.com/pili-engineering/PLStreamingKit/blob/master/ReleaseNotes/release-notes-1.0.2.md) && [API Diffs](https://github.com/pili-engineering/PLStreamingKit/blob/master/APIDiffs/api-diffs-1.0.2.md))
     - 修复 dns 解析失败时无 error 回调的问题
     - 优化音频数据默认为单声道，与 iOS 设备单声道采集贴近
