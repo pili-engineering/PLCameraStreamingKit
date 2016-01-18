@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="0aL-3q-s7A">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="0aL-3q-s7A">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -21,11 +21,11 @@
                                         <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3oL-B2-phY" id="0i3-uV-uSf">
-                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Camera Streaming" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aEp-fK-Rkt">
-                                                    <rect key="frame" x="15" y="0.0" width="550" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="550" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -126,14 +126,25 @@
                                     <action selector="cancelButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="jhb-cK-vbP"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="24d-PX-2NR">
+                                <rect key="frame" x="0.0" y="80" width="600" height="448"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="24d-PX-2NR" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="60" id="46a-D2-W2c"/>
                             <constraint firstItem="imY-d4-8r9" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="AHl-mp-xLh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="24d-PX-2NR" secondAttribute="trailing" constant="-20" id="AY0-VF-ZvO"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="23g-Fm-A4B" secondAttribute="bottom" constant="20" id="Bz4-XN-MtS"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="rft-Nr-a9A" secondAttribute="bottom" constant="20" id="G1E-5f-oYS"/>
                             <constraint firstItem="rft-Nr-a9A" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="Gkh-VQ-pVC"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="24d-PX-2NR" secondAttribute="bottom" constant="72" id="ScA-L2-OaP"/>
                             <constraint firstItem="O35-P7-T0e" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="Ve0-ob-57R"/>
+                            <constraint firstItem="24d-PX-2NR" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-20" id="Zzf-qk-AhJ"/>
                             <constraint firstAttribute="centerX" secondItem="qYA-qU-D3h" secondAttribute="centerX" id="dVY-Mb-fna"/>
                             <constraint firstItem="23g-Fm-A4B" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="psL-mu-8kS"/>
                             <constraint firstItem="O35-P7-T0e" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="r6k-zK-YQt"/>
@@ -144,6 +155,7 @@
                     <connections>
                         <outlet property="actionButton" destination="qYA-qU-D3h" id="Dlq-dH-brC"/>
                         <outlet property="muteButton" destination="O35-P7-T0e" id="NQa-GO-UDy"/>
+                        <outlet property="textView" destination="24d-PX-2NR" id="TiM-CW-3VE"/>
                         <outlet property="toggleCameraButton" destination="23g-Fm-A4B" id="bFE-st-cCr"/>
                         <outlet property="torchButton" destination="rft-Nr-a9A" id="TMn-Zv-Dl6"/>
                     </connections>

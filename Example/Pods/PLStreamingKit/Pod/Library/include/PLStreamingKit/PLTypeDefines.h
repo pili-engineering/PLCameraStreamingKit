@@ -57,36 +57,6 @@ typedef NS_ENUM(NSInteger, PLStreamError) {
     PLStreamErrorDNSResolveFailed = -1300,
 };
 
-#pragma mark - Video Dimension
-
-/// 流编码分辨率
-typedef NS_ENUM(NSUInteger, PLStreamingDimension) {
-    /// 16 : 9 横纵比，416 x 234 分辨率
-    PLStreamingDimension_16_9__416x234,
-    /// 16 : 9 横纵比，480 x 270 分辨率
-    PLStreamingDimension_16_9__480x270,
-    /// 16 : 9 横纵比，640 x 360 分辨率
-    PLStreamingDimension_16_9__640x360,
-    /// 16 : 9 横纵比，960 x 540 分辨率
-    PLStreamingDimension_16_9__960x540,
-    /// 16 : 9 横纵比，1280 x 720 分辨率
-    PLStreamingDimension_16_9__1280x720,
-    /// 4 : 3 横纵比，400 x 300 分辨率
-    PLStreamingDimension_4_3__400x300,
-    /// 4 : 3 横纵比，480 x 360 分辨率
-    PLStreamingDimension_4_3__480x360,
-    /// 4 : 3 横纵比，640 x 480 分辨率
-    PLStreamingDimension_4_3__640x480,
-    /// 4 : 3 横纵比，960 x 720 分辨率
-    PLStreamingDimension_4_3__960x720,
-    /// 4 : 3 横纵比，1280 x 960 分辨率
-    PLStreamingDimension_4_3__1280x960,
-    /// 自定义分辨率
-    PLStreamingDimension_UserDefine,
-    /// 默认分辨率，默认为 4 : 3 横纵比，640 x 480 分辨率
-    PLStreamingDimension_Default = PLStreamingDimension_4_3__640x480,
-};
-
 #pragma mark - Video Streaming Quality
 
 /*!

@@ -142,15 +142,13 @@ PLStreamingSendingBufferDelegate
     self.microphoneSource = nil;
 }
 
-- (void)beginUpdateConfiguration {
-    [self.streamingSession beginUpdateConfiguration];
-}
-
-- (void)endUpdateConfiguration {
-    self.streamingSession.videoConfiguration = self.videoConfiguration;
-    self.streamingSession.audioConfiguration = self.audioConfiguration;
+- (void)reloadVideoConfiguration:(PLVideoStreamingConfiguration *)videoConfiguration {
+    if ([self.videoConfiguration isEqual:videoConfiguration]) {
+        return;
+    }
     
-    [self.streamingSession endUpdateConfiguration];
+    self.streamingSession.videoConfiguration = videoConfiguration;
+    [self.streamingSession reloadVideoConfiguration:videoConfiguration];
 }
 
 #pragma mark - <PLStreamingSessionDelegate>
@@ -165,6 +163,13 @@ PLStreamingSendingBufferDelegate
 - (void)streamingSession:(PLStreamingSession *)session didDisconnectWithError:(NSError *)error {
     if ([self.delegate respondsToSelector:@selector(cameraStreamingSession:didDisconnectWithError:)]) {
         [self.delegate cameraStreamingSession:self didDisconnectWithError:error];
+    }
+}
+
+/// @abstract 当开始推流时，会每间隔 3s 调用该回调方法来反馈该 3s 内的流状态，包括视频帧率、音频帧率、音视频总码率
+- (void)streamingSession:(PLStreamingSession *)session streamStatusDidUpdate:(PLStreamStatus *)status {
+    if ([self.delegate respondsToSelector:@selector(cameraStreamingSession:streamStatusDidUpdate:)]) {
+        [self.delegate cameraStreamingSession:self streamStatusDidUpdate:status];
     }
 }
 
@@ -494,6 +499,14 @@ PLStreamingSendingBufferDelegate
 
 - (PLStreamState)streamState {
     return self.streamingSession.streamState;
+}
+
+- (NSTimeInterval)statusUpdateInterval {
+    return self.streamingSession.statusUpdateInterval;
+}
+
+- (void)setStatusUpdateInterval:(NSTimeInterval)statusUpdateInterval {
+    self.streamingSession.statusUpdateInterval = statusUpdateInterval;
 }
 
 #pragma mark - RTMP Operations

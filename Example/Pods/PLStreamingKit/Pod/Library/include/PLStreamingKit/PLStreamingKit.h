@@ -16,5 +16,6 @@
 #import "PLAudioStreamingConfiguration.h"
 #import "PLStream.h"
 #import "PLBuffer.h"
+#import "PLStreamStatus.h"
 
 #endif /* PLStreamingKit_h */

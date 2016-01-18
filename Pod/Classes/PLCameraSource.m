@@ -118,6 +118,8 @@ AVCaptureVideoDataOutputSampleBufferDelegate
             [captureSession addOutput:output];
         }
         
+        [self refreshFPS];
+        
         self.captureSession = captureSession;
         
         self.smoothAutoFocusEnabled = YES;
@@ -125,6 +127,25 @@ AVCaptureVideoDataOutputSampleBufferDelegate
     }
     
     return self;
+}
+
+- (void)refreshFPS {
+    NSError *error = nil;
+    AVCaptureDevice *captureDevice = self.captureDevice;
+    if (![captureDevice lockForConfiguration:&error]) {
+        NSLog(@"fail to lockForConfiguration: %@",error.localizedDescription);
+    } else {
+        NSUInteger frameRate = self.videoConfiguration.videoFrameRate;
+        AVFrameRateRange *range = [captureDevice.activeFormat.videoSupportedFrameRateRanges firstObject];
+        if (frameRate < range.maxFrameRate && frameRate > range.minFrameRate) {
+            if ([captureDevice respondsToSelector:@selector(activeVideoMaxFrameDuration)]) {
+                captureDevice.activeVideoMaxFrameDuration = CMTimeMake(1, (int32_t)frameRate);
+                captureDevice.activeVideoMinFrameDuration = CMTimeMake(1, (int32_t)frameRate);
+            }
+        }
+        
+        [captureDevice unlockForConfiguration];
+    }
 }
 
 - (void)dealloc {
@@ -216,6 +237,9 @@ AVCaptureVideoDataOutputSampleBufferDelegate
     [session addInput:newVideoInput];
     
     [session commitConfiguration];
+    
+    self.captureDevice = newCamera;
+    [self refreshFPS];
     
     _cameraPosition = newPosition;
     

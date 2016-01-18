@@ -12,11 +12,13 @@
 @protocol PLStreamingSendingBufferDelegate <NSObject>
 
 @optional
-- (void)streamingSessionSendingBufferFillDidLowerThanLowThreshold:(id)session;
-- (void)streamingSessionSendingBufferFillDidHigherThanHighThreshold:(id)session;
 - (void)streamingSessionSendingBufferDidEmpty:(id)session;
 - (void)streamingSessionSendingBufferDidFull:(id)session;
-- (void)streamingSession:(id)session sendingBufferDidDropItems:(NSArray *)items;
+
+/// 已弃用
+- (void)streamingSessionSendingBufferFillDidLowerThanLowThreshold:(id)session DEPRECATED_ATTRIBUTE;
+- (void)streamingSessionSendingBufferFillDidHigherThanHighThreshold:(id)session DEPRECATED_ATTRIBUTE;
+- (void)streamingSession:(id)session sendingBufferDidDropItems:(NSArray *)items DEPRECATED_ATTRIBUTE;
 
 @end
 

@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *toggleCameraButton;
 @property (weak, nonatomic) IBOutlet UIButton *torchButton;
 @property (weak, nonatomic) IBOutlet UIButton *muteButton;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @end

@@ -1,5 +1,5 @@
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = ${PODS_ROOT}/PLStreamingKit/PLStreamingKit/lib/include $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/HappyDNS" "${PODS_ROOT}/Headers/Public/PLCameraStreamingKit" "${PODS_ROOT}/Headers/Public/PLStreamingKit"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/HappyDNS" "${PODS_ROOT}/Headers/Public/PLCameraStreamingKit" "${PODS_ROOT}/Headers/Public/PLStreamingKit"
 LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/PLStreamingKit/Pod/Library/lib"
 OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/HappyDNS" -isystem "${PODS_ROOT}/Headers/Public/PLCameraStreamingKit" -isystem "${PODS_ROOT}/Headers/Public/PLStreamingKit"
 OTHER_LDFLAGS = $(inherited) -ObjC -l"HappyDNS" -l"PLCameraStreamingKit" -l"PLStreamingKit" -l"c++" -l"resolv" -l"z" -framework "AVFoundation" -framework "AudioToolbox" -framework "CFNetwork" -framework "CoreGraphics" -framework "CoreMedia" -framework "UIKit" -framework "VideoToolbox"

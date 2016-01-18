@@ -33,6 +33,9 @@ extern NSString *PLAudioComponentFailedToCreateNotification;
 /// @abstract 因产生了某个 error 而断开时的回调
 - (void)cameraStreamingSession:(PLCameraStreamingSession *)session didDisconnectWithError:(NSError *)error;
 
+/// @abstract 当开始推流时，会每间隔 3s 调用该回调方法来反馈该 3s 内的流状态，包括视频帧率、音频帧率、音视频总码率
+- (void)cameraStreamingSession:(PLCameraStreamingSession *)session streamStatusDidUpdate:(PLStreamStatus *)status;
+
 /// @abstract 摄像头授权状态发生变化的回调
 - (void)cameraStreamingSession:(PLCameraStreamingSession *)session didGetCameraAuthorizationStatus:(PLAuthorizationStatus)status;
 
@@ -69,6 +72,9 @@ extern NSString *PLAudioComponentFailedToCreateNotification;
 
 /// 流的状态，只读属性
 @property (nonatomic, assign, readonly) PLStreamState               streamState;
+
+/// 默认为 3s，可设置范围为 [1..30] 秒
+@property (nonatomic, assign) NSTimeInterval    statusUpdateInterval;
 
 /*!
  * 是否开始推流，只读属性
@@ -137,8 +143,7 @@ extern NSString *PLAudioComponentFailedToCreateNotification;
  */
 - (void)updatePreviewViewSize:(CGSize)size;
 
-- (void)beginUpdateConfiguration;
-- (void)endUpdateConfiguration;
+- (void)reloadVideoConfiguration:(PLVideoStreamingConfiguration *)videoConfiguration;
 
 @end
 
