@@ -261,7 +261,7 @@
 				ORGANIZATIONNAME = 0dayZh;
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
-						DevelopmentTeam = 2LA7SLA9PL;
+						DevelopmentTeam = GDFHW66V92;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -552,7 +552,7 @@
 				INFOPLIST_FILE = "PLCameraStreamingKit/PLCameraStreamingKit-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pili-engineering.PLCameraStreamingKit";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pili-engineering.PLCameraStreamingKitTest";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -572,7 +572,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pili-engineering.PLCameraStreamingKit";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pili-engineering.PLCameraStreamingKitTest";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
