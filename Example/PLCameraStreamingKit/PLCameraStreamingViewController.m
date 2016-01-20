@@ -26,6 +26,13 @@ const char *networkStatus[] = {
     "Reachable via CELL"
 };
 
+// 假设在 videoFPS 低于预期 50% 的情况下就触发降低推流质量的操作，这里的 40% 是一个假定数值，你可以更改数值来尝试不同的策略
+#define kMaxVideoFPSPercent 0.5
+
+// 假设当 videoFPS 在 10s 内与设定的 fps 相差都小于 5% 时，就尝试调高编码质量
+#define kMinVideoFPSPercent 0.05
+#define kHigherQualityTimeInterval  10
+
 static NSArray *ConsoleLogs() {
     NSMutableArray *consoleLog = [NSMutableArray array];
     
@@ -65,6 +72,8 @@ PLStreamingSendingBufferDelegate
 @property (nonatomic, strong) PLCameraStreamingSession  *session;
 @property (nonatomic, strong) Reachability *internetReachability;
 @property (nonatomic, strong) dispatch_queue_t sessionQueue;
+@property (nonatomic, strong) NSArray   *videoConfigurations;
+@property (nonatomic, strong) NSDate    *keyTime;
 
 @end
 
@@ -73,6 +82,13 @@ PLStreamingSendingBufferDelegate
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // 预先设定几组编码质量，之后可以切换
+    CGSize videoSize = CGSizeMake(320, 480);
+    self.videoConfigurations = @[
+                                 [PLVideoStreamingConfiguration configurationWithVideoSize:videoSize videoQuality:kPLVideoStreamingQualityMedium1],
+                                 [PLVideoStreamingConfiguration configurationWithVideoSize:videoSize videoQuality:kPLVideoStreamingQualityMedium2],
+                                 [PLVideoStreamingConfiguration configurationWithVideoSize:videoSize videoQuality:kPLVideoStreamingQualityMedium3],
+                                 ];
     self.sessionQueue = dispatch_queue_create("pili.queue.streaming", DISPATCH_QUEUE_SERIAL);
     
     // 网络状态监控
@@ -103,8 +119,7 @@ PLStreamingSendingBufferDelegate
     void (^permissionBlock)(void) = ^{
         dispatch_async(self.sessionQueue, ^{
             // 视频编码配置
-            PLVideoStreamingConfiguration *videoConfiguration = [PLVideoStreamingConfiguration configurationWithVideoSize:CGSizeMake(320, 480)
-                                                                                                                       videoQuality:kPLVideoStreamingQualityLow2];
+            PLVideoStreamingConfiguration *videoConfiguration = [self.videoConfigurations lastObject];
             // 音频编码配置
             PLAudioStreamingConfiguration *audioConfiguration = [PLAudioStreamingConfiguration defaultConfiguration];
             
@@ -211,6 +226,50 @@ PLStreamingSendingBufferDelegate
 - (void)cameraStreamingSession:(PLCameraStreamingSession *)session streamStatusDidUpdate:(PLStreamStatus *)status {
     NSLog(@"%@", status);
     self.textView.text = LogString();
+    
+    NSDate *now = [NSDate date];
+    if (!self.keyTime) {
+        self.keyTime = now;
+    }
+    
+    double expectedVideoFPS = (double)self.session.videoConfiguration.videoFrameRate;
+    double realtimeVideoFPS = status.videoFPS;
+    if (realtimeVideoFPS < expectedVideoFPS * (1 - kMaxVideoFPSPercent)) {
+        // 当得到的 status 中 video fps 比设定的 fps 的 50% 还小时，触发降低推流质量的操作
+        self.keyTime = now;
+        
+        [self lowerQuality];
+    } else if (realtimeVideoFPS >= expectedVideoFPS * (1 - kMinVideoFPSPercent)) {
+        if (-[self.keyTime timeIntervalSinceNow] > kHigherQualityTimeInterval) {
+            self.keyTime = now;
+            
+            [self higherQuality];
+        }
+    }
+}
+
+#pragma mark -
+
+- (void)higherQuality {
+    NSUInteger idx = [self.videoConfigurations indexOfObject:self.session.videoConfiguration];
+    NSAssert(idx != NSNotFound, @"Oops");
+    
+    if (idx >= self.videoConfigurations.count - 1) {
+        return;
+    }
+    PLVideoStreamingConfiguration *newConfiguration = self.videoConfigurations[idx + 1];
+    [self.session reloadVideoConfiguration:newConfiguration];
+}
+
+- (void)lowerQuality {
+    NSUInteger idx = [self.videoConfigurations indexOfObject:self.session.videoConfiguration];
+    NSAssert(idx != NSNotFound, @"Oops");
+    
+    if (0 == idx) {
+        return;
+    }
+    PLVideoStreamingConfiguration *newConfiguration = self.videoConfigurations[idx - 1];
+    [self.session reloadVideoConfiguration:newConfiguration];
 }
 
 #pragma mark - Operation
