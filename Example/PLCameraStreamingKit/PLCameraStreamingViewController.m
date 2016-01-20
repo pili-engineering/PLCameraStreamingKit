@@ -276,11 +276,13 @@ PLStreamingSendingBufferDelegate
 
 - (void)stopSession {
     dispatch_async(self.sessionQueue, ^{
+        self.keyTime = nil;
         [self.session stop];
     });
 }
 
 - (void)startSession {
+    self.keyTime = nil;
     self.actionButton.enabled = NO;
     dispatch_async(self.sessionQueue, ^{
         [self.session startWithCompleted:^(BOOL success) {
