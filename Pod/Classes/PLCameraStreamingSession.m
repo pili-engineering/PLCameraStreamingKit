@@ -41,6 +41,7 @@ PLStreamingSendingBufferDelegate
 
 // Category rewrite
 @property (nonatomic, PL_WEAK) id<PLStreamingSendingBufferDelegate> bufferDelegate;
+@property (nonatomic, assign) CGFloat    threshold;
 @property (nonatomic, assign) CGFloat    lowThreshold;
 @property (nonatomic, assign) CGFloat    highThreshold;
 @property (nonatomic, assign) NSTimeInterval    maxDuration;
@@ -147,7 +148,9 @@ PLStreamingSendingBufferDelegate
         return;
     }
     
-    self.streamingSession.videoConfiguration = videoConfiguration;
+    self.videoConfiguration = videoConfiguration;
+    
+    [self.cameraSource reloadVideoConfiguration:videoConfiguration];
     [self.streamingSession reloadVideoConfiguration:videoConfiguration];
 }
 
@@ -338,24 +341,14 @@ PLStreamingSendingBufferDelegate
 
 #pragma mark - Property
 
-- (CGFloat)lowThreshold {
-    return self.streamingSession.lowThreshold;
+- (CGFloat)threshold {
+    return self.streamingSession.threshold;
 }
 
-- (void)setLowThreshold:(CGFloat)lowThreshold {
-    [self willChangeValueForKey:@"lowThreshold"];
-    self.streamingSession.lowThreshold = lowThreshold;
-    [self didChangeValueForKey:@"lowThreshold"];
-}
-
-- (CGFloat)highThreshold {
-    return self.streamingSession.highThreshold;
-}
-
-- (void)setHighThreshold:(CGFloat)highThreshold {
-    [self willChangeValueForKey:@"highThreshold"];
-    self.streamingSession.highThreshold = highThreshold;
-    [self didChangeValueForKey:@"highThreshold"];
+- (void)setThreshold:(CGFloat)threshold {
+    [self willChangeValueForKey:@"threshold"];
+    self.streamingSession.threshold = threshold;
+    [self didChangeValueForKey:@"threshold"];
 }
 
 - (NSUInteger)maxCount {

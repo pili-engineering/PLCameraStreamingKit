@@ -40,7 +40,7 @@ PLSourceAccessProtocol
 
 @property (nonatomic, PL_WEAK) id<PLCameraSourceDelegate>   delegate;
 
-@property (nonatomic, PL_WEAK) PLVideoStreamingConfiguration    *videoConfiguration;
+@property (nonatomic, copy) PLVideoStreamingConfiguration    *videoConfiguration;
 @property (nonatomic, readwrite, assign) PLCaptureDevicePosition  cameraPosition;
 @property (nonatomic, readwrite, assign, getter=isTorchOn) BOOL torchOn;
 @property (nonatomic, readonly, PL_WEAK) AVCaptureVideoPreviewLayer  *previewLayer;
@@ -62,6 +62,6 @@ PLSourceAccessProtocol
 - (void)startRunning;
 - (void)stopRunning;
 
-- (void)reloadVideoConfiguration;
+- (void)reloadVideoConfiguration:(PLVideoStreamingConfiguration *)videoConfiguration;
 
 @end
