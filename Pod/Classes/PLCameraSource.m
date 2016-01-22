@@ -75,15 +75,8 @@ AVCaptureVideoDataOutputSampleBufferDelegate
             if ([device hasMediaType:AVMediaTypeVideo]) {
                 if (device.position == position) {
                     self.captureDevice = device;
+                    break;
                 }
-                
-                NSError *error;
-                [device lockForConfiguration:&error];
-                if (PL_SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-                    device.activeVideoMinFrameDuration = CMTimeMake(1, (int32_t)self.videoConfiguration.videoFrameRate);
-                    device.activeVideoMaxFrameDuration = CMTimeMake(1, (int32_t)self.videoConfiguration.videoFrameRate);
-                }
-                [device unlockForConfiguration];
             }
         }
         
