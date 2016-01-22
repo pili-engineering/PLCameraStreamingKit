@@ -153,15 +153,18 @@ extern NSString *PLAudioComponentFailedToCreateNotification;
 
 @property (nonatomic, PL_WEAK) id<PLStreamingSendingBufferDelegate> bufferDelegate;
 
-/// 最低阈值, [0..1], 不可超出这个范围, 默认为 0.5
-@property (nonatomic, assign) CGFloat    lowThreshold;
-
-/// 最高阈值, [0..1], 不可超出这个范围, 默认为 1
-@property (nonatomic, assign) CGFloat    highThreshold;
+/// [0..1], 不可超出这个范围, 默认为 0.5
+@property (nonatomic, assign) CGFloat threshold;
 
 /// Buffer 最多可包含的包数，默认为 300
 @property (nonatomic, assign) NSUInteger    maxCount;
 @property (nonatomic, assign, readonly) NSUInteger    currentCount;
+
+
+/// 已弃用，最低阈值, [0..1], 不可超出这个范围, 默认为 0.5
+@property (nonatomic, assign) CGFloat    lowThreshold DEPRECATED_ATTRIBUTE;
+/// 已弃用，最高阈值, [0..1], 不可超出这个范围, 默认为 1
+@property (nonatomic, assign) CGFloat    highThreshold DEPRECATED_ATTRIBUTE;
 
 @end
 

@@ -80,8 +80,8 @@ AVCaptureVideoDataOutputSampleBufferDelegate
                 NSError *error;
                 [device lockForConfiguration:&error];
                 if (PL_SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-                    device.activeVideoMinFrameDuration = CMTimeMake(1, self.videoConfiguration.videoFrameRate);
-                    device.activeVideoMaxFrameDuration = CMTimeMake(1, self.videoConfiguration.videoFrameRate);
+                    device.activeVideoMinFrameDuration = CMTimeMake(1, (int32_t)self.videoConfiguration.videoFrameRate);
+                    device.activeVideoMaxFrameDuration = CMTimeMake(1, (int32_t)self.videoConfiguration.videoFrameRate);
                 }
                 [device unlockForConfiguration];
             }
@@ -137,7 +137,7 @@ AVCaptureVideoDataOutputSampleBufferDelegate
     } else {
         NSUInteger frameRate = self.videoConfiguration.videoFrameRate;
         AVFrameRateRange *range = [captureDevice.activeFormat.videoSupportedFrameRateRanges firstObject];
-        if (frameRate < range.maxFrameRate && frameRate > range.minFrameRate) {
+        if (frameRate <= range.maxFrameRate && frameRate >= range.minFrameRate) {
             if ([captureDevice respondsToSelector:@selector(activeVideoMaxFrameDuration)]) {
                 captureDevice.activeVideoMaxFrameDuration = CMTimeMake(1, (int32_t)frameRate);
                 captureDevice.activeVideoMinFrameDuration = CMTimeMake(1, (int32_t)frameRate);
@@ -264,20 +264,13 @@ AVCaptureVideoDataOutputSampleBufferDelegate
     self.isRunning = NO;
 }
 
-- (void)reloadVideoConfiguration {
-    NSArray *devices = [AVCaptureDevice devices];
-    for (AVCaptureDevice *device in devices) {
-        if ([device hasMediaType:AVMediaTypeVideo]) {
-            
-            NSError *error;
-            [device lockForConfiguration:&error];
-            if (PL_SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
-                device.activeVideoMinFrameDuration = CMTimeMake(1, self.videoConfiguration.videoFrameRate);
-                device.activeVideoMaxFrameDuration = CMTimeMake(1, self.videoConfiguration.videoFrameRate);
-            }
-            [device unlockForConfiguration];
-        }
+- (void)reloadVideoConfiguration:(PLVideoStreamingConfiguration *)videoConfiguration {
+    if ([videoConfiguration isEqual:self.videoConfiguration]) {
+        return;
     }
+    
+    self.videoConfiguration = videoConfiguration;
+    [self refreshFPS];
 }
 
 #pragma mark - Property

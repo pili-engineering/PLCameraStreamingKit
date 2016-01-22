@@ -15,5 +15,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *torchButton;
 @property (weak, nonatomic) IBOutlet UIButton *muteButton;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segementedControl;
+
+- (IBAction)segmentedControlValueDidChange:(id)sender;
 
 @end

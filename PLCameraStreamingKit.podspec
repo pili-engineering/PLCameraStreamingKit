@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "PLCameraStreamingKit"
-  s.version          = "1.6.0"
+  s.version          = "1.6.1"
   s.summary          = "Pili iOS camera streaming framework via RTMP."
   s.homepage         = "https://github.com/pili-engineering/PLCameraStreamingKit"
   s.license          = 'Apache License, Version 2.0'
@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   s.public_header_files = 'Pod/Classes/*.h'
   s.source_files = 'Pod/Classes/*.h', 'Pod/Classes/*.m'
 
-  s.dependency 'PLStreamingKit', '~> 1.1.2'
+  s.dependency 'PLStreamingKit', '~> 1.1.3'
   s.frameworks = ['UIKit', 'AVFoundation', 'CoreGraphics', 'CFNetwork', 'AudioToolbox', 'CoreMedia', 'VideoToolbox']
   s.libraries = 'z', 'c++'
 

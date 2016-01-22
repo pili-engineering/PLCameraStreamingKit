@@ -133,6 +133,20 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="PKp-Bc-QgB">
+                                <rect key="frame" x="217" y="36" width="166" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="166" id="BfM-XD-zBn"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="15fps"/>
+                                    <segment title="24fps"/>
+                                    <segment title="30fps"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedControlValueDidChange:" destination="vXZ-lx-hvc" eventType="valueChanged" id="X2X-RZ-EsQ"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -148,6 +162,8 @@
                             <constraint firstAttribute="centerX" secondItem="qYA-qU-D3h" secondAttribute="centerX" id="dVY-Mb-fna"/>
                             <constraint firstItem="23g-Fm-A4B" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="psL-mu-8kS"/>
                             <constraint firstItem="O35-P7-T0e" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="r6k-zK-YQt"/>
+                            <constraint firstItem="PKp-Bc-QgB" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="sNC-4a-3gs"/>
+                            <constraint firstItem="PKp-Bc-QgB" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="16" id="xaE-DG-8w5"/>
                             <constraint firstItem="imY-d4-8r9" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-4" id="yNq-YN-Xwk"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="qYA-qU-D3h" secondAttribute="bottom" constant="20" id="yOr-9z-uvm"/>
                         </constraints>
@@ -155,6 +171,7 @@
                     <connections>
                         <outlet property="actionButton" destination="qYA-qU-D3h" id="Dlq-dH-brC"/>
                         <outlet property="muteButton" destination="O35-P7-T0e" id="NQa-GO-UDy"/>
+                        <outlet property="segementedControl" destination="PKp-Bc-QgB" id="0fZ-Za-h0a"/>
                         <outlet property="textView" destination="24d-PX-2NR" id="TiM-CW-3VE"/>
                         <outlet property="toggleCameraButton" destination="23g-Fm-A4B" id="bFE-st-cCr"/>
                         <outlet property="torchButton" destination="rft-Nr-a9A" id="TMn-Zv-Dl6"/>

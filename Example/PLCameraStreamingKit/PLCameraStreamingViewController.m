@@ -26,6 +26,8 @@ const char *networkStatus[] = {
     "Reachable via CELL"
 };
 
+#define kReloadConfigurationEnable  0
+
 // 假设在 videoFPS 低于预期 50% 的情况下就触发降低推流质量的操作，这里的 40% 是一个假定数值，你可以更改数值来尝试不同的策略
 #define kMaxVideoFPSPercent 0.5
 
@@ -85,9 +87,9 @@ PLStreamingSendingBufferDelegate
     // 预先设定几组编码质量，之后可以切换
     CGSize videoSize = CGSizeMake(320, 480);
     self.videoConfigurations = @[
-                                 [PLVideoStreamingConfiguration configurationWithVideoSize:videoSize videoQuality:kPLVideoStreamingQualityMedium1],
-                                 [PLVideoStreamingConfiguration configurationWithVideoSize:videoSize videoQuality:kPLVideoStreamingQualityMedium2],
-                                 [PLVideoStreamingConfiguration configurationWithVideoSize:videoSize videoQuality:kPLVideoStreamingQualityMedium3],
+                                 [[PLVideoStreamingConfiguration alloc] initWithVideoSize:videoSize videoFrameRate:15 videoMaxKeyframeInterval:45 videoBitrate:800 * 1000 videoProfileLevel:AVVideoProfileLevelH264Baseline31],
+                                 [[PLVideoStreamingConfiguration alloc] initWithVideoSize:videoSize videoFrameRate:24 videoMaxKeyframeInterval:72 videoBitrate:800 * 1000 videoProfileLevel:AVVideoProfileLevelH264Baseline31],
+                                 [[PLVideoStreamingConfiguration alloc] initWithVideoSize:videoSize videoFrameRate:30 videoMaxKeyframeInterval:90 videoBitrate:800 * 1000 videoProfileLevel:AVVideoProfileLevelH264Baseline31],
                                  ];
     self.sessionQueue = dispatch_queue_create("pili.queue.streaming", DISPATCH_QUEUE_SERIAL);
     
@@ -112,7 +114,23 @@ PLStreamingSendingBufferDelegate
     //              ...
     //      }
 #warning 如果要运行 demo 这里应该填写服务端返回的某个流的 json 信息
-    NSDictionary *streamJSON;
+    NSDictionary *streamJSON = @{@"id": @"z1.dayzhtest.plcamerastreamingkit-test",
+                                 @"title": @"plcamerastreamingkit-test",
+                                 @"hub": @"dayzhtest",
+                                 @"publishKey": @"123",
+                                 @"publishSecurity": @"static", // or static
+                                 @"disabled": @(NO),
+                                 @"profiles": @[],    // or empty Array []
+                                 @"hosts": @{
+                                         @"publish": @{
+                                                 @"rtmp": @"pili-publish.0dayzh.miclle.com"
+                                                 },
+                                         @"play": @{
+                                                 @"rtmp": @"rtmp://pili-live-rtmp.0dayzh.miclle.com"
+                                                 }
+                                         }
+                                 }; // rtmp://src.live-rtmp.z1.pili.qiniudns.com/dayzhtest/plstreamingkit-test
+    // rtmp://pili-live-rtmp.0dayzh.miclle.com/dayzhtest/plcamerastreamingkit-test;
     
     PLStream *stream = [PLStream streamWithJSON:streamJSON];
     
@@ -227,6 +245,7 @@ PLStreamingSendingBufferDelegate
     NSLog(@"%@", status);
     self.textView.text = LogString();
     
+#if kReloadConfigurationEnable
     NSDate *now = [NSDate date];
     if (!self.keyTime) {
         self.keyTime = now;
@@ -246,6 +265,7 @@ PLStreamingSendingBufferDelegate
             [self higherQuality];
         }
     }
+#endif  // #if kReloadConfigurationEnable
 }
 
 #pragma mark -
@@ -294,6 +314,11 @@ PLStreamingSendingBufferDelegate
 }
 
 #pragma mark - Action
+
+- (IBAction)segmentedControlValueDidChange:(id)sender {
+    PLVideoStreamingConfiguration *config = self.videoConfigurations[self.segementedControl.selectedSegmentIndex];
+    [self.session reloadVideoConfiguration:config];
+}
 
 - (IBAction)actionButtonPressed:(id)sender {
     if (PLStreamStateConnected == self.session.streamState) {
