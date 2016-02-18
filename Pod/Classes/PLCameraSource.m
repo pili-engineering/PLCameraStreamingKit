@@ -374,6 +374,44 @@ AVCaptureVideoDataOutputSampleBufferDelegate
     _torchOn = ret;
 }
 
+- (CGFloat)videoZoomFactor {
+    return self.captureDevice.videoZoomFactor;
+}
+
+- (void)setVideoZoomFactor:(CGFloat)videoZoomFactor {
+    [self willChangeValueForKey:@"videoZoomFactor"];
+    AVCaptureDevice *videoDevice = self.captureDevice;
+    NSError *error = nil;
+    
+    if ([videoDevice lockForConfiguration:&error]) {
+        // Check if desiredZoomFactor fits required range from 1.0 to activeFormat.videoMaxZoomFactor
+        videoDevice.videoZoomFactor = MAX(1.0, MIN(videoZoomFactor, videoDevice.activeFormat.videoMaxZoomFactor));
+        [videoDevice unlockForConfiguration];
+    } else {
+        NSLog(@"error: %@", error);
+    }
+    
+    [self didChangeValueForKey:@"videoZoomFactor"];
+}
+
+- (AVCaptureDeviceFormat *)videoActiveFormat {
+    return self.captureDevice.activeFormat;
+}
+
+- (void)setVideoActiveFormat:(AVCaptureDeviceFormat *)videoActiveFormat {
+    [self willChangeValueForKey:@"videoActiveFormat"];
+    [self.captureSession beginConfiguration]; // the session to which the receiver's AVCaptureDeviceInput is added.
+    NSError *error = nil;
+    if ( [self.captureDevice lockForConfiguration:&error] ) {
+        [self.captureDevice setActiveFormat:videoActiveFormat];
+        [self.captureDevice unlockForConfiguration];
+    }
+    [self.captureSession commitConfiguration]; // The new format and frame rates are applied together in commitConfiguration
+    [self didChangeValueForKey:@"videoActiveFormat"];
+    
+    [self refreshFPS];
+}
+
 #pragma mark - <AVCaptureVideoDataOutputSampleBufferDelegate>
 
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection {

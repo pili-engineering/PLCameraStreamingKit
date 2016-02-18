@@ -134,6 +134,8 @@ PLStreamingSendingBufferDelegate
             self.session.bufferDelegate = self;
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.session.previewView = self.view;
+                UIPinchGestureRecognizer *pinchZoom = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchToZoomRecognizer:)];
+                [self.view addGestureRecognizer:pinchZoom];
             });
         });
     };
@@ -171,6 +173,16 @@ PLStreamingSendingBufferDelegate
     });
     self.session = nil;
     self.sessionQueue = nil;
+}
+
+#pragma mark - Handle Pinch
+
+- (void)handlePinchToZoomRecognizer:(UIPinchGestureRecognizer *)pinchRecognizer {
+    if (pinchRecognizer.state == UIGestureRecognizerStateChanged) {
+        // 这里只作为 zoom 示例代码，具体缩放比例的算法可以根据自己的需求进行优化
+        CGFloat desiredZoomFactor = self.session.videoZoomFactor + (pinchRecognizer.scale - 1.0);
+        self.session.videoZoomFactor = MAX(1.0, MIN(desiredZoomFactor, self.session.videoActiveFormat.videoMaxZoomFactor));
+    }
 }
 
 #pragma mark - Notification Handler

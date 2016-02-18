@@ -20,22 +20,109 @@
 @class PLStreamingSession;
 @class QNDnsManager;
 
+/*!
+ * @protocol PLStreamingSessionDelegate
+ *
+ * PLStreamingSession 实例的代理对象必须实现 PLStreamingSessionDelegate 协议。
+ *
+ * @since v1.0.0
+ */
 @protocol PLStreamingSessionDelegate <NSObject>
 
 @optional
-/// @abstract 流状态已变更的回调
+/*!
+ * @method -streamingSession:streamStateDidChange:
+ *
+ * @abstract 告知代理对象流的状态已经变更。
+ *
+ * @discussion 该代理方法只会在以下几种状态时触发
+ *      <ul>
+ *      <li>PLStreamStateConnecting,</li>
+ *      <li>PLStreamStateConnected,</li>
+ *      <li>PLStreamStateDisconnecting,</li>
+ *      <li>PLStreamStateDisconnected</li>
+ *      </ul>
+ * 该代理方法的几种回调状态都是在正常操作时产生的，也就是主动触发的，对于意外状态，不在该方法中处理，
+ * PLStreamStateError 状态便不会触发该回调。
+ *
+ * @param session 调用该代理方法的 PLStreamingSession 对象
+ * @param state 已变更的状态
+ *
+ * @warning PLStreamStateError 状态不会触发该代理方法，而是触发 -streamingSession:didDisconnectWithError: 代理方法
+ *
+ * @see -streamingSession:didDisconnectWithError:
+ * @see PLStreamState
+ *
+ * @since v1.0.0
+ */
 - (void)streamingSession:(PLStreamingSession *)session streamStateDidChange:(PLStreamState)state;
 
-/// @abstract 因产生了某个 error 而断开时的回调
+/*!
+ * @method -streamingSession:didDisconnectWithError:
+ *
+ * @abstract 告知代理对象流意外断开。
+ *
+ * @discussion 该代理方法只会在预期外的 PLStreamStateError 状态时触发回调，其他在预期内主动触发的状态不会触发该代理方法。
+ *
+ * @param session 调用该代理方法的 PLStreamingSession 对象
+ * @param error 引起意外断流的错误信息
+ *
+ * @warning 只有 PLStreamStateError 状态会触发该代理方法。
+ *
+ * @see -streamingSession:streamStateDidChange:
+ * @see PLStreamError
+ *
+ * @since v1.0.0
+ */
 - (void)streamingSession:(PLStreamingSession *)session didDisconnectWithError:(NSError *)error;
 
-/// @abstract 当开始推流时，会每间隔 3s 调用该回调方法来反馈该 3s 内的流状态，包括视频帧率、音频帧率、音视频总码率
+/*!
+ * @method -streamingSession:streamStatusDidUpdate:
+ *
+ * @abstract 每隔一段时间告知代理对象流在这段时间内的流状态。
+ *
+ * @discussion 该代理方法在开始推流后启动触发，停止推流时停止触发。默认是每 3s 调用一次，可以通过更改 statusUpdateInterval 属性来变更触发频率。
+ *
+ * @param session 调用该代理方法的 PLStreamingSession 对象
+ * @param statu 引起意外断流的错误信息
+ *
+ * @see statusUpdateInterval
+ * @see PLStreamStatus
+ *
+ * @since v1.1.1
+ */
 - (void)streamingSession:(PLStreamingSession *)session streamStatusDidUpdate:(PLStreamStatus *)status;
 
 @end
 
+/*!
+ * @class PLStreamingSession
+ *
+ * @abstract PLStreamingSession 是 PLStreamingKit 的核心类。
+ *
+ * @discussion PLStreamingSession 对象负责音视频编码控制、网络连接控制以及各类状态的监控和向代理反馈。它的生命周期从 init 开始，destroy 结束。
+ * init 时传递视频的 configuration, 音频的 configuration 以及推流对应的 stream 对象。<br>
+ *
+ * 同时，为了更好的提供对 dns 域名解析的容错，PLStreamingKit 以 HappyDNS 做为依赖，当然你可以不去关心这部分，如果有定制 dns 解析的需求，也可以
+ * 通过 init 方法传递自定义的 HappyDNS QNDnsManager 对象。<br>
+ *
+ * 在一个 PLStreamingSession 对象的生命周期内，通过调用 -startWithCompleted: 方法开始调用，-stop 方法结束推流。只要一个流没有在服务端做 disable 操作，
+ * 都可以在 -stop 后再调用 -startWithCompleted: 方法重新推流。<br>
+ *
+ * 你只要实现了 PLStreamingSessionDelegate 对应的代理方法，就可以获取到推流的状态变更及异常状态的回调，同时还有定时回调的流状态信息反馈。
+ *
+ * @see PLStreamingSessionDelegate
+ * @see PLVideoStreamingConfiguration
+ * @see PLAudioStreamingConfiguration
+ * @see PLStream
+ *
+ * @since v1.0.0
+ */
 @interface PLStreamingSession : NSObject
 
+/*!
+ * @property videoConfiguration
+ */
 /// 视频编码及推流配置
 @property (nonatomic, copy) PLVideoStreamingConfiguration  *videoConfiguration;
 
@@ -150,6 +237,16 @@
 - (void)pushAudioBuffer:(AudioBuffer *)audioBuffer;
 /// 注意: completion 回调不在主线程
 - (void)pushAudioBuffer:(AudioBuffer *)audioBuffer completion:(void (^)(void))handler;
+
+@end
+
+@interface PLStreamingSession (Network)
+
+/// 接收超时，默认为 15s, 设定最小数值不得低于 3s，否则不变更
+@property (nonatomic, assign) int   receiveTimeout;
+
+/// 发送超时，默认为 3s, 设定最小数值不得低于 3s，否则不变更
+@property (nonatomic, assign) int   sendTimeout;
 
 @end
 

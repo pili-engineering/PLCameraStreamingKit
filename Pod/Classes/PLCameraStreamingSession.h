@@ -195,6 +195,12 @@ extern NSString *PLAudioComponentFailedToCreateNotification;
 /// default as YES.
 @property (nonatomic, assign, getter=isSmoothAutoFocusEnabled) BOOL  smoothAutoFocusEnabled;
 
+/// 默认为 1.0，设置的数值需要小于等于 videoActiveForat.videoMaxZoomFactor，如果大于会设置失败。
+@property (nonatomic, assign) CGFloat videoZoomFactor;
+
+@property (nonatomic, retain) AVCaptureDeviceFormat *videoActiveFormat;
+
+
 - (void)toggleCamera;
 
 /*!

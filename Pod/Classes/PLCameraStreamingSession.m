@@ -55,6 +55,9 @@ PLStreamingSendingBufferDelegate
 @property (nonatomic, assign, getter=isIdleTimerDisable) BOOL  idleTimerDisable;
 @property (nonatomic, assign, getter=isCustomRenderEnable) BOOL customRenderEnable;
 @property (nonatomic, assign, getter=isSmoothAutoFocusEnabled) BOOL  smoothAutoFocusEnabled;
+@property (nonatomic, assign, getter=isPinchToZoomEnabled) BOOL  pinchToZoomEnabled;
+@property (nonatomic, assign) CGFloat videoZoomFactor;
+@property (nonatomic, retain) AVCaptureDeviceFormat *videoActiveFormat;
 
 @end
 
@@ -500,6 +503,26 @@ PLStreamingSendingBufferDelegate
 
 - (void)setStatusUpdateInterval:(NSTimeInterval)statusUpdateInterval {
     self.streamingSession.statusUpdateInterval = statusUpdateInterval;
+}
+
+- (CGFloat)videoZoomFactor {
+    return self.cameraSource.videoZoomFactor;
+}
+
+- (void)setVideoZoomFactor:(CGFloat)videoZoomFactor {
+    [self willChangeValueForKey:@"videoZoomFactor"];
+    self.cameraSource.videoZoomFactor = videoZoomFactor;
+    [self didChangeValueForKey:@"videoZoomFactor"];
+}
+
+- (AVCaptureDeviceFormat *)videoActiveFormat {
+    return self.cameraSource.videoActiveFormat;
+}
+
+- (void)setVideoActiveFormat:(AVCaptureDeviceFormat *)videoActiveFormat {
+    [self willChangeValueForKey:@"videoActiveFormat"];
+    self.cameraSource.videoActiveFormat = videoActiveFormat;
+    [self didChangeValueForKey:@"videoActiveFormat"];
 }
 
 #pragma mark - RTMP Operations
