@@ -16,7 +16,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *muteButton;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segementedControl;
+@property (weak, nonatomic) IBOutlet UISlider *zoomSlider;
 
 - (IBAction)segmentedControlValueDidChange:(id)sender;
+- (IBAction)zoomSliderValueDidChange:(id)sender;
 
 @end
