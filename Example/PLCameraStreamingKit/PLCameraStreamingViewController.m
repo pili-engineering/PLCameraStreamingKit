@@ -134,6 +134,12 @@ PLStreamingSendingBufferDelegate
             self.session.bufferDelegate = self;
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.session.previewView = self.view;
+                self.zoomSlider.minimumValue = 1;
+                self.zoomSlider.maximumValue = self.session.videoActiveFormat.videoMaxZoomFactor;
+                
+                NSString *log = [NSString stringWithFormat:@"Zoom Range: [1..%.0f]", self.session.videoActiveFormat.videoMaxZoomFactor];
+                NSLog(@"%@", log);
+                self.textView.text = [NSString stringWithFormat:@"%@\%@", self.textView.text, log];
             });
         });
     };
@@ -185,27 +191,31 @@ PLStreamingSendingBufferDelegate
         [self stopSession];
     }
     
-    NSLog(@"Networkt Status: %s", networkStatus[status]);
-    self.textView.text = LogString();
+    NSString *log = [NSString stringWithFormat:@"Networkt Status: %s", networkStatus[status]];
+    NSLog(@"%@", log);
+    self.textView.text = [NSString stringWithFormat:@"%@\%@", self.textView.text, log];
 }
 
 #pragma mark - <PLStreamingSendingBufferDelegate>
 
 - (void)streamingSessionSendingBufferDidFull:(id)session {
-    NSLog(@"Buffer is full");
-    self.textView.text = LogString();
+    NSString *log = @"Buffer is full";
+    NSLog(@"%@", log);
+    self.textView.text = [NSString stringWithFormat:@"%@\%@", self.textView.text, log];
 }
 
 - (void)streamingSession:(id)session sendingBufferDidDropItems:(NSArray *)items {
-    NSLog(@"Frame dropped");
-    self.textView.text = LogString();
+    NSString *log = @"Frame dropped";
+    NSLog(@"%@", log);
+    self.textView.text = [NSString stringWithFormat:@"%@\%@", self.textView.text, log];
 }
 
 #pragma mark - <PLCameraStreamingSessionDelegate>
 
 - (void)cameraStreamingSession:(PLCameraStreamingSession *)session streamStateDidChange:(PLStreamState)state {
-    NSLog(@"Stream State: %s", stateNames[state]);
-    self.textView.text = LogString();
+    NSString *log = [NSString stringWithFormat:@"Stream State: %s", stateNames[state]];
+    NSLog(@"%@", log);
+    self.textView.text = [NSString stringWithFormat:@"%@\%@", self.textView.text, log];
     
     // 除 PLStreamStateError 外的其余状态会回调在这个方法
     // 这个回调会确保在主线程，所以可以直接对 UI 做操作
@@ -217,8 +227,9 @@ PLStreamingSendingBufferDelegate
 }
 
 - (void)cameraStreamingSession:(PLCameraStreamingSession *)session didDisconnectWithError:(NSError *)error {
-    NSLog(@"Stream State: Error. %@", error);
-    self.textView.text = LogString();
+    NSString *log = [NSString stringWithFormat:@"Stream State: Error. %@", error];
+    NSLog(@"%@", log);
+    self.textView.text = [NSString stringWithFormat:@"%@\%@", self.textView.text, log];
     // PLStreamStateError 都会回调在这个方法
     // 尝试重连，注意这里需要你自己来处理重连尝试的次数以及重连的时间间隔
     [self.actionButton setTitle:NSLocalizedString(@"Reconnecting", nil) forState:UIControlStateNormal];
@@ -226,8 +237,9 @@ PLStreamingSendingBufferDelegate
 }
 
 - (void)cameraStreamingSession:(PLCameraStreamingSession *)session streamStatusDidUpdate:(PLStreamStatus *)status {
-    NSLog(@"%@", status);
-    self.textView.text = LogString();
+    NSString *log = [NSString stringWithFormat:@"%@", status];
+    NSLog(@"%@", log);
+    self.textView.text = [NSString stringWithFormat:@"%@\%@", self.textView.text, log];
     
 #if kReloadConfigurationEnable
     NSDate *now = [NSDate date];
@@ -302,6 +314,10 @@ PLStreamingSendingBufferDelegate
 - (IBAction)segmentedControlValueDidChange:(id)sender {
     PLVideoStreamingConfiguration *config = self.videoConfigurations[self.segementedControl.selectedSegmentIndex];
     [self.session reloadVideoConfiguration:config];
+}
+
+- (IBAction)zoomSliderValueDidChange:(id)sender {
+    self.session.videoZoomFactor = self.zoomSlider.value;
 }
 
 - (IBAction)actionButtonPressed:(id)sender {

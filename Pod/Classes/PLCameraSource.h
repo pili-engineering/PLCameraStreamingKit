@@ -51,6 +51,9 @@ PLSourceAccessProtocol
 @property (nonatomic, assign) BOOL  continuousAutofocusEnable;
 @property (nonatomic, assign, getter=isSmoothAutoFocusEnabled) BOOL  smoothAutoFocusEnabled;
 
+@property (nonatomic, assign) CGFloat videoZoomFactor;
+@property (nonatomic, retain) AVCaptureDeviceFormat *videoActiveFormat;
+
 + (BOOL)hasCameraForPosition:(PLCaptureDevicePosition)position;
 
 - (instancetype)initWithVideoConfiguration:(PLVideoStreamingConfiguration *)configuration

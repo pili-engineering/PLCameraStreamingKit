@@ -20,6 +20,7 @@ PLCameraStreamingKit 是一个适用于 iOS 的 RTMP 直播推流 SDK，可高�
 - [x] 音视频配置分离
 - [x] 推流时可变码率
 - [x] 提供发送 buffer
+- [x] 支持 Zoom 操作
 
 ## 内容摘要
 
@@ -362,6 +363,9 @@ PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
 
 ## 版本历史
 
+- 1.6.2 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.6.2.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.6.2.md))
+    - 更新依赖 PLStreamingKit 的版本到 `v1.1.5`
+    - 支持 Zoom 操作
 - 1.6.1 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.6.1.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.6.1.md))
     - 更新依赖 PLStreamingKit 的版本到 `v1.1.3`
     - 修复调用 `- (void)reloadVideoConfiguraiton` 方法，fps 变更失败的问题

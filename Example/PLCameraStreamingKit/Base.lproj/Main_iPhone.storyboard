@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="0aL-3q-s7A">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="0aL-3q-s7A">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -127,16 +127,16 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="24d-PX-2NR">
-                                <rect key="frame" x="0.0" y="80" width="600" height="448"/>
+                                <rect key="frame" x="20" y="80" width="560" height="448"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="2" translatesAutoresizingMaskIntoConstraints="NO" id="PKp-Bc-QgB">
-                                <rect key="frame" x="217" y="36" width="166" height="29"/>
+                                <rect key="frame" x="225" y="36" width="150" height="29"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="166" id="BfM-XD-zBn"/>
+                                    <constraint firstAttribute="width" constant="150" id="BfM-XD-zBn"/>
                                 </constraints>
                                 <segments>
                                     <segment title="15fps"/>
@@ -147,21 +147,30 @@
                                     <action selector="segmentedControlValueDidChange:" destination="vXZ-lx-hvc" eventType="valueChanged" id="X2X-RZ-EsQ"/>
                                 </connections>
                             </segmentedControl>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="KXM-sc-ILw">
+                                <rect key="frame" x="18" y="490" width="564" height="31"/>
+                                <connections>
+                                    <action selector="zoomSliderValueDidChange:" destination="vXZ-lx-hvc" eventType="valueChanged" id="lY1-rK-K0A"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="24d-PX-2NR" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="60" id="46a-D2-W2c"/>
                             <constraint firstItem="imY-d4-8r9" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="AHl-mp-xLh"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="24d-PX-2NR" secondAttribute="trailing" constant="-20" id="AY0-VF-ZvO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="24d-PX-2NR" secondAttribute="trailing" id="AY0-VF-ZvO"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="23g-Fm-A4B" secondAttribute="bottom" constant="20" id="Bz4-XN-MtS"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="rft-Nr-a9A" secondAttribute="bottom" constant="20" id="G1E-5f-oYS"/>
                             <constraint firstItem="rft-Nr-a9A" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="Gkh-VQ-pVC"/>
+                            <constraint firstItem="qYA-qU-D3h" firstAttribute="top" secondItem="KXM-sc-ILw" secondAttribute="bottom" constant="16" id="MHN-6q-AFd"/>
+                            <constraint firstItem="KXM-sc-ILw" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Pf2-mB-z42"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="24d-PX-2NR" secondAttribute="bottom" constant="72" id="ScA-L2-OaP"/>
                             <constraint firstItem="O35-P7-T0e" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="Ve0-ob-57R"/>
-                            <constraint firstItem="24d-PX-2NR" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-20" id="Zzf-qk-AhJ"/>
+                            <constraint firstItem="24d-PX-2NR" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="Zzf-qk-AhJ"/>
                             <constraint firstAttribute="centerX" secondItem="qYA-qU-D3h" secondAttribute="centerX" id="dVY-Mb-fna"/>
                             <constraint firstItem="23g-Fm-A4B" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="psL-mu-8kS"/>
                             <constraint firstItem="O35-P7-T0e" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="r6k-zK-YQt"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="KXM-sc-ILw" secondAttribute="leading" id="rbs-RJ-UA7"/>
                             <constraint firstItem="PKp-Bc-QgB" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="sNC-4a-3gs"/>
                             <constraint firstItem="PKp-Bc-QgB" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="16" id="xaE-DG-8w5"/>
                             <constraint firstItem="imY-d4-8r9" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-4" id="yNq-YN-Xwk"/>
@@ -175,6 +184,7 @@
                         <outlet property="textView" destination="24d-PX-2NR" id="TiM-CW-3VE"/>
                         <outlet property="toggleCameraButton" destination="23g-Fm-A4B" id="bFE-st-cCr"/>
                         <outlet property="torchButton" destination="rft-Nr-a9A" id="TMn-Zv-Dl6"/>
+                        <outlet property="zoomSlider" destination="KXM-sc-ILw" id="uHS-e8-Pwg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
