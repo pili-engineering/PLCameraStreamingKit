@@ -20,6 +20,7 @@ PLCameraStreamingKit 是一个适用于 iOS 的 RTMP 直播推流 SDK，可高�
 - [x] 音视频配置分离
 - [x] 推流时可变码率
 - [x] 提供发送 buffer
+- [x] 支持 Zoom 操作
 
 ## 内容摘要
 
