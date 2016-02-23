@@ -116,23 +116,6 @@ PLStreamingSendingBufferDelegate
 #warning 如果要运行 demo 这里应该填写服务端返回的某个流的 json 信息
     NSDictionary *streamJSON;
     
-    streamJSON = @{@"id": @"z1.dayzhtest.plstreamingkit-test",
-                   @"title": @"plstreamingkit-test",
-                   @"hub": @"dayzhtest",
-                   @"publishKey": @"123",
-                   @"publishSecurity": @"static", // or static
-                   @"disabled": @(NO),
-                   @"profiles": @[],    // or empty Array []
-                   @"hosts": @{
-                           @"publish": @{
-                                   @"rtmp": @"pili-publish.0dayzh.miclle.com"
-                                   },
-                           @"play": @{
-                                   @"rtmp": @"rtmp://pili-live-rtmp.0dayzh.miclle.com"
-                                   }
-                           }
-                   };
-    
     PLStream *stream = [PLStream streamWithJSON:streamJSON];
     
     void (^permissionBlock)(void) = ^{
