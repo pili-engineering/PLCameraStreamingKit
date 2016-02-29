@@ -93,7 +93,7 @@ pod update
 //      @"hosts": @{
 //            ...
 //      }
-NSDicationary *streamJSON;
+NSDictionary *streamJSON;
 PLStream *stream = [PLStream streamWithJSON:streamJSON];
 // 授权后执行
 void (^permissionBlock)(void) = ^{
