@@ -36,6 +36,7 @@ PLCameraStreamingKit 是一个适用于 iOS 的 RTMP 直播推流 SDK，可高�
 - [流状态变更及错误处理](#流状态变更及处理处理)
 - [变更推流质量及策略](#变更推流质量及策略)
     - [重要事项](#重要事项)
+- [集成到 Swift 工程](#Swift)
 - [文档支持](#文档支持)
 - [功能特性](#功能特性)
 - [系统要求](#系统要求)
@@ -354,6 +355,27 @@ buffer 是一个可以缓存待发送内容的队列，它按照帧数作为缓�
 ```Objective-C
 [self.session reloadVideoConfiguration:newConfiguraiton];
 ```
+## <a name="Swift"></a>集成到 Swift 工程
+- 将 https://github.com/pili-engineering/PLCameraStreamingKit 中的 PLCameraStreamingKit.podspec 文件下载到本地，放在 Podfile 同级目录下；
+- 修改 PLCameraStreamingKit.podspec 文件，删除该行 "s.dependency 'PLStreamingKit'"；
+- 配置你的 Podfile 文件，添加如下配置
+
+```shell
+pod 'PLCameraStreamingKit', :podspec =>'./PLCameraStreamingKit.podspec'
+pod 'PLStreamingKit'
+```
+
+- pod install 或 pod update 安装依赖；
+- 运行你工程的 workspace，在 Pods 工程中选中 PLCameraStreamingKit TARGETS，右侧 Tab 选择 "Build Phases"，在 "Link Binary With Libraries" 中将 <工程目录>/Pods/PLStreamingKit/Pod/Library/lib/ 中的libPLStreamingKit.a 库加入；
+- 在 Objective-C bridging header 中加入一行
+
+```shell
+#import <PLStreamingKit/PLStreamingKit.h>
+```
+Objective-C bridging header 通常以 ProjectName-Bridging-Header.h 命名，如果没有 Objective-C bridging header，可以在 Swift 工程中新建一个 Objective-C File，Xcode 会弹出对话框询问是否配置 Objective-C bridging header，确认后，Xcode 会帮你创建好 Objective-C bridging header；
+
+- Done！现在在需要的地方 import PLCameraStreamingKit 就可以使用了。
+
 
 ## 文档支持
 
