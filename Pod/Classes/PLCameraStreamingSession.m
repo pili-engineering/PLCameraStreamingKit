@@ -7,7 +7,7 @@
 //
 
 #import "PLCameraStreamingSession.h"
-
+#import <PLStreamingKit/PLStreamingKit.h>
 #import "PLCameraSource.h"
 #import "PLMicrophoneSource.h"
 

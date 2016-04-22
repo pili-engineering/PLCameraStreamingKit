@@ -9,7 +9,11 @@
 #ifndef PLCameraStreamingKit_PLCameraStreamingKit_h
 #define PLCameraStreamingKit_PLCameraStreamingKit_h
 
-#import <PLStreamingKit/PLStreamingKit.h>
+#import "PLAACTypeDefines.h"
+#import "PLCameraMacroDefines.h"
+#import "PLCameraSource.h"
+#import "PLMicrophoneSource.h"
+#import "PLSourceAccessProtocol.h"
 #import "PLCameraStreamingSession.h"
 
 #endif

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <PLStreamingKit/PLStreamingKit.h>
 #import "PLCameraSource.h"
 
 GLint uniform;

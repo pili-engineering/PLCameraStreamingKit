@@ -9,6 +9,7 @@
 #import "PLCameraStreamingViewController.h"
 #import "Reachability.h"
 #import <PLCameraStreamingKit/PLCameraStreamingKit.h>
+#import <PLStreamingKit/PLStreamingKit.h>
 #import <asl.h>
 
 const char *stateNames[] = {

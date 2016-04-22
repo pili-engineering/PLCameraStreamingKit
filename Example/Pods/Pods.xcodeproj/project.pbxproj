@@ -10,51 +10,52 @@
 		04990AA664D7B54EDE4EF9251C4395FC /* Pods-Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C26D096DA58CAB3FB0454857702C6CA /* Pods-Tests-dummy.m */; };
 		0BC8027D3AD9AF72E1E1A32524D063D2 /* QNResolverDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = E623EA920AAB41038D943852B5EA5967 /* QNResolverDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0FE011D99B531EB8FABBA943929DED7B /* QNHex.h in Headers */ = {isa = PBXBuildFile; fileRef = C32307ACC492789509E9C85A024A9710 /* QNHex.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		124C0E118881BC1161AAB0B0CFB25720 /* PLMicrophoneSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 803FF54A555C0D938F685E188A5DF9C3 /* PLMicrophoneSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		173E1A84167E181479A21EE8541E6AD9 /* PLCameraSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB01CC9620DCDB98EFD59F7BAE4B997 /* PLCameraSource.m */; };
+		17F75A06545E921691F2E7A09BBBC183 /* PLSourceAccessProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 89DEC551B5F1204CD75BE4C62094A888 /* PLSourceAccessProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		20F5CCA2F131DBFEA246DE5DD5AB855B /* QNResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6177DF36A3CF8757D01B4E342236C6 /* QNResolver.m */; };
 		26DAA77D558335E3AFACAD898D647B2A /* QNHex.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B23E937805399F9F8254DA638AA744 /* QNHex.m */; };
 		27C299AE402C6ACC5D5377E73F4B7291 /* QNRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EE75E750C6F4424C78D6B8554FF2787 /* QNRecord.m */; };
 		299FDF3F63F010F3E7D18945F9E404BD /* QNDnspodFree.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1088F29D3034BC1AC86EA471BDA1E0 /* QNDnspodFree.m */; };
+		29A57D47CCFB1384FF7F45F0180B97A6 /* PLMicrophoneSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D3205FF6438F0EE796BF113E5BA73EE /* PLMicrophoneSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2BD12C7853A83F4349F91319FA7BCB54 /* QNDnspodFree.h in Headers */ = {isa = PBXBuildFile; fileRef = EA2EE2E1570260760C65445318D0C424 /* QNDnspodFree.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2C20798D5C686F20631281B78947CF2F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72540527344BC64056C507EE06C9901D /* UIKit.framework */; };
 		2EAC3C1C324F2D31C72C962D1CC0074D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15CDB94AEDAFBEAE3C747B9335A3A3DF /* Foundation.framework */; };
-		31CA1C17207C6308CD56411EA4E60154 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72540527344BC64056C507EE06C9901D /* UIKit.framework */; };
-		3337A2B7FADEE5F5DB97520D2B2C39E7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3338B414FF34BE6999B09659F65E29E3 /* AVFoundation.framework */; };
-		3A38C8A028F86589935033E942BEF18C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11186BD56342FAA21F204A79778DFB /* CoreGraphics.framework */; };
-		3FA537C47D72E518766CD93CF477BC00 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78A5C20E2AC384F718967C99E9396A07 /* CFNetwork.framework */; };
+		2FAEBFFE9BF3AEF2693D18F117994AA6 /* PLMicrophoneSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B3A3698AB1EB9A4300DB01F9CF49D0 /* PLMicrophoneSource.m */; };
+		30EBE478B26A267A76EC497472CA2E61 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39AC958647F15EE78542512E7E5EDF1D /* CoreMedia.framework */; };
 		445DE84291EB7312596CB53BF9BC0006 /* QNNetworkInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E2B1931EFA16CB013F43F66EA015B5 /* QNNetworkInfo.m */; };
 		47A47D770D59DCF4A7B7C03B9908BB13 /* QNHijackingDetectWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 57BD88F7AF264C31CBFE74B5F210CC18 /* QNHijackingDetectWrapper.m */; };
-		47B23ABBC8881B41AB4B5348E238D8CD /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD70FDE285FD955D0CC98407567AF971 /* VideoToolbox.framework */; };
 		4BA123B8023DF911C684F29732FCF34F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15CDB94AEDAFBEAE3C747B9335A3A3DF /* Foundation.framework */; };
 		50015D97ABFA9585F790F85B63E84E73 /* QNDes.h in Headers */ = {isa = PBXBuildFile; fileRef = 06B55D7C4162B96312317ABE2F1B7793 /* QNDes.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		558B0F237BDA7EA79AF0B4D4D9403FA6 /* PLMicrophoneSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C610AB79B0063CFD3365985ED172A4A6 /* PLMicrophoneSource.m */; };
 		55E34D2EF8FB5EA7DA984BE07E3CE783 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15CDB94AEDAFBEAE3C747B9335A3A3DF /* Foundation.framework */; };
 		5891361CF1616BE0B7B05FF10B0644AF /* QNDnspodEnterprise.h in Headers */ = {isa = PBXBuildFile; fileRef = D93EF5F2E6E30A107E90934005093006 /* QNDnspodEnterprise.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		593F9D657EBCEAAC1818F301D5BCDFA0 /* QNDes.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C9E0700BF7CB92035D4AC806FD5E49 /* QNDes.m */; };
 		5986F73288471F32F83666990A475886 /* QNRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DCCC2FB8E9B8094E681D1BF2273D0DE /* QNRecord.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5A1FFA53AA7C02036BE9671B72E8D092 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52804E6C9363FA2CD0A3000B0A6315C2 /* AudioToolbox.framework */; };
-		635E32C5AE648CC2B9C55D2D6E4109F5 /* PLSourceAccessProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 821BB4A8348219764796E46C0AD40C59 /* PLSourceAccessProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		65512121EC212B19703DA3D075ABB6AD /* PLCameraSource.m in Sources */ = {isa = PBXBuildFile; fileRef = AD12CC0311D4E11B2EE1FC044AD811BC /* PLCameraSource.m */; };
+		65DF9726C23D40D9306E8AA504E7CBCE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52804E6C9363FA2CD0A3000B0A6315C2 /* AudioToolbox.framework */; };
 		68D0394CA41EB7A2676A663A5CCA3C02 /* HappyDNS.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F233E7190DEB3BCE426991760D585BE /* HappyDNS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7D8132FF2135DD9181A91B80359A1840 /* QNDnspodEnterprise.m in Sources */ = {isa = PBXBuildFile; fileRef = F3FA1A179C0A0E41EC5AC67471A115AB /* QNDnspodEnterprise.m */; };
+		7FAB1190506118C5E94870A456F66ACD /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78A5C20E2AC384F718967C99E9396A07 /* CFNetwork.framework */; };
 		83005D97133A4783DA2CEB23F82993B6 /* HappyDNS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3C705A3D991AF9121DC7DE4B205C22 /* HappyDNS-dummy.m */; };
 		84132AAB5BBE8BF2897C831D47E428E8 /* QNDomain.h in Headers */ = {isa = PBXBuildFile; fileRef = 8564E58E6F9AD9209DDDA1A66E976DB4 /* QNDomain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		87C7A9494B915A90DACA2B292DF6A229 /* QNNetworkInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = C8BE0EA4ABFE78FF05177E2612489509 /* QNNetworkInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8B4EA21DB16F7BB96F2FBB7DBF80C181 /* QNDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = A80F809017A64AA7C5DD3560FF1F524A /* QNDomain.m */; };
-		8F9C6AFF1EEA17BB7BF39707FD9EB4B0 /* PLCameraStreamingKit.h in Headers */ = {isa = PBXBuildFile; fileRef = CAF39422AEE9218D45EF6C153B59F85D /* PLCameraStreamingKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9268CECE4B1BD515C182A5C9C3CD01C9 /* PLCameraStreamingSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F325A50EC29D08D69EC906EB1887A7E /* PLCameraStreamingSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8CC4783D764EB3C64BFB5387D10EFC35 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B11186BD56342FAA21F204A79778DFB /* CoreGraphics.framework */; };
 		974C1F8A3489B132509D0378B4362700 /* QNDnsManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DF33E5A3D19F7B9C95AF9A4080D20667 /* QNDnsManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9AB8FF6008FA0A43C1A7FF306AD16E92 /* PLAACTypeDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = F8A17DB11C4CB9E74FF4512249281685 /* PLAACTypeDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9C56053DB9C999E712B3A9ED0F30FD37 /* PLCameraStreamingSession.h in Headers */ = {isa = PBXBuildFile; fileRef = C3916E82519E48FF930A1DDAB4759841 /* PLCameraStreamingSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A8BD2EC588817787FC3A32A1EFD1EB40 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD70FDE285FD955D0CC98407567AF971 /* VideoToolbox.framework */; };
 		AC2BC5B2D99237BF15438952BADF3627 /* QNDnsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 87EC6D2A27F95A1387AC7FD0F02F1933 /* QNDnsManager.m */; };
-		B0A9ED0CBC99BE56270979D02A05195A /* PLCameraStreamingKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E1E9B68873B92CBDC433D3AE42A088 /* PLCameraStreamingKit-dummy.m */; };
+		ACBEF4F75337EBA86EFAB9E23E2488FC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3338B414FF34BE6999B09659F65E29E3 /* AVFoundation.framework */; };
 		B2C5738B39F0D47E6C2D00FBE823FB4B /* QNHijackingDetectWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = A28C66DF45CC9047ABEF242CC746D42D /* QNHijackingDetectWrapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B85283D607357BE3DE845C12A4EEEEC1 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39AC958647F15EE78542512E7E5EDF1D /* CoreMedia.framework */; };
-		BE5FE673EEABA76FE8C961057CC03EA3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15CDB94AEDAFBEAE3C747B9335A3A3DF /* Foundation.framework */; };
 		C59B494883D0A46E495B5C99D2D44807 /* QNResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D7FCBBE354033D1F53A27286D3BEBCC /* QNResolver.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D26A3BE0A9B5E3D558249A875D1C88CF /* PLCameraStreamingKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E1E9B68873B92CBDC433D3AE42A088 /* PLCameraStreamingKit-dummy.m */; };
 		D879CB5C930423C4D6CAF72474EC5C53 /* QNHosts.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B94645B3F81233BD2A80CC80A7BCD52 /* QNHosts.m */; };
-		DD23EAEEB930D575008EC80B0B94CEF3 /* PLCameraSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 25927F6D8D162B51B3F03E2870D96B4C /* PLCameraSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D9381CD9B6A1BD4E4A1D07DA21AD3752 /* PLCameraMacroDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = DC9DC5B049184080C45CFA3402099D79 /* PLCameraMacroDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DAC014133E7CF31A88E7DAC56BCAD81C /* PLAACTypeDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 5287BA3A69C339585B34CE71F919D771 /* PLAACTypeDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EA0AFE716E68C3A3D28932F1DF492451 /* PLCameraStreamingSession.m in Sources */ = {isa = PBXBuildFile; fileRef = F196F6F19D4A41BA1E059690A9DD19FE /* PLCameraStreamingSession.m */; };
 		EC162D2EC6E4EFCBA69040B467AEAB3F /* QNHosts.h in Headers */ = {isa = PBXBuildFile; fileRef = AA817D63D7C424820F8E604E4E0E66B5 /* QNHosts.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EF3C6E02D2308BE14F6426A21DB0FFDC /* PLCameraStreamingKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 55861192682EC821F34E99E7B08F6DFA /* PLCameraStreamingKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F3A455E554F8DD0E1BEA859F35BF26FE /* PLCameraSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 48B41865C1C2311331C3ED50C27558F6 /* PLCameraSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F8134A2BD2D32525F8F89B35ADA229F5 /* Pods-PLCameraStreamingKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FEFBA6C25CFD28BFF8A7E3545CE9052 /* Pods-PLCameraStreamingKit-dummy.m */; };
-		FAAD1E51C1FE40EC5767AF0F605CB539 /* PLCameraStreamingSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E818407984F65EA8079F54D73D4BF2A /* PLCameraStreamingSession.m */; };
+		FEC76EEB1CEE9A125F3491D847B57E9B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15CDB94AEDAFBEAE3C747B9335A3A3DF /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,14 +70,14 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 37B9089AD723442578E98ED9C7EB32DE;
+			remoteGlobalIDString = 0BD67382A7E4EE282BC9EFFF112D553E;
 			remoteInfo = PLCameraStreamingKit;
 		};
 		6C448693E5085533577D4BD8893666EF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 37B9089AD723442578E98ED9C7EB32DE;
+			remoteGlobalIDString = 0BD67382A7E4EE282BC9EFFF112D553E;
 			remoteInfo = PLCameraStreamingKit;
 		};
 		FA3E3A35BC39A996AE96A56FB3FCBC5F /* PBXContainerItemProxy */ = {
@@ -101,10 +102,11 @@
 		15CDB94AEDAFBEAE3C747B9335A3A3DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		19D8416888FE82A55FA5C8B5AF7754C9 /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		1B94645B3F81233BD2A80CC80A7BCD52 /* QNHosts.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QNHosts.m; path = HappyDNS/Local/QNHosts.m; sourceTree = "<group>"; };
+		1D3205FF6438F0EE796BF113E5BA73EE /* PLMicrophoneSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLMicrophoneSource.h; sourceTree = "<group>"; };
+		1EB01CC9620DCDB98EFD59F7BAE4B997 /* PLCameraSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PLCameraSource.m; sourceTree = "<group>"; };
 		1F1088F29D3034BC1AC86EA471BDA1E0 /* QNDnspodFree.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QNDnspodFree.m; path = HappyDNS/Http/QNDnspodFree.m; sourceTree = "<group>"; };
 		1F233E7190DEB3BCE426991760D585BE /* HappyDNS.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HappyDNS.h; path = HappyDNS/HappyDNS.h; sourceTree = "<group>"; };
 		24BCB1704DA79EC640F75B45AFFCBDF4 /* PLVideoStreamingConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PLVideoStreamingConfiguration.h; path = Pod/Library/include/PLStreamingKit/PLVideoStreamingConfiguration.h; sourceTree = "<group>"; };
-		25927F6D8D162B51B3F03E2870D96B4C /* PLCameraSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCameraSource.h; sourceTree = "<group>"; };
 		2644FAB9EE057D525D61022626F0E2C2 /* libPLCameraStreamingKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPLCameraStreamingKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		294659E75D0AF507BBBBE77501823AAE /* PLAudioStreamingConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PLAudioStreamingConfiguration.h; path = Pod/Library/include/PLStreamingKit/PLAudioStreamingConfiguration.h; sourceTree = "<group>"; };
 		2B541C780E9BF0CC1EB62D013BAB250B /* libPods-PLCameraStreamingKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PLCameraStreamingKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,14 +117,16 @@
 		3F6177DF36A3CF8757D01B4E342236C6 /* QNResolver.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QNResolver.m; path = HappyDNS/Local/QNResolver.m; sourceTree = "<group>"; };
 		3FEFBA6C25CFD28BFF8A7E3545CE9052 /* Pods-PLCameraStreamingKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PLCameraStreamingKit-dummy.m"; sourceTree = "<group>"; };
 		41A567744EAAD0663A0CEEC30ABDB80A /* HappyDNS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HappyDNS-prefix.pch"; sourceTree = "<group>"; };
-		4F325A50EC29D08D69EC906EB1887A7E /* PLCameraStreamingSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCameraStreamingSession.h; sourceTree = "<group>"; };
+		48B41865C1C2311331C3ED50C27558F6 /* PLCameraSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCameraSource.h; sourceTree = "<group>"; };
 		52804E6C9363FA2CD0A3000B0A6315C2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
+		5287BA3A69C339585B34CE71F919D771 /* PLAACTypeDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLAACTypeDefines.h; sourceTree = "<group>"; };
+		55861192682EC821F34E99E7B08F6DFA /* PLCameraStreamingKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCameraStreamingKit.h; sourceTree = "<group>"; };
 		561E23AC245A11DEF2F00FA23CB9F883 /* PLCameraStreamingKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PLCameraStreamingKit-prefix.pch"; sourceTree = "<group>"; };
 		56FC901BB412789FA86BD7CBD1D3200B /* Pods-Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Tests-frameworks.sh"; sourceTree = "<group>"; };
 		57BD88F7AF264C31CBFE74B5F210CC18 /* QNHijackingDetectWrapper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QNHijackingDetectWrapper.m; path = HappyDNS/Local/QNHijackingDetectWrapper.m; sourceTree = "<group>"; };
 		5A9AEC8E982DE03C2C248C1151A584E9 /* Pods-PLCameraStreamingKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PLCameraStreamingKit.release.xcconfig"; sourceTree = "<group>"; };
-		5E818407984F65EA8079F54D73D4BF2A /* PLCameraStreamingSession.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PLCameraStreamingSession.m; sourceTree = "<group>"; };
 		5EE75E750C6F4424C78D6B8554FF2787 /* QNRecord.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QNRecord.m; path = HappyDNS/Common/QNRecord.m; sourceTree = "<group>"; };
+		68B3A3698AB1EB9A4300DB01F9CF49D0 /* PLMicrophoneSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PLMicrophoneSource.m; sourceTree = "<group>"; };
 		69E2B1931EFA16CB013F43F66EA015B5 /* QNNetworkInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QNNetworkInfo.m; path = HappyDNS/Common/QNNetworkInfo.m; sourceTree = "<group>"; };
 		6B60CE354D4265FDE1172B61876E2DFC /* HappyDNS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HappyDNS.xcconfig; sourceTree = "<group>"; };
 		6BE0498CE103A76AD5DCE49B7CE21E35 /* PLMacroDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PLMacroDefines.h; path = Pod/Library/include/PLStreamingKit/PLMacroDefines.h; sourceTree = "<group>"; };
@@ -131,11 +135,10 @@
 		745D03F1A3682BCE46F7CE21523508C5 /* Pods-PLCameraStreamingKit-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PLCameraStreamingKit-acknowledgements.plist"; sourceTree = "<group>"; };
 		78A5C20E2AC384F718967C99E9396A07 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
 		7C3ADD5F96BA2489660C1ECA15A932F1 /* libHappyDNS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libHappyDNS.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		803FF54A555C0D938F685E188A5DF9C3 /* PLMicrophoneSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLMicrophoneSource.h; sourceTree = "<group>"; };
-		821BB4A8348219764796E46C0AD40C59 /* PLSourceAccessProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLSourceAccessProtocol.h; sourceTree = "<group>"; };
 		8564E58E6F9AD9209DDDA1A66E976DB4 /* QNDomain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QNDomain.h; path = HappyDNS/Common/QNDomain.h; sourceTree = "<group>"; };
 		87EC6D2A27F95A1387AC7FD0F02F1933 /* QNDnsManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QNDnsManager.m; path = HappyDNS/Common/QNDnsManager.m; sourceTree = "<group>"; };
 		896EA8355C0EC75430520D410511AE43 /* Pods-Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		89DEC551B5F1204CD75BE4C62094A888 /* PLSourceAccessProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLSourceAccessProtocol.h; sourceTree = "<group>"; };
 		8A5B70490041D12D7C00D6A2AD5A6C31 /* PLStreamingKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PLStreamingKit.h; path = Pod/Library/include/PLStreamingKit/PLStreamingKit.h; sourceTree = "<group>"; };
 		9BD0F7934C04484FEC28D426594C7128 /* PLCameraStreamingKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PLCameraStreamingKit.xcconfig; sourceTree = "<group>"; };
 		9D9C98DBCA5CA84A731D23734742BA93 /* Pods-PLCameraStreamingKit-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PLCameraStreamingKit-resources.sh"; sourceTree = "<group>"; };
@@ -144,26 +147,25 @@
 		A28C66DF45CC9047ABEF242CC746D42D /* QNHijackingDetectWrapper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QNHijackingDetectWrapper.h; path = HappyDNS/Local/QNHijackingDetectWrapper.h; sourceTree = "<group>"; };
 		A80F809017A64AA7C5DD3560FF1F524A /* QNDomain.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QNDomain.m; path = HappyDNS/Common/QNDomain.m; sourceTree = "<group>"; };
 		AA817D63D7C424820F8E604E4E0E66B5 /* QNHosts.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QNHosts.h; path = HappyDNS/Local/QNHosts.h; sourceTree = "<group>"; };
-		AD12CC0311D4E11B2EE1FC044AD811BC /* PLCameraSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PLCameraSource.m; sourceTree = "<group>"; };
 		B738E0895F49176CB8B5ECB663A17ED2 /* Pods-Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		BB3C705A3D991AF9121DC7DE4B205C22 /* HappyDNS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HappyDNS-dummy.m"; sourceTree = "<group>"; };
 		BCD3FB492F7FEA69429384547F67AF2D /* PLBuffer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PLBuffer.h; path = Pod/Library/include/PLStreamingKit/PLBuffer.h; sourceTree = "<group>"; };
 		C32307ACC492789509E9C85A024A9710 /* QNHex.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QNHex.h; path = HappyDNS/Util/QNHex.h; sourceTree = "<group>"; };
-		C610AB79B0063CFD3365985ED172A4A6 /* PLMicrophoneSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PLMicrophoneSource.m; sourceTree = "<group>"; };
+		C3916E82519E48FF930A1DDAB4759841 /* PLCameraStreamingSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCameraStreamingSession.h; sourceTree = "<group>"; };
 		C7A9122C8435FEF2A6A2D7F9C6ACC3BB /* Pods-PLCameraStreamingKit-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PLCameraStreamingKit-acknowledgements.markdown"; sourceTree = "<group>"; };
 		C8BE0EA4ABFE78FF05177E2612489509 /* QNNetworkInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QNNetworkInfo.h; path = HappyDNS/Common/QNNetworkInfo.h; sourceTree = "<group>"; };
-		CAF39422AEE9218D45EF6C153B59F85D /* PLCameraStreamingKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCameraStreamingKit.h; sourceTree = "<group>"; };
 		CF3A1A7FC8400F57B6998815881A7D35 /* PLStreamingSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PLStreamingSession.h; path = Pod/Library/include/PLStreamingKit/PLStreamingSession.h; sourceTree = "<group>"; };
 		D93EF5F2E6E30A107E90934005093006 /* QNDnspodEnterprise.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QNDnspodEnterprise.h; path = HappyDNS/Http/QNDnspodEnterprise.h; sourceTree = "<group>"; };
 		D992018D7095719A28590AFF10AA2D2D /* Pods-PLCameraStreamingKit-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PLCameraStreamingKit-frameworks.sh"; sourceTree = "<group>"; };
+		DC9DC5B049184080C45CFA3402099D79 /* PLCameraMacroDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLCameraMacroDefines.h; sourceTree = "<group>"; };
 		DF33E5A3D19F7B9C95AF9A4080D20667 /* QNDnsManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QNDnsManager.h; path = HappyDNS/Common/QNDnsManager.h; sourceTree = "<group>"; };
 		DFDFB80F6406DD3B85AE433EAF2C913C /* PLStreamStatus.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PLStreamStatus.h; path = Pod/Library/include/PLStreamingKit/PLStreamStatus.h; sourceTree = "<group>"; };
 		E1D455C233908CFAAF7170153821180E /* libPods-Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E623EA920AAB41038D943852B5EA5967 /* QNResolverDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QNResolverDelegate.h; path = HappyDNS/Common/QNResolverDelegate.h; sourceTree = "<group>"; };
 		EA2EE2E1570260760C65445318D0C424 /* QNDnspodFree.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QNDnspodFree.h; path = HappyDNS/Http/QNDnspodFree.h; sourceTree = "<group>"; };
+		F196F6F19D4A41BA1E059690A9DD19FE /* PLCameraStreamingSession.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = PLCameraStreamingSession.m; sourceTree = "<group>"; };
 		F3FA1A179C0A0E41EC5AC67471A115AB /* QNDnspodEnterprise.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QNDnspodEnterprise.m; path = HappyDNS/Http/QNDnspodEnterprise.m; sourceTree = "<group>"; };
-		F8A17DB11C4CB9E74FF4512249281685 /* PLAACTypeDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = PLAACTypeDefines.h; sourceTree = "<group>"; };
 		FD70FDE285FD955D0CC98407567AF971 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/VideoToolbox.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
@@ -184,18 +186,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9F24C9565FAB5260F758FF733ECF89F3 /* Frameworks */ = {
+		99A9713A1BD5A4037B930857F28D579F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A1FFA53AA7C02036BE9671B72E8D092 /* AudioToolbox.framework in Frameworks */,
-				3337A2B7FADEE5F5DB97520D2B2C39E7 /* AVFoundation.framework in Frameworks */,
-				3FA537C47D72E518766CD93CF477BC00 /* CFNetwork.framework in Frameworks */,
-				3A38C8A028F86589935033E942BEF18C /* CoreGraphics.framework in Frameworks */,
-				B85283D607357BE3DE845C12A4EEEEC1 /* CoreMedia.framework in Frameworks */,
-				BE5FE673EEABA76FE8C961057CC03EA3 /* Foundation.framework in Frameworks */,
-				31CA1C17207C6308CD56411EA4E60154 /* UIKit.framework in Frameworks */,
-				47B23ABBC8881B41AB4B5348E238D8CD /* VideoToolbox.framework in Frameworks */,
+				65DF9726C23D40D9306E8AA504E7CBCE /* AudioToolbox.framework in Frameworks */,
+				ACBEF4F75337EBA86EFAB9E23E2488FC /* AVFoundation.framework in Frameworks */,
+				7FAB1190506118C5E94870A456F66ACD /* CFNetwork.framework in Frameworks */,
+				8CC4783D764EB3C64BFB5387D10EFC35 /* CoreGraphics.framework in Frameworks */,
+				30EBE478B26A267A76EC497472CA2E61 /* CoreMedia.framework in Frameworks */,
+				FEC76EEB1CEE9A125F3491D847B57E9B /* Foundation.framework in Frameworks */,
+				2C20798D5C686F20631281B78947CF2F /* UIKit.framework in Frameworks */,
+				A8BD2EC588817787FC3A32A1EFD1EB40 /* VideoToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,19 +278,11 @@
 		5A23C012C717F1AF832CD05F2E639888 /* PLCameraStreamingKit */ = {
 			isa = PBXGroup;
 			children = (
-				69A818CAB68804041B345F40A1B69424 /* Pod */,
+				DC105BA2452C82CE412E45FD9C73E7ED /* Pod */,
 				F58842FAC74AEC709B6B66EA25F40885 /* Support Files */,
 			);
 			name = PLCameraStreamingKit;
 			path = ../..;
-			sourceTree = "<group>";
-		};
-		69A818CAB68804041B345F40A1B69424 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				EA18C060E3B4B9BEB923B230DE6BA80C /* Classes */,
-			);
-			path = Pod;
 			sourceTree = "<group>";
 		};
 		785553737B06AFC3DA711DDEB7D56194 /* Frameworks */ = {
@@ -389,20 +383,12 @@
 			name = precompiled;
 			sourceTree = "<group>";
 		};
-		EA18C060E3B4B9BEB923B230DE6BA80C /* Classes */ = {
+		DC105BA2452C82CE412E45FD9C73E7ED /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				F8A17DB11C4CB9E74FF4512249281685 /* PLAACTypeDefines.h */,
-				25927F6D8D162B51B3F03E2870D96B4C /* PLCameraSource.h */,
-				AD12CC0311D4E11B2EE1FC044AD811BC /* PLCameraSource.m */,
-				CAF39422AEE9218D45EF6C153B59F85D /* PLCameraStreamingKit.h */,
-				4F325A50EC29D08D69EC906EB1887A7E /* PLCameraStreamingSession.h */,
-				5E818407984F65EA8079F54D73D4BF2A /* PLCameraStreamingSession.m */,
-				803FF54A555C0D938F685E188A5DF9C3 /* PLMicrophoneSource.h */,
-				C610AB79B0063CFD3365985ED172A4A6 /* PLMicrophoneSource.m */,
-				821BB4A8348219764796E46C0AD40C59 /* PLSourceAccessProtocol.h */,
+				FCBFE57BED75973486BA1D1038908978 /* Classes */,
 			);
-			path = Classes;
+			path = Pod;
 			sourceTree = "<group>";
 		};
 		F1D67E26F955C71D989E0FE8B96FD698 /* Development Pods */ = {
@@ -433,6 +419,23 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
+		FCBFE57BED75973486BA1D1038908978 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				5287BA3A69C339585B34CE71F919D771 /* PLAACTypeDefines.h */,
+				DC9DC5B049184080C45CFA3402099D79 /* PLCameraMacroDefines.h */,
+				48B41865C1C2311331C3ED50C27558F6 /* PLCameraSource.h */,
+				1EB01CC9620DCDB98EFD59F7BAE4B997 /* PLCameraSource.m */,
+				55861192682EC821F34E99E7B08F6DFA /* PLCameraStreamingKit.h */,
+				C3916E82519E48FF930A1DDAB4759841 /* PLCameraStreamingSession.h */,
+				F196F6F19D4A41BA1E059690A9DD19FE /* PLCameraStreamingSession.m */,
+				1D3205FF6438F0EE796BF113E5BA73EE /* PLMicrophoneSource.h */,
+				68B3A3698AB1EB9A4300DB01F9CF49D0 /* PLMicrophoneSource.m */,
+				89DEC551B5F1204CD75BE4C62094A888 /* PLSourceAccessProtocol.h */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -456,16 +459,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AD486856EBD4914E895C573A11EED122 /* Headers */ = {
+		9604DC1822C05A1BB2B7E90106EF74AC /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AB8FF6008FA0A43C1A7FF306AD16E92 /* PLAACTypeDefines.h in Headers */,
-				DD23EAEEB930D575008EC80B0B94CEF3 /* PLCameraSource.h in Headers */,
-				8F9C6AFF1EEA17BB7BF39707FD9EB4B0 /* PLCameraStreamingKit.h in Headers */,
-				9268CECE4B1BD515C182A5C9C3CD01C9 /* PLCameraStreamingSession.h in Headers */,
-				124C0E118881BC1161AAB0B0CFB25720 /* PLMicrophoneSource.h in Headers */,
-				635E32C5AE648CC2B9C55D2D6E4109F5 /* PLSourceAccessProtocol.h in Headers */,
+				DAC014133E7CF31A88E7DAC56BCAD81C /* PLAACTypeDefines.h in Headers */,
+				D9381CD9B6A1BD4E4A1D07DA21AD3752 /* PLCameraMacroDefines.h in Headers */,
+				F3A455E554F8DD0E1BEA859F35BF26FE /* PLCameraSource.h in Headers */,
+				EF3C6E02D2308BE14F6426A21DB0FFDC /* PLCameraStreamingKit.h in Headers */,
+				9C56053DB9C999E712B3A9ED0F30FD37 /* PLCameraStreamingSession.h in Headers */,
+				29A57D47CCFB1384FF7F45F0180B97A6 /* PLMicrophoneSource.h in Headers */,
+				17F75A06545E921691F2E7A09BBBC183 /* PLSourceAccessProtocol.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,13 +494,13 @@
 			productReference = 2B541C780E9BF0CC1EB62D013BAB250B /* libPods-PLCameraStreamingKit.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		37B9089AD723442578E98ED9C7EB32DE /* PLCameraStreamingKit */ = {
+		0BD67382A7E4EE282BC9EFFF112D553E /* PLCameraStreamingKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 79F8C768B6601BED66AED111ABB2EFAF /* Build configuration list for PBXNativeTarget "PLCameraStreamingKit" */;
+			buildConfigurationList = 36A0E9BB8F77CEC10655C6C0070DB168 /* Build configuration list for PBXNativeTarget "PLCameraStreamingKit" */;
 			buildPhases = (
-				39F2EA46E87357B3DDEEAC08DC9DF8CF /* Sources */,
-				9F24C9565FAB5260F758FF733ECF89F3 /* Frameworks */,
-				AD486856EBD4914E895C573A11EED122 /* Headers */,
+				C4AA595929DA7E3509E25B37BFCD30B6 /* Sources */,
+				99A9713A1BD5A4037B930857F28D579F /* Frameworks */,
+				9604DC1822C05A1BB2B7E90106EF74AC /* Headers */,
 			);
 			buildRules = (
 			);
@@ -564,7 +568,7 @@
 			projectRoot = "";
 			targets = (
 				6627E2CE58504A680DE862D5526B302C /* HappyDNS */,
-				37B9089AD723442578E98ED9C7EB32DE /* PLCameraStreamingKit */,
+				0BD67382A7E4EE282BC9EFFF112D553E /* PLCameraStreamingKit */,
 				0715F6650226D70AAA5E067909D9C128 /* Pods-PLCameraStreamingKit */,
 				87C0D9240410E4A520F06E54D5F831D3 /* Pods-Tests */,
 			);
@@ -577,17 +581,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				04990AA664D7B54EDE4EF9251C4395FC /* Pods-Tests-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		39F2EA46E87357B3DDEEAC08DC9DF8CF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				65512121EC212B19703DA3D075ABB6AD /* PLCameraSource.m in Sources */,
-				B0A9ED0CBC99BE56270979D02A05195A /* PLCameraStreamingKit-dummy.m in Sources */,
-				FAAD1E51C1FE40EC5767AF0F605CB539 /* PLCameraStreamingSession.m in Sources */,
-				558B0F237BDA7EA79AF0B4D4D9403FA6 /* PLMicrophoneSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,19 +611,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C4AA595929DA7E3509E25B37BFCD30B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				173E1A84167E181479A21EE8541E6AD9 /* PLCameraSource.m in Sources */,
+				D26A3BE0A9B5E3D558249A875D1C88CF /* PLCameraStreamingKit-dummy.m in Sources */,
+				EA0AFE716E68C3A3D28932F1DF492451 /* PLCameraStreamingSession.m in Sources */,
+				2FAEBFFE9BF3AEF2693D18F117994AA6 /* PLMicrophoneSource.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		7EA59441B3571E13FEAAD04A31338161 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = PLCameraStreamingKit;
-			target = 37B9089AD723442578E98ED9C7EB32DE /* PLCameraStreamingKit */;
+			target = 0BD67382A7E4EE282BC9EFFF112D553E /* PLCameraStreamingKit */;
 			targetProxy = 6C448693E5085533577D4BD8893666EF /* PBXContainerItemProxy */;
 		};
 		CBCC500D26D19123D28492A659997E03 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = PLCameraStreamingKit;
-			target = 37B9089AD723442578E98ED9C7EB32DE /* PLCameraStreamingKit */;
+			target = 0BD67382A7E4EE282BC9EFFF112D553E /* PLCameraStreamingKit */;
 			targetProxy = 4F6B685DC0A949A7FA00C4447D9E8995 /* PBXContainerItemProxy */;
 		};
 		F6D044FB87177DA37C45644D4BA6F6A3 /* PBXTargetDependency */ = {
@@ -716,6 +720,24 @@
 			};
 			name = Debug;
 		};
+		231D5BB9CF4FD5E0F06421D2D5EDB5C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BD0F7934C04484FEC28D426594C7128 /* PLCameraStreamingKit.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/PLCameraStreamingKit/PLCameraStreamingKit-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		5EDA5F3BE85268BA7D8F76097B2C7E67 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6B60CE354D4265FDE1172B61876E2DFC /* HappyDNS.xcconfig */;
@@ -734,14 +756,14 @@
 			};
 			name = Release;
 		};
-		708CB1D12F90F4F9F8290913DA8E0FF2 /* Release */ = {
+		6F1253CDD686798FBE5A5992520A3F5C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9BD0F7934C04484FEC28D426594C7128 /* PLCameraStreamingKit.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/PLCameraStreamingKit/PLCameraStreamingKit-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -750,7 +772,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
-			name = Release;
+			name = Debug;
 		};
 		8AC72449F2DFF1090F7C83F05022499A /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -768,24 +790,6 @@
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
-		};
-		A5029B5A1B2BE3CCE67799FC4E425855 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9BD0F7934C04484FEC28D426594C7128 /* PLCameraStreamingKit.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/PLCameraStreamingKit/PLCameraStreamingKit-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
 		};
 		B37F0F91F85060E28F1DAAB522DC7EC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -873,20 +877,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		36A0E9BB8F77CEC10655C6C0070DB168 /* Build configuration list for PBXNativeTarget "PLCameraStreamingKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6F1253CDD686798FBE5A5992520A3F5C /* Debug */,
+				231D5BB9CF4FD5E0F06421D2D5EDB5C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		61DF6F9C7D175CBB90CFB07922C21A74 /* Build configuration list for PBXNativeTarget "HappyDNS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D15889615DC3D0788CA745D4E1D73FF0 /* Debug */,
 				5EDA5F3BE85268BA7D8F76097B2C7E67 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		79F8C768B6601BED66AED111ABB2EFAF /* Build configuration list for PBXNativeTarget "PLCameraStreamingKit" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A5029B5A1B2BE3CCE67799FC4E425855 /* Debug */,
-				708CB1D12F90F4F9F8290913DA8E0FF2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

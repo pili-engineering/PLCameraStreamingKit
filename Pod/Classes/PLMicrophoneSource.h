@@ -10,8 +10,6 @@
 #import <AVFoundation/AVFoundation.h>
 #import <CoreAudio/CoreAudioTypes.h>
 #import <AudioToolbox/AudioToolbox.h>
-#import <PLStreamingKit/PLStreamingKit.h>
-
 #import "PLSourceAccessProtocol.h"
 #import "PLAACTypeDefines.h"
 
