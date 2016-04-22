@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <PLStreamingKit/PLStreamingKit.h>
 
 /// 设备授权状态
 typedef NS_ENUM(NSUInteger, PLAuthorizationStatus) {

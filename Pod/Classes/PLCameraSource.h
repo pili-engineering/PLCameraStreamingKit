@@ -9,11 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 #import <CoreMedia/CoreMedia.h>
-#import <PLStreamingKit/PLStreamingKit.h>
-
+#import "PLCameraMacroDefines.h"
 #import "PLSourceAccessProtocol.h"
-#import "PLTypeDefines.h"
-#import "PLMacroDefines.h"
+
 
 /*!
  * @abstract 摄像头位置
@@ -25,7 +23,7 @@ typedef NS_ENUM(NSUInteger, PLCaptureDevicePosition) {
     PLCaptureDevicePositionFront
 };
 
-@class PLCameraSource;
+@class PLCameraSource, PLVideoStreamingConfiguration;
 @protocol PLCameraSourceDelegate <NSObject>
 
 @optional
