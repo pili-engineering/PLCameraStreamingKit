@@ -361,6 +361,7 @@ buffer 是一个可以缓存待发送内容的队列，它按照帧数作为缓�
 - 配置你的 Podfile 文件，添加如下配置
 
 ```shell
+use_frameworks!
 pod 'PLCameraStreamingKit', :podspec =>'./PLCameraStreamingKit.podspec'
 pod 'PLStreamingKit'
 ```
