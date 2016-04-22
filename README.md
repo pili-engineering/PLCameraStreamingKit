@@ -366,7 +366,7 @@ pod 'PLStreamingKit'
 ```
 
 - pod install 或 pod update 安装依赖；
-- 运行你工程的 workspace，在 Pods 工程中选中 PLCameraStreamingKit TARGETS，右侧 Tab 选择 "Build Phases"，在 "Link Binary With Libraries" 中将 <工程目录>/Pods/PLStreamingKit/Pod/Library/lib/ 中的libPLStreamingKit.a 库加入；
+- 打开你工程的 workspace，在 Pods 工程中选中 PLCameraStreamingKit TARGETS，右侧 Tab 选择 "Build Phases"，在 "Link Binary With Libraries" 中将 <工程目录>/Pods/PLStreamingKit/Pod/Library/lib/ 中的libPLStreamingKit.a 库加入；
 - 在 Objective-C bridging header 中加入一行
 
 ```shell
