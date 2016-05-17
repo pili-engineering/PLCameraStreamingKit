@@ -28,7 +28,7 @@ PLSourceAccessProtocol
 @property (nonatomic, weak) id<PLMicrophoneSourceDelegate> delegate;
 @property (nonatomic, assign, readonly) PLAACSampleRate sampleRate;
 @property (nonatomic, assign, readonly) NSInteger channelsPerFrame;
-
+@property (nonatomic, assign) AudioStreamBasicDescription asbd;
 @property (nonatomic, assign, getter=isMuted) BOOL muted;   // default as NO.
 @property (nonatomic, readonly, assign) BOOL isRunning;
 

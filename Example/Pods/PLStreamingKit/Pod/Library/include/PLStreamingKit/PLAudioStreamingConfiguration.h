@@ -9,14 +9,18 @@
 #import <Foundation/Foundation.h>
 
 #import "PLTypeDefines.h"
-#import "PLMacroDefines.h"
 
-@interface PLAudioStreamingConfiguration : NSObject
+/*!
+    @class      PLAudioStreamingConfiguration
+    @abstract   音频编码推流的相关配置
 
-@property (nonatomic, PL_STRONG) NSString   *audioQuality;
+    @since      v1.0.0
+ */
+@interface PLAudioStreamingConfiguration : NSObject <NSCopying>
+
 @property (nonatomic, assign, readonly) PLStreamingAudioBitRate audioBitRate;
-@property (nonatomic, assign, readonly) NSUInteger audioSampleRate; // 4800 for iPhone 6s family devices, 44100 for others
-@property (nonatomic, assign) UInt32    numberOfChannels;   // default as 1
+@property (nonatomic, assign, readonly) NSUInteger encodedAudioSampleRate; // 48000 for iPhone 6s family devices, 44100 for others
+@property (nonatomic, assign) UInt32    encodedNumberOfChannels;   // default as 1
 
 /// kPLAudioStreamingQualityHigh2 as default
 + (instancetype)defaultConfiguration;

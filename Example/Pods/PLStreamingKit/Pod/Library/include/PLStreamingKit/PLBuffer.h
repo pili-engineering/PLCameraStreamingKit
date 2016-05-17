@@ -9,16 +9,34 @@
 #ifndef PLBuffer_h
 #define PLBuffer_h
 
+/*!
+    @protocol  PLStreamingSendingBufferDelegate
+    @abstract  发送队列的代理协议。
+
+    @since     v1.0.0
+ */
 @protocol PLStreamingSendingBufferDelegate <NSObject>
 
 @optional
-- (void)streamingSessionSendingBufferDidEmpty:(id)session;
-- (void)streamingSessionSendingBufferDidFull:(id)session;
+/*!
+    @method     streamingSessionSendingBufferDidEmpty:
+    @abstract   当发送队列从有数据变为无数据时，会触发该队列为空的回调。
 
-/// 已弃用
-- (void)streamingSessionSendingBufferFillDidLowerThanLowThreshold:(id)session DEPRECATED_ATTRIBUTE;
-- (void)streamingSessionSendingBufferFillDidHigherThanHighThreshold:(id)session DEPRECATED_ATTRIBUTE;
-- (void)streamingSession:(id)session sendingBufferDidDropItems:(NSArray *)items DEPRECATED_ATTRIBUTE;
+    @param      session 调用该代理方法的 session 对象
+
+    @since      v1.0.0
+ */
+- (void)streamingSessionSendingBufferDidEmpty:(id)session;
+
+/*!
+    @method     streamingSessionSendingBufferDidFull:
+    @abstract   当发送队列包满时，会触发该队列已满的回调。
+
+    @param      session 调用该代理方法的 session 对象
+
+    @since      v1.0.0
+ */
+- (void)streamingSessionSendingBufferDidFull:(id)session;
 
 @end
 

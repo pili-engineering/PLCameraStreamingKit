@@ -11,25 +11,59 @@
 
 #pragma mark - Stream State
 
-/// 流状态
-typedef NS_ENUM(NSUInteger, PLStreamState) {
-    /// 未知状态，初始化时状态被设定为未知
+/*!
+    @typedef    PLStreamState
+    @abstract   PLStreamingSessin 的流状态。
+
+    @constant   PLStreamStateUnknow 未知状态，只会作为 init 的初始状态
+    @constant   PLStreamStateConnecting 连接中状态
+    @constant   PLStreamStateConnected 已连接状态
+    @constant   PLStreamStateDisconnecting 断开连接中状态
+    @constant   PLStreamStateDisconnected 已断开连接状态
+    @constant   PLStreamStateError 错误状态
+
+    @since      v1.0.0
+ */
+typedef enum {
     PLStreamStateUnknow = 0,
-    /// 连接中
     PLStreamStateConnecting,
-    /// 已连接
     PLStreamStateConnected,
-    /// 断开中
     PLStreamStateDisconnecting,
-    /// 已断开
     PLStreamStateDisconnected,
-    /// 连接出错
     PLStreamStateError
-};
+} PLStreamState;
 
 #pragma mark - Error
 
-typedef NS_ENUM(NSInteger, PLStreamError) {
+/*!
+    @typedef    PLStreamError
+    @abstract   错误状态码。
+
+    @constant   PLStreamErrorUnknow 未知错误
+    @constant   PLStreamErrorUnknowOption rtmp 推流未知配置
+    @constant   PLStreamErrorAccessDNSFailed dns 无法访问
+    @constant   PLStreamErrorFailedToConnectSocket socket 连接失败
+    @constant   PLStreamErrorSocksNegotiationFailed sockket negotiation 失败
+    @constant   PLStreamErrorFailedToCreateSocket 创建 socket 失败
+    @constant   PLStreamErrorHandshakeFailed    握手失败
+    @constant   PLStreamErrorRTMPConnectFailed  rtmp 连接失败
+    @constant   PLStreamErrorSendFailed 发送数据包失败
+    @constant   PLStreamErrorServerRequestedClose   被服务端关闭
+    @constant   PLStreamErrorNetStreamFailed    NetStream 失败
+    @constant   PLStreamErrorNetStreamPlayFailed    NetStreamPlay 失败
+    @constant   PLStreamErrorNetStreamPlayStreamNotFound    NetStreamPlay 为找到对应的流
+    @constant   PLStreamErrorNetConnectionConnectInvalidApp 连接到无效的 rtmp 应用
+    @constant   PLStreamErrorSanityFailed Sanity 失败
+    @constant   PLStreamErrorSocketClosedByPeer Socket 被关闭
+    @constant   PLStreamErrorRTMPConnectStreamFailed    rtmp 连接流失败
+    @constant   PLStreamErrorSocketTimeout  socket 超时
+    @constant   PLStreamErrorTLSConnectFailed   TLS 连接失败
+    @constant   PLStreamErrorNoSSLOrTLSSupport  没有 SSL 或者 TLS 支持
+    @constant   PLStreamErrorDNSResolveFailed   DNS 解析失败
+ 
+    @since      v1.0.0
+ */
+typedef enum {
     PLStreamErrorUnknow =	-1,
     PLStreamErrorUnknowOption = -999,
     PLStreamErrorAccessDNSFailed = -1000,
@@ -55,101 +89,136 @@ typedef NS_ENUM(NSInteger, PLStreamError) {
     
     // DNS error
     PLStreamErrorDNSResolveFailed = -1300,
-};
+} PLStreamError;
 
 #pragma mark - Video Streaming Quality
 
 /*!
- * @abstract Video streaming quality low 1
- *
- * @discussion 具体参数 fps: 12, profile level: baseline31, video bitrate: 150Kbps
+    @constant   kPLVideoStreamingQualityLow1
+    @abstract   视频编码推流质量 low 1。
+
+    @discussion 具体参数 fps: 12, profile level: AVVideoProfileLevelH264Baseline31, video bitrate: 150Kbps。
+ 
+    @since      v1.0.0
  */
 extern NSString *kPLVideoStreamingQualityLow1;
 
 /*!
- * @abstract Video streaming quality low 2
- *
- * @discussion 具体参数 fps: 15, profile level: baseline31, video bitrate: 264Kbps
+    @constant   kPLVideoStreamingQualityLow1
+    @abstract   视频编码推流质量 low 2。
+
+    @discussion 具体参数 fps: 15, profile level: AVVideoProfileLevelH264Baseline31, video bitrate: 264Kbps。
+ 
+    @since      v1.0.0
  */
 extern NSString *kPLVideoStreamingQualityLow2;
 
 /*!
- * @abstract Video streaming quality low 3
- *
- * @discussion 具体参数 fps: 15, profile level: baseline31, video bitrate: 350Kbps
+    @constant   kPLVideoStreamingQualityLow3
+    @abstract   视频编码推流质量 low 3。
+
+    @discussion 具体参数 fps: 15, profile level: AVVideoProfileLevelH264Baseline31, video bitrate: 350Kbps。
+ 
+    @since      v1.0.0
  */
 extern NSString *kPLVideoStreamingQualityLow3;
 
 /*!
- * @abstract Video streaming quality medium 1
- *
- * @discussion 具体参数 fps: 30, profile level: baseline31, video bitrate: 512Kbps
+    @constant   kPLVideoStreamingQualityMedium1
+    @abstract   视频编码推流质量 medium 1。
+ 
+    @discussion 具体参数 fps: 30, profile level: AVVideoProfileLevelH264Baseline31, video bitrate: 512Kbps。
+ 
+    @since      v1.0.0
  */
 extern NSString *kPLVideoStreamingQualityMedium1;
 
 /*!
- * @abstract Video streaming quality medium 2
- *
- * @discussion 具体参数 fps: 30, profile level: baseline31, video bitrate: 800Kbps
+    @constant   kPLVideoStreamingQualityMedium2
+    @abstract   视频编码推流质量 medium 2。
+
+    @discussion 具体参数 fps: 30, profile level: AVVideoProfileLevelH264Baseline31, video bitrate: 800Kbps。
+ 
+    @since      v1.0.0
  */
 extern NSString *kPLVideoStreamingQualityMedium2;
 
 /*!
- * @abstract Video streaming quality medium 3
- *
- * @discussion 具体参数 fps: 30, profile level: baseline31, video bitrate: 1000Kbps
+    @constant   kPLVideoStreamingQualityMedium3
+    @abstract   视频编码推流质量 medium 3。
+
+    @discussion 具体参数 fps: 30, profile level: AVVideoProfileLevelH264Baseline31, video bitrate: 1000Kbps。
+ 
+    @since      v1.0.0
  */
 extern NSString *kPLVideoStreamingQualityMedium3;
 
 /*!
- * @abstract Video streaming quality high 1
- *
- * @discussion 具体参数 fps: 30, profile level: baseline31, video bitrate: 1200Kbps
+    @constant   kPLVideoStreamingQualityHigh1
+    @abstract   视频编码推流质量 high 1。
+
+    @discussion 具体参数 fps: 30, profile level: AVVideoProfileLevelH264Baseline31, video bitrate: 1200Kbps。
+ 
+    @since      v1.0.0
  */
 extern NSString *kPLVideoStreamingQualityHigh1;
 
 /*!
- * @abstract Video streaming quality high 2
- *
- * @discussion 具体参数 fps: 30, profile level: baseline31, video bitrate: 1500Kbps
+    @constant   kPLVideoStreamingQualityHigh2
+    @abstract   视频编码推流质量 high 2。
+
+    @discussion 具体参数 fps: 30, profile level: AVVideoProfileLevelH264Baseline31, video bitrate: 1500Kbps。
+ 
+    @since      v1.0.0
  */
 extern NSString *kPLVideoStreamingQualityHigh2;
 
 /*!
- * @abstract Video streaming quality high 3
- *
- * @discussion 具体参数 fps: 30, profile level: baseline31, video bitrate: 2000Kbps
+    @constant   kPLVideoStreamingQualityHigh3
+    @abstract   视频编码推流质量 high 3。
+
+    @discussion 具体参数 fps: 30, profile level: AVVideoProfileLevelH264Baseline31, video bitrate: 2000Kbps。
+ 
+    @since      v1.0.0
  */
 extern NSString *kPLVideoStreamingQualityHigh3;
 
 #pragma mark - Audio Streaming Quality
 
 /*!
- * @abstract Audio streaming quality high 1
- *
- * @discussion 具体参数 audio sample rate: 44MHz, audio bitrate: 96Kbps
+    @constant   kPLAudioStreamingQualityHigh1
+    @abstract   音频编码推流质量 high 1。
+
+    @discussion 具体参数 audio sample rate: 44MHz, audio bitrate: 96Kbps。
+ 
+    @since      v1.0.0
  */
 extern NSString *kPLAudioStreamingQualityHigh1;
 
 /*!
- * @abstract Audio streaming quality high 2
- *
- * @discussion 具体参数 audio sample rate: 44MHz, audio bitrate: 128Kbps
+    @constant   kPLAudioStreamingQualityHigh2
+    @abstract   音频编码推流质量 high 2。
+
+    @discussion 具体参数 audio sample rate: 44MHz, audio bitrate: 128Kbps。
+ 
+    @since      v1.0.0
  */
 extern NSString *kPLAudioStreamingQualityHigh2;
 
 #pragma mark - Audio BitRate
 
-/// 音频码率
-typedef NS_ENUM(NSUInteger, PLStreamingAudioBitRate) {
-    /// 64Kbps 音频码率
-    PLStreamingAudioBitRate_64Kbps = 64000,
-    /// 96Kbps 音频码率
+/*!
+    @typedef    PLStreamingAudioBitRate
+    @abstract   音频编码码率。
+
+    @constant   PLStreamingAudioBitRate_96Kbps 96Kbps 音频码率
+    @constant   PLStreamingAudioBitRate_128Kbps 128Kbps 音频码率
+
+    @since      v1.0.0
+ */
+typedef enum {
     PLStreamingAudioBitRate_96Kbps = 96000,
-    /// 128Kbps 音频码率
     PLStreamingAudioBitRate_128Kbps = 128000,
-    /// 默认音频码率，默认为 64Kbps
-    PLStreamingAudioBitRate_Default = PLStreamingAudioBitRate_64Kbps
-};
+} PLStreamingAudioBitRate;
 
 #endif
