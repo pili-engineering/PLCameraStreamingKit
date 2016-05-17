@@ -39,6 +39,8 @@
     #endif
 #endif
 
+#define PLAudioStreamBasicDescriptionIsEqual(a, b)    (a && b && a->mSampleRate == b->mSampleRate && a->mBitsPerChannel == b->mBitsPerChannel && a->mBytesPerFrame == b->mBytesPerFrame && a->mBytesPerPacket == b->mBytesPerPacket && a->mChannelsPerFrame == b->mChannelsPerFrame && a->mFormatFlags == b->mFormatFlags && a->mFormatID == b->mFormatID && a->mFramesPerPacket == b->mFramesPerPacket && a->mReserved == b->mReserved)
+
 #define PL_SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 
 #endif

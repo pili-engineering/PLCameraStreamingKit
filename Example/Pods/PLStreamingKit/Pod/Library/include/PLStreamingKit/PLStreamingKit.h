@@ -17,5 +17,6 @@
 #import "PLStream.h"
 #import "PLBuffer.h"
 #import "PLStreamStatus.h"
+#import "PLStreamingEnv.h"
 
 #endif /* PLStreamingKit_h */

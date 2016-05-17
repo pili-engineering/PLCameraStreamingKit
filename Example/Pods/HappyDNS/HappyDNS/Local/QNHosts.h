@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 Qiniu Cloud Storage. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "QNResolverDelegate.h"
+#import <Foundation/Foundation.h>
 
 @interface QNHosts : NSObject
 

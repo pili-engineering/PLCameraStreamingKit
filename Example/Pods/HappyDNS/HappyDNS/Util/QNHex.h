@@ -10,10 +10,10 @@
 
 @interface QNHex : NSObject
 
-+(NSString *)encodeHexData:(NSData *)data;
-+(NSString *)encodeHexString:(NSString *)str;
++ (NSString *)encodeHexData:(NSData *)data;
++ (NSString *)encodeHexString:(NSString *)str;
 
-+(NSData *)decodeHexString:(NSString*)hex;
-+(NSString *)decodeHexToString:(NSString*)hex;
++ (NSData *)decodeHexString:(NSString *)hex;
++ (NSString *)decodeHexToString:(NSString *)hex;
 
 @end

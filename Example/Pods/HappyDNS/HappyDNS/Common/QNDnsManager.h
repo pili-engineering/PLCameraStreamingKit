@@ -12,7 +12,7 @@
 @class QNDomain;
 
 @protocol QNIpSorter <NSObject>
-- (NSArray *)sort:(NSArray*)ips;
+- (NSArray *)sort:(NSArray *)ips;
 @end
 
 @interface QNDnsManager : NSObject
@@ -23,4 +23,8 @@
 - (instancetype)init:(NSArray *)resolvers networkInfo:(QNNetworkInfo *)netInfo sorter:(id<QNIpSorter>)sorter;
 - (instancetype)putHosts:(NSString *)domain ip:(NSString *)ip;
 - (instancetype)putHosts:(NSString *)domain ip:(NSString *)ip provider:(int)provider;
+@end
+
+@interface QNDnsManager (NSURL)
+- (NSURL *)queryAndReplaceWithIP:(NSURL *)url;
 @end

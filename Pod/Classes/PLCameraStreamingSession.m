@@ -181,18 +181,6 @@ PLStreamingSendingBufferDelegate
 
 #pragma mark - <PLStreamingSendingBufferDelegate>
 
-- (void)streamingSessionSendingBufferFillDidLowerThanLowThreshold:(id)session {
-    if ([self.bufferDelegate respondsToSelector:@selector(streamingSessionSendingBufferFillDidLowerThanLowThreshold:)]) {
-        [self.bufferDelegate streamingSessionSendingBufferFillDidLowerThanLowThreshold:self];
-    }
-}
-
-- (void)streamingSessionSendingBufferFillDidHigherThanHighThreshold:(id)session {
-    if ([self.bufferDelegate respondsToSelector:@selector(streamingSessionSendingBufferFillDidHigherThanHighThreshold:)]) {
-        [self.bufferDelegate streamingSessionSendingBufferFillDidHigherThanHighThreshold:self];
-    }
-}
-
 - (void)streamingSessionSendingBufferDidEmpty:(id)session {
     if ([self.bufferDelegate respondsToSelector:@selector(streamingSessionSendingBufferDidEmpty:)]) {
         [self.bufferDelegate streamingSessionSendingBufferDidEmpty:self];
@@ -202,12 +190,6 @@ PLStreamingSendingBufferDelegate
 - (void)streamingSessionSendingBufferDidFull:(id)session {
     if ([self.bufferDelegate respondsToSelector:@selector(streamingSessionSendingBufferDidFull:)]) {
         [self.bufferDelegate streamingSessionSendingBufferDidFull:self];
-    }
-}
-
-- (void)streamingSession:(id)session sendingBufferDidDropItems:(NSArray *)items {
-    if ([self.bufferDelegate respondsToSelector:@selector(streamingSession:sendingBufferDidDropItems:)]) {
-        [self.bufferDelegate streamingSession:self sendingBufferDidDropItems:items];
     }
 }
 
@@ -275,7 +257,7 @@ PLStreamingSendingBufferDelegate
             [self.delegate cameraStreamingSession:self didGetMicrophoneAuthorizationStatus:PLAuthorizationStatusAuthorized];
         }
         
-        self.microphoneSource = [[PLMicrophoneSource alloc] initWithSampleRate:self.audioConfiguration.audioSampleRate
+        self.microphoneSource = [[PLMicrophoneSource alloc] initWithSampleRate:self.audioConfiguration.encodedAudioSampleRate
                                                               channelsPerFrame:1];
         self.microphoneSource.delegate = self;
         
@@ -328,7 +310,8 @@ PLStreamingSendingBufferDelegate
 
 - (void)microphoneSource:(PLMicrophoneSource *)source didGetAudioBuffer:(AudioBuffer *)buffer {
     if (PLStreamStateConnected == self.streamingSession.streamState) {
-        [self.streamingSession pushAudioBuffer:buffer];
+        AudioStreamBasicDescription asbd = self.microphoneSource.asbd;
+        [self.streamingSession pushAudioBuffer:buffer asbd:&asbd];
     }
 }
 

@@ -7,11 +7,13 @@
 //
 
 #import "PLAppDelegate.h"
+#import <PLStreamingKit/PLStreamingKit.h>
 
 @implementation PLAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [PLStreamingEnv initEnv];
     // Override point for customization after application launch.
     return YES;
 }

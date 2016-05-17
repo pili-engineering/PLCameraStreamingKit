@@ -11,6 +11,7 @@
 #import "PLSourceAccessProtocol.h"
 #import "PLCameraMacroDefines.h"
 #import "PLCameraSource.h"
+#import "PLStreamingKit.h"
 
 // post with userinfo @{@"state": @(state)}. always posted via MainQueue.
 extern NSString *PLStreamStateDidChangeNotification;
@@ -23,9 +24,6 @@ extern NSString *PLAudioComponentFailedToCreateNotification;
 
 @class PLCameraStreamingSession, PLVideoStreamingConfiguration, PLAudioStreamingConfiguration, PLStream, PLStreamStatus;
 @protocol PLStreamingSendingBufferDelegate;
-
-/// 具体定义查看 <PLStreamingKit/PLTypeDefines.h>
-typedef NS_ENUM(NSUInteger, PLStreamState);
 
 /// @abstract delegate 对象可以实现对应的方法来获取流的状态及设备授权情况。
 @protocol PLCameraStreamingSessionDelegate <NSObject>

@@ -13,10 +13,10 @@ extern const int kQN_DECRYPT_FAILED;
 
 @interface QNDes : NSObject
 
--(NSData *)encrypt:(NSData*)input;
+- (NSData *)encrypt:(NSData *)input;
 
--(NSData *)decrpyt:(NSData*)input;
+- (NSData *)decrpyt:(NSData *)input;
 
--(instancetype)init:(NSData *)key;
+- (instancetype)init:(NSData *)key;
 
 @end
