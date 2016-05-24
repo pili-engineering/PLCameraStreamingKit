@@ -7,7 +7,7 @@
 //
 
 #import "PLAppDelegate.h"
-#import <PLStreamingKit/PLStreamingKit.h>
+#import <PLStreamingKit/PLStreamingEnv.h>
 
 @implementation PLAppDelegate
 

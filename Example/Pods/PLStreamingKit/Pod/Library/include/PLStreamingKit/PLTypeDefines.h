@@ -14,24 +14,22 @@
 /*!
     @typedef    PLStreamState
     @abstract   PLStreamingSessin 的流状态。
-
-    @constant   PLStreamStateUnknow 未知状态，只会作为 init 的初始状态
-    @constant   PLStreamStateConnecting 连接中状态
-    @constant   PLStreamStateConnected 已连接状态
-    @constant   PLStreamStateDisconnecting 断开连接中状态
-    @constant   PLStreamStateDisconnected 已断开连接状态
-    @constant   PLStreamStateError 错误状态
-
     @since      v1.0.0
  */
-typedef enum {
+typedef NS_ENUM(NSUInteger, PLStreamState) {
+    /// PLStreamStateUnknow 未知状态，只会作为 init 的初始状态
     PLStreamStateUnknow = 0,
+    /// PLStreamStateConnecting 连接中状态
     PLStreamStateConnecting,
+    /// PLStreamStateConnected 已连接状态
     PLStreamStateConnected,
+    /// PLStreamStateDisconnecting 断开连接中状态
     PLStreamStateDisconnecting,
+    /// PLStreamStateDisconnected 已断开连接状态
     PLStreamStateDisconnected,
+    /// PLStreamStateError 错误状态
     PLStreamStateError
-} PLStreamState;
+};
 
 #pragma mark - Error
 
@@ -189,7 +187,7 @@ extern NSString *kPLVideoStreamingQualityHigh3;
     @constant   kPLAudioStreamingQualityHigh1
     @abstract   音频编码推流质量 high 1。
 
-    @discussion 具体参数 audio sample rate: 44MHz, audio bitrate: 96Kbps。
+    @discussion 具体参数 audio bitrate: 64Kbps。
  
     @since      v1.0.0
  */
@@ -199,24 +197,36 @@ extern NSString *kPLAudioStreamingQualityHigh1;
     @constant   kPLAudioStreamingQualityHigh2
     @abstract   音频编码推流质量 high 2。
 
-    @discussion 具体参数 audio sample rate: 44MHz, audio bitrate: 128Kbps。
+    @discussion 具体参数 audio bitrate: 96Kbps。
  
     @since      v1.0.0
  */
 extern NSString *kPLAudioStreamingQualityHigh2;
+
+/*!
+ @constant   kPLAudioStreamingQualityHigh3
+ @abstract   音频编码推流质量 high 3。
+ 
+ @discussion 具体参数 audio bitrate: 128Kbps。
+ 
+ @since      v1.0.0
+ */
+extern NSString *kPLAudioStreamingQualityHigh3;
 
 #pragma mark - Audio BitRate
 
 /*!
     @typedef    PLStreamingAudioBitRate
     @abstract   音频编码码率。
-
+ 
+    @constant   PLStreamingAudioBitRate_64Kbps 64Kbps 音频码率
     @constant   PLStreamingAudioBitRate_96Kbps 96Kbps 音频码率
     @constant   PLStreamingAudioBitRate_128Kbps 128Kbps 音频码率
 
     @since      v1.0.0
  */
 typedef enum {
+    PLStreamingAudioBitRate_64Kbps = 64000,
     PLStreamingAudioBitRate_96Kbps = 96000,
     PLStreamingAudioBitRate_128Kbps = 128000,
 } PLStreamingAudioBitRate;

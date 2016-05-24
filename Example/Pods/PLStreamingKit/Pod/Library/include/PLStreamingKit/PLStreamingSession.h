@@ -126,8 +126,22 @@
     @see        reloadVideoConfiguration:
 
     @since      v1.0.0
+    @deprecated v1.2.0, 该参数已废弃，请使用 `videoStreamingConfiguration`
  */
-@property (nonatomic, copy, readonly) PLVideoStreamingConfiguration  *videoConfiguration;
+@property (nonatomic, copy, readonly) PLVideoStreamingConfiguration  *videoConfiguration DEPRECATED_ATTRIBUTE;
+
+/*!
+ @property   videoStreamingConfiguration
+ @abstract   视频编码和推流的相关参数配置，只读属性。
+ 
+ @discussion videoStreamingConfiguration 的内容会直接影响视频编码的质量，你可以通过 init 方法作为参数传递，也可以在要变更时调用 -reloadVideoStreamingConfiguration: 方法。
+ 
+ @see        PLVideoStreamingConfiguration
+ @see        reloadVideoStreamingConfiguration:
+ 
+ @since      v1.1.7
+ */
+@property (nonatomic, copy, readonly) PLVideoStreamingConfiguration  *videoStreamingConfiguration;
 
 /*!
     @property   audioConfiguration
@@ -138,8 +152,22 @@
     @see        PLAudioStreamingConfiguration
 
     @since      v1.0.0
+ 
+    @deprecated v1.2.0, 该参数已废弃，请使用 `audioStreamingConfiguration`
  */
-@property (nonatomic, copy, readonly) PLAudioStreamingConfiguration  *audioConfiguration;
+@property (nonatomic, copy, readonly) PLAudioStreamingConfiguration  *audioConfiguration DEPRECATED_ATTRIBUTE;
+
+/*!
+ @property   audioStreamingConfiguration
+ @abstract   音频编码和推流的相关参数配置，只读属性。
+ 
+ @discussion audioStreamingConfiguration 的内容会直接影响音频编码的质量，你可以通过 init 方法作为参数传递来设置。
+ 
+ @see        PLAudioStreamingConfiguration
+ 
+ @since      v1.1.7
+  */
+@property (nonatomic, copy, readonly) PLAudioStreamingConfiguration  *audioStreamingConfiguration;
 
 /*!
     @property   stream
@@ -229,6 +257,34 @@
 ///----------------------
 
 /*!
+ @method     initWithVideoStreamingConfiguration:audioStreamingConfiguration:stream:
+ @abstract   初始化方法
+ 
+ @param      videoStreamingConfiguration 视频编码及推流的配置信息
+ @param      audioStreamingConfiguration 音频编码及推流的配置信息
+ @param      stream Stream 对象
+ 
+ @return     PLStreamingSession 对象
+ 
+ @discussion 初始化时根据推流的需求传递参数，比如推流同时包含音视频，那么就需要同时传递 videoStreamingConfiguraiton 和 audioStreamingConfiguraiton，类比的，如果只需要
+ 推送音频，那么 videoStreamingConfiguraiton 就可以为 nil, 只传递 audioStreamingConfiguraiton 便可。<br>
+ 对于 stream 参数，当没有从服务端获取到 stream 对象时，传递 nil，获取到后再设置，但务必在调用 startWithCompleted: 方法前设置正确的 stream。<br>
+ PLStreamingSession 对象默认会使用 HappyDNS 做 dns 解析，如果你期望自己配置 dns 解析的规则，可以调用 -initWithVideoStreamingConfiguration:audioStreamingConfiguration:stream:dns:
+ 方法来初始化 PLStreamingSession 对象。
+ 
+ @see        PLVideoStreamingConfiguration
+ @see        PLAudioStreamingConfiguration
+ @see        PLStream
+ @see        initWithVideoStreamingConfiguration:audioStreamingConfiguration:stream:dns:
+ 
+ @since      v1.1.7
+ 
+ */
+- (instancetype)initWithVideoStreamingConfiguration:(PLVideoStreamingConfiguration *)videoStreamingConfiguration
+                        audioStreamingConfiguration:(PLAudioStreamingConfiguration *)audioStreamingConfiguration
+                                             stream:(PLStream *)stream;
+
+/*!
     @method     initWithVideoConfiguration:audioConfiguration:stream:
     @abstract   初始化方法
 
@@ -250,10 +306,41 @@
     @see        initWithVideoConfiguration:audioConfiguration:stream:dns:
 
     @since      v1.0.0
+    @deprecated v1.2.0，该参数已经废弃，请使用`initWithVideoStreamingConfiguration:audioStreamingConfiguration:stream:`
+
  */
 - (instancetype)initWithVideoConfiguration:(PLVideoStreamingConfiguration *)videoConfiguration
                         audioConfiguration:(PLAudioStreamingConfiguration *)audioConfiguration
-                                    stream:(PLStream *)stream;
+                                    stream:(PLStream *)stream DEPRECATED_ATTRIBUTE;
+
+/*!
+ @method     initWithVideoStreamingConfiguration:audioStreamingConfiguration:stream:dns:
+ @abstract   初始化方法
+ 
+ @param      videoStreamingConfiguration 视频编码及推流的配置信息
+ @param      audioStreamingConfiguration 音频编码及推流的配置信息
+ @param      stream Stream 对象
+ @param      dns dnsmanager，自定义 dns 查询，使用 HappyDNS
+ 
+ @return     PLStreamingSession 对象
+ 
+ @discussion 初始化时根据推流的需求传递参数，比如推流同时包含音视频，那么就需要同时传递 videoStreamingConfiguraiton 和 audioStreamingConfiguraiton，类比的，如果只需要
+ 推送音频，那么 videoStreamingConfiguraiton 就可以为 nil, 只传递 audioStreamingConfiguraiton 便可。<br>
+ 对于 stream 参数，当没有从服务端获取到 stream 对象时，传递 nil，获取到后再设置，但务必在调用 startWithCompleted: 方法前设置正确的 stream。<br>
+ PLStreamingSession 对象默认会使用 HappyDNS 做 dns 解析，如果你期望自己配置 dns 解析的规则，可以通过传递自己定义的 dns manager 来做 dns 查询。
+ 如果你对 dns 解析部分不清楚，可以直接使用 -initWithVideoStreamingConfiguration:audioStreamingConfiguration:stream: 方法初始化 PLStreamingSession 对象。
+ 
+ @see        PLVideoStreamingConfiguration
+ @see        PLAudioStreamingConfiguration
+ @see        PLStream
+ @see        initWithVideoStreamingConfiguration:audioStreamingConfiguration:stream:
+ 
+ @since      v1.0.0
+ */
+- (instancetype)initWithVideoStreamingConfiguration:(PLVideoStreamingConfiguration *)videoStreamingConfiguration
+                        audioStreamingConfiguration:(PLAudioStreamingConfiguration *)audioStreamingConfiguration
+                                             stream:(PLStream *)stream
+                                                dns:(QNDnsManager *)dns;
 
 /*!
     @method     initWithVideoConfiguration:audioConfiguration:stream:dns:
@@ -278,11 +365,12 @@
     @see        initWithVideoConfiguration:audioConfiguration:stream:
 
     @since      v1.0.0
+    @deprecated v1.2.0 该方法已废弃，请使用
  */
 - (instancetype)initWithVideoConfiguration:(PLVideoStreamingConfiguration *)videoConfiguration
                         audioConfiguration:(PLAudioStreamingConfiguration *)audioConfiguration
                                     stream:(PLStream *)stream
-                                       dns:(QNDnsManager *)dns;
+                                       dns:(QNDnsManager *)dns DEPRECATED_ATTRIBUTE;
 
 /*!
     @method     destroy
@@ -340,6 +428,20 @@
 - (void)stop;
 
 /*!
+ @method     reloadVideoStreamingConfiguration:
+ @abstract   重新设置视频编码配置信息
+ 
+ @param      videoStreamingConfiguration 新设置的视频编码配置对象
+ 
+ @discussion 调用该方法可以更改视频编码的配置。请务必在调用该方法时传递的 videoStreamingConfiguration 与 Streaming Session 所持有的 videoStreamingConfiguration 不是一个同一个对象（指针不同）。
+ 
+ @see        PLVideoStreamingConfiguration
+ 
+ @since      v1.1.0
+ */
+- (void)reloadVideoStreamingConfiguration:(PLVideoStreamingConfiguration *)videoStreamingConfiguration;
+
+/*!
     @method     reloadVideoConfiguration:
     @abstract   重新设置视频编码配置信息
 
@@ -349,9 +451,25 @@
 
     @see        PLVideoStreamingConfiguration
 
-    @since      @v1.1.0
+    @since      v1.1.0
+ 
+    @deprecated v1.2.0, 该方法已弃用，请使用 `-reloadVideoStreamingConfiguration:` 方法
  */
-- (void)reloadVideoConfiguration:(PLVideoStreamingConfiguration *)videoConfiguration;
+- (void)reloadVideoConfiguration:(PLVideoStreamingConfiguration *)videoConfiguration DEPRECATED_ATTRIBUTE;
+
+/*!
+ @method     reloadAudioStreamingConfiguration:
+ @abstract   重新设置音频编码配置信息
+ 
+ @param      audioStreamingConfiguration 新设置的音频编码配置对象
+ 
+ @discussion 调用该方法可以更改音频编码的配置。请务必在调用该方法时传递的 audioStreamingConfiguration 与 Streaming Session 所持有的 audioStreamingConfiguration 不是一个同一个对象（指针不同）。
+ 
+ @see        PLAudioStreamingConfiguration
+ 
+ @since      @v1.2.0
+ */
+- (void)reloadAudioStreamingConfiguration:(PLAudioStreamingConfiguration *)audioStreamingConfiguration;
 
 /*!
  @method     reloadAudioConfiguration:
@@ -363,9 +481,11 @@
  
  @see        PLAudioStreamingConfiguration
  
- @since      @v1.2.0
+ @since      v1.1.0
+ 
+ @deprecated v1.2.0, 该方法已弃用，请使用 `-reloadAudioStreamingConfiguration` 方法
  */
-- (void)reloadAudioConfiguration:(PLAudioStreamingConfiguration *)audioConfiguration;
+- (void)reloadAudioConfiguration:(PLAudioStreamingConfiguration *)audioConfiguration DEPRECATED_ATTRIBUTE;
 
 ///------------------
 /// @name 发送视频数据

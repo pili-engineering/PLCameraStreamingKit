@@ -93,10 +93,10 @@
     @property   videoBitRate
     @abstract   视频编码码率。
 
-    @discussion 已作废，请使用 averageVideoBitRate
+    @warning 已作废，请使用 averageVideoBitRate
 
     @since      v1.0.0
-    @deprecated v1.2.0
+    @deprecated
  */
 @property (nonatomic, assign) NSUInteger videoBitRate DEPRECATED_ATTRIBUTE;
 

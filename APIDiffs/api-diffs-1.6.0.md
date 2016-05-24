@@ -1,4 +1,4 @@
-# PLCameraStreamingKit 1.6.0 to 1.6.1 API Differences
+# PLCameraStreamingKit 1.5.2 to 1.6.0 API Differences
 
 ## General Headers
 

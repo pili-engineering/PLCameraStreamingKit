@@ -9,21 +9,27 @@
 
 Pod::Spec.new do |s|
   s.name             = "PLCameraStreamingKit"
-  s.version          = "1.6.3"
+  s.version          = "1.7.0"
   s.summary          = "Pili iOS camera streaming framework via RTMP."
   s.homepage         = "https://github.com/pili-engineering/PLCameraStreamingKit"
   s.license          = 'Apache License, Version 2.0'
-  s.author           = { "0dayZh" => "0day.zh@gmail.com" }
+  s.author           = { "hzwangsiyu" => "hzwangsiyu@gmail.com" }
   s.source           = { :git => "https://github.com/pili-engineering/PLCameraStreamingKit.git", :tag => "v#{s.version}" }
 
-  s.platform     = :ios, '7.0'
+  s.platform     = :ios
   s.requires_arc = true
 
-  s.public_header_files = 'Pod/Classes/*.h'
-  s.source_files = 'Pod/Classes/*.h', 'Pod/Classes/*.m'
+  s.public_header_files = 'Pod/Library/include/PLCameraStreamingKit/*.h'
+  s.source_files = 'Pod/Library/include/PLCameraStreamingKit/*.h'
 
-  s.dependency 'PLStreamingKit', '~> 1.1.5'
+  s.dependency 'PLStreamingKit', '1.2.0'
+  s.dependency 'GPUImage', '0.1.7'
   s.frameworks = ['UIKit', 'AVFoundation', 'CoreGraphics', 'CFNetwork', 'AudioToolbox', 'CoreMedia', 'VideoToolbox']
   s.libraries = 'z', 'c++'
 
+  s.default_subspec = "precompiled"
+
+  s.subspec "precompiled" do |ss|
+    ss.vendored_libraries   = 'Pod/Library/lib/*.a'
+  end
 end

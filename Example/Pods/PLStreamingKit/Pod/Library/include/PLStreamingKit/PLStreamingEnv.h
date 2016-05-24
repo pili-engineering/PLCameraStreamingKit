@@ -32,4 +32,11 @@
  */
 +(void)enableQos:(BOOL)flag;
 
+/**
+ @brief 是否打开测速功能，默认关闭
+ 
+ @param flag 开启为 YES，否则为 NO
+ */
++(void)enableSpeedMeasure:(BOOL)flag;
+
 @end

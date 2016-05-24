@@ -1,1 +1,1 @@
-../../../../../Pod/Classes/PLSourceAccessProtocol.h
+../../../../../Pod/Library/include/PLCameraStreamingKit/PLSourceAccessProtocol.h

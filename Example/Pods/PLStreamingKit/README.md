@@ -62,6 +62,18 @@ pod update
 - Done! 运行你工程的 workspace
 
 ### 示例代码
+在 `AppDelegate.m` 中进行 SDK 初始化（如果不进行SDK）初始化将在核心类 `PLStreamingSession` 初始化阶段抛错
+
+```Objective-C
+#import <PLStreamingKit/PLStreamingEnv.h>
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    [PLStreamingEnv initEnv];
+    // Override point for customization after application launch.
+    return YES;
+}
+```
 
 在需要的地方添加
 
@@ -90,11 +102,11 @@ pod update
 //            ...
 //      }
 NSDictionary *streamJSON;
-PLVideoStreamingConfiguration *videoConfiguration = [PLVideoStreamingConfiguration configurationWithVideoSize:CGSizeMake(320, 576) videoQuality:kPLVideoStreamingQualityLow2];
-PLAudioStreamingConfiguration *audioConfiguration = [PLAudioStreamingConfiguration defaultConfiguration];
+PLVideoStreamingConfiguration *videoStreamingConfiguration = [PLVideoStreamingConfiguration configurationWithVideoSize:CGSizeMake(320, 576) videoQuality:kPLVideoStreamingQualityLow2];
+PLAudioStreamingConfiguration *audioStreamingConfiguration = [PLAudioStreamingConfiguration defaultConfiguration];
 PLStream *stream = [PLStream streamWithJSON:streamJSON];
 
-self.session = [[PLStreamingSession alloc] initWithVideoConfiguration:videoConfiguration audioConfiguration:audioConfiguration stream:stream];
+self.session = [[PLStreamingSession alloc] initWithVideoStreamingConfiguration:videoStreamingConfiguration audioStreamingConfiguration:audioStreamingConfiguration stream:stream];
 self.session.delegate = self;
 ```
 
@@ -259,10 +271,10 @@ extern NSString *kPLVideoStreamingQualityHigh3;
 
 ```Objective-C
 // 该方法每次都会生成一个新的配置，不是单例方法。默认情况下，对应的参数为分辨率 (320, 480), video quality PLStreamingQualityMedium1
-PLVideoStreamingConfiguration *videoConfiguration = [PLVideoStreamingConfiguration defaultConfiguration];
+PLVideoStreamingConfiguration *videoStreamingConfiguration = [PLVideoStreamingConfiguration defaultConfiguration];
 
 // 你也可以指定自己想要的分辨率和已有的 video quality 参数
-PLVideoStreamingConfiguration *videoConfiguration = [PLVideoStreamingConfiguration configurationWithVideoSize:CGSizeMake(320, 480) videoQuality:kPLVideoStreamingQualityHigh1];
+PLVideoStreamingConfiguration *videoStreamingConfiguration = [PLVideoStreamingConfiguration configurationWithVideoSize:CGSizeMake(320, 480) videoQuality:kPLVideoStreamingQualityHigh1];
 
 // 当已有的分辨率无法满足你的需求时，你可以自己定义所有参数，但请务必确保你清楚参数的含义
 PLVideoStreamingConfiguration *videoConfiguration = [[PLVideoStreamingConfiguration alloc] initWithVideoSize:CGSizeMake(width, height) videoFrameRate:30 videoMaxKeyframeInterval:90 videoBitrate:1200 * 1000 videoProfileLevel:AVVideoProfileLevelH264Main32]];
@@ -406,6 +418,11 @@ PLStreamingKit 使用 HeaderDoc 注释来做文档支持。
 
 ## 版本历史
 
+- 1.2.0 ([Release Notes](https://github.com/pili-engineering/PLStreamingKit/blob/master/ReleaseNotes/release-notes-1.2.0.md) && [API Diffs](https://github.com/pili-engineering/PLStreamingKit/blob/master/APIDiffs/api-diffs-1.2.0.md))
+    - 解决 iPhone 6s 上出现的电流音问题
+    - 支持后台推流
+    - 支持 64kbps 音频码率
+    - 部分接口重命名
 - 1.1.6 ([Release Notes](https://github.com/pili-engineering/PLStreamingKit/blob/master/ReleaseNotes/release-notes-1.1.6.md) && [API Diffs](https://github.com/pili-engineering/PLStreamingKit/blob/master/APIDiffs/api-diffs-1.1.6.md))
 		- 拆分 pili-librtmp 为公共依赖，避免模拟器环境下与 PLPlayerKit冲突的问题
 		- 解决网络不可达条件下 `- (void)startWithCompleted:(void (^)(BOOL success))handler;` 方法无回调的问题

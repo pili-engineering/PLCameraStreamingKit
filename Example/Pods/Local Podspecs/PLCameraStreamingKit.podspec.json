@@ -1,28 +1,28 @@
 {
   "name": "PLCameraStreamingKit",
-  "version": "1.6.3",
+  "version": "1.7.0",
   "summary": "Pili iOS camera streaming framework via RTMP.",
   "homepage": "https://github.com/pili-engineering/PLCameraStreamingKit",
   "license": "Apache License, Version 2.0",
   "authors": {
-    "0dayZh": "0day.zh@gmail.com"
+    "hzwangsiyu": "hzwangsiyu@gmail.com"
   },
   "source": {
     "git": "https://github.com/pili-engineering/PLCameraStreamingKit.git",
-    "tag": "v1.6.3"
+    "tag": "v1.7.0"
   },
   "platforms": {
-    "ios": "7.0"
+    "ios": null
   },
   "requires_arc": true,
-  "public_header_files": "Pod/Classes/*.h",
-  "source_files": [
-    "Pod/Classes/*.h",
-    "Pod/Classes/*.m"
-  ],
+  "public_header_files": "Pod/Library/include/PLCameraStreamingKit/*.h",
+  "source_files": "Pod/Library/include/PLCameraStreamingKit/*.h",
   "dependencies": {
     "PLStreamingKit": [
-      "~> 1.1.5"
+      "1.2.0"
+    ],
+    "GPUImage": [
+      "0.1.7"
     ]
   },
   "frameworks": [
@@ -37,5 +37,12 @@
   "libraries": [
     "z",
     "c++"
+  ],
+  "default_subspecs": "precompiled",
+  "subspecs": [
+    {
+      "name": "precompiled",
+      "vendored_libraries": "Pod/Library/lib/*.a"
+    }
   ]
 }

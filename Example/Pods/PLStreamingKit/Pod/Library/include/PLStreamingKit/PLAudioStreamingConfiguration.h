@@ -18,8 +18,19 @@
  */
 @interface PLAudioStreamingConfiguration : NSObject <NSCopying>
 
-@property (nonatomic, assign, readonly) PLStreamingAudioBitRate audioBitRate;
-@property (nonatomic, assign, readonly) NSUInteger encodedAudioSampleRate; // 48000 for iPhone 6s family devices, 44100 for others
+/**
+ @brief 音频编码的采样率，为避免iPhone 6s系列的电流音问题，该采样率当前版本默认采用 48000 HZ，并且在初始化 PLCameraStreamingSession 之后硬件采样率会被设置为 48000 HZ，因此需要设置音频采集的采样率为 48000。
+ */
+@property (nonatomic, assign, readonly) NSUInteger encodedAudioSampleRate;
+
+/**
+ @brief 音频编码比特率
+ */
+@property (nonatomic, assign) PLStreamingAudioBitRate audioBitRate;
+
+/**
+ @brief 编码的声道数，默认为1
+ */
 @property (nonatomic, assign) UInt32    encodedNumberOfChannels;   // default as 1
 
 /// kPLAudioStreamingQualityHigh2 as default
