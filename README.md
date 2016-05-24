@@ -411,9 +411,10 @@ PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
 ## 版本历史
 - 1.7.0 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.7.0.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.7.0.md))
     - 更新依赖 PLStreamingKit 的版本到 `v1.2.0`
-    - 支持后台推流
-    - 支持添加水印功能
-    - 修复电流音问题
+    - 新增后台推流功能（仅音频，因iOS隐私限制不允许后台访问摄像头）
+    - 支持水印功能
+    - 新增可选定制美颜功能（需联系工作人员）
+    - 修复特定机型上的电流音等杂音问题
 - 1.6.3 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.6.2.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.6.2.md))
     - 更新依赖 PLStreamingKit 的版本到 `v1.1.6`
     - 更新 Demo 适应 PLStreamingKit `v1.1.6` 接口变更
