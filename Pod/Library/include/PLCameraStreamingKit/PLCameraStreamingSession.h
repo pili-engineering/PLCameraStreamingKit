@@ -101,7 +101,7 @@ typedef enum {
 @property (nonatomic, assign, readonly) BOOL    isRunning;
 
 /*!
- * @abstract 摄像头的预览视图
+ * @abstract 摄像头的预览视图，在 PLCameraStreamingSession 初始化之后可以获取该视图
  *
  */
 @property (nonatomic, PL_STRONG, readonly) UIView * previewView;
@@ -319,6 +319,13 @@ typedef enum {
 - (PLFilterHandler)addWaterMark:(UIImage *)waterMark origin:(CGPoint)origin;
 
 /**
+ @brief 添加美颜滤镜
+ 
+ @return 美颜 filter 对应的 handler
+ */
+- (PLFilterHandler)addBeautyFilter;
+
+/**
  @brief 使用 GPUImageFilter 添加 filter
  
  @param filter 需要添加的 GPUImageFilter 实例
@@ -333,5 +340,43 @@ typedef enum {
  @param handler 需要移除的 filter handler
  */
 - (void)removeFilter:(PLFilterHandler)handler;
+
+/**
+ @brief 以一定的比例调整对应 BeautyFilter 的亮度参数，该参数为增加或降低亮度，而非调整亮度的绝对值
+ 
+ @param brightness 范围从 0 ~ 2，1 为不改变亮度
+ @param handler    需要设置的 handler
+ 
+ @warning 仅对 BeautyFilter 该设置有效
+ */
+- (void)adjustBritness:(CGFloat)brightness forFilter:(PLFilterHandler)handler;
+
+/**
+ @brief 以一定的比例调整对应 BeautyFilter 的饱和度参数，该参数为增加或降低饱和度，而非调整饱和度的绝对值
+ 
+ @param brightness 范围从 0 ~ 2，1 为不改变饱和度
+ @param handler    需要设置的 handler
+ 
+ @warning 仅对 BeautyFilter 该设置有效
+ */
+- (void)adjustSaturation:(CGFloat)saturation forFilter:(PLFilterHandler)handler;
+
+/**
+ @brief 重置对应的 BeautyFilter 的亮度和饱和度参数到默认值
+ 
+ @param handler 需要设置的 handler
+ 
+ @warning 仅对 BeautyFilter 该设置有效
+ */
+- (void)resetBritnessAndSaturationForFilter:(PLFilterHandler)handler;
+/**
+ @brief 设置对应 BeautyFilter 的磨皮程度参数.
+ 
+ @param brightness 范围从 0 ~ 1，0 为不磨皮，默认为 0.5
+ @param handler    需要设置的 handler
+ 
+ @warning 仅对 BeautyFilter 该设置有效
+ */
+- (void)setSmoothIntensity:(CGFloat)smoothIntensity forFilter:(PLFilterHandler)handler;
 
 @end
