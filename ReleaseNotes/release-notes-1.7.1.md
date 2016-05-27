@@ -1,4 +1,4 @@
-# PLCameraStreamingKit Release Notes for 1.7.0
+# PLCameraStreamingKit Release Notes for 1.7.1
 
 ## 内容
 
@@ -20,16 +20,6 @@ PLCameraStreamingKit 为 iOS 开发者提供直播推流 SDK。
 
 ### 架构
 
-- 功能
-    - 新增后台推流功能（仅音频，因 iOS 隐私限制不允许后台访问摄像头）
-    - 新增水印功能
-    - 新增可选定制美颜功能（需联系工作人员）
-
 - 缺陷
-    - 修复特定机型上的电流音等杂音问题
-
-- 版本
-    - 更新依赖 PLStreamingKit 的版本到 `v1.2.0`
-
-- 其他
-    - 部分接口重命名
+  - 修复切换前置摄像头之后无法缩放的问题
+  - 修复不添加水印无法正常推流的问题

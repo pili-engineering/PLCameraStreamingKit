@@ -101,7 +101,7 @@ typedef enum {
 @property (nonatomic, assign, readonly) BOOL    isRunning;
 
 /*!
- * @abstract 摄像头的预览视图
+ * @abstract 摄像头的预览视图，在 PLCameraStreamingSession 初始化之后可以获取该视图
  *
  */
 @property (nonatomic, PL_STRONG, readonly) UIView * previewView;
