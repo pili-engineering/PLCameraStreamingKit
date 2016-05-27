@@ -409,12 +409,24 @@ PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
 - iOS Target : >= iOS 7
 
 ## 版本历史
+- 1.7.1 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.7.1.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.7.1.md))
+  - 缺陷
+    - 修复切换前置摄像头之后无法缩放的问题
+    - 修复不添加水印无法正常推流的问题
 - 1.7.0 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.7.0.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.7.0.md))
-    - 更新依赖 PLStreamingKit 的版本到 `v1.2.0`
-    - 新增后台推流功能（仅音频，因iOS隐私限制不允许后台访问摄像头）
-    - 支持水印功能
+  - 功能
+    - 新增后台推流功能（仅音频，因 iOS 隐私限制不允许后台访问摄像头）
+    - 新增水印功能
     - 新增可选定制美颜功能（需联系工作人员）
+
+  - 缺陷
     - 修复特定机型上的电流音等杂音问题
+
+  - 版本
+    - 更新依赖 PLStreamingKit 的版本到 `v1.2.0`
+
+  - 其他
+    - 部分接口重命名
 - 1.6.3 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.6.2.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.6.2.md))
     - 更新依赖 PLStreamingKit 的版本到 `v1.1.6`
     - 更新 Demo 适应 PLStreamingKit `v1.1.6` 接口变更
