@@ -8,7 +8,7 @@
 
 #import "QNHex.h"
 
-//static char DIGITS_LOWER[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+static char DIGITS_LOWER[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
 static char DIGITS_UPPER[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
@@ -53,13 +53,25 @@ static char *decodeHex(const char *data, int size) {
     return output;
 }
 
+static char *encodeHexInternal(char *output_buf, const char *data, int size, char hexTable[]) {
+    for (int i = 0, j = 0; i < size; i++) {
+        output_buf[j++] = hexTable[((0XF0 & data[i]) >> 4) & 0X0F];
+        output_buf[j++] = hexTable[((0X0F & data[i])) & 0X0F];
+    }
+    return output_buf;
+}
+
 static char *encodeHex(const char *data, int size, char hexTable[]) {
     char *output = malloc(size * 2);
-    for (int i = 0, j = 0; i < size; i++) {
-        output[j++] = hexTable[((0XF0 & data[i]) >> 4) & 0X0F];
-        output[j++] = hexTable[((0X0F & data[i])) & 0X0F];
+    return encodeHexInternal(output, data, size, hexTable);
+}
+
+char *qn_encodeHexData(char *buff, const char *data, int data_size, BOOL up) {
+    char *hexTable = DIGITS_UPPER;
+    if (!up) {
+        hexTable = DIGITS_LOWER;
     }
-    return output;
+    return encodeHexInternal(buff, data, data_size, hexTable);
 }
 
 @implementation QNHex

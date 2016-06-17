@@ -1,0 +1,6 @@
+GCC_ENABLE_CPP_EXCEPTIONS = YES
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/KSCrash" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/GPUImage" "${PODS_ROOT}/Headers/Public/HappyDNS" "${PODS_ROOT}/Headers/Public/KSCrash" "${PODS_ROOT}/Headers/Public/PLCameraStreamingKit" "${PODS_ROOT}/Headers/Public/PLStreamingKit" "${PODS_ROOT}/Headers/Public/pili-librtmp"
+OTHER_LDFLAGS = -l"c++" -l"z" -framework "Foundation" -framework "MessageUI" -framework "SystemConfiguration"
+PODS_ROOT = ${SRCROOT}
+SKIP_INSTALL = YES

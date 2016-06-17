@@ -2,4 +2,5 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'PLCameraStreamingKit' do
   pod "PLCameraStreamingKit", :path => "../"
+  pod "KSCrash"
 end

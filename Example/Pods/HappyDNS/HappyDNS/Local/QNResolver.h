@@ -13,4 +13,5 @@
 - (NSArray *)query:(QNDomain *)domain networkInfo:(QNNetworkInfo *)netInfo error:(NSError *__autoreleasing *)error;
 - (instancetype)initWithAddres:(NSString *)address;
 + (instancetype)systemResolver;
++ (NSString *)systemDnsServer;
 @end

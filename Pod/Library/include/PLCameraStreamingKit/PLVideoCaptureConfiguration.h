@@ -36,12 +36,17 @@ NSCopying
 @property (nonatomic, assign) BOOL horizontallyMirrorRearFacingCamera;
 
 /**
+ @brief 开启 camera 时的采集摄像头位置，默认为 AVCaptureDevicePositionBack
+ */
+@property (nonatomic, assign) AVCaptureDevicePosition position;
+
+/**
  @brief 创建一个默认配置的 PLVideoCaptureConfiguration 实例.
  
  @return 创建的默认 PLVideoCaptureConfiguration 对象
  */
 + (instancetype)defaultConfiguration;
 
-- (instancetype)initWithVideoFrameRate:(NSUInteger)videoFrameRate sessionPreset:(NSString *)sessionPreset horizontallyMirrorFrontFacingCamera:(BOOL)horizontallyMirrorFrontFacingCamera horizontallyMirrorRearFacingCamera:(BOOL)horizontallyMirrorRearFacingCamera;
+- (instancetype)initWithVideoFrameRate:(NSUInteger)videoFrameRate sessionPreset:(NSString *)sessionPreset horizontallyMirrorFrontFacingCamera:(BOOL)horizontallyMirrorFrontFacingCamera horizontallyMirrorRearFacingCamera:(BOOL)horizontallyMirrorRearFacingCamera cameraPosition:(AVCaptureDevicePosition)position;
 
 @end

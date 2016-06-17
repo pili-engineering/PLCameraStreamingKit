@@ -8,6 +8,7 @@
 
 #import "QNHosts.h"
 #import "QNDomain.h"
+//#import "QNIP.h"
 #import "QNNetworkInfo.h"
 
 @interface QNHosts ()
@@ -31,15 +32,16 @@
 
 @end
 
-static NSArray *filte(NSArray *input, int provider) {
+static NSArray *filter(NSArray *input, int provider) {
     NSMutableArray *normal = [[NSMutableArray alloc] initWithCapacity:input.count];
     NSMutableArray *special = [[NSMutableArray alloc] init];
     for (QNHostsValue *v in input) {
+        NSString *ip = v.ip;
         if (v.provider == kQNISP_GENERAL) {
-            [normal addObject:v.ip];
+            [normal addObject:ip];
         }
         if (provider == v.provider && provider != kQNISP_GENERAL) {
-            [special addObject:v.ip];
+            [special addObject:ip];
         }
     }
     if (special.count != 0) {
@@ -58,7 +60,7 @@ static NSArray *filte(NSArray *input, int provider) {
     if (x == nil || x.count == 0) {
         return nil;
     }
-    return filte(x, netInfo.provider);
+    return filter(x, netInfo.provider);
 }
 
 - (void)put:(NSString *)domain ip:(NSString *)ip {

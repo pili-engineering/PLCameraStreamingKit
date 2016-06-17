@@ -9,6 +9,7 @@
 #import "QNDnsManager.h"
 #import "QNDomain.h"
 #import "QNHosts.h"
+#import "QNIP.h"
 #import "QNNetworkInfo.h"
 #import "QNRecord.h"
 #import "QNResolverDelegate.h"
@@ -226,13 +227,7 @@ static NSArray *records2Ips(NSArray *records) {
 
     NSURL *URL = nil;
     if (ips && ips.count > 0) {
-        NSString *ip = ips[0];
-        NSRange range = [ip rangeOfString:@":"];
-        if (range.location != NSNotFound) {
-            urlComponents.host = [NSString stringWithFormat:@"[%@]", ip];
-        } else {
-            urlComponents.host = ip;
-        }
+        urlComponents.host = [QNIP ipHost:ips[0]];
     }
 
     URL = urlComponents.URL;

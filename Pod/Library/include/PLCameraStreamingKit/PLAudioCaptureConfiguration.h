@@ -11,11 +11,6 @@
 @interface PLAudioCaptureConfiguration : NSObject
 
 /**
- @brief 采集音频的采样率
- */
-@property (nonatomic, assign, readonly) NSUInteger sampleRate;
-
-/**
  @brief 采集音频数据的声道数，默认为 1
  */
 @property (nonatomic, assign) NSUInteger channelsPerFrame;

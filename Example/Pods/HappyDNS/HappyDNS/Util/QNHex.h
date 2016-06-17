@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+char *qn_encodeHexData(char *output_buf, const char *data, int data_size, BOOL up);
+
 @interface QNHex : NSObject
 
 + (NSString *)encodeHexData:(NSData *)data;

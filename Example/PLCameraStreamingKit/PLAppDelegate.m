@@ -8,11 +8,16 @@
 
 #import "PLAppDelegate.h"
 #import <PLStreamingKit/PLStreamingEnv.h>
+#import <KSCrash/KSCrashInstallationStandard.h>
 
 @implementation PLAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    KSCrashInstallationStandard* installation = [KSCrashInstallationStandard sharedInstance];
+    installation.url = [NSURL URLWithString:@"https://collector.bughd.com/kscrash?key=a4ae5d97b578c3b2bc7b0e15319cda1e"];
+    [installation install];
+    [installation sendAllReportsWithCompletion:nil];
     [PLStreamingEnv initEnv];
     // Override point for customization after application launch.
     return YES;

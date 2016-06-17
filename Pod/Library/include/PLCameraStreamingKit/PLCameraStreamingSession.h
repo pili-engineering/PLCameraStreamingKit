@@ -43,6 +43,17 @@ typedef enum {
     PLVideoFillModePreserveAspectRatioAndFill
 } PLVideoFillModeType;
 
+typedef enum {
+    /**
+     @brief 正在采集的时候被音频事件打断但重启失败
+     */
+    PLCameraErroRestartAudioFailed = -1500,
+    /**
+     @brief 正在采集的时候音频服务重启尝试重连但是没有成功
+     */
+    PLCameraErroTryReconnectFailed = -1501,
+} PLCameraError;
+
 @class PLCameraStreamingSession;
 
 /// @abstract delegate 对象可以实现对应的方法来获取流的状态及设备授权情况。
@@ -117,6 +128,9 @@ typedef enum {
 /// 代理对象
 @property (nonatomic, PL_WEAK) id<PLCameraStreamingSessionDelegate> delegate;
 
+/// 代理回调的队列
+@property (nonatomic, PL_STRONG) dispatch_queue_t delegateQueue;
+
 /// 默认为 3s，可设置范围为 [1..30] 秒
 @property (nonatomic, assign) NSTimeInterval    statusUpdateInterval;
 
@@ -163,13 +177,24 @@ typedef enum {
 /*!
  * 开始推流
  *
- * @param pushURL 推流地址
- *
  * @param handler 流连接的结果会通过该回调方法返回
  *
  * @discussion 当调用过一次并且开始推流时，如果再调用该方法会直接返回不会做任何操作，尽管如此，也不要在没有断开时重复调用该方法。
+ *
+ * @warning 当采用 dynamic 认证且过期时，需要更新 Stream 对象，否则推流将失败。
  */
 - (void)startWithCompleted:(void (^)(BOOL success))handler;
+
+/*!
+ * 重新开始推流
+ *
+ * @param handler 流连接的结果会通过该回调方法返回
+ *
+ * @discussion 当处于正在推流过程中时，由于业务原因（如用户网络从 3G/4G 切换到 WIFI）需要快速重新开始推流时，可以调用该方法；非推流过程中调用该方法会直接返回；
+ *
+ * @warning 当采用 dynamic 认证且过期时，需要更新 Stream 对象，否则推流将失败。
+ */
+- (void)restartWithCompleted:(void (^)(BOOL success))handler;
 
 /*!
  * 结束推流
@@ -270,6 +295,13 @@ typedef enum {
 
 @property (nonatomic, assign, getter=isMuted)   BOOL    muted;                   // default as NO.
 
+/**
+ @brief 麦克风采集的音量，设置范围为 0~1，各种机型默认值不同。
+ 
+ @warning iPhone 6s 系列不支持调节麦克风采集的音量。
+ */
+@property (nonatomic, assign) float inputGain;
+
 @end
 
 #pragma mark - Categroy (Application)
@@ -319,6 +351,13 @@ typedef enum {
 - (PLFilterHandler)addWaterMark:(UIImage *)waterMark origin:(CGPoint)origin;
 
 /**
+ @brief 添加美颜滤镜
+ 
+ @return 美颜 filter 对应的 handler
+ */
+- (PLFilterHandler)addBeautyFilter;
+
+/**
  @brief 使用 GPUImageFilter 添加 filter
  
  @param filter 需要添加的 GPUImageFilter 实例
@@ -333,5 +372,43 @@ typedef enum {
  @param handler 需要移除的 filter handler
  */
 - (void)removeFilter:(PLFilterHandler)handler;
+
+/**
+ @brief 以一定的比例调整对应 BeautyFilter 的亮度参数，该参数为增加或降低亮度，而非调整亮度的绝对值
+ 
+ @param brightness 范围从 0 ~ 2，1 为不改变亮度
+ @param handler    需要设置的 handler
+ 
+ @warning 仅对 BeautyFilter 该设置有效
+ */
+- (void)adjustBritness:(CGFloat)brightness forFilter:(PLFilterHandler)handler;
+
+/**
+ @brief 以一定的比例调整对应 BeautyFilter 的饱和度参数，该参数为增加或降低饱和度，而非调整饱和度的绝对值
+ 
+ @param brightness 范围从 0 ~ 2，1 为不改变饱和度
+ @param handler    需要设置的 handler
+ 
+ @warning 仅对 BeautyFilter 该设置有效
+ */
+- (void)adjustSaturation:(CGFloat)saturation forFilter:(PLFilterHandler)handler;
+
+/**
+ @brief 重置对应的 BeautyFilter 的亮度和饱和度参数到默认值
+ 
+ @param handler 需要设置的 handler
+ 
+ @warning 仅对 BeautyFilter 该设置有效
+ */
+- (void)resetBritnessAndSaturationForFilter:(PLFilterHandler)handler;
+/**
+ @brief 设置对应 BeautyFilter 的磨皮程度参数.
+ 
+ @param brightness 范围从 0 ~ 1，0 为不磨皮，默认为 0.5
+ @param handler    需要设置的 handler
+ 
+ @warning 仅对 BeautyFilter 该设置有效
+ */
+- (void)setSmoothIntensity:(CGFloat)smoothIntensity forFilter:(PLFilterHandler)handler;
 
 @end
