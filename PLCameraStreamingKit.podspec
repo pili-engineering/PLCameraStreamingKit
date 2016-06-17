@@ -18,6 +18,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios
   s.requires_arc = true
+  s.ios.deployment_target = '7.0'  
 
   s.public_header_files = 'Pod/Library/include/PLCameraStreamingKit/*.h'
   s.source_files = 'Pod/Library/include/PLCameraStreamingKit/*.h'
