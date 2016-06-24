@@ -39,7 +39,7 @@ PLCameraStreamingKit 是一个适用于 iOS 的 RTMP 直播推流 SDK，可高�
 - [编码参数](#编码参数)
 - [流状态变更及错误处理](#流状态变更及处理处理)
 - [变更推流质量及策略](#变更推流质量及策略)
-    - [重要事项](#重要事项)
+- [手动导入到工程](#手动导入到工程)
 - [文档支持](#文档支持)
 - [功能特性](#功能特性)
 - [系统要求](#系统要求)
@@ -73,7 +73,7 @@ pod update
 
 ### 示例代码
 
-在 `AppDelegate.m` 中进行 SDK 初始化（如果不进行SDK）初始化将在核心类 `PLStreamingSession` 初始化阶段抛错
+在 `AppDelegate.m` 中进行 SDK 初始化，如果未进行 SDK 初始化，在核心类 `PLStreamingSession` 初始化阶段将抛出异常
 
 ```Objective-C
 #import <PLStreamingKit/PLStreamingEnv.h>
@@ -92,7 +92,7 @@ pod update
 #import <PLCameraStreamingKit/PLCameraStreamingKit.h>
 ```
 
-`PLCameraStreamingSession` 是核心类，你只需要关注并使用这个类就可以完成通过摄像头推流、预览的工作。如果你只需要做纯音频推流，那么你可以使用 `PLAudioStreamingSession`
+`PLCameraStreamingSession` 是核心类，你只需要关注并使用这个类就可以完成通过摄像头推流、预览的工作。如果你只需要做纯音频推流，在创建 `PLCameraStreamingSession `时音频相关的 Configuration 传入 nil 即可。
 
 推流前务必要先检查摄像头 / 麦克风的授权，并记得设置预览界面，`StreamingSession` 的创建需要 Stream 对象
 
@@ -161,6 +161,7 @@ if (PLAuthorizationStatusNotDetermined == status) {
 ```
 
 销毁推流 session
+
 ```Objective-C
 [self.session destroy];
 ```
@@ -275,18 +276,35 @@ PLVideoStreamingConfiguration *videoConfiguration = [[PLVideoStreamingConfigurat
 ```
 // 音频推流质量
 /*!
- * @abstract Audio streaming quality high 1
- *
- * @discussion 具体参数 audio sample rate: 44MHz, audio bitrate: 96Kbps
+    @constant   kPLAudioStreamingQualityHigh1
+    @abstract   音频编码推流质量 high 1。
+
+    @discussion 具体参数 audio bitrate: 64Kbps。
+ 
+    @since      v1.0.0
  */
 extern NSString *kPLAudioStreamingQualityHigh1;
 
 /*!
- * @abstract Audio streaming quality high 2
- *
- * @discussion 具体参数 audio sample rate: 44MHz, audio bitrate: 128Kbps
+    @constant   kPLAudioStreamingQualityHigh2
+    @abstract   音频编码推流质量 high 2。
+
+    @discussion 具体参数 audio bitrate: 96Kbps。
+ 
+    @since      v1.0.0
  */
 extern NSString *kPLAudioStreamingQualityHigh2;
+
+/*!
+ @constant   kPLAudioStreamingQualityHigh3
+ @abstract   音频编码推流质量 high 3。
+ 
+ @discussion 具体参数 audio bitrate: 128Kbps。
+ 
+ @since      v1.0.0
+ */
+extern NSString *kPLAudioStreamingQualityHigh3;
+
 ```
 
 生成音频编码配置
@@ -301,10 +319,11 @@ PLAudioStreamingConfiguration *audioConfiguration = [PLAudioStreamingConfigurati
 
 ### Audio Quality 具体参数
 
-| Quality | Audio Samplerate(MHz)) | Audio BitRate(Kbps) |
-|---|---|---|
-|kPLAudioStreamingQualityHigh1|44|96|
-|kPLAudioStreamingQualityHigh2|44|128|
+| Quality | Audio BitRate(Kbps) |
+|---|---|
+|kPLAudioStreamingQualityHigh1|64|
+|kPLAudioStreamingQualityHigh2|96|
+|kPLAudioStreamingQualityHigh3|128|
 
 在创建好编码配置对象后，就可以用它来初始化 ```PLCameraStreamingSession``` 了。
 
@@ -376,6 +395,13 @@ buffer 是一个可以缓存待发送内容的队列，它按照帧数作为缓�
 [self.session reloadVideoConfiguration:newConfiguraiton];
 ```
 
+## 手动导入到工程
+
+我们建议使用 CocoaPods 导入，如果由于特殊原因需要手动导入，可以按照如下步骤进行：
+
+ - 将 Pod 目录下的文件加入到工程中；
+ - 依照 [https://github.com/pili-engineering/PLStreamingKit](https://github.com/pili-engineering/PLStreamingKit) 中的手动导入到工程指南将 PLStreamingKit 及其依赖库导入到工程中；
+ 
 ## 文档支持
 
 PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
@@ -388,20 +414,6 @@ PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
 - iOS Target : >= iOS 7
 
 ## 版本历史
-
-- 1.7.2 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.7.2.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.7.2.md))
-  - 功能
-    - 更新依赖的 PLStreamingKit 到 1.2.2
-    - 新增回调队列配置功能
-    - 新增默认摄像头位置配置项
-    - 新增录制音量调节选项（由于系统原因，仅对除 iPhone 6s 系列以外的机型生效）
-    - 支持初始化的时候传入 stream 为 nil
-    - 支持快速重连操作，方便 4G 推流时切换 WIFI 场景快速切换网络
-
-  - 缺陷
-    - 修复特殊场景可能出现的电流音问题
-    - 修复特殊场景可能出现的没有声音的问题
-    - 修复后台推流时被音频打断结束之后无法正常恢复推流的问题
 - 1.7.1 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.7.1.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.7.1.md))
   - 缺陷
     - 修复切换前置摄像头之后无法缩放的问题
