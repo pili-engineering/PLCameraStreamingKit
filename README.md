@@ -414,6 +414,20 @@ PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
 - iOS Target : >= iOS 7
 
 ## 版本历史
+
+- 1.7.2 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.7.2.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.7.2.md))
+  - 功能
+    - 更新依赖的 PLStreamingKit 到 1.2.2
+    - 新增回调队列配置功能
+    - 新增默认摄像头位置配置项
+    - 新增录制音量调节选项（由于系统原因，仅对除 iPhone 6s 系列以外的机型生效）
+    - 支持初始化的时候传入 stream 为 nil
+    - 支持快速重连操作，方便 4G 推流时切换 WIFI 场景快速切换网络
+
+  - 缺陷
+    - 修复特殊场景可能出现的电流音问题
+    - 修复特殊场景可能出现的没有声音的问题
+    - 修复后台推流时被音频打断结束之后无法正常恢复推流的问题
 - 1.7.1 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.7.1.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.7.1.md))
   - 缺陷
     - 修复切换前置摄像头之后无法缩放的问题
