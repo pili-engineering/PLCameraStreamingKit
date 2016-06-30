@@ -280,7 +280,7 @@ PLVideoStreamingConfiguration *videoConfiguration = [[PLVideoStreamingConfigurat
     @abstract   音频编码推流质量 high 1。
 
     @discussion 具体参数 audio bitrate: 64Kbps。
- 
+
     @since      v1.0.0
  */
 extern NSString *kPLAudioStreamingQualityHigh1;
@@ -290,7 +290,7 @@ extern NSString *kPLAudioStreamingQualityHigh1;
     @abstract   音频编码推流质量 high 2。
 
     @discussion 具体参数 audio bitrate: 96Kbps。
- 
+
     @since      v1.0.0
  */
 extern NSString *kPLAudioStreamingQualityHigh2;
@@ -298,9 +298,9 @@ extern NSString *kPLAudioStreamingQualityHigh2;
 /*!
  @constant   kPLAudioStreamingQualityHigh3
  @abstract   音频编码推流质量 high 3。
- 
+
  @discussion 具体参数 audio bitrate: 128Kbps。
- 
+
  @since      v1.0.0
  */
 extern NSString *kPLAudioStreamingQualityHigh3;
@@ -401,7 +401,7 @@ buffer 是一个可以缓存待发送内容的队列，它按照帧数作为缓�
 
  - 将 Pod 目录下的文件加入到工程中；
  - 依照 [https://github.com/pili-engineering/PLStreamingKit](https://github.com/pili-engineering/PLStreamingKit) 中的手动导入到工程指南将 PLStreamingKit 及其依赖库导入到工程中；
- 
+
 ## 文档支持
 
 PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
@@ -414,6 +414,30 @@ PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
 - iOS Target : >= iOS 7
 
 ## 版本历史
+
+- 1.8.0 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.8.0.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.8.0.md))
+- 功能
+  - 更新依赖的 PLStreamingKit 到 1.2.4
+  - 新增内置美颜功能，美颜效果可调节
+  - 新增单独调节前后置摄像头预览及推流是否镜像的接口
+  - 新增动态帧率功能，通过降低采集帧率来适配弱网环境
+- 缺陷
+  - 修复音视频时间戳偶尔出现的非单调递增的缺陷
+  - 修复特殊机型可能出现的没有声音的问题
+- 优化
+  - 优化水印性能，降低 CPU 和内存消耗
+- 1.7.2 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.7.2.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.7.2.md))
+  - 功能
+    - 更新依赖的 PLStreamingKit 到 1.2.2
+    - 新增回调队列配置功能
+    - 新增默认摄像头位置配置项
+    - 新增录制音量调节选项（由于系统原因，仅对除 iPhone 6s 系列以外的机型生效）
+    - 支持初始化的时候传入 stream 为 nil
+    - 支持快速重连操作，方便 4G 推流时切换 WIFI 场景快速切换网络
+  - 缺陷
+    - 修复特殊场景可能出现的电流音问题
+    - 修复特殊场景可能出现的没有声音的问题
+    - 修复后台推流时被音频打断结束之后无法正常恢复推流的问题
 - 1.7.1 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.7.1.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.7.1.md))
   - 缺陷
     - 修复切换前置摄像头之后无法缩放的问题

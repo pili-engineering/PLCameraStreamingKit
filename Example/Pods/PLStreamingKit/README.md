@@ -29,7 +29,7 @@ PLStreamingKit 不包括摄像头、麦克风等设备相关的资源获取，�
 - [编码参数](#编码参数)
 - [流状态变更及错误处理](#流状态变更及处理处理)
 - [变更推流质量及策略](#变更推流质量及策略)
-    - [重要事项](#重要事项)
+- [手动导入到工程](#手动导入到工程)
 - [文档支持](#文档支持)
 - [功能特性](#功能特性)
 - [系统要求](#系统要求)
@@ -62,7 +62,7 @@ pod update
 - Done! 运行你工程的 workspace
 
 ### 示例代码
-在 `AppDelegate.m` 中进行 SDK 初始化（如果不进行SDK）初始化将在核心类 `PLStreamingSession` 初始化阶段抛错
+在 `AppDelegate.m` 中进行 SDK 初始化，如果未进行 SDK 初始化，在核心类 `PLStreamingSession` 初始化阶段将抛出异常
 
 ```Objective-C
 #import <PLStreamingKit/PLStreamingEnv.h>
@@ -81,11 +81,9 @@ pod update
 #import <PLStreamingKit/PLStreamingKit.h>
 ```
 
-`PLStreamingEnv` 是推流的环境初始化类，需要在 `- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;` 方法下调用 `[PLStreamingEnv initEnv];` 以正确初始化使用环境，否则无法正常推流
-
 `PLStreamingSession` 是核心类，你只需要关注并使用这个类就可以完成推流工作。
 
-`StreamingSession` 的创建
+`PLStreamingSession ` 的创建
 
 ```Objective-C
 // streamJSON 是从服务端拿回的
@@ -129,6 +127,7 @@ self.session.delegate = self;
 ```
 
 销毁推流 session
+
 ```Objective-C
 [self.session destroy];
 ```
@@ -299,18 +298,34 @@ PLVideoStreamingConfiguration *videoConfiguration = [[PLVideoStreamingConfigurat
 ```
 // 音频推流质量
 /*!
- * @abstract Audio streaming quality high 1
- *
- * @discussion 具体参数 audio sample rate: 44MHz, audio bitrate: 96Kbps
+    @constant   kPLAudioStreamingQualityHigh1
+    @abstract   音频编码推流质量 high 1。
+
+    @discussion 具体参数 audio bitrate: 64Kbps。
+
+    @since      v1.0.0
  */
 extern NSString *kPLAudioStreamingQualityHigh1;
 
 /*!
- * @abstract Audio streaming quality high 2
- *
- * @discussion 具体参数 audio sample rate: 44MHz, audio bitrate: 128Kbps
+    @constant   kPLAudioStreamingQualityHigh2
+    @abstract   音频编码推流质量 high 2。
+
+    @discussion 具体参数 audio bitrate: 96Kbps。
+
+    @since      v1.0.0
  */
 extern NSString *kPLAudioStreamingQualityHigh2;
+
+/*!
+ @constant   kPLAudioStreamingQualityHigh3
+ @abstract   音频编码推流质量 high 3。
+
+ @discussion 具体参数 audio bitrate: 128Kbps。
+
+ @since      v1.0.0
+ */
+extern NSString *kPLAudioStreamingQualityHigh3;
 ```
 
 生成音频编码配置
@@ -325,10 +340,11 @@ PLAudioStreamingConfiguration *audioConfiguration = [PLAudioStreamingConfigurati
 
 ### Audio Quality 具体参数
 
-| Quality | Audio Samplerate(MHz)) | Audio BitRate(Kbps) |
-|---|---|---|
-|kPLAudioStreamingQualityHigh1|44|96|
-|kPLAudioStreamingQualityHigh2|44|128|
+| Quality | Audio BitRate(Kbps) |
+|---|---|
+|kPLAudioStreamingQualityHigh1|64|
+|kPLAudioStreamingQualityHigh2|96|
+|kPLAudioStreamingQualityHigh3|128|
 
 在创建好编码配置对象后，就可以用它来初始化 ```PLStreamingSession``` 了。
 
@@ -398,12 +414,18 @@ buffer 是一个可以缓存待发送内容的队列，它按照帧数作为缓�
 当你希望在 streamStatus 变化，buffer empty 或者 buffer full 时变化 video configuration，可以调用 session 的 reloadVideoConfiguration: 方法
 
 ```Objective-C
-[self.session reloadVideoConfiguration:newConfiguraiton];
+[self.session reloadVideoStreamingConfiguration:newConfiguraiton];
 ```
 
-### 重要事项
+## 手动导入到工程
 
-**在调用 `reloadVideoConfiguration:newConfiguraiton` 时，请务必确保 profileLevel 和 videoSize 前后一致，如果该参数有变更，需要先调用 stop, 重新开始推流, 否则可能会因播放器对解码器构建的差异而产生花屏、绿屏等问题。**
+我们建议使用 CocoaPods 导入，如果由于特殊原因需要手动导入，可以按照如下步骤进行：
+
+ - 将 Pod 目录下的文件加入到工程中；
+ - 将 https://github.com/qiniu/happy-dns-objc HappyDNS 目录下的所有文件加入到工程中；
+ - 将 https://github.com/pili-engineering/pili-librtmp Pod 目录下的所有文件加入到工程中；
+ - 在工程对应 TARGET 中，右侧 Tab 选择 "Build Phases"，在 "Link Binary With Libraries" 中加入 UIKit、AVFoundation、CoreGraphics、CFNetwork、CoreMedia、AudioToolbox 这些 framework，并加入 libc++.tdb、libz.tdb 及 libresolv.tbd；
+ - 在工程对应 TARGET 中，右侧 Tab 选择 "Build Settings"，在 "Other Linker Flags" 中加入 "-ObjC" 选项；
 
 ## 文档支持
 
@@ -418,12 +440,20 @@ PLStreamingKit 使用 HeaderDoc 注释来做文档支持。
 
 ## 版本历史
 
-- 1.2.2 ([Release Notes](https://github.com/pili-engineering/PLStreamingKit/blob/master/ReleaseNotes/release-notes-1.2.2.md) && [API Diffs](https://github.com/pili-engineering/PLStreamingKit/blob/master/APIDiffs/api-diffs-1.2.2S.md))
+- 1.2.4 ([Release Notes](https://github.com/pili-engineering/PLStreamingKit/blob/master/ReleaseNotes/release-notes-1.2.4.md) && [API Diffs](https://github.com/pili-engineering/PLStreamingKit/blob/master/APIDiffs/api-diffs-1.2.4.md))
 - 功能
-  - 支持初始化的时候传入 stream 为 nil
-  - 支持调节音频编码采样率
-  - 支持快速重连操作，方便 4G 推流时切换 WIFI 场景快速切换网络
-  - 完善了音频出错时的 log
+  - 新增对每次传入非 1024 frame PCM数据进行编码的功能
+- 缺陷
+  - 修复音视频时间戳偶尔出现的非单调递增的缺陷
+- 1.2.3 ([Release Notes](https://github.com/pili-engineering/PLStreamingKit/blob/master/ReleaseNotes/release-notes-1.2.3.md) && [API Diffs](https://github.com/pili-engineering/PLStreamingKit/blob/master/APIDiffs/api-diffs-1.2.3.md))
+  - 功能
+    - 更新底层依赖的 pili-librtmp 到 v1.0.3
+- 1.2.2 ([Release Notes](https://github.com/pili-engineering/PLStreamingKit/blob/master/ReleaseNotes/release-notes-1.2.2.md) && [API Diffs](https://github.com/pili-engineering/PLStreamingKit/blob/master/APIDiffs/api-diffs-1.2.2.md))
+  - 功能
+    - 支持初始化的时候传入 stream 为 nil
+    - 支持调节音频编码采样率
+    - 支持快速重连操作，方便 4G 推流时切换 WIFI 场景快速切换网络
+    - 完善了音频出错时的 log
 - 1.2.1 ([Release Notes](https://github.com/pili-engineering/PLStreamingKit/blob/master/ReleaseNotes/release-notes-1.2.1.md) && [API Diffs](https://github.com/pili-engineering/PLStreamingKit/blob/master/APIDiffs/api-diffs-1.2.1.md))
   - 功能
     - 新增 iOS9 下的纯 IPV6 环境支持
@@ -435,10 +465,10 @@ PLStreamingKit 使用 HeaderDoc 注释来做文档支持。
     - 支持 64kbps 音频码率
     - 部分接口重命名
 - 1.1.6 ([Release Notes](https://github.com/pili-engineering/PLStreamingKit/blob/master/ReleaseNotes/release-notes-1.1.6.md) && [API Diffs](https://github.com/pili-engineering/PLStreamingKit/blob/master/APIDiffs/api-diffs-1.1.6.md))
-		- 拆分 pili-librtmp 为公共依赖，避免模拟器环境下与 PLPlayerKit冲突的问题
-		- 解决网络不可达条件下 `- (void)startWithCompleted:(void (^)(BOOL success))handler;` 方法无回调的问题
-		- 新增质量上报支持
-		- 增加推流中实时变换采集音频参数的接口
+	- 拆分 pili-librtmp 为公共依赖，避免模拟器环境下与 PLPlayerKit冲突的问题
+	- 解决网络不可达条件下 `- (void)startWithCompleted:(void (^)(BOOL success))handler;` 方法无回调的问题
+	- 新增质量上报支持
+	- 增加推流中实时变换采集音频参数的接口
 - 1.1.5 ([Release Notes](https://github.com/pili-engineering/PLStreamingKit/blob/master/ReleaseNotes/release-notes-1.1.5.md) && [API Diffs](https://github.com/pili-engineering/PLStreamingKit/blob/master/APIDiffs/api-diffs-1.1.5.md))
     - 修复 `v1.1.1` 版本引入的断网时引起的 UI 卡死问题，强烈建议 >= `v1.1.1` 的均做更新
 - 1.1.4 ([Release Notes](https://github.com/pili-engineering/PLStreamingKit/blob/master/ReleaseNotes/release-notes-1.1.4.md) && [API Diffs](https://github.com/pili-engineering/PLStreamingKit/blob/master/APIDiffs/api-diffs-1.1.4.md))

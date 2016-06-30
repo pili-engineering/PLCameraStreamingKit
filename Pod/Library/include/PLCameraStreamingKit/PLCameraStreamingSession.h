@@ -10,7 +10,6 @@
 #import <AVFoundation/AVFoundation.h>
 #import <CoreVideo/CoreVideo.h>
 #import <PLStreamingKit/PLStreamingKit.h>
-#import <GPUImage/GPUImage.h>
 #import "PLSourceAccessProtocol.h"
 #import "PLVideoCaptureConfiguration.h"
 #import "PLAudioCaptureConfiguration.h"
@@ -23,8 +22,6 @@ extern NSString *PLMicrophoneAuthorizationStatusDidGetNotificaiton;
 extern NSString *PLCameraDidStartRunningNotificaiton;
 extern NSString *PLMicrophoneDidStartRunningNotificaiton;
 extern NSString *PLAudioComponentFailedToCreateNotification;
-
-typedef NSNumber * PLFilterHandler;
 
 typedef enum {
     /**
@@ -135,9 +132,14 @@ typedef enum {
 @property (nonatomic, assign) NSTimeInterval    statusUpdateInterval;
 
 /**
- @brief previewView 中视频的填充方式
+ @brief previewView 中视频的填充方式，默认使用 PLVideoFillModePreserveAspectRatioAndFill
  */
 @property(readwrite, nonatomic) PLVideoFillModeType fillMode;
+
+/**
+ *  是否开启动态调节帧率，默认为NO
+ */
+@property (nonatomic,assign,getter = isDynamicFrameEnable) BOOL dynamicFrameEnable;
 
 #pragma mark - basic
 /*!
@@ -241,9 +243,6 @@ typedef enum {
 /// default as NO.
 @property (nonatomic, assign, getter=isTorchOn) BOOL    torchOn;
 
-/// default as (0.5, 0.5), (0,0) is top-left, (1,1) is bottom-right.
-@property (nonatomic, assign) CGPoint   focusPointOfInterest;
-
 /// default as YES.
 @property (nonatomic, assign, getter=isContinuousAutofocusEnable) BOOL  continuousAutofocusEnable;
 
@@ -252,6 +251,9 @@ typedef enum {
 
 /// default as YES.
 @property (nonatomic, assign, getter=isSmoothAutoFocusEnabled) BOOL  smoothAutoFocusEnabled;
+
+/// default as (0.5, 0.5), (0,0) is top-left, (1,1) is bottom-right.
+@property (nonatomic, assign) CGPoint   focusPointOfInterest;
 
 /// 默认为 1.0，设置的数值需要小于等于 videoActiveForat.videoMaxZoomFactor，如果大于会设置失败。
 @property (nonatomic, assign) CGFloat videoZoomFactor;
@@ -341,29 +343,43 @@ typedef enum {
 @interface PLCameraStreamingSession (Processing)
 
 /**
- @brief 添加水印
- 
- @param waterMark 水印图片
- @param origin    水印坐标
- 
- @return 如果传入的水印图片为 nil 或水印边界超过采集图像的大小则返回 nil, 否则返回创建成功的水印 filter 对应的 handler
+ *  是否开启美颜
  */
-- (PLFilterHandler)addWaterMark:(UIImage *)waterMark origin:(CGPoint)origin;
+-(void)setBeautifyModeOn:(BOOL)beautifyModeOn;
 
 /**
- @brief 使用 GPUImageFilter 添加 filter
+ @brief 设置对应 Beauty 的程度参数.
  
- @param filter 需要添加的 GPUImageFilter 实例
- 
- @return GPUImageFilter 对应的 handler
+ @param beautify 范围从 0 ~ 1，0 为不美颜
  */
-- (PLFilterHandler)addGPUImageFilter:(GPUImageFilter *)filter;
+-(void)setBeautify:(CGFloat)beautify;
 
 /**
- @brief 移除 handler 对应的 filter
- 
- @param handler 需要移除的 filter handler
+ *  设置美白程度（注意：如果美颜不开启，设置美白程度参数无效）
+ *
+ *  @param white 范围是从 0 ~ 1，0 为不美白
  */
-- (void)removeFilter:(PLFilterHandler)handler;
+-(void)setWhiten:(CGFloat)whiten;
+
+/**
+ *  设置红润的程度参数.（注意：如果美颜不开启，设置美白程度参数无效）
+ *
+ *  @param redden 范围是从 0 ~ 1，0 为不红润
+ */
+
+-(void)setRedden:(CGFloat)redden;
+
+/**
+ *  开启水印
+ *
+ *  @param wateMarkImage 水印的图片
+ *  @param positio       水印的位置
+ */
+-(void)setWaterMarkWithImage:(UIImage *)wateMarkImage position:(CGPoint)position;
+
+/**
+ *  移除水印
+ */
+-(void)clearWaterMark;
 
 @end
