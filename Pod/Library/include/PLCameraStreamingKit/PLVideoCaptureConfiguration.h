@@ -26,19 +26,34 @@ NSCopying
 @property (nonatomic, copy) NSString *sessionPreset;
 
 /**
- @brief 是否需要对前置摄像头做水平镜像，默认为 YES
+ @brief 前置预览是否开启镜像，默认为 YES
  */
-@property (nonatomic, assign) BOOL horizontallyMirrorFrontFacingCamera;
+@property (nonatomic, assign) BOOL previewMirrorFrontFacing;
 
 /**
- @brief 是否需要对后置摄像头做水平镜像，默认为 NO
+ @brief 后置预览是否开启镜像，默认为 NO
  */
-@property (nonatomic, assign) BOOL horizontallyMirrorRearFacingCamera;
+@property (nonatomic, assign) BOOL previewMirrorRearFacing;
+
+/**
+ *  前置摄像头，推的流是否开启镜像，默认 NO
+ */
+@property (nonatomic, assign) BOOL streamMirrorFrontFacing;
+
+/**
+ *  后置摄像头，推的流是否开启镜像，默认 NO
+ */
+@property (nonatomic, assign) BOOL streamMirrorRearFacing;
 
 /**
  @brief 开启 camera 时的采集摄像头位置，默认为 AVCaptureDevicePositionBack
  */
 @property (nonatomic, assign) AVCaptureDevicePosition position;
+
+/**
+ @brief 开启 camera 时的采集摄像头的旋转方向，默认为 AVCaptureVideoOrientationPortrait
+ */
+@property (nonatomic, assign) AVCaptureVideoOrientation videoOrientation;
 
 /**
  @brief 创建一个默认配置的 PLVideoCaptureConfiguration 实例.
@@ -47,6 +62,6 @@ NSCopying
  */
 + (instancetype)defaultConfiguration;
 
-- (instancetype)initWithVideoFrameRate:(NSUInteger)videoFrameRate sessionPreset:(NSString *)sessionPreset horizontallyMirrorFrontFacingCamera:(BOOL)horizontallyMirrorFrontFacingCamera horizontallyMirrorRearFacingCamera:(BOOL)horizontallyMirrorRearFacingCamera cameraPosition:(AVCaptureDevicePosition)position;
 
+-(instancetype)initWithVideoFrameRate:(NSUInteger)videoFrameRate sessionPreset:(NSString *)sessionPreset previewMirrorFrontFacing:(BOOL)previewMirrorFrontFacing previewMirrorRearFacing:(BOOL)previewMirrorRearFacing streamMirrorFrontFacing:(BOOL)streamMirrorFrontFacing streamMirrorRearFacing:(BOOL)streamMirrorRearFacing cameraPosition:(AVCaptureDevicePosition)position videoOrientation:(AVCaptureVideoOrientation)videoOrientation;
 @end

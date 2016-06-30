@@ -64,19 +64,19 @@ PODS:
     - KSCrash/Reporting/Tools
   - KSCrash/Reporting/Tools (1.6.0):
     - KSCrash/Recording
-  - pili-librtmp (1.0.2)
-  - PLCameraStreamingKit (1.7.2):
+  - pili-librtmp (1.0.3)
+  - PLCameraStreamingKit (1.8.0):
     - GPUImage (= 0.1.7)
-    - PLCameraStreamingKit/precompiled (= 1.7.2)
+    - PLCameraStreamingKit/precompiled (= 1.8.0)
     - PLStreamingKit (~> 1.2.0)
-  - PLCameraStreamingKit/precompiled (1.7.2):
+  - PLCameraStreamingKit/precompiled (1.8.0):
     - GPUImage (= 0.1.7)
     - PLStreamingKit (~> 1.2.0)
-  - PLStreamingKit (1.2.2):
+  - PLStreamingKit (1.2.4):
     - HappyDNS
     - pili-librtmp
-    - PLStreamingKit/precompiled (= 1.2.2)
-  - PLStreamingKit/precompiled (1.2.2):
+    - PLStreamingKit/precompiled (= 1.2.4)
+  - PLStreamingKit/precompiled (1.2.4):
     - HappyDNS
     - pili-librtmp
 
@@ -92,8 +92,8 @@ SPEC CHECKSUMS:
   GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
   HappyDNS: 6f8cf46fa7c0b98a6591fe8ecb2e08d9907a6e8b
   KSCrash: 73fc2bcec2b6bcd1d948d200e11904c39d532a0e
-  pili-librtmp: 97dc6774ac4ebb9935f04d5f35f3f6d8c4a4f37c
-  PLCameraStreamingKit: 43171a5cc76fa4fa70f28b10831dad0efbf76afd
-  PLStreamingKit: 2cac80cf9d6b4a20f257b6bafbb544e314d3ba1f
+  pili-librtmp: 50faa17413c635cca5ceccb1a8f9f6acc6587a45
+  PLCameraStreamingKit: 03b4bce4218edeb18a0060d8849eb5d7b2af4a5d
+  PLStreamingKit: c8574decbacb981e36e5b95314c991a3b5d02125
 
 COCOAPODS: 0.39.0
