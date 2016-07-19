@@ -139,7 +139,12 @@ typedef enum {
 /**
  *  是否开启动态调节帧率，默认为NO
  */
-@property (nonatomic,assign,getter = isDynamicFrameEnable) BOOL dynamicFrameEnable;
+@property (nonatomic,assign, getter = isDynamicFrameEnable) BOOL dynamicFrameEnable;
+
+/**
+ *  是否开启推流断开后自动重连机制，默认为NO
+ */
+@property (nonatomic, assign, getter=isAutoReconnectEnable) BOOL autoReconnectEnable;
 
 #pragma mark - basic
 /*!
@@ -179,7 +184,7 @@ typedef enum {
 /*!
  * 开始推流
  *
- * @param handler 流连接的结果会通过该回调方法返回
+ * @param handler 流连接的结果会通过该回调方法返回，如果流连接成功将返回 YES，如果连接失败或当前流正在连接或已经连接将返回 NO
  *
  * @discussion 当调用过一次并且开始推流时，如果再调用该方法会直接返回不会做任何操作，尽管如此，也不要在没有断开时重复调用该方法。
  *
@@ -190,7 +195,7 @@ typedef enum {
 /*!
  * 重新开始推流
  *
- * @param handler 流连接的结果会通过该回调方法返回
+ * @param handler 流连接的结果会通过该回调方法返回，如果流连接成功将返回 YES，如果连接失败或当前流正在连接或已经连接将返回 NO
  *
  * @discussion 当处于正在推流过程中时，由于业务原因（如用户网络从 3G/4G 切换到 WIFI）需要快速重新开始推流时，可以调用该方法；非推流过程中调用该方法会直接返回；
  *
@@ -340,6 +345,10 @@ typedef enum {
 
 #pragma mark - Category (Processing)
 
+/**
+ @brief 由于硬件性能限制，为了保证推流的质量，Processing 部分的 API 只支持 iPhone 5、iPad 3、iPod touch 4 及以上的设备，这些 API 在低端设备上将无效
+ */
+
 @interface PLCameraStreamingSession (Processing)
 
 /**
@@ -381,5 +390,13 @@ typedef enum {
  *  移除水印
  */
 -(void)clearWaterMark;
+
+/*!
+ @method     versionInfo
+ @abstract   PLCameraStreamingKit 的 SDK 版本。
+ 
+ @since      v1.8.1
+ */
++ (NSString *)versionInfo;
 
 @end

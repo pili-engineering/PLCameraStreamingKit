@@ -1,49 +1,48 @@
 PODS:
-  - GPUImage (0.1.7)
-  - HappyDNS (0.3.5)
-  - KSCrash (1.6.0):
-    - KSCrash/Installations (= 1.6.0)
-  - KSCrash/Installations (1.6.0):
+  - HappyDNS (0.3.7)
+  - KSCrash (1.6.4):
+    - KSCrash/Installations (= 1.6.4)
+  - KSCrash/Installations (1.6.4):
     - KSCrash/Recording
     - KSCrash/Reporting
-  - KSCrash/no-arc (1.6.0)
-  - KSCrash/Recording (1.6.0):
+  - KSCrash/no-arc (1.6.4)
+  - KSCrash/Recording (1.6.4):
     - KSCrash/no-arc
-  - KSCrash/Reporting (1.6.0):
+  - KSCrash/Reporting (1.6.4):
     - KSCrash/Recording
-    - KSCrash/Reporting/Filters (= 1.6.0)
-    - KSCrash/Reporting/MessageUI (= 1.6.0)
-    - KSCrash/Reporting/Sinks (= 1.6.0)
-    - KSCrash/Reporting/Tools (= 1.6.0)
-  - KSCrash/Reporting/Filters (1.6.0):
+    - KSCrash/Reporting/Filters (= 1.6.4)
+    - KSCrash/Reporting/MessageUI (= 1.6.4)
+    - KSCrash/Reporting/Sinks (= 1.6.4)
+    - KSCrash/Reporting/Tools (= 1.6.4)
+  - KSCrash/Reporting/Filters (1.6.4):
     - KSCrash/Recording
-    - KSCrash/Reporting/Filters/Alert (= 1.6.0)
-    - KSCrash/Reporting/Filters/AppleFmt (= 1.6.0)
-    - KSCrash/Reporting/Filters/Base (= 1.6.0)
-    - KSCrash/Reporting/Filters/Basic (= 1.6.0)
-    - KSCrash/Reporting/Filters/GZip (= 1.6.0)
-    - KSCrash/Reporting/Filters/JSON (= 1.6.0)
-    - KSCrash/Reporting/Filters/Sets (= 1.6.0)
-    - KSCrash/Reporting/Filters/Stringify (= 1.6.0)
-    - KSCrash/Reporting/Filters/Tools (= 1.6.0)
-  - KSCrash/Reporting/Filters/Alert (1.6.0):
-    - KSCrash/Recording
-    - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/AppleFmt (1.6.0):
+    - KSCrash/Reporting/Filters/Alert (= 1.6.4)
+    - KSCrash/Reporting/Filters/AppleFmt (= 1.6.4)
+    - KSCrash/Reporting/Filters/Base (= 1.6.4)
+    - KSCrash/Reporting/Filters/Basic (= 1.6.4)
+    - KSCrash/Reporting/Filters/GZip (= 1.6.4)
+    - KSCrash/Reporting/Filters/JSON (= 1.6.4)
+    - KSCrash/Reporting/Filters/Sets (= 1.6.4)
+    - KSCrash/Reporting/Filters/Stringify (= 1.6.4)
+    - KSCrash/Reporting/Filters/Tools (= 1.6.4)
+  - KSCrash/Reporting/Filters/Alert (1.6.4):
     - KSCrash/Recording
     - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/Base (1.6.0):
-    - KSCrash/Recording
-  - KSCrash/Reporting/Filters/Basic (1.6.0):
+  - KSCrash/Reporting/Filters/AppleFmt (1.6.4):
     - KSCrash/Recording
     - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/GZip (1.6.0):
+  - KSCrash/Reporting/Filters/Base (1.6.4):
+    - KSCrash/Recording
+  - KSCrash/Reporting/Filters/Basic (1.6.4):
     - KSCrash/Recording
     - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/JSON (1.6.0):
+  - KSCrash/Reporting/Filters/GZip (1.6.4):
     - KSCrash/Recording
     - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/Sets (1.6.0):
+  - KSCrash/Reporting/Filters/JSON (1.6.4):
+    - KSCrash/Recording
+    - KSCrash/Reporting/Filters/Base
+  - KSCrash/Reporting/Filters/Sets (1.6.4):
     - KSCrash/Recording
     - KSCrash/Reporting/Filters/AppleFmt
     - KSCrash/Reporting/Filters/Base
@@ -51,34 +50,32 @@ PODS:
     - KSCrash/Reporting/Filters/GZip
     - KSCrash/Reporting/Filters/JSON
     - KSCrash/Reporting/Filters/Stringify
-  - KSCrash/Reporting/Filters/Stringify (1.6.0):
+  - KSCrash/Reporting/Filters/Stringify (1.6.4):
     - KSCrash/Recording
     - KSCrash/Reporting/Filters/Base
-  - KSCrash/Reporting/Filters/Tools (1.6.0):
+  - KSCrash/Reporting/Filters/Tools (1.6.4):
     - KSCrash/Recording
-  - KSCrash/Reporting/MessageUI (1.6.0):
+  - KSCrash/Reporting/MessageUI (1.6.4):
     - KSCrash/Recording
-  - KSCrash/Reporting/Sinks (1.6.0):
+  - KSCrash/Reporting/Sinks (1.6.4):
     - KSCrash/Recording
     - KSCrash/Reporting/Filters
     - KSCrash/Reporting/Tools
-  - KSCrash/Reporting/Tools (1.6.0):
+  - KSCrash/Reporting/Tools (1.6.4):
     - KSCrash/Recording
-  - pili-librtmp (1.0.3)
-  - PLCameraStreamingKit (1.8.0):
-    - GPUImage (= 0.1.7)
-    - PLCameraStreamingKit/precompiled (= 1.8.0)
-    - PLStreamingKit (~> 1.2.0)
-  - PLCameraStreamingKit/precompiled (1.8.0):
-    - GPUImage (= 0.1.7)
-    - PLStreamingKit (~> 1.2.0)
-  - PLStreamingKit (1.2.4):
+  - pili-librtmp (1.0.3.1)
+  - PLCameraStreamingKit (1.8.1):
+    - PLCameraStreamingKit/precompiled (= 1.8.1)
+    - PLStreamingKit (= 1.2.5)
+  - PLCameraStreamingKit/precompiled (1.8.1):
+    - PLStreamingKit (= 1.2.5)
+  - PLStreamingKit (1.2.5):
     - HappyDNS
-    - pili-librtmp
-    - PLStreamingKit/precompiled (= 1.2.4)
-  - PLStreamingKit/precompiled (1.2.4):
+    - pili-librtmp (= 1.0.3.1)
+    - PLStreamingKit/precompiled (= 1.2.5)
+  - PLStreamingKit/precompiled (1.2.5):
     - HappyDNS
-    - pili-librtmp
+    - pili-librtmp (= 1.0.3.1)
 
 DEPENDENCIES:
   - KSCrash
@@ -89,11 +86,10 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
-  HappyDNS: 6f8cf46fa7c0b98a6591fe8ecb2e08d9907a6e8b
-  KSCrash: 73fc2bcec2b6bcd1d948d200e11904c39d532a0e
-  pili-librtmp: 50faa17413c635cca5ceccb1a8f9f6acc6587a45
-  PLCameraStreamingKit: 03b4bce4218edeb18a0060d8849eb5d7b2af4a5d
-  PLStreamingKit: c8574decbacb981e36e5b95314c991a3b5d02125
+  HappyDNS: ec476226e119bf4766b74975ec4873f6fa078cf2
+  KSCrash: d8e5ad6724d26a48e8ca483028c65e33d92e7834
+  pili-librtmp: 0adf2516f4b5958b3cb079a4c3d4f6a4a9f49ce9
+  PLCameraStreamingKit: 12b672cbef9ba15bbb28ec543fb77f7d4cea66dc
+  PLStreamingKit: 4b46739689d020b8e2eb755827ec86447c0291b7
 
 COCOAPODS: 0.39.0

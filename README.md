@@ -415,17 +415,30 @@ PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
 
 ## 版本历史
 
+- 1.8.1 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.8.1.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.8.1.md))
+  - 功能
+    - 更新依赖的 PLStreamingKit 到 1.2.5
+    - 新增自动重连功能，默认关闭
+    - 新增模拟器编译支持
+    - 水印和美颜功能调整为支持 iPhone 5、iPad 3、iPod touch 4 及以上设备
+  - 缺陷
+    - 修复已知场景可能存在的没有声音的问题
+    - 修复填充模式改变可能导致 preview 的 frame 发生改变的问题
+    - 修复触摸屏幕对焦无效的问题
+    - 修复无法正确设置采集相机位置的问题
+    - 修复 capture session 设置不正确可能导致 crash 的问题
+    - 修复偶尔出现的画面卡住无法正常推流的问题
 - 1.8.0 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.8.0.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.8.0.md))
-- 功能
-  - 更新依赖的 PLStreamingKit 到 1.2.4
-  - 新增内置美颜功能，美颜效果可调节
-  - 新增单独调节前后置摄像头预览及推流是否镜像的接口
-  - 新增动态帧率功能，通过降低采集帧率来适配弱网环境
-- 缺陷
-  - 修复音视频时间戳偶尔出现的非单调递增的缺陷
-  - 修复特殊机型可能出现的没有声音的问题
-- 优化
-  - 优化水印性能，降低 CPU 和内存消耗
+  - 功能
+    - 更新依赖的 PLStreamingKit 到 1.2.4
+    - 新增内置美颜功能，美颜效果可调节
+    - 新增单独调节前后置摄像头预览及推流是否镜像的接口
+    - 新增动态帧率功能，通过降低采集帧率来适配弱网环境
+  - 缺陷
+    - 修复音视频时间戳偶尔出现的非单调递增的缺陷
+    - 修复特殊机型可能出现的没有声音的问题
+  - 优化
+    - 优化水印性能，降低 CPU 和内存消耗
 - 1.7.2 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.7.2.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.7.2.md))
   - 功能
     - 更新依赖的 PLStreamingKit 到 1.2.2
@@ -447,13 +460,10 @@ PLCameraStreamingKit 使用 HeaderDoc 注释来做文档支持。
     - 新增后台推流功能（仅音频，因 iOS 隐私限制不允许后台访问摄像头）
     - 新增水印功能
     - 新增可选定制美颜功能（需联系工作人员）
-
   - 缺陷
     - 修复特定机型上的电流音等杂音问题
-
   - 版本
     - 更新依赖 PLStreamingKit 的版本到 `v1.2.0`
-
   - 其他
     - 部分接口重命名
 - 1.6.3 ([Release Notes](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/ReleaseNotes/release-notes-1.6.2.md) && [API Diffs](https://github.com/pili-engineering/PLCameraStreamingKit/blob/master/APIDiffs/api-diffs-1.6.2.md))
