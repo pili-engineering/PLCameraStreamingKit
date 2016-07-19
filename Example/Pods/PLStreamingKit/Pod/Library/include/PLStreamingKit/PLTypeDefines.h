@@ -27,6 +27,8 @@ typedef NS_ENUM(NSUInteger, PLStreamState) {
     PLStreamStateDisconnecting,
     /// PLStreamStateDisconnected 已断开连接状态
     PLStreamStateDisconnected,
+    /// PLStreamStateAutoReconnecting 正在自动重连中状态
+    PLStreamStateAutoReconnecting,
     /// PLStreamStateError 错误状态
     PLStreamStateError
 };
@@ -215,6 +217,26 @@ extern NSString *kPLAudioStreamingQualityHigh2;
  @since      v1.0.0
  */
 extern NSString *kPLAudioStreamingQualityHigh3;
+
+#pragma mark - Audio SampleRate
+
+/*!
+ @typedef    PLStreamingAudioSampleRate
+ @abstract   音频编码采样率。
+ 
+ @constant   PLStreamingAudioSampleRate_48000Hz 48000Hz 音频编码采样率
+ @constant   PLStreamingAudioSampleRate_44100Hz 44100Hz 音频编码采样率
+ @constant   PLStreamingAudioSampleRate_22050Hz 22050Hz 音频编码采样率
+ @constant   PLStreamingAudioSampleRate_11025Hz 11025Hz 音频编码采样率
+ 
+ @since      v1.0.0
+ */
+typedef NS_ENUM(NSUInteger, PLStreamingAudioSampleRate) {
+    PLStreamingAudioSampleRate_48000Hz = 48000,
+    PLStreamingAudioSampleRate_44100Hz = 44100,
+    PLStreamingAudioSampleRate_22050Hz = 22050,
+    PLStreamingAudioSampleRate_11025Hz = 11025,
+};
 
 #pragma mark - Audio BitRate
 

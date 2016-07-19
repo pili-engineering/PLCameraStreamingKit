@@ -440,11 +440,21 @@ PLStreamingKit 使用 HeaderDoc 注释来做文档支持。
 
 ## 版本历史
 
+- 1.2.5 ([Release Notes](https://github.com/pili-engineering/PLStreamingKit/blob/master/ReleaseNotes/release-notes-1.2.5.md) && [API Diffs](https://github.com/pili-engineering/PLStreamingKit/blob/master/APIDiffs/api-diffs-1.2.5.md))
+  - 功能
+    - 新增自动重连功能
+  - 缺陷
+    - 修复 `-pushAudioBuffer:asbd:` 方法当 `asbd` 为 `NULL` 时 crash 的问题
+	  - 修复 iOS 8 下的音频编码内存泄露问题
+  	- 修复 `-restartWithCompleted:` 方法可能导致的播放没有画面和声音的问题
+	  - 修复网络丢包率高时可能导致的 DNS 无法正常超时返回的问题
+	  - 修复偶尔出现的死锁问题
+	  - 修复时间戳生成时机不当可能导致的音画不同步问题
 - 1.2.4 ([Release Notes](https://github.com/pili-engineering/PLStreamingKit/blob/master/ReleaseNotes/release-notes-1.2.4.md) && [API Diffs](https://github.com/pili-engineering/PLStreamingKit/blob/master/APIDiffs/api-diffs-1.2.4.md))
-- 功能
-  - 新增对每次传入非 1024 frame PCM数据进行编码的功能
-- 缺陷
-  - 修复音视频时间戳偶尔出现的非单调递增的缺陷
+  - 功能
+    - 兼容传入非 1024 帧的 PCM 数据
+  - 缺陷
+    - 修复音视频时间戳偶尔出现的非单调递增的缺陷
 - 1.2.3 ([Release Notes](https://github.com/pili-engineering/PLStreamingKit/blob/master/ReleaseNotes/release-notes-1.2.3.md) && [API Diffs](https://github.com/pili-engineering/PLStreamingKit/blob/master/APIDiffs/api-diffs-1.2.3.md))
   - 功能
     - 更新底层依赖的 pili-librtmp 到 v1.0.3

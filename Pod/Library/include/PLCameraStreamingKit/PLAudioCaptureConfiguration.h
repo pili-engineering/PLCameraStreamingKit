@@ -12,6 +12,8 @@
 
 /**
  @brief 采集音频数据的声道数，默认为 1
+ 
+ @warning 并非所有采集设备都支持多声道数据的采集，可以通过检查 [AVAudioSession sharedInstance].maximumInputNumberOfChannels 得到当前采集设备支持的最大声道数
  */
 @property (nonatomic, assign) NSUInteger channelsPerFrame;
 

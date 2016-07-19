@@ -396,7 +396,7 @@
     @method     startWithCompleted:
     @abstract   开始推流
 
-    @param      handler 流连接的结果会通过该回调方法返回，携带是否已连接成功的布尔值
+    @param      handler 流连接的结果会通过该回调方法返回，携带是否已连接成功的布尔值，如果流连接成功将返回 YES，如果连接失败或当前流正在连接或已经连接将返回 NO
 
     @discussion 当 Streaming Session 创建并初始化好后（务必确认 stream 对象已设置好），就可以调用此方法开始推流。当要停止一次推流但是并不销毁 Streaming Session
                 对象时，调用 -stop 方法即可，便于在需要重新推流时再重新调用该方法进行推流。如果确认不再使用对应 stream 进行推流，可以调用 -destroy 销毁
@@ -418,7 +418,7 @@
     @method     restartWithCompleted:
     @abstract   重新开始推流
  
-    @param      handler 流连接的结果会通过该回调方法返回，携带是否已连接成功的布尔值
+    @param      handler 流连接的结果会通过该回调方法返回，携带是否已连接成功的布尔值，如果流连接成功将返回 YES，如果连接失败或当前流正在连接或已经连接将返回 NO
  
     @discussion 当 Streaming Session 处于正在推流过程中，由于业务原因（如用户网络从 4G 切到 WIFI）需要快速重新推流时，可以调用此方法重新推流。当要停止一次推流但是并不销毁 Streaming Session
                 对象时，调用 -stop 方法即可，便于在需要重新推流时再重新调用该方法进行推流。如果确认不再使用对应 stream 进行推流，可以调用 -destroy 销毁
@@ -702,6 +702,14 @@
      @since      v1.1.4
  */
 @property (nonatomic, assign) int   sendTimeout;
+
+/*!
+     @property   autoReconnectEnable
+     @abstract   自动断线重连开关。
+ 
+     @discussion 默认为NO，用户可在 -streamingSession:didDisconnectWithError: 方法中添加断线重连处理逻辑；若开启此开关，则一旦 -streamingSession:didDisconnectWithError: 方法被触发，则意味着网络已不可用，无法自动重连。
+ */
+@property (nonatomic, assign) BOOL  autoReconnectEnable;
 
 @end
 

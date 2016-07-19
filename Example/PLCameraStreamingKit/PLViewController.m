@@ -119,6 +119,7 @@ PLStreamingSendingBufferDelegate
             AVCaptureVideoOrientation orientation = (AVCaptureVideoOrientation)(([[UIDevice currentDevice] orientation] <= UIDeviceOrientationLandscapeRight && [[UIDevice currentDevice] orientation] != UIDeviceOrientationUnknown) ? [[UIDevice currentDevice] orientation]: UIDeviceOrientationPortrait);
             // 推流 session
             self.session = [[PLCameraStreamingSession alloc] initWithVideoCaptureConfiguration:videoCaptureConfiguration audioCaptureConfiguration:audioCaptureConfiguration videoStreamingConfiguration:videoStreamingConfiguration audioStreamingConfiguration:audioStreamingConfiguration stream:stream videoOrientation:orientation];
+            self.session.captureDevicePosition = AVCaptureDevicePositionBack;
             self.session.delegate = self;
             self.session.bufferDelegate = self;
             UIImage *waterMark = [UIImage imageNamed:@"qiniu.png"];

@@ -21,7 +21,7 @@
 /**
  @brief 音频编码的采样率, 默认为设备采样率
  */
-@property (nonatomic, assign) NSUInteger encodedAudioSampleRate;
+@property (nonatomic, assign) PLStreamingAudioSampleRate encodedAudioSampleRate;
 
 /**
  @brief 音频编码比特率，默认为 96kbps
@@ -41,9 +41,16 @@
  */
 + (instancetype)configurationWithAudioQuality:(NSString *)quality;
 
+/**
+ @brief 提供一个能支持的编码采样率
+ @param sampleRate 想要的编码采样率
+ @return PLStreamingAudioSampleRate 如果能支持 sampleRate，则原样返回 sampleRate。如果不能支持 sampleRate，返回一个比 sampleRate 大但最接近 sampleRate 的可以被支持的编码采样率。
+ */
++ (PLStreamingAudioSampleRate)mostSimilarSupportedValueWithEncodedAudioSampleRate:(NSUInteger)sampleRate;
+
 - (instancetype)initWithAudioQuality:(NSString *)quality;
 
-- (instancetype)initWithEncodedAudioSampleRate:(NSUInteger)sampleRate
+- (instancetype)initWithEncodedAudioSampleRate:(PLStreamingAudioSampleRate)sampleRate
                        encodedNumberOfChannels:(UInt32)numberOfChannels
                                   audioBitRate:(PLStreamingAudioBitRate)audioBitRate;
 
