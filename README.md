@@ -31,6 +31,10 @@ PLCameraStreamingKit 是一个适用于 iOS 的 RTMP 直播推流 SDK，可高�
 - [x] 支持水印功能
 - [x] 支持美颜功能
 
+## PLCameraStreamingKit Wiki
+
+请参考 Wiki 文档：[PLCameraStreamingKit 开发指南](https://github.com/pili-engineering/PLCameraStreamingKit/wiki)
+
 ## 内容摘要
 
 - [快速开始](#快速开始)
@@ -114,15 +118,15 @@ NSDictionary *streamJSON;
 PLStream *stream = [PLStream streamWithJSON:streamJSON];
 // 授权后执行
 void (^permissionBlock)(void) = ^{
-			PLVideoCaptureConfiguration *videoCaptureConfiguration = [self.videoCaptureConfigurations defaultConfiguration];
+			PLVideoCaptureConfiguration *videoCaptureConfiguration = [PLVideoCaptureConfiguration defaultConfiguration];
 			PLAudioCaptureConfiguration *audioCaptureConfiguration = [PLAudioCaptureConfiguration defaultConfiguration];
-			PLVideoStreamingConfiguration *videoStreamingConfiguration = [self.videoStreamingConfigurations defaultConfiguration];
+			PLVideoStreamingConfiguration *videoStreamingConfiguration = [PLVideoStreamingConfiguration defaultConfiguration];
 			PLAudioStreamingConfiguration *audioStreamingConfiguration = [PLAudioStreamingConfiguration defaultConfiguration];
 
       self.session = [[PLCameraStreamingSession alloc] initWithVideoCaptureConfiguration:videoCaptureConfiguration audioCaptureConfiguration:audioCaptureConfiguration videoStreamingConfiguration:videoStreamingConfiguration audioStreamingConfiguration:audioStreamingConfiguration stream:stream videoOrientation:orientation];
 
       self.session.delegate = self;
-      self.session.previewView = self.view;
+      [self.view insertSubview:self.session.previewView atIndex:0];
 };
 
 void (^noPermissionBlock)(void) = ^{ // 处理未授权情况 };
